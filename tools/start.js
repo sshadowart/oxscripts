@@ -5,9 +5,11 @@ import watch from './lib/watch';
 /**
  * Monitor Lua source file for changes.
  */
-export default task('start', () => new Promise((resolve, reject) => {
+export default task('start', async () => {
   // Build immediately
-  require('./build')()
+  await require('./build')();
+  // Run the XBST
+  await require('./run')();
   // Watch source files
   watch('./src/*.lua').then(watcher => {
     // Build on change
@@ -16,4 +18,4 @@ export default task('start', () => new Promise((resolve, reject) => {
       require('./build')()
     });
   });
-}));
+});
