@@ -120,13 +120,13 @@
 		<item text="huntcheck|1:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
         <item text="SIgnore" tag="10"/>
-		<item text="Node (33068, 32099, 10)" tag="0"/>
-		<item text="Rope (33071, 32102, 11)" tag="3"/>
-		<item text="Rope (33070, 32099, 10)" tag="3"/>
-		<item text="Node (33078, 32097, 9)" tag="0"/>
-		<item text="Node (33084, 32088, 9)" tag="0"/>
-		<item text="Rope (33084, 32088, 9)" tag="3"/>
-		<item text="Node (33077, 32087, 8)" tag="0"/>
+        <item text="Node (33110, 32089, 10)" tag="0"/>
+        <item text="Node (33101, 32089, 10)" tag="0"/>
+        <item text="Node (33093, 32090, 10)" tag="0"/>
+        <item text="Rope (33093, 32090, 10)" tag="3"/>
+        <item text="Node (33084, 32088, 9)" tag="0"/>
+        <item text="Rope (33084, 32088, 9)" tag="3"/>
+        <item text="Node (33077, 32087, 8)" tag="0"/>
 		<item text="spawnexit:" tag="255"/>
 		<item text="venore|spawn~east.gate:" tag="255"/>
 		<item text="Node (33072, 32086, 8)" tag="0"/>

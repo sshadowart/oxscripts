@@ -306,7 +306,7 @@ Walker = (function()
 		local destination = closestPath[2]
 
 		-- Tell the user what we're doing
-		log('You are near the ' .. town .. ' ' .. location .. ', traveling to ' .. targetTown)
+		log('You are near the ' .. town .. ' ' .. location .. ', traveling to ' .. targetTown .. '.')
 
 		-- Needs gold to travel, go to bank from here
 		local travelCostDifference = travelCost - xeno.getSelfMoney()

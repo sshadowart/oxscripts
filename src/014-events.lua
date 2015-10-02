@@ -710,7 +710,7 @@ do
 			-- Help command
 			if command == 'help' then
 				log([[Available commands:
-	                /reload  =  Reload the script reload file.
+	                /reload  =  Reloads the script config file.
 	                /resupply  =  Forces the script to return to town after the current round.
 	                /logout  =  Forces the script to return to town and logout after the current round.
 	                /resethud  =  Reset the session start time.

@@ -110,7 +110,7 @@ local THEME = {
 		secondary = {206, 206, 206}
 	},
 	dark = {
-		title = {50, 50, 50},
+		title = {95, 95, 95},
 		primary = {95, 95, 95},
 		secondary = {135, 135, 135}
 	}
@@ -641,6 +641,189 @@ local SELLABLE_LOOT = {
 		[3431] = true, --viking shield
 		[3412] = true, --wooden shield
 		[3287] = true --throwing star
+	},
+	['yalahar'] = {
+		[3274] = 'morpel', -- axe
+		[3317] = 'morpel', -- barbarian axe
+		[3266] = 'morpel', -- battle axe
+		[3305] = 'morpel', -- battle hammer
+		[3413] = 'morpel', -- battle shield
+		[3337] = 'morpel', -- bone club
+		[3338] = 'morpel', -- bone sword
+		[3359] = 'morpel', -- brass armor
+		[3354] = 'morpel', -- brass helmet
+		[3372] = 'morpel', -- brass legs
+		[3411] = 'morpel', -- brass shield
+		[3283] = 'morpel', -- carlin sword
+		[3358] = 'morpel', -- chain armor
+		[3352] = 'morpel', -- chain helmet
+		[3558] = 'morpel', -- chain legs
+		[3311] = 'morpel', -- clerical mace
+		[3270] = 'morpel', -- club
+		[3562] = 'morpel', -- coat
+		[3430] = 'morpel', -- copper shield
+		[3304] = 'morpel', -- crowbar
+		[3267] = 'morpel', -- dagger
+		[3275] = 'morpel', -- double axe
+		[3379] = 'morpel', -- doublet
+		[3425] = 'morpel', -- dwarven shield
+		[3269] = 'morpel', -- halberd
+		[3268] = 'morpel', -- hand axe
+		[3276] = 'morpel', -- hatchet
+		[3353] = 'morpel', -- iron helmet
+		[3561] = 'morpel', -- jacket
+		[3300] = 'morpel', -- katana
+		[3361] = 'morpel', -- leather armor
+		[3552] = 'morpel', -- leather boots
+		[3355] = 'morpel', -- leather helmet
+		[3559] = 'morpel', -- leather legs
+		[3374] = 'morpel', -- legion helmet
+		[3285] = 'morpel', -- longsword
+		[3286] = 'morpel', -- mace
+		[3282] = 'morpel', -- morning star
+		[3316] = 'morpel', -- orcish axe
+		[3357] = 'morpel', -- plate armor
+		[3557] = 'morpel', -- plate legs
+		[3410] = 'morpel', -- plate shield
+		[3272] = 'morpel', -- rapier
+		[3273] = 'morpel', -- sabre
+		[3377] = 'morpel', -- scale armor
+		[3294] = 'morpel', -- short sword
+		[3293] = 'morpel', -- sickle
+		[3462] = 'morpel', -- small axe
+		[3375] = 'morpel', -- soldier helmet
+		[3351] = 'morpel', -- steel helmet
+		[3409] = 'morpel', -- steel shield
+		[3378] = 'morpel', -- studded armor
+		[3336] = 'morpel', -- studded club
+		[3376] = 'morpel', -- studded helmet
+		[3362] = 'morpel', -- studded legs
+		[3426] = 'morpel', -- studded shield
+		[17824] = 'morpel', -- swampling club
+		[3264] = 'morpel', -- sword
+		[3298] = 'morpel', -- throwing knife
+		[3265] = 'morpel', -- two handed sword
+		[3367] = 'morpel', -- viking helmet
+		[3431] = 'morpel', -- viking shield
+		[3412] = 'morpel', -- wooden shield
+
+		[3027] = 'oiriz', --black pearl
+		[16119] = 'oiriz', --blue crystal shard
+		[16124] = 'oiriz', --blue crystal splinter
+		[16123] = 'oiriz', --brown crystal splinter
+		[16125] = 'oiriz', --cyan crystal fragment
+		[281] = 'oiriz', --giant shimmering pearl
+		[282] = 'oiriz', --giant shimmering pearl
+		[9058] = 'oiriz', --gold ingot
+		[16127] = 'oiriz', --green crystal fragment
+		[16121] = 'oiriz', --green crystal shard
+		[16122] = 'oiriz', --green crystal splinter
+		[16126] = 'oiriz', --red crystal fragment
+		[3033] = 'oiriz', --small amethyst
+		[3028] = 'oiriz', --small diamond
+		[3032] = 'oiriz', --small emerald
+		[3030] = 'oiriz', --small ruby
+		[3029] = 'oiriz', --small sapphire
+		[9057] = 'oiriz', --small topaz
+		[16120] = 'oiriz', --violet crystal shard
+		[3004] = 'oiriz', --wedding ring
+		[3026] = 'oiriz' --white pearl
+	},
+	['farmine'] = {
+		[3274] = 'esrik', --axe
+		[3266] = 'esrik', --battle axe
+		[3305] = 'esrik', --battle hammer
+		[3413] = 'esrik', --battle shield
+		[3337] = 'esrik', --bone club
+		[10404] = 'esrik', --bone shoulderplate
+		[3338] = 'esrik', --bone sword
+		[3359] = 'esrik', --brass armor
+		[3354] = 'esrik', --brass helmet
+		[3372] = 'esrik', --brass legs
+		[3411] = 'esrik', --brass shield
+		[11660] = 'esrik', --broken draken mail
+		[10418] = 'esrik', --broken halberd
+		[11661] = 'esrik', --broken slicer
+		[3283] = 'esrik', --carlin sword
+		[3358] = 'esrik', --chain armor
+		[3352] = 'esrik', --chain helmet
+		[3558] = 'esrik', --chain legs
+		[3270] = 'esrik', --club
+		[3562] = 'esrik', --coat
+		[3430] = 'esrik', --copper shield
+		[3304] = 'esrik', --crowbar
+		[10410] = 'esrik', --cursed shoulder spikes
+		[3267] = 'esrik', --dagger
+		[3275] = 'esrik', --double axe
+		[3379] = 'esrik', --doublet
+		[10391] = 'esrik', --drachaku
+		[4033] = 'esrik', --draken boots
+		[11659] = 'esrik', --draken wristbands
+		[10388] = 'esrik', --drakinata
+		[3425] = 'esrik', --dwarven shield
+		[10323] = 'esrik', --guardian boots
+		[3269] = 'esrik', --halberd
+		[3268] = 'esrik', --hand axe
+		[3276] = 'esrik', --hatchet
+		[10416] = 'esrik', --high guard shoulderplates
+		[3353] = 'esrik', --iron helmet
+		[3561] = 'esrik', --jacket
+		[3300] = 'esrik', --katana
+		[3361] = 'esrik', --leather armor
+		[3552] = 'esrik', --leather boots
+		[3355] = 'esrik', --leather helmet
+		[3559] = 'esrik', --leather legs
+		[3374] = 'esrik', --legion helmet
+		[3285] = 'esrik', --longsword
+		[3286] = 'esrik', --mace
+		[3282] = 'esrik', --morning star
+		[3316] = 'esrik', --orcish axe
+		[3357] = 'esrik', --plate armor
+		[3557] = 'esrik', --plate legs
+		[3410] = 'esrik', --plate shield
+		[3272] = 'esrik', --rapier
+		[10289] = 'esrik', --red lantern
+		[3273] = 'esrik', --sabre
+		[10386] = 'esrik', --sai
+		[3377] = 'esrik', --scale armor
+		[3294] = 'esrik', --short sword
+		[3293] = 'esrik', --sickle
+		[3462] = 'esrik', --small axe
+		[3375] = 'esrik', --soldier helmet
+		[10408] = 'esrik', --spiked iron ball
+		[3271] = 'esrik', --spike sword
+		[3351] = 'esrik', --steel helmet
+		[3409] = 'esrik', --steel shield
+		[3378] = 'esrik', --studded armor
+		[3336] = 'esrik', --studded club
+		[3376] = 'esrik', --studded helmet
+		[3362] = 'esrik', --studded legs
+		[3426] = 'esrik', --studded shield
+		[17824] = 'esrik', --swampling club
+		[3264] = 'esrik', --sword
+		[3298] = 'esrik', --throwing knife
+		[11657] = 'esrik', --twiceslicer
+		[10392] = 'esrik', --twin hooks
+		[3265] = 'esrik', --two handed sword
+		[3367] = 'esrik', --viking helmet
+		[3431] = 'esrik', --viking shield
+		[10412] = 'esrik', --wailing widow's necklace
+		[10405] = 'esrik', --warmaster's wristguards
+		[3412] = 'esrik', --wooden shield
+		[10384] = 'esrik', --zaoan armor
+		[10406] = 'esrik', --zaoan halberd
+		[10385] = 'esrik', --zaoan helmet
+		[10387] = 'esrik', --zaoan legs
+		[10386] = 'esrik', --zaoan shoes
+		[10390] = 'esrik', --zaoan sword
+		[10414] = 'esrik', --zaogun shoulderplates
+
+		[3350] = 'pompan', --bow
+		[10409] = 'pompan', --corrupted flag
+		[3349] = 'pompan', --crossbow
+		[10415] = 'pompan', --high guard flag
+		[10417] = 'pompan', --legionnaire flags
+		[10413] = 'pompan' --zaogun flag
 	}
 }
 
@@ -1233,6 +1416,94 @@ local TRAVEL_ROUTES = {
 		cost = 260,
 		transcript = {
 			['Charles'] = {'hi', 'yalahar', 'yes'}
+		}
+	},
+	['ankrahmun~darashia'] = {
+		cost = 100,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'darashia', 'yes'}
+		}
+	},
+	['ankrahmun~venore'] = {
+		cost = 150,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'venore', 'yes'}
+		}
+	},
+	['ankrahmun~liberty bay'] = {
+		cost = 90,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'liberty bay', 'yes'}
+		}
+	},
+	['ankrahmun~port hope'] = {
+		cost = 80,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'port hope', 'yes'}
+		}
+	},
+	['ankrahmun~yalahar'] = {
+		cost = 230,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'yalahar', 'yes'}
+		}
+	},
+	['ankrahmun~edron'] = {
+		cost = 150,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'edron', 'yes'}
+		}
+	},
+	['ankrahmun~thais'] = {
+		cost = 320,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'edron', 'yes'},
+			['Captain Seahorse'] = {'hi', 'thais', 'yes'}
+		}
+	},
+
+	['ankrahmun~roshamuul'] = {
+		cost = 530,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'edron', 'yes'},
+			['Captain Seahorse'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'roshamuul', 'yes'}
+		}
+	},
+	['ankrahmun~oramond'] = {
+		cost = 470,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'edron', 'yes'},
+			['Captain Seahorse'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'oramond', 'yes'}
+		}
+	},
+	['port hope~ab\'dendriel'] = {
+		cost = 240,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'venore', 'yes'},
+			['Captain Fearless'] = {'hi', 'ab\'dendriel', 'yes'}
+		}
+	},
+	['ankrahmun~carlin'] = {
+		cost = 270,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'edron', 'yes'},
+			['Captain Seahorse'] = {'hi', 'carlin', 'yes'}
+		}
+	},
+	['ankrahmun~gray island'] = {
+		cost = 320,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'edron', 'yes'},
+			['Captain Seahorse'] = {'hi', 'gray island', 'yes'}
+		}
+	},
+	['ankrahmun~svargrond'] = {
+		cost = 300,
+		transcript = {
+			['Captain Sinbeard'] = {'hi', 'venore', 'yes'},
+			['Captain Fearless'] = {'hi', 'svargrond', 'yes'}
 		}
 	}
 }

@@ -1,0 +1,387 @@
+        <!-- Yalahar Boat to Boat -->
+        <item text="yalahar|boat~boat:" tag="255"/>
+        <item text="door|1166|START:" tag="255"/>
+        <item text="WNode (32817, 31274, 6)" tag="5"/>
+        <item text="door|1166|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="Stand (32815, 31276, 6)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+
+        <!-- Yalahar Bank to Boat -->
+        <item text="yalahar|bank~boat:" tag="255"/>
+        <item text="Stand (32825, 31247, 6)" tag="1"/>
+        <item text="Node (32828, 31249, 7)" tag="0"/>
+        <item text="Node (32830, 31254, 7)" tag="0"/>
+        <item text="Node (32823, 31255, 7)" tag="0"/>
+        <item text="Node (32817, 31255, 7)" tag="0"/>
+        <item text="Node (32810, 31255, 7)" tag="0"/>
+        <item text="Node (32804, 31255, 7)" tag="0"/>
+        <item text="Stand (32803, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1155|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1155|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Depot to Boat -->
+        <item text="yalahar|depot~boat:" tag="255"/>
+        <item text="Stand (32786, 31248, 6)" tag="1"/>
+        <item text="Node (32795, 31249, 7)" tag="0"/>
+        <item text="Node (32800, 31250, 7)" tag="0"/>
+        <item text="Node (32802, 31254, 7)" tag="0"/>
+        <item text="Stand (32802, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1165|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1165|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Ammo to Boat -->
+        <item text="yalahar|ammo~boat:" tag="255"/>
+        <item text="Stand (32789, 31239, 3)" tag="1"/>
+        <item text="Stand (32790, 31239, 4)" tag="1"/>
+        <item text="Stand (32789, 31239, 5)" tag="1"/>
+        <item text="Stand (32790, 31239, 6)" tag="1"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32795, 31233, 7)" tag="0"/>
+        <item text="Node (32800, 31234, 7)" tag="0"/>
+        <item text="Node (32801, 31239, 7)" tag="0"/>
+        <item text="Node (32802, 31246, 7)" tag="0"/>
+        <item text="Node (32802, 31254, 7)" tag="0"/>
+        <item text="Stand (32802, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1158|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1158|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Runes to Boat -->
+        <item text="yalahar|runes~boat:" tag="255"/>
+        <item text="Stand (32789, 31239, 5)" tag="1"/>
+        <item text="Stand (32790, 31239, 6)" tag="1"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32795, 31233, 7)" tag="0"/>
+        <item text="Node (32800, 31234, 7)" tag="0"/>
+        <item text="Node (32801, 31239, 7)" tag="0"/>
+        <item text="Node (32802, 31246, 7)" tag="0"/>
+        <item text="Node (32802, 31254, 7)" tag="0"/>
+        <item text="Stand (32802, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1159|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1159|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Potions to Boat -->
+        <item text="yalahar|potions~boat:" tag="255"/>
+        <item text="Stand (32789, 31239, 5)" tag="1"/>
+        <item text="Stand (32790, 31239, 6)" tag="1"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32795, 31233, 7)" tag="0"/>
+        <item text="Node (32800, 31234, 7)" tag="0"/>
+        <item text="Node (32801, 31239, 7)" tag="0"/>
+        <item text="Node (32802, 31246, 7)" tag="0"/>
+        <item text="Node (32802, 31254, 7)" tag="0"/>
+        <item text="Stand (32802, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1160|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1160|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Food to Boat -->
+        <item text="yalahar|food~boat:" tag="255"/>
+        <item text="Node (32859, 31209, 7)" tag="0"/>
+        <item text="Node (32859, 31215, 7)" tag="0"/>
+        <item text="Node (32858, 31221, 7)" tag="0"/>
+        <item text="Node (32857, 31227, 7)" tag="0"/>
+        <item text="Node (32854, 31232, 7)" tag="0"/>
+        <item text="Node (32851, 31236, 7)" tag="0"/>
+        <item text="Node (32848, 31240, 7)" tag="0"/>
+        <item text="Node (32845, 31244, 7)" tag="0"/>
+        <item text="Node (32841, 31248, 7)" tag="0"/>
+        <item text="Node (32837, 31252, 7)" tag="0"/>
+        <item text="Node (32830, 31254, 7)" tag="0"/>
+        <item text="Node (32823, 31255, 7)" tag="0"/>
+        <item text="Node (32817, 31255, 7)" tag="0"/>
+        <item text="Node (32810, 31255, 7)" tag="0"/>
+        <item text="Node (32804, 31255, 7)" tag="0"/>
+        <item text="Stand (32803, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1157|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1157|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Morpel Loot to Boat -->
+        <item text="yalahar|loot.morpel~boat:" tag="255"/>
+        <item text="Node (32830, 31240, 7)" tag="0"/>
+        <item text="Node (32831, 31247, 7)" tag="0"/>
+        <item text="Node (32830, 31254, 7)" tag="0"/>
+        <item text="Node (32823, 31255, 7)" tag="0"/>
+        <item text="Node (32817, 31255, 7)" tag="0"/>
+        <item text="Node (32810, 31255, 7)" tag="0"/>
+        <item text="Node (32804, 31255, 7)" tag="0"/>
+        <item text="Stand (32803, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1156|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1156|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Oiriz Loot to Boat -->
+        <item text="yalahar|loot.oiriz~boat:" tag="255"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32795, 31233, 7)" tag="0"/>
+        <item text="Node (32800, 31234, 7)" tag="0"/>
+        <item text="Node (32801, 31239, 7)" tag="0"/>
+        <item text="Node (32802, 31246, 7)" tag="0"/>
+        <item text="Node (32802, 31254, 7)" tag="0"/>
+        <item text="Stand (32802, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1161|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1161|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Temple to Boat -->
+        <item text="yalahar|temple~boat:" tag="255"/>
+        <item text="Node (32785, 31270, 7)" tag="0"/>
+        <item text="Stand (32784, 31269, 7)" tag="1"/>
+        <item text="Node (32782, 31265, 6)" tag="0"/>
+        <item text="Node (32782, 31260, 6)" tag="0"/>
+        <item text="Node (32788, 31259, 6)" tag="0"/>
+        <item text="Node (32794, 31259, 6)" tag="0"/>
+        <item text="Node (32800, 31259, 6)" tag="0"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1162|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1162|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Trainers to Boat -->
+        <item text="yalahar|trainers~boat:" tag="255"/>
+        <item text="Node (32779, 31248, 5)" tag="0"/>
+        <item text="Stand (32777, 31247, 5)" tag="1"/>
+        <item text="Node (32783, 31249, 6)" tag="0"/>
+        <item text="Stand (32786, 31248, 6)" tag="1"/>
+        <item text="Node (32790, 31249, 7)" tag="0"/>
+        <item text="Node (32795, 31249, 7)" tag="0"/>
+        <item text="Node (32800, 31250, 7)" tag="0"/>
+        <item text="Node (32802, 31254, 7)" tag="0"/>
+        <item text="Stand (32802, 31255, 7)" tag="1"/>
+        <item text="Node (32806, 31259, 6)" tag="0"/>
+        <item text="Node (32811, 31265, 6)" tag="0"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="door|1163|START:" tag="255"/>
+        <item text="Node (32817, 31274, 6)" tag="0"/>
+        <item text="door|1163|SOUTH:" tag="255"/>
+        <item text="Node (32815, 31277, 6)" tag="0"/>
+        <item text="Ladder (32815, 31277, 6)" tag="2"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Boat to Bank -->
+        <item text="yalahar|boat~bank:" tag="255"/>
+        <item text="Stand (32815, 31277, 5)" tag="1"/>
+        <item text="door|1164|START:" tag="255"/>
+        <item text="WNode (32817, 31276, 6)" tag="5"/>
+        <item text="door|1164|NORTH:" tag="255"/>
+        <item text="Node (32813, 31272, 6)" tag="0"/>
+        <item text="Node (32811, 31266, 6)" tag="0"/>
+        <item text="Node (32809, 31260, 6)" tag="0"/>
+        <item text="Node (32803, 31257, 6)" tag="0"/>
+        <item text="Stand (32803, 31256, 6)" tag="1"/>
+        <item text="Node (32809, 31254, 7)" tag="0"/>
+        <item text="Node (32817, 31254, 7)" tag="0"/>
+        <item text="Node (32824, 31254, 7)" tag="0"/>
+        <item text="Node (32830, 31253, 7)" tag="0"/>
+        <item text="Node (32829, 31249, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Bank to Bank -->
+        <item text="yalahar|bank~bank:" tag="255"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Depot to Bank -->
+        <item text="yalahar|depot~bank:" tag="255"/>
+        <item text="Node (32796, 31246, 6)" tag="0"/>
+        <item text="Stand (32797, 31246, 6)" tag="1"/>
+        <item text="Node (32803, 31250, 7)" tag="0"/>
+        <item text="Node (32809, 31254, 7)" tag="0"/>
+        <item text="Node (32817, 31254, 7)" tag="0"/>
+        <item text="Node (32824, 31254, 7)" tag="0"/>
+        <item text="Node (32830, 31253, 7)" tag="0"/>
+        <item text="Node (32829, 31249, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Ammo to Bank -->
+        <item text="yalahar|ammo~bank:" tag="255"/>
+        <item text="Stand (32789, 31239, 3)" tag="1"/>
+        <item text="Stand (32790, 31239, 4)" tag="1"/>
+        <item text="Stand (32789, 31239, 5)" tag="1"/>
+        <item text="Stand (32790, 31239, 6)" tag="1"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32798, 31233, 7)" tag="0"/>
+        <item text="Node (32806, 31233, 7)" tag="0"/>
+        <item text="Node (32814, 31233, 7)" tag="0"/>
+        <item text="Node (32822, 31233, 7)" tag="0"/>
+        <item text="Node (32829, 31234, 7)" tag="0"/>
+        <item text="Node (32831, 31239, 7)" tag="0"/>
+        <item text="Node (32831, 31244, 7)" tag="0"/>
+        <item text="Node (32829, 31248, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Runes to Bank -->
+        <item text="yalahar|runes~bank:" tag="255"/>
+        <item text="Stand (32789, 31239, 5)" tag="1"/>
+        <item text="Stand (32790, 31239, 6)" tag="1"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32798, 31233, 7)" tag="0"/>
+        <item text="Node (32806, 31233, 7)" tag="0"/>
+        <item text="Node (32814, 31233, 7)" tag="0"/>
+        <item text="Node (32822, 31233, 7)" tag="0"/>
+        <item text="Node (32829, 31234, 7)" tag="0"/>
+        <item text="Node (32831, 31239, 7)" tag="0"/>
+        <item text="Node (32831, 31244, 7)" tag="0"/>
+        <item text="Node (32829, 31248, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Potions to Bank -->
+        <item text="yalahar|potions~bank:" tag="255"/>
+        <item text="Stand (32789, 31239, 5)" tag="1"/>
+        <item text="Stand (32790, 31239, 6)" tag="1"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32798, 31233, 7)" tag="0"/>
+        <item text="Node (32806, 31233, 7)" tag="0"/>
+        <item text="Node (32814, 31233, 7)" tag="0"/>
+        <item text="Node (32822, 31233, 7)" tag="0"/>
+        <item text="Node (32829, 31234, 7)" tag="0"/>
+        <item text="Node (32831, 31239, 7)" tag="0"/>
+        <item text="Node (32831, 31244, 7)" tag="0"/>
+        <item text="Node (32829, 31248, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Food to Bank -->
+        <item text="yalahar|food~bank:" tag="255"/>
+        <item text="Node (32859, 31210, 7)" tag="0"/>
+        <item text="Node (32858, 31217, 7)" tag="0"/>
+        <item text="Node (32857, 31224, 7)" tag="0"/>
+        <item text="Node (32855, 31230, 7)" tag="0"/>
+        <item text="Node (32852, 31236, 7)" tag="0"/>
+        <item text="Node (32848, 31242, 7)" tag="0"/>
+        <item text="Node (32843, 31247, 7)" tag="0"/>
+        <item text="Node (32836, 31249, 7)" tag="0"/>
+        <item text="Node (32829, 31249, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Morpel Loot to Bank -->
+        <item text="yalahar|loot.morpel~bank:" tag="255"/>
+        <item text="Node (32830, 31240, 7)" tag="0"/>
+        <item text="Node (32831, 31244, 7)" tag="0"/>
+        <item text="Node (32829, 31248, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Oiriz Loot to Bank -->
+        <item text="yalahar|loot.oiriz~bank:" tag="255"/>
+        <item text="Node (32790, 31233, 7)" tag="0"/>
+        <item text="Node (32798, 31233, 7)" tag="0"/>
+        <item text="Node (32806, 31233, 7)" tag="0"/>
+        <item text="Node (32814, 31233, 7)" tag="0"/>
+        <item text="Node (32822, 31233, 7)" tag="0"/>
+        <item text="Node (32829, 31234, 7)" tag="0"/>
+        <item text="Node (32831, 31239, 7)" tag="0"/>
+        <item text="Node (32831, 31244, 7)" tag="0"/>
+        <item text="Node (32829, 31248, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Temple to Bank -->
+        <item text="yalahar|temple~bank:" tag="255"/>
+        <item text="Node (32785, 31270, 7)" tag="0"/>
+        <item text="Stand (32784, 31269, 7)" tag="1"/>
+        <item text="Node (32782, 31262, 6)" tag="0"/>
+        <item text="Node (32788, 31259, 6)" tag="0"/>
+        <item text="Node (32796, 31259, 6)" tag="0"/>
+        <item text="Node (32803, 31257, 6)" tag="0"/>
+        <item text="Stand (32803, 31256, 6)" tag="1"/>
+        <item text="Node (32809, 31254, 7)" tag="0"/>
+        <item text="Node (32817, 31254, 7)" tag="0"/>
+        <item text="Node (32824, 31254, 7)" tag="0"/>
+        <item text="Node (32830, 31253, 7)" tag="0"/>
+        <item text="Node (32829, 31249, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
+
+        <!-- Yalahar Trainers to Bank -->
+        <item text="yalahar|trainers~bank:" tag="255"/>
+        <item text="Node (32779, 31248, 5)" tag="0"/>
+        <item text="Stand (32777, 31247, 5)" tag="1"/>
+        <item text="Node (32785, 31249, 6)" tag="0"/>
+        <item text="Stand (32786, 31248, 6)" tag="1"/>
+        <item text="Node (32792, 31249, 7)" tag="0"/>
+        <item text="Node (32798, 31249, 7)" tag="0"/>
+        <item text="Node (32803, 31250, 7)" tag="0"/>
+        <item text="Node (32809, 31254, 7)" tag="0"/>
+        <item text="Node (32817, 31254, 7)" tag="0"/>
+        <item text="Node (32824, 31254, 7)" tag="0"/>
+        <item text="Node (32830, 31253, 7)" tag="0"/>
+        <item text="Node (32829, 31249, 7)" tag="0"/>
+        <item text="Node (32824, 31249, 7)" tag="0"/>
+        <item text="Stand (32824, 31249, 7)" tag="1"/>
+        <item text="end:" tag="255"/>
