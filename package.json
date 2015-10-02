@@ -2,7 +2,6 @@
   "name": "xenobot-scripts",
   "description": "Official Tibia Cavebot Scripts for XenoBot",
   "homepage": "http://xenobot.net",
-  "license": "GPLv3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OXGaming/scripts.git"
@@ -32,5 +31,8 @@
     "build": "babel-node -e \"require('./tools/build')().catch(err => console.error(err.stack))\"",
     "start": "babel-node -e \"require('./tools/start')().catch(err => console.error(err.stack))\"",
     "run": "babel-node -e \"require('./tools/run')().catch(err => console.error(err.stack))\""
+  },
+  "dependencies": {
+    "glob-all": "^3.0.1"
   }
 }
