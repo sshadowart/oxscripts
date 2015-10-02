@@ -1,0 +1,283 @@
+<panel name="Spell Shooter">
+	<control name="shooterList">
+	</control>
+</panel>
+<panel name="Self Healer">
+	<control name="SpellList">
+		<item spell="Exura Ico" mana="40" vcomp="0" vsign="1" vrandom="0" vvalue="85" enabled="1"/>
+	</control>
+	<control name="ItemList">
+		<item id="236" vcomp="0" vsign="1" vrandom="0" vvalue="50" enabled="1"/>
+		<item id="268" vcomp="0" vsign="3" vrandom="0" vvalue="50" enabled="1"/>
+	</control>
+</panel>
+<panel name="Tools">
+	<control name="LightEnable" value="0"/>
+	<control name="XRayEnable" value="0"/>
+	<control name="ShowLookIDs" value="1"/>
+	<control name="ShowManaBar" value="0"/>
+	<control name="ShowBPInfo" value="1"/>
+	<control name="EnableAntiIdle" value="0"/>
+	<control name="EnableEatFood" value="1"/>
+</panel>
+<panel name="Condition Manager">
+	<control name="PoisonCureLimit" value="6"/>
+	<control name="PoisonCureMana" value="30"/>
+	<control name="PoisonCureEnable" value="0"/>
+	<control name="DeathCureLimit" value="10"/>
+	<control name="DeathCureMana" value="40"/>
+	<control name="DeathCureEnable" value="0"/>
+	<control name="PhysicalCureLimit" value="5"/>
+	<control name="PhysicalCureMana" value="30"/>
+	<control name="PhysicalCureEnable" value="0"/>
+	<control name="FireCureLimit" value="20"/>
+	<control name="FireCureMana" value="30"/>
+	<control name="FireCureEnable" value="0"/>
+	<control name="EnergyCureLimit" value="15"/>
+	<control name="EnergyCureMana" value="30"/>
+	<control name="EnergyCureEnable" value="0"/>
+	<control name="ParaCureEnable" value="1"/>
+	<control name="ParaCureMana" value="40"/>
+	<control name="ParaCureSpell" value="exura ico"/>
+	<control name="HasteCastMana" value="60"/>
+	<control name="HasteCastSpell" value="Utani Hur"/>
+	<control name="HasteCastEnable" value="0"/>
+	<control name="InvisibleCastMana" value="50"/>
+	<control name="InvisibleCastEnable" value="0"/>
+	<control name="ShieldCastMana" value="50"/>
+	<control name="ShieldCastEnable" value="0"/>
+	<control name="RecoveryCastEnable" value="0"/>
+	<control name="RecoveryCastType" value="0"/>
+	<control name="RecoveryCastMana" value="50"/>
+	<control name="RecoveryCheckPzEnable" value="1"/>
+</panel>
+<panel name="Targeting">
+	<control name="TargetingList">
+		<item type="Carniphila" chs="0" max="100" min="0" prio="9" prox="7" count="1"/>
+		<item type="Mutated Human" chs="0" max="100" min="0" prio="8" prox="7" count="1"/>
+		<item type="Haunted Treeling" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
+		<item type="Mad Scientist" chs="0" max="100" min="0" prio="6" prox="7" count="1"/>
+		<item type="Swampling" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Water Elemental" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
+	</control>
+</panel>
+<panel name="Walker">
+	<control name="WaypointList">
+        <item text="port hope|east.exit~spawn:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
+        <item text="Node (32649, 32755, 7)" tag="0"/>
+        <item text="Node (32657, 32752, 7)" tag="0"/>
+        <item text="Node (32658, 32746, 7)" tag="0"/>
+        <item text="Node (32667, 32745, 7)" tag="0"/>
+        <item text="Node (32677, 32742, 7)" tag="0"/>
+        <item text="Node (32685, 32742, 7)" tag="0"/>
+        <item text="Node (32690, 32735, 7)" tag="0"/>
+        <item text="Node (32696, 32731, 7)" tag="0"/>
+        <item text="Node (32701, 32726, 7)" tag="0"/>
+        <item text="Node (32707, 32721, 7)" tag="0"/>
+        <item text="Node (32714, 32716, 7)" tag="0"/>
+        <item text="Node (32722, 32710, 7)" tag="0"/>
+        <item text="Node (32729, 32702, 7)" tag="0"/>
+        <item text="Node (32736, 32694, 7)" tag="0"/>
+        <item text="Node (32743, 32686, 7)" tag="0"/>
+        <item text="Node (32749, 32678, 7)" tag="0"/>
+        <item text="Node (32757, 32671, 7)" tag="0"/>
+        <item text="Node (32763, 32663, 7)" tag="0"/>
+        <item text="Node (32769, 32655, 7)" tag="0"/>
+        <item text="Node (32772, 32645, 7)" tag="0"/>
+        <item text="Node (32776, 32637, 7)" tag="0"/>
+        <item text="Node (32781, 32628, 7)" tag="0"/>
+        <item text="Node (32790, 32624, 7)" tag="0"/>
+        <item text="Node (32798, 32620, 7)" tag="0"/>
+        <item text="Node (32807, 32612, 7)" tag="0"/>
+        <item text="Node (32818, 32609, 7)" tag="0"/>
+        <item text="Node (32829, 32609, 7)" tag="0"/>
+        <item text="Node (32841, 32609, 7)" tag="0"/>
+        <item text="Node (32853, 32607, 7)" tag="0"/>
+        <item text="Node (32862, 32604, 7)" tag="0"/>
+        <item text="Node (32867, 32599, 7)" tag="0"/>
+        <item text="Node (32872, 32595, 7)" tag="0"/>
+        <item text="Node (32879, 32594, 7)" tag="0"/>
+        <item text="Node (32886, 32591, 7)" tag="0"/>
+        <item text="Stand (32886, 32590, 7)" tag="1"/>
+		<item text="EIgnore" tag="11"/>
+        <item text="Node (32881, 32594, 8)" tag="0"/>
+        <item text="Node (32883, 32586, 8)" tag="0"/>
+        <item text="Node (32886, 32581, 8)" tag="0"/>
+        <item text="end:" tag="255"/>
+        <item text="enterspawn:" tag="255"/>
+        <item text="huntstart|1:" tag="255"/>
+		<item text="Node (32898, 32579, 8)" tag="0"/>
+		<item text="Stand (32899, 32579, 8)" tag="1"/>
+		<item text="Node (32902, 32584, 9)" tag="0"/>
+		<item text="Node (32897, 32590, 9)" tag="0"/>
+		<item text="Node (32889, 32599, 9)" tag="0"/>
+		<item text="Node (32895, 32592, 9)" tag="0"/>
+		<item text="Node (32902, 32585, 9)" tag="0"/>
+		<item text="Node (32909, 32592, 9)" tag="0"/>
+		<item text="Node (32920, 32581, 9)" tag="0"/>
+		<item text="Node (32931, 32580, 9)" tag="0"/>
+		<item text="Node (32942, 32584, 9)" tag="0"/>
+		<item text="Node (32933, 32583, 9)" tag="0"/>
+		<item text="Node (32927, 32572, 9)" tag="0"/>
+		<item text="Node (32930, 32566, 9)" tag="0"/>
+		<item text="Node (32937, 32559, 9)" tag="0"/>
+		<item text="Node (32941, 32559, 9)" tag="0"/>
+		<item text="Node (32932, 32566, 9)" tag="0"/>
+		<item text="Node (32922, 32563, 9)" tag="0"/>
+		<item text="Node (32915, 32556, 9)" tag="0"/>
+		<item text="Node (32920, 32546, 9)" tag="0"/>
+		<item text="Node (32922, 32541, 9)" tag="0"/>
+		<item text="Node (32918, 32550, 9)" tag="0"/>
+		<item text="Node (32910, 32557, 9)" tag="0"/>
+		<item text="Node (32899, 32558, 9)" tag="0"/>
+		<item text="Node (32897, 32551, 9)" tag="0"/>
+		<item text="Node (32895, 32546, 9)" tag="0"/>
+		<item text="Node (32898, 32556, 9)" tag="0"/>
+		<item text="Node (32894, 32565, 9)" tag="0"/>
+		<item text="Node (32885, 32562, 9)" tag="0"/>
+		<item text="Node (32879, 32561, 9)" tag="0"/>
+		<item text="Node (32889, 32563, 9)" tag="0"/>
+		<item text="Node (32894, 32571, 9)" tag="0"/>
+		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
+		<item text="Node (32897, 32570, 9)" tag="0"/>
+		<item text="Node (32908, 32570, 9)" tag="0"/>
+		<item text="Stand (32909, 32570, 9)" tag="1"/>
+		<item text="Node (32904, 32568, 10)" tag="0"/>
+		<item text="Node (32903, 32574, 10)" tag="0"/>
+		<item text="Node (32908, 32580, 10)" tag="0"/>
+		<item text="Node (32913, 32587, 10)" tag="0"/>
+		<item text="Node (32921, 32581, 10)" tag="0"/>
+		<item text="Node (32931, 32581, 10)" tag="0"/>
+		<item text="Node (32939, 32585, 10)" tag="0"/>
+		<item text="Node (32943, 32592, 10)" tag="0"/>
+		<item text="Node (32945, 32587, 10)" tag="0"/>
+		<item text="Node (32945, 32579, 10)" tag="0"/>
+		<item text="Node (32946, 32570, 10)" tag="0"/>
+		<item text="Node (32951, 32567, 10)" tag="0"/>
+		<item text="Node (32936, 32573, 10)" tag="0"/>
+		<item text="Node (32929, 32574, 10)" tag="0"/>
+		<item text="Node (32920, 32573, 10)" tag="0"/>
+		<item text="Node (32915, 32570, 10)" tag="0"/>
+		<item text="huntcheck|Mutated-Humans|No-Mutated-Humans:" tag="255"/>
+		<item text="Node (32915, 32563, 10)" tag="0"/>
+		<item text="Node (32912, 32555, 10)" tag="0"/>
+		<item text="Node (32908, 32553, 10)" tag="0"/>
+		<item text="Node (32918, 32554, 10)" tag="0"/>
+		<item text="Node (32928, 32554, 10)" tag="0"/>
+		<item text="Node (32933, 32553, 10)" tag="0"/>
+		<item text="Node (32933, 32547, 10)" tag="0"/>
+		<item text="Node (32930, 32551, 10)" tag="0"/>
+		<item text="Node (32925, 32555, 10)" tag="0"/>
+		<item text="Node (32918, 32558, 10)" tag="0"/>
+		<item text="Node (32914, 32565, 10)" tag="0"/>
+		<item text="No-Mutated-Humans:" tag="255"/>
+		<item text="Node (32910, 32570, 10)" tag="0"/>
+		<item text="Ladder (32909, 32570, 10)" tag="2"/>
+		<item text="Node (32903, 32571, 9)" tag="0"/>
+		<item text="No-Second-Floor:" tag="255"/>
+		<item text="Node (32894, 32571, 9)" tag="0"/>
+		<item text="Node (32899, 32579, 9)" tag="0"/>
+		<item text="Ladder (32899, 32579, 9)" tag="2"/>
+		<item text="Node (32894, 32576, 8)" tag="0"/>
+		<item text="Node (32890, 32580, 8)" tag="0"/>
+        <item text="huntcheck|1:" tag="255"/>
+        <item text="huntexit|1:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
+		<item text="Node (32884, 32584, 8)" tag="0"/>
+		<item text="Node (32880, 32590, 8)" tag="0"/>
+		<item text="Node (32885, 32595, 8)" tag="0"/>
+		<item text="Node (32886, 32590, 8)" tag="0"/>
+		<item text="Ladder (32886, 32590, 8)" tag="2"/>
+        <item text="spawnexit:" tag="255"/>
+        <item text="port hope|spawn~east.exit:" tag="255"/>
+        <item text="Node (32879, 32594, 7)" tag="0"/>
+        <item text="Node (32872, 32595, 7)" tag="0"/>
+        <item text="Node (32867, 32599, 7)" tag="0"/>
+        <item text="Node (32862, 32604, 7)" tag="0"/>
+        <item text="Node (32853, 32607, 7)" tag="0"/>
+        <item text="Node (32841, 32609, 7)" tag="0"/>
+        <item text="Node (32829, 32609, 7)" tag="0"/>
+        <item text="Node (32818, 32609, 7)" tag="0"/>
+        <item text="Node (32807, 32612, 7)" tag="0"/>
+        <item text="Node (32798, 32620, 7)" tag="0"/>
+        <item text="Node (32790, 32624, 7)" tag="0"/>
+        <item text="Node (32781, 32628, 7)" tag="0"/>
+        <item text="Node (32776, 32637, 7)" tag="0"/>
+        <item text="Node (32772, 32645, 7)" tag="0"/>
+        <item text="Node (32769, 32655, 7)" tag="0"/>
+        <item text="Node (32763, 32663, 7)" tag="0"/>
+        <item text="Node (32757, 32671, 7)" tag="0"/>
+        <item text="Node (32749, 32678, 7)" tag="0"/>
+        <item text="Node (32743, 32686, 7)" tag="0"/>
+        <item text="Node (32736, 32694, 7)" tag="0"/>
+        <item text="Node (32729, 32702, 7)" tag="0"/>
+        <item text="Node (32722, 32710, 7)" tag="0"/>
+        <item text="Node (32714, 32716, 7)" tag="0"/>
+        <item text="Node (32707, 32721, 7)" tag="0"/>
+        <item text="Node (32701, 32726, 7)" tag="0"/>
+        <item text="Node (32696, 32731, 7)" tag="0"/>
+        <item text="Node (32690, 32735, 7)" tag="0"/>
+        <item text="Node (32685, 32742, 7)" tag="0"/>
+        <item text="Node (32677, 32742, 7)" tag="0"/>
+        <item text="Node (32667, 32745, 7)" tag="0"/>
+        <item text="Node (32658, 32746, 7)" tag="0"/>
+        <item text="Node (32657, 32752, 7)" tag="0"/>
+        <item text="Node (32649, 32755, 7)" tag="0"/>
+		<item text="EIgnore" tag="11"/>
+        <item text="end:" tag="255"/>
+	</control>
+</panel>
+<panel name="Pathfinder">
+	<control name="walkOnFireEnable" value="1"/>
+	<control name="walkOnFurnitureEnable" value="1"/>
+	<control name="lastWPEvadeEnable" value="0"/>
+</panel>
+<panel name="Special Areas">
+	<control name="AreaList">
+		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32556" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32558" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32560" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32934" y="32560" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32934" y="32558" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32932" y="32560" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32932" y="32562" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32934" y="32562" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32562" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32562" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32562" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32564" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32942" y="32562" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32942" y="32560" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32560" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32560" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32558" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32558" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32556" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32888" y="32576" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32888" y="32577" z="9"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32888" y="32578" z="9"/>
+	</control>
+</panel>
+<panel name="Scripter">
+	<control name="RunningScriptList">
+	</control>
+</panel>
+<panel name="Alarms">
+	<control name="disAlarm" value="0"/>
+	<control name="damAlarm" value="0"/>
+	<control name="lhpAlarm" value="0"/>
+	<control name="lhpAlarmPercent" value="50"/>
+	<control name="pmAlarm" value="0"/>
+	<control name="creatureAlarm" value="0"/>
+	<control name="attackAlarm" value="1"/>
+	<control name="attackAlarmYellow" value="1"/>
+	<control name="playerAlarm" value="0"/>
+	<control name="playerAlarmLog" value="0"/>
+	<control name="stuckAlarm" value="0"/>
+	<control name="burstAlarm" value="0"/>
+	<control name="burstAlarmPercent" value="500"/>
+	<control name="averageAlarm" value="0"/>
+	<control name="averageAlarmPercent" value="200"/>
+	<control name="alarmPartyIgnore" value="0"/>
+</panel>
