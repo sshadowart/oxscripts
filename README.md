@@ -4,9 +4,11 @@ Official XenoBot cavebot scripts for botting on Tibia and some Open-Tibia server
 
 ### Getting Started
 
+*Make sure you have the latest [Node.js](https://nodejs.org/en/) installed!*
+
 Clone this repository, install dependencies, and start the build server:
 
-*Make sure you have the latest [Node.js](https://nodejs.org/en/) installed!*
+Open the command prompt and navigate to the directory you wish to clone to and run the following:
 
 ```shell
 $ git clone git@github.com:OXGaming/scripts.git oxscripts
