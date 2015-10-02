@@ -1,0 +1,440 @@
+Core = (function()
+	local function overflowText(str, len, ellipsis)
+		return #str > len and string.sub(str, 1, len) .. ellipsis or str
+	end
+
+	local function formatTime(seconds)
+		local h,m,s = math.floor(seconds / 3600), math.floor(seconds / 60) % 60, seconds % 60
+		return string.format('%02d:%02d:%02d', h, m, s)
+	end
+
+	local function formatNumber(n)
+		local n = tonumber(string.format('%.2f', n))
+		if not n then
+			return '0'
+		end
+		local left, num, right = string.match(n,'^([^%d]*%d)(%d*)(.-)$')
+		return left .. string.reverse(string.gsub(string.reverse(num), '(%d%d%d)','%1,')) .. right
+	end
+
+	local function titlecase(str)
+		return string.gsub(str, "(%a)([%w_']*)", function(first, rest)
+			return string.upper(first) .. string.lower(rest)
+		end)
+	end
+
+	local function formatList(items)
+		local message = nil
+		if #items > 1 then
+			message = string.rep('%s, ', #items-1) .. 'and %s'
+		else
+			message = '%s'
+		end
+		return string.format(message, unpack(items))
+	end
+
+	local function getMemoryUsage()
+		return collectgarbage('count') * 1024
+	end
+
+	local function freeMemory()
+		local prev = getMemoryUsage()
+		collectgarbage()
+		return prev - getMemoryUsage()
+	end
+
+	local function pingDelay(delay)
+		if type(delay) == 'table' then
+			return math.max(math.random(unpack(delay)), xeno.ping())
+		end
+		return math.max(delay, xeno.ping())
+	end
+
+	local function throttle(action, func, ...)
+		local currentTime = os.clock() * 1000
+		if currentTime - action.last > action.limit then
+			action.last = currentTime
+			func(...)
+		end
+	end
+
+	local function clearTimeout(id)
+		_timers[id] = nil
+	end
+
+	local function clearWhen(event, id)
+		_events[event][id] = nil
+	end
+
+	local function setTimeout(callback, timeout)
+		_timerIndex = _timerIndex + 1
+		_timers[_timerIndex] = {callback, (os.clock() * 1000) + timeout, nil, 0}
+		return _timerIndex
+	end
+
+	local function setInterval(callback, interval, loops)
+		_timerIndex = _timerIndex + 1
+		_timers[_timerIndex] = {callback, (os.clock() * 1000) + interval, interval, loops}
+		return _timerIndex
+	end
+
+	local function when(event, condition, callback)
+		-- Labels are simpler, simple hash lookup with callback
+		if event == EVENT_LABEL then
+			_events[EVENT_LABEL][condition] = callback
+			return condition
+		end
+
+		-- Valid conditions:
+		-- string: Message matches string exactly
+		-- table: Contains a pattern and optional match comparisons {pattern, firstMatch, secondMatch, ...}
+		-- Any other event needs to match a pattern condition
+		local id = #_events[event]+1
+		_events[event][id] = {
+			condition = condition,
+			callback = callback,
+			timeout = nil
+		}
+
+		return id
+	end
+
+	local function checkTimers()
+		local currentTime = os.clock() * 1000
+		local success = nil
+		local index = nil
+		local timer = nil
+		repeat
+			success, index, timer = pnext(_timers, index)
+			-- Timer is false, must be pending a remove, remove now
+			if not timer and index then
+				_timers[index] = nil
+				return
+			end
+			if success and index and timer then
+				-- Check expiration
+				if currentTime >= timer[2] then
+					-- Execute
+					timer[1](index)
+					-- Timer may have killed itself, check if it still exists
+					if _timers[index] then
+						-- Increase expiration for next interval
+						if timer[3] then
+							_timers[index][2] = currentTime + timer[3]
+						end
+						-- Timer expires at some point
+						if timer[4] then
+							-- Decrement loop
+							_timers[index][4] = timer[4] - 1
+							-- Loops finished
+							if timer[4] < 1 then
+								_timers[index] = false
+							end
+						end
+					end
+				end
+			end
+		until not index or not success or not timer
+	end
+
+	local function checkEvents(eventType, message, ...)
+		local success = nil
+		local index = nil
+		local event = nil
+		if _events[eventType] then
+			repeat
+				success, index, event = pnext(_events[eventType], index)
+				-- Event is false, must be pending a remove, remove now
+				if not event and index then
+					_events[eventType][index] = nil
+					return
+				end
+				if success and index and event then
+					local conditionType = type(event.condition)
+					-- Always true
+					if conditionType == 'nil' then
+						_events[eventType][index] = nil
+						event.callback(message, ...)
+					-- Exact string check (or wildcard)
+					elseif conditionType == 'string' then
+						if event.condition == message then
+							_events[eventType][index] = nil
+							event.callback(message, ...)
+						end
+					-- Pattern check
+					elseif conditionType == 'table' then
+						local match = {string.match(event.condition)}
+						if match[1] then
+							_events[eventType][index] = nil
+							event.callback(message, match, ...)
+						end
+					end
+				end
+			until not index or not success or not event
+		end
+	end
+
+	local function split(str, sep)
+		local res = {}
+		for v in string.gmatch(str, "([^" .. sep .. "]+)") do
+			res[#res + 1] = v
+		end
+		return res
+	end
+
+	local function trim(str)
+		return string.gsub(str, "^%s*(.-)%s*$", "%1")
+	end
+
+	local function getSelfLookPosition(range)
+		return xeno.getPositionFromDirection(xeno.getSelfPosition(), xeno.getSelfLookDirection(), range or 1)
+	end
+
+	local function getPosFromString(str)
+		local pos = {}
+		string.gsub(str, "(%d+)", function(w) return table.insert(pos,tonumber(w)) end)
+		return {x=(pos[1] or 0), y=(pos[2] or 0), z=(pos[3] or 0)}
+	end
+
+	local function cleanLabel(str)
+		-- Transform entity to '>'
+		--str = string.gsub(str, '&gt;', '>')
+		-- Remove semi-colon
+		return string.sub(str, 1, -2)
+	end
+
+	local function countPairs(tbl)
+		local n = 0
+		for k,v in pairs(tbl) do
+			n = n + 1
+		end
+		return n
+	end
+
+	local function getTimeUntilServerSave()
+		local curTime = os.time()
+		local utc, loc = os.date("!*t", curTime), os.date("*t", curTime)
+		loc.isdst = false
+		local offset = os.time(loc) - os.time(utc)
+		local UTCNow = os.time()
+		local UTCTable = os.date("*t", UTCNow)
+		local dstValue = UTCTable.isdst and 7200 or 3600
+		local targetTime = {year=UTCTable.year, month=UTCTable.month, day=UTCTable.day, hour=9, min=59}  
+		local timeDifference = (((os.time(targetTime) - (UTCNow + dstValue)) + offset)/60)/60
+		local hoursLeft = timeDifference
+		if hoursLeft < 0 then
+			hoursLeft = 24 + hoursLeft
+		end
+		return hoursLeft   
+	end
+
+	local function sortPositionsByDistance(pos, positions, floorWeight)
+		local sorted = positions
+		table.sort(sorted, function(a, b)
+			local floorA = 0
+			local floorB = 0
+			if floorWeight and pos.z and a.z and b.z then
+				floorA = floorWeight * (math.abs(pos.z - a.z))
+				floorB = floorWeight * (math.abs(pos.z - b.z))
+			end
+			return (xeno.getDistanceBetween(pos, a) + floorA) < (xeno.getDistanceBetween(pos, b) + floorB)
+		end)
+		return sorted
+	end
+
+	local function talk(messages, callback)
+		local msgCount = #messages
+		local responses = {}
+		local function sayMessage(index)
+			-- Delay messages
+			local msg = messages[index]
+			setTimeout(function()
+				-- Last message, callback
+				if index == msgCount then
+					callback(responses)
+				-- Recurse
+				else
+					sayMessage(index+1)
+				end
+			end, pingDelay(DELAY.RANGE_TALK))
+
+			-- Record response to this message
+			when(EVENT_NPC, nil, function(response, npc)
+				-- Update response
+				responses[#responses+1] = response
+			end)
+			
+			-- Send a single message to the NPC
+			xeno.selfNpcSay(msg)
+		end
+
+		-- Send the first message and start recursing
+		sayMessage(1)
+	end
+
+	local function clearWalkerPath()
+
+		local function destroyFurniture(x, y, z)
+			local weapon = xeno.getWeaponSlotData().id
+			-- Wand, rods, and distance weapons CANNOT destroy furniture
+			-- Attempt to detect an item in the main backpack that can
+			if weapon == 0 or DISTANCE_WEAPONS[weapon] or RODS[weapon] or WANDS[weapon] then
+				weapon = 0
+				-- Look through main backpack
+				local mainbp = _backpacks['Main']
+				for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
+					local item = xeno.getContainerSpotData(mainbp, spot)
+					-- This item can kill furniture
+					if ITEM_LIST_FURNITURE_DESTROYERS[item.id] then
+						-- Save item
+						weapon = item.id
+						break
+					end
+				end
+			end
+
+			-- TODO: make Nick add moveGroundItemToGround(fromX, fromY, toX, toY) or pushTopObject...
+			-- once added, push item to free position if a breaking weapon isn't found
+			if weapon > 0 then
+				xeno.selfUseItemWithGround(weapon, x, y, z)
+			end
+		end
+
+		local function attackCreature(cid)
+			-- Make sure we're not already attacking the creature
+			if cid ~= xeno.getSelfTargetID() then
+				xeno.attackCreature(cid)
+			end    
+			-- TODO: read spell/rune from shooter, apply directly to creature's face
+		end
+
+		local function clearTile(x, y, z)
+			local item = xeno.getTileUseTargetID(x, y, z)
+			local selfPos = xeno.getSelfPosition()
+			local distance = xeno.getDistanceBetween(selfPos, {x=x,y=y,z=z})
+
+			-- Creature
+			if item.id == 99 and distance < 3 then
+				local cid = item.count
+				local index = xeno.getCreatureListIndex(cid)
+				-- Monster
+				if xeno.isCreatureMonster(index) then
+					attackCreature(cid)
+					return true
+				end
+				-- Not attackable, look at other tiles
+				return false
+			end
+
+			-- Furniture
+			if xeno.isItemFurniture(item.id) then
+				destroyFurniture(x, y, z)
+				return true
+			end
+
+			return false
+		end
+
+		-- Attempt to clear tiles in a specific order
+		-- There's a better way, I guarantee it.
+		local priorities = {
+			[NORTH] = {NORTH, NORTHWEST, NORTHEAST, WEST, EAST, SOUTH, SOUTHWEST, SOUTHEAST},
+			[EAST] = {EAST, NORTHEAST, SOUTHEAST, NORTH, SOUTH, WEST, NORTHWEST, SOUTHWEST},
+			[SOUTH] = {SOUTH, SOUTHWEST, SOUTHEAST, WEST, EAST, NORTH, NORTHWEST, NORTHEAST},
+			[WEST] = {WEST, NORTHWEST, SOUTHWEST, NORTH, SOUTH, EAST, NORTHEAST, SOUTHEAST}
+		}
+
+		-- Search for valid tiles around player to clear
+		local pos = xeno.getSelfPosition()
+		local directions = priorities[xeno.getSelfLookDirection()]
+		local index = 1
+		local valid = false
+		repeat
+			local tilePos = xeno.getPositionFromDirection({x=pos.x, y=pos.y}, directions[index], 1)
+			valid = clearTile(tilePos.x, tilePos.y, pos.z)
+			index = index + 1
+		until valid or index > #directions
+
+		-- Search entire screen if nothing found nearby
+		if not valid then
+			-- Populate all non-walkable tiles on-screen
+			local tiles = {}
+			for x = -7, 7 do
+				for y = -7, 7 do
+					-- Tile not walkable
+					if xeno.getTileIsWalkable(pos.x+x, pos.y+y, pos.z) then
+						tiles[#tiles+1] = {x=pos.x+x, y=pos.y+y, z=pos.z}
+					end
+				end
+			end
+			-- Sort by distance
+			tiles = sortPositionsByDistance(pos, tiles)
+			-- Find tile to clear
+			local screenIndex = 1
+			local screenValid = false
+			repeat
+				local tpos = tiles[screenIndex]
+				screenValid = clearTile(tpos.x, tpos.y, tpos.z)
+				screenIndex = screenIndex + 1
+			until screenValid or screenIndex > #tiles
+		end
+	end
+
+	local function cast(words)
+		return xeno.getSelfSpellCooldown(words) == 0 
+			and xeno.getSelfSpellRequirementsMet(words)
+			and xeno.selfSay(words)
+	end
+
+	local function isCorpseOpen()
+		local index = -1
+		while (index < 16) do
+			index = index + 1
+			local container = xeno.getContainerName(index)
+			local isCorpse = string.find(container, "The") or 
+				string.find(container, "Demonic") or 
+				string.find(container, "Dead") or 
+				string.find(container, "Slain") or 
+				string.find(container, "Dissolved") or 
+				string.find(container, "Remains") or 
+				string.find(container, "Elemental") or 
+				xeno.isItemCorpse(xeno.getContainerID(index))
+			if(xeno.getContainerOpen(index) and isCorpse)then
+				return true
+			end
+		end
+		return false
+	end
+
+	-- Export global functions
+	return {
+		overflowText = overflowText,
+		formatTime = formatTime,
+		formatNumber = formatNumber,
+		titlecase = titlecase,
+		formatList = formatList,
+		getMemoryUsage = getMemoryUsage,
+		freeMemory = freeMemory,
+		pingDelay = pingDelay,
+		throttle = throttle,
+		clearTimeout = clearTimeout,
+		clearWhen = clearWhen,
+		setTimeout = setTimeout,
+		setInterval = setInterval,
+		when = when,
+		checkTimers = checkTimers,
+		checkEvents = checkEvents,
+		split = split,
+		trim = trim,
+		getSelfLookPosition = getSelfLookPosition,
+		getPosFromString = getPosFromString,
+		cleanLabel = cleanLabel,
+		countPairs = countPairs,
+		getTimeUntilServerSave = getTimeUntilServerSave,
+		sortPositionsByDistance = sortPositionsByDistance,
+		talk = talk,
+		clearWalkerPath = clearWalkerPath,
+		cast = cast,
+		isCorpseOpen = isCorpseOpen
+	}
+end)()
