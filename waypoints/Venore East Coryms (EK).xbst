@@ -178,10 +178,6 @@
         <item title="Special Area #9" consider="3" width="3" height="3" x="33006" y="32184" z="10"/>
 	</control>
 </panel>
-<panel name="Scripter">
-	<control name="RunningScriptList">
-	</control>
-</panel>
 <panel name="Alarms">
 	<control name="disAlarm" value="0"/>
 	<control name="damAlarm" value="0"/>

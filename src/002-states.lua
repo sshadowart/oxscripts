@@ -67,7 +67,6 @@ local _path = {                 -- current path we're taking
 	dest = nil                  -- ex: startHunt
 }
 
-local _depths = {}
 local _settings = {}
 local _config = {}
 local _supplies = {}

@@ -149,13 +149,3 @@ xeno.getCreatureSpectators = getCreatureSpectators
 xeno.enterCriticalMode = veryUnsafeFunctionEnterCriticalMode
 xeno.exitCriticalMode = veryUnsafeFunctionExitCriticalMode
 xeno.setTargetingIgnoreEnabled = setTargetingIgnoreEnabled
-
--- TODO: rewrite these functions that are in xeno lua lib.
-xeno.getPositionFromDirection = getPositionFromDirection
-xeno.getDistanceBetween = getDistanceBetween
-xeno.getWalkableTiles = Map.GetWalkableTiles
-xeno.getDirectionTo = Map.GetDirectionTo
-xeno.getSelfName = Self.Name
-xeno.getSelfMoney = Self.Money
-xeno.getFlasks = Self.Flasks
-xeno.getSelfItemCount = Self.ItemCount

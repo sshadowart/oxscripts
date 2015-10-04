@@ -3,6 +3,7 @@ Ini = (function()
 	local split = Core.split
 	local trim = Core.trim
 	local setTimeout = Core.setTimeout
+	local getSelfName = Core.getSelfName
 	local error = Console.error
 
 	local function updateSupplyConfig()
@@ -77,8 +78,8 @@ Ini = (function()
 	end
 
 	local function loadConfigFile(callback, isReload)
-		local configPath = FOLDER_CONFIG_PATH .. '[' .. xeno.getSelfName() .. '] ' .. _script.name .. '.ini'
-		local configAltPath = FOLDER_CONFIG_PATH .. 'Config\\[' .. xeno.getSelfName() .. '] ' .. _script.name .. '.ini'
+		local configPath = FOLDER_CONFIG_PATH .. '[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
+		local configAltPath = FOLDER_CONFIG_PATH .. 'Config\\[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
 		local function parseConfig(file)
 			-- Could not load config
 			if not file then

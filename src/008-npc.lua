@@ -5,6 +5,10 @@ Npc = (function()
 	local setTimeout = Core.setTimeout
 	local talk = Core.talk
 	local error = Console.error
+	local getTotalItemCount = Container.getTotalItemCount
+	local containerMoveItems = Container.containerMoveItems
+	local getMoney = Container.getMoney
+	local getFlasks = Container.getFlasks
 
 	local function moveTransactionGoldChange(container, callback)
 		-- Move loose gold change from container to gold backpack
@@ -39,7 +43,7 @@ Npc = (function()
 					local response = responses[i]
 					if response then
 						local balanceText = response:gsub(',', '')
-						local balance = balanceText:match('(%d+) gold')
+						local balance = balanceText:match('account balance is (%d+) gold')
 						if balance then
 							_script.balance = tonumber(balance) or 0
 							-- Callback
@@ -56,17 +60,25 @@ Npc = (function()
 
 	local function bankWithdrawGold(amount, callback, nodialog)
 		local dialog = not nodialog and {'hi', 'withdraw', amount, 'yes'} or {'withdraw', amount, 'yes'}
-		local prevMoney = xeno.getSelfMoney()
-		talk(dialog, function()
+		local prevMoney = getMoney()
+		local tries = 3
+		local function interact()
 			-- TODO: use npc proxy to verify withdraw
 			setTimeout(function()
-				if xeno.getSelfMoney() > prevMoney then
+				if getMoney() > prevMoney and prevMoney <= amount then
 					callback()
 				else
-					error('Unable to withdraw ' .. amount .. ' gold. Make sure you have sufficient funds.')
+					tries = tries - 1
+					if tries <= 0 then
+						error('Unable to withdraw ' .. amount .. ' gold. Make sure you have sufficient funds.')
+					else
+						talk(dialog, interact)
+					end
 				end
 			end, pingDelay(DELAY.RANGE_TALK))
-		end)
+		end
+
+		talk(dialog, interact)
 	end
 
 	local function shopSellLoot(sellList, callback)
@@ -110,7 +122,7 @@ Npc = (function()
 
 	local function shopSellFlasks(callback)
 		-- No flasks to sell, simulate async callback
-		if xeno.getFlasks() == 0 then
+		if getFlasks() == 0 then
 			callback()
 			return
 		end
@@ -166,7 +178,7 @@ Npc = (function()
 					-- Move change to gold
 					moveTransactionGoldChange(0, function()
 						-- No more boots, or failed too much
-						if xeno.getSelfItemCount(ITEMID.SOFTBOOTS_WORN) <= 0 or tries <= 0 then
+						if getTotalItemCount(ITEMID.SOFTBOOTS_WORN) <= 0 or tries <= 0 then
 							callback()
 						else
 							tries = tries - 1
@@ -189,12 +201,14 @@ Npc = (function()
 		local function buyItem()
 			-- Item doesn't exist, ignore
 			local price = xeno.shopGetItemBuyPriceByID(itemid)
+			local neededStackCount = math.min(remaining, 100)
+
+			-- Price not found
 			if price <= 0 then
-				error('Failed to buy ' .. xeno.getItemNameByID(itemid) .. ' (' .. neededStackCount .. 'x). ' .. 'XenoBot could not determine item price.')
+				callback()
 				return
 			end
 
-			local neededStackCount = math.min(remaining, 100)
 			-- Successfully bought stack
 			if xeno.shopBuyItemByID(itemid, neededStackCount) > 0 then
 				-- Reduce remaining by bought stack count, reset tries

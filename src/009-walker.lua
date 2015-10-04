@@ -8,12 +8,15 @@ Walker = (function()
 	local getPosFromString = Core.getPosFromString
 	local cleanLabel = Core.cleanLabel
 	local sortPositionsByDistance = Core.sortPositionsByDistance
+	local getPositionFromDirection = Core.getPositionFromDirection
+	local getDistanceBetween = Core.getDistanceBetween
 	local talk = Core.talk
 	local log = Console.log
 	local warn = Console.warn
 	local error = Console.error
 	local prompt = Console.prompt
 	local bankWithdrawGold = Npc.bankWithdrawGold
+	local getMoney = Container.getMoney
 
 	local function walkerLabelExists(label)
 		local waypoints = _settings['Walker']['WaypointList']
@@ -141,7 +144,7 @@ Walker = (function()
 	local function walkerVerifyPosition(label, option)
 		local pos = walkerGetPosAfterLabel(label)
 		local selfPos = xeno.getSelfPosition()
-		local distance = xeno.getDistanceBetween(selfPos, pos)
+		local distance = getDistanceBetween(selfPos, pos)
 		if pos then
 			-- no option specified, compare exact position
 			if not option and distance < 1 and selfPos.z == pos.z then
@@ -206,7 +209,7 @@ Walker = (function()
 		-- Loop through battle list
 		for i = 1, 1300 do
 			local creaturePos = xeno.getCreaturePosition(i)
-			local distance = xeno.getDistanceBetween(xeno.getSelfPosition(), creaturePos)
+			local distance = getDistanceBetween(xeno.getSelfPosition(), creaturePos)
 			-- NPC we are looking for
 			if string.lower(xeno.getCreatureName(i)) == string.lower(name) and distance < 7 then
 				-- We need to walk to it
@@ -229,7 +232,7 @@ Walker = (function()
 		end
 		setTimeout(function()
 			-- In range, finish with callback
-			if xeno.getDistanceBetween(xeno.getSelfPosition(), xeno.getCreaturePosition(index)) <= 2 then
+			if getDistanceBetween(xeno.getSelfPosition(), xeno.getCreaturePosition(index)) <= 2 then
 				callback()
 			elseif tries <= 0 then
 				error('Unable to reach ' .. name .. '. Please contact support.')
@@ -257,7 +260,7 @@ Walker = (function()
 			local function travelPrompt()
 				prompt('Unable to travel to ' .. _script.town .. '. When you are in town type "retry" to continue.', function(response)
 					if string.find(response, 'retry') then
-						walkerGotoTown(callback)
+						walkerGotoTown(targetTown, callback)
 					else
 						travelPrompt()
 					end
@@ -299,7 +302,7 @@ Walker = (function()
 		end
 
 		-- Find out where we are in town
-		local closestLabel = walkerGetClosestLabel(true, town)
+		local closestLabel = walkerGetClosestLabel(false, town)
 		local closestRoute = split(closestLabel.name, '|')
 		local closestPath = split(closestRoute[2], '~')
 		local location = closestPath[1]
@@ -309,7 +312,7 @@ Walker = (function()
 		log('You are near the ' .. town .. ' ' .. location .. ', traveling to ' .. targetTown .. '.')
 
 		-- Needs gold to travel, go to bank from here
-		local travelCostDifference = travelCost - xeno.getSelfMoney()
+		local travelCostDifference = travelCost - getMoney()
 		if travelCostDifference > 0 then
 			-- Tell the user we need to go to the bank
 			local bankMessage = 'Traveling to ' .. targetTown .. ' requires an additional ' .. travelCostDifference .. ' gold.'
@@ -340,7 +343,7 @@ Walker = (function()
 		-- Make sure we're in the right town
 		walkerGotoTown(town, function()
 			-- Find out where we are
-			local closestLabel = walkerGetClosestLabel(true, string.lower(town))
+			local closestLabel = walkerGetClosestLabel(false, string.lower(town))
 			local closestRoute = split(closestLabel.name, '|')
 			local closestPath = split(closestRoute[2], '~')
 			local location = closestPath[1]
@@ -383,7 +386,7 @@ Walker = (function()
 			posLabel = 'door|'..doorID..'|'..dirName
 			if walkerLabelExists(posLabel) then
 				-- Determine position of the door
-				doorPos = xeno.getPositionFromDirection(standPos, dirCode, 1)
+				doorPos = getPositionFromDirection(standPos, dirCode, 1)
 				direction = dirCode
 				break
 			end
@@ -444,7 +447,7 @@ Walker = (function()
 			local pos = xeno.getSelfPosition()
 			-- Check if we need to drop flasks
 			if _config['Capacity']['Drop-Flasks'] and cap < _config['Capacity']['Hunt-Minimum'] then
-				local flasks = {[283]=true,[284]=true,[285]=true}
+				local flasks = ITEM_LIST_FLASKS
 				-- Potion Backpack
 				for spot = 0, xeno.getContainerItemCount(_backpacks['Potions']) - 1 do
 					local item = xeno.getContainerSpotData(_backpacks['Potions'], spot)
@@ -515,7 +518,7 @@ Walker = (function()
 			local pos = xeno.getSelfPosition()
 			for i = CREATURES_LOW, CREATURES_HIGH do
 				local cpos = xeno.getCreaturePosition(i)
-				if cpos and pos.z == cpos.z and xeno.getDistanceBetween(pos, cpos) <= 7 then
+				if cpos and pos.z == cpos.z and getDistanceBetween(pos, cpos) <= 7 then
 					if xeno.getCreatureVisible(i) and xeno.getCreatureHealthPercent(i) > 0 and xeno.isCreatureMonster(i) then
 						callback()
 						return

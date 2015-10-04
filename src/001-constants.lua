@@ -41,8 +41,8 @@ local EVENT_DEPOT_END = 'depotend'
 local DELAY = {}
 DELAY.USE_EQUIPMENT = 800
 DELAY.CONTAINER_MOVE_ITEM = 300
-DELAY.CONTAINER_USE_ITEM = 1500
-DELAY.CONTAINER_BACK = 500
+DELAY.CONTAINER_USE_ITEM = 300
+DELAY.CONTAINER_BACK = 300
 DELAY.BROWSE_FIELD = 800
 DELAY.FOLLOW_WAIT = 2000
 DELAY.TRADE_TRANSACTION = 500
@@ -2267,10 +2267,33 @@ local ITEM_LIST_MONEY = {
 	[3043] = true
 }
 
+local ITEM_LIST_FLASKS = {
+	[283] = true,
+	[284] = true,
+	[285] = true
+}
+
 local ITEM_LIST_FURNITURE_DESTROYERS = {
 	[3267] = true,
 	[3292] = true,
 	[3291] = true
+}
+
+local ITEM_LIST_SKINNABLE_LOOT = {
+	[281] = true,
+	[282] = true,
+	[3026] = true,
+	[3029] = true,
+	[3032] = true,
+	[5876] = true,
+	[5877] = true,
+	[5878] = true,
+	[5893] = true,
+	[5905] = true,
+	[5906] = true,
+	[5925] = true,
+	[5948] = true,
+	[9303] = true
 }
 
 local RUNES_EXOTIC = {
@@ -2314,9 +2337,9 @@ local RUNES_NORMAL = {
 }
 
 local EXOTIC_RUNE_TOWNS = {
-	['Edron'] = true,
-	['Gray Island'] = true,
-	['Rathleton'] = true
+	['edron'] = true,
+	['gray island'] = true,
+	['rathleton'] = true
 }
 
 local FISHING_RODS = {

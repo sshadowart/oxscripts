@@ -3,6 +3,7 @@ Targeter = (function()
 	-- Imports
 	local clearTimeout = Core.clearTimeout
 	local setInterval = Core.setInterval
+	local getDistanceBetween = Core.getDistanceBetween
 	
 	local function targetingGetCreatureThreshold(list, range, amount, multifloor)
 		local targets = {}
@@ -14,7 +15,7 @@ Targeter = (function()
 			if list[string.lower(name)] then
 				-- Position & Distance
 				local cpos = xeno.getCreaturePosition(i)
-				local distance = xeno.getDistanceBetween(pos, cpos)
+				local distance = getDistanceBetween(pos, cpos)
 				if (pos.z == cpos.z or multifloor) and distance <= range then
 					-- Normal creature checks
 					if xeno.getCreatureVisible(i) and xeno.getCreatureHealthPercent(i) > 0 and xeno.isCreatureMonster(i) then
@@ -64,7 +65,7 @@ Targeter = (function()
 					for targetCID, targetTime in pairs(targets) do
 						local index = xeno.getCreatureListIndex(targetCID)
 						local cpos = xeno.getCreaturePosition(index)
-						if pos.z == cpos.z and xeno.getDistanceBetween(pos, cpos) <= 7 then
+						if pos.z == cpos.z and getDistanceBetween(pos, cpos) <= 7 then
 							if xeno.getCreatureHealthPercent(index) > 0 and os.time() - targetTime < _config['Lure']['Kill-Time'] then
 								attackStillReady = true
 								break

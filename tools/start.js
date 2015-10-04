@@ -7,15 +7,13 @@ import watch from './lib/watch';
  */
 export default task('start', async () => {
   // Build immediately
-  await require('./build')();
-  // Run the XBST
-  await require('./run')();
+  await require('./bundle')();
   // Watch source files
   watch('./src/*.lua').then(watcher => {
     // Build on change
     watcher.on('all', (event, filepath) => {
       console.log(filepath + ' was ' + event)
-      require('./build')()
+      require('./bundle')()
     });
   });
 });

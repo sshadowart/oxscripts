@@ -12,10 +12,16 @@ do
 	local split = Core.split
 	local getTimeUntilServerSave = Core.getTimeUntilServerSave
 	local clearWalkerPath = Core.clearWalkerPath
+	local getPositionFromDirection = Core.getPositionFromDirection
+	local getDistanceBetween = Core.getDistanceBetween
+	local getSelfName =  Core.getSelfName
 	local cast = Core.cast
 	local log = Console.log
 	local openConsole = Console.openConsole
 	local cleanContainers = Container.cleanContainers
+	local resetContainers = Container.resetContainers
+	local getTotalItemCount = Container.getTotalItemCount
+	local setupContainers = Container.setupContainers
 	local hudUpdateDimensions = Hud.hudUpdateDimensions
 	local hudUpdatePositions = Hud.hudUpdatePositions
 	local hudItemUpdate = Hud.hudItemUpdate
@@ -82,7 +88,7 @@ do
 				end
 				log('Returning to ' .._script.town.. ' to ' .. action .. '. ' .. logoutReason)
 				-- Clean backpacks
-				cleanContainers()
+				cleanContainers(_backpacks['Loot'], ITEM_LIST_SKINNABLE_LOOT, nil, true)
 				-- Route system
 				if failLabel then
 					xeno.gotoLabel(failLabel)
@@ -93,16 +99,15 @@ do
 			-- Continue hunting
 			else
 				-- Resupply
-				local thresholds = {min=true}
+				local thresholds = {min = true}
 				if not skipSupplyCheck then
 					thresholds = checkAllSupplyThresholds()
 				end
-				if _script.returnQueued or thresholds.min or (xeno.getSelfCap() < _config['Capacity']['Hunt-Minimum']) or (_config['Soft Boots']['Mana-Percent'] > 0 and xeno.getSelfItemCount(ITEMID.SOFTBOOTS_WORN) > 0) then
-					state = 'Resupplying'
-					log('Returning to '.._script.town..' to re-supply.' .. (_script.returnQueued and ' [forced]' or ''))
-					_script.returnQueued = false
+				if _script.returnQueued or thresholds.min or (xeno.getSelfCap() < _config['Capacity']['Hunt-Minimum']) or (_config['Soft Boots']['Mana-Percent'] > 0 and getTotalItemCount(ITEMID.SOFTBOOTS_WORN) > 0) then
+					state = 'Walking to exit'
+					log('Returning to ' .. _script.town .. ' to re-supply.' .. (_script.returnQueued and ' [forced]' or ''))
 					-- Clean backpacks
-					cleanContainers()
+					cleanContainers(_backpacks['Loot'], ITEM_LIST_SKINNABLE_LOOT, nil, true)
 					-- Route system
 					if failLabel then
 						xeno.gotoLabel(failLabel)
@@ -138,7 +143,14 @@ do
 
 		-- Exit spawn and return to town
 		['spawnexit'] = function(group)
+			-- States update
 			log('Exiting spawn.')
+			_script.state = 'Walking to town';
+			hudItemUpdate('Script', 'State', _script.state, false)
+
+			-- Clear return queued
+			_script.returnQueued = false
+
 			-- Walk to town|spawn~townentrance
 			walkerStartPath(_script.town, 'spawn', _script.townentrance or _script.townexit, function()
 				-- Trainers
@@ -159,11 +171,16 @@ do
 					end)
 				-- Start resupply process
 				else
-					resupply(function()
-						log('Entering spawn.')
-					end)
+					resupply()
 				end
 			end)
+		end,
+
+		-- Enter spawn
+		['enterspawn'] = function(group)
+			log('Entering spawn.')
+			_script.state = 'Hunting';
+			hudItemUpdate('Script', 'State', _script.state, false)
 		end,
 
 		-- Door System
@@ -198,7 +215,7 @@ do
 		-- Pick System
 		['pick'] = function(group, direction)
 			local directions = {['NORTH']=NORTH, ['SOUTH']=SOUTH, ['EAST']=EAST, ['WEST']=WEST}
-			local pos = xeno.getPositionFromDirection(xeno.getSelfPosition(), directions[direction], 1)
+			local pos = getPositionFromDirection(xeno.getSelfPosition(), directions[direction], 1)
 			xeno.selfUseItemWithGround(_script.pick, pos.x, pos.y, pos.z)
 		end,
 
@@ -289,13 +306,13 @@ do
 			elseif param1 == 'SpheresMachine' then
 				xeno.setWalkerEnabled(false)
 				local gemItemId = tonumber(param2) or 678
-				local gemCount = xeno.getSelfItemCount(gemItemId)
+				local gemCount = getTotalItemCount(gemItemId)
 				local tries = 0
 				local depositInterval = nil
 				local depositGem = function()
 					xeno.selfUseItemWithGround(gemItemId, 33269, 31830, 10)
 					setTimeout(function()
-						local newcount = xeno.getSelfItemCount(gemItemId)
+						local newcount = getTotalItemCount(gemItemId)
 						if newcount == gemCount then
 							tries = tries + 1
 						end
@@ -521,7 +538,7 @@ do
 			if time - _lastsnapback > 2000 then
 				_snapbacks = 0
 			-- Moved since the last snapback
-			elseif xeno.getDistanceBetween(_lastposition, pos) > 0 then
+			elseif getDistanceBetween(_lastposition, pos) > 0 then
 				_snapbacks = 0
 			end
 
@@ -562,7 +579,7 @@ do
 				for i = CREATURES_LOW, CREATURES_HIGH do
 					local cpos = xeno.getCreaturePosition(i)
 					if cpos then
-						local distance = xeno.getDistanceBetween(playerPos, cpos)
+						local distance = getDistanceBetween(playerPos, cpos)
 						if playerPos.z == cpos.z and distance <= 7 then
 							if xeno.getCreatureVisible(i) and xeno.getCreatureHealthPercent(i) > 0 and xeno.isCreatureMonster(i) then
 								monsterOnScreen = true
@@ -607,7 +624,7 @@ do
 
 		for i = CREATURES_LOW, CREATURES_HIGH do
 			local cpos = xeno.getCreaturePosition(i)
-			local distance = xeno.getDistanceBetween(playerPos, cpos)
+			local distance = getDistanceBetween(playerPos, cpos)
 			if playerPos.z == cpos.z and distance <= 7 then
 				if xeno.getCreatureVisible(i) and xeno.getCreatureHealthPercent(i) > 0 and xeno.isCreatureMonster(i) then
 					playerTargets = playerTargets + 1
@@ -616,6 +633,7 @@ do
 		end
 
 		-- Loop through supplies
+		-- TODO: this seems like it could be optimized
 		for itemid, supply in pairs(_supplies) do
 			-- Check rings & amulets
 			if supply.group == 'Ring' or supply.group == 'Amulet' and supply.options then
@@ -700,7 +718,6 @@ do
 	function onChannelSpeak(channel, message)
 		toggleCriticalMode(true)
 
-		xeno.luaSendChannelMessage(_script.channel, CHANNEL_YELLOW, xeno.getSelfName(), message)
 		-- First character is slash, command is expected
 		if string.sub(message, 1, 1) == '/' then
 			-- Clear last console message, so we can repeat ourselves
@@ -745,21 +762,24 @@ do
 				log('Returning to town after the current round.')
 			-- Reload config
 			elseif command == 'reload' then
-				-- Block reloading in town
-				if _script.state ~= 'Hunting' then
-					log('Unable to reload config in town, restart the script to reload.')
-				else
-					_config = {}
-					_supplies = {}
-					loadConfigFile(function()
+				_config = {}
+				_supplies = {}
+				loadConfigFile(function()
+					setupContainers(function()
 						setDynamicSettings(function()
 							-- Start dynamic lure (if needed)
 							_script.dynamicLuring = false
+							xeno.setTargetingEnabled(true)
 							targetingInitDynamicLure()
 							log('Reloaded the config.')
+							-- If reloaded in town, trigger resupply
+							if _script.state == 'Resupplying' or _script.state == 'Starting' then
+								log('Triggering resupply incase supply counts may have changed.')
+								resupply()
+							end
 						end)
-					end, true)
-				end
+					end)
+				end, true)
 			end
 		-- Not command, handle as usual
 		else

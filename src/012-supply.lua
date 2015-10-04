@@ -3,9 +3,12 @@ Supply = (function()
 	-- Imports
 	local formatList = Core.formatList
 	local setInterval = Core.setInterval
+	local getDistanceBetween = Core.getDistanceBetween
+	local log = Console.log
 	local warn = Console.warn
 	local getContainerItemCounts = Container.getContainerItemCounts
 	local cleanContainers = Container.cleanContainers
+	local getTotalItemCount = Container.getTotalItemCount
 	local hudItemUpdate = Hud.hudItemUpdate
 	local bankDepositGold = Npc.bankDepositGold
 	local bankGetBalance = Npc.bankGetBalance
@@ -203,7 +206,7 @@ Supply = (function()
 
 		-- Softboots refill (+ travel costs if not in venore and not already)
 		if _config['Soft Boots']['Mana-Percent'] > 0 then
-			local wornSoftBootCount = xeno.getSelfItemCount(ITEMID.SOFTBOOTS_WORN)
+			local wornSoftBootCount = getTotalItemCount(ITEMID.SOFTBOOTS_WORN)
 			-- Worn softboots on us, refill
 			if wornSoftBootCount > 0 then
 				refillSoftboots = true
@@ -216,6 +219,7 @@ Supply = (function()
 		end
 
 		-- Supply refill cost (+ travel costs for exotic runes)
+		local sourceTown = string.lower(_script.town)
 		local thresholds = checkAllSupplyThresholds(true)
 		if thresholds.max then
 			for itemid, supply in pairs(thresholds.max) do
@@ -223,11 +227,11 @@ Supply = (function()
 					-- Runes can be domestic or foreign
 					if supply.group == 'Runes' then
 						-- We need to travel to Edron to get premium runes
-						if RUNES_EXOTIC[itemid] and not EXOTIC_RUNE_TOWNS[_script.town] then
+						if RUNES_EXOTIC[itemid] and not EXOTIC_RUNE_TOWNS[sourceTown] then
 							edronTravel = true
 							runeTravel = 'Edron'
 						-- We are in Edron and we need to travel to get free runes
-						elseif RUNES_NORMAL[itemid] and _script.town == 'Edron' then
+						elseif RUNES_NORMAL[itemid] and sourceTown == 'edron' then
 							venoreTravel = true
 							runeTravel = 'Venore'
 						-- We can buy these runes in town
@@ -245,16 +249,25 @@ Supply = (function()
 		end
 
 		-- Add all travel costs to total
-		local sourceTown = string.lower(_script.town)
 		if venoreTravel then
-			totalCost = totalCost + TRAVEL_ROUTES[sourceTown .. '~venore'].cost
+			local travelRoute = TRAVEL_ROUTES[sourceTown .. '~venore']
+			if not travelRoute then
+				error('Missing travel route from ' .. sourceTown .. ' to venore. Please contact support.')
+				return
+			end
+			totalCost = totalCost + travelRoute.cost
 		end
-		if edronTravel then
+		if edronTravel and sourceTown ~= 'edron' then
 			-- We already had to go to venore, head from venore to edron
 			if venoreTravel then
 				sourceTown = 'venore'
 			end
-			totalCost = totalCost + TRAVEL_ROUTES[sourceTown .. '~edron'].cost
+			local travelRoute = TRAVEL_ROUTES[sourceTown .. '~edron']
+			if not travelRoute then
+				error('Missing travel route from ' .. sourceTown .. ' to edron. Please contact support.')
+				return
+			end
+			totalCost = totalCost + travelRoute.cost
 		end
 
 		return {
@@ -288,6 +301,10 @@ Supply = (function()
 				- Runes not needing travel, Potions, Ammo, and Food
 				- Order is based on current distance
 		]]
+
+		-- Update HUD and script state
+		_script.state = 'Resupplying';
+		hudItemUpdate('Script', 'State', _script.state, false)
 
 		step = step or 0
 
@@ -347,7 +364,7 @@ Supply = (function()
 					-- Path exists
 					if walkerLabelExists(label) then
 						local pos = walkerGetPosAfterLabel(label)
-						local distance = xeno.getDistanceBetween(selfPos, pos)
+						local distance = getDistanceBetween(selfPos, pos)
 						-- Closest label so far
 						if closestDistance == nil or distance < closestDistance then
 							closestDistance = distance
@@ -374,7 +391,7 @@ Supply = (function()
 				else
 					resupply(callback, 1, items)
 				end
-			end, true, nil, 'loot')
+			end, true)
 			return
 		end
 
@@ -432,7 +449,7 @@ Supply = (function()
 					-- Skip to next step
 					resupply(callback, 2, loot)
 				end
-			end, deepCount, nil, depth)
+			end, deepCount)
 			return
 		end
 
@@ -551,7 +568,7 @@ Supply = (function()
 					-- Route to supplies has to exist
 					if walkerLabelExists(label) then
 						local pos = walkerGetPosAfterLabel(label)
-						local distance = xeno.getDistanceBetween(selfPos, pos)
+						local distance = getDistanceBetween(selfPos, pos)
 						-- Closest label so far
 						if supplyDistance == nil or distance < supplyDistance then
 							supplyDistance = distance
@@ -582,32 +599,31 @@ Supply = (function()
 			return
 		end
 
-		-- Update script state
-		if _config['HUD']['Enabled'] then
-			_script.state = 'Walking to spawn';
-			hudItemUpdate('Script', 'State', _script.state, false)
-		end
-
 		-- Start the backpack cleaner
 		setInterval(cleanContainers, DELAY.CLEAN_CONTAINERS_INTERVAL);
 
 		-- Done, go to town exit
 		log('Ready to hunt. Walking to the spawn.')
 		walkerGotoLocation(_script.town, _script.townexit, function()
+
+			-- Update script state
+			if _config['HUD']['Enabled'] then
+				_script.state = 'Walking to spawn';
+				hudItemUpdate('Script', 'State', _script.state, false)
+			end
+
 			-- Exited town, go to spawn
 			walkerStartPath(_script.town, _script.townexit, 'spawn', function()
 				-- Enter spawn
+				print('DEBUG 1')
 				xeno.gotoLabel('enterspawn')
 				xeno.setWalkerEnabled(true)
 				xeno.setTargetingEnabled(true)
 				xeno.setLooterEnabled(true)
-				-- Update script state
-				if _config['HUD']['Enabled'] then
-					_script.state = 'Hunting';
-					hudItemUpdate('Script', 'State', _script.state, false)
-				end
 				-- Reached spawn
-				callback()
+				if callback then
+					callback()
+				end
 			end)
 		end)
 	end

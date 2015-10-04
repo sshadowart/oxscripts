@@ -3,7 +3,10 @@ Depot = (function()
 	-- Imports
 	local pingDelay = Core.pingDelay
 	local setTimeout = Core.setTimeout
+	local getWalkableTiles = Core.getWalkableTiles
+	local getDirectionTo = Core.getDirectionTo
 	local getSelfLookPosition = Core.getSelfLookPosition
+	local getPositionFromDirection = Core.getPositionFromDirection
 	local warn = Console.warn
 	local getLastContainer = Container.getLastContainer
 	local getContainerByName = Container.getContainerByName
@@ -23,10 +26,10 @@ Depot = (function()
 
 		-- Detect entry, find depot tile from opposite direction
 		local pos = xeno.getSelfPosition()
-		local tiles = xeno.getWalkableTiles(pos, 1)
+		local tiles = getWalkableTiles(pos, 1)
 		if tiles and tiles[1] then
 			local entryPos = tiles[1]
-			depot = xeno.getPositionFromDirection({x=pos.x, y=pos.y}, xeno.getDirectionTo(entryPos, pos), 1)
+			depot = getPositionFromDirection({x=pos.x, y=pos.y}, getDirectionTo(entryPos, pos), 1)
 		end
 		-- Browse locker field
 		xeno.selfBrowseField(depot.x, depot.y, pos.z)

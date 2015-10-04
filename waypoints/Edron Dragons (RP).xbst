@@ -300,10 +300,6 @@
         <item title="Special Area #57" consider="1" width="5" height="1" x="33079" y="31644" z="8"/>
 	</control>
 </panel>
-<panel name="Scripter">
-	<control name="RunningScriptList">
-	</control>
-</panel>
 <panel name="Alarms">
 	<control name="disAlarm" value="0"/>
 	<control name="damAlarm" value="0"/>

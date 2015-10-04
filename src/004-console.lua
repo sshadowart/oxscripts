@@ -2,6 +2,7 @@ Console = (function()
 	
 	-- Imports
 	local when = Core.when
+	local getSelfName = Core.getSelfName
 
 	local _lastConsoleMessage = nil
 	
@@ -11,6 +12,14 @@ Console = (function()
 		end
 		_lastConsoleMessage = message
 		xeno.luaSendChannelMessage(_script.channel, CHANNEL_ORANGE, ':', message)
+	end
+	
+	local function info(message)
+		if message == _lastConsoleMessage then
+			return
+		end
+		_lastConsoleMessage = message
+		xeno.luaSendChannelMessage(_script.channel, CHANNEL_YELLOW, ':', message)
 	end
 
 	local function warn(message)
@@ -39,7 +48,7 @@ Console = (function()
 		-- Welcome message
 		log(string.rep('\n ', 54) .. '\n' .. string.rep(':', 190) .. '\n:::::   X E N O B O T   :::::           ' .. _script.name .. '  ('.. LIB_REVISION ..')\n' .. string.rep(':', 190) .. ' \n ')
 		warn('You can control your script from this channel. Type /help for a list of available commands.')
-		warn('Configure this script in the file: "Documents/XenoBot/[' .. xeno.getSelfName() .. '] ' .. _script.name .. '.ini"')
+		warn('Configure this script in the file: "Documents/XenoBot/[' .. getSelfName() .. '] ' .. _script.name .. '.ini"')
 	end
 
 	local function openPrivateMessageConsole()
@@ -49,6 +58,7 @@ Console = (function()
 	-- Export global functions
 	return {
 		log = log,
+		info = info,
 		warn = warn,
 		error = error,
 		prompt = prompt,

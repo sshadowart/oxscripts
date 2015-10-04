@@ -23,10 +23,15 @@ Core = (function()
 		end)
 	end
 
-	local function formatList(items)
+	local function formatList(items, delim, prefix)
+		prefix = prefix or ''
 		local message = nil
 		if #items > 1 then
-			message = string.rep('%s, ', #items-1) .. 'and %s'
+			if delim then
+				message = string.rep(prefix .. '%s' .. delim, #items)
+			else
+				message = string.rep('%s, ', #items-1) .. 'and %s'
+			end
 		else
 			message = '%s'
 		end
@@ -186,8 +191,34 @@ Core = (function()
 		return string.gsub(str, "^%s*(.-)%s*$", "%1")
 	end
 
+	local function getPositionFromDirection(pos, dir, len)
+		local n = len or 1
+		if (dir == NORTH) then
+			pos.y = pos.y - n
+		elseif (dir == SOUTH) then
+			pos.y = pos.y + n
+		elseif (dir == WEST) then
+			pos.x = pos.x - n
+		elseif (dir == EAST) then
+			pos.x = pos.x + n
+		elseif (dir == NORTHWEST) then
+			pos.y = pos.y - n
+			pos.x = pos.x - n
+		elseif (dir == NORTHEAST) then
+			pos.y = pos.y - n
+			pos.x = pos.x + n
+		elseif (dir == SOUTHWEST) then
+			pos.y = pos.y + n
+			pos.x = pos.x - n
+		elseif (dir == SOUTHEAST) then
+			pos.y = pos.y + n
+			pos.x = pos.x + n
+		end
+		return pos
+	end
+
 	local function getSelfLookPosition(range)
-		return xeno.getPositionFromDirection(xeno.getSelfPosition(), xeno.getSelfLookDirection(), range or 1)
+		return getPositionFromDirection(xeno.getSelfPosition(), xeno.getSelfLookDirection(), range or 1)
 	end
 
 	local function getPosFromString(str)
@@ -228,6 +259,10 @@ Core = (function()
 		return hoursLeft   
 	end
 
+	local function getDistanceBetween(pos1, pos2)
+		return math.max(math.abs(pos1.x - pos2.x), math.abs(pos1.y - pos2.y))
+	end
+
 	local function sortPositionsByDistance(pos, positions, floorWeight)
 		local sorted = positions
 		table.sort(sorted, function(a, b)
@@ -237,7 +272,7 @@ Core = (function()
 				floorA = floorWeight * (math.abs(pos.z - a.z))
 				floorB = floorWeight * (math.abs(pos.z - b.z))
 			end
-			return (xeno.getDistanceBetween(pos, a) + floorA) < (xeno.getDistanceBetween(pos, b) + floorB)
+			return (getDistanceBetween(pos, a) + floorA) < (getDistanceBetween(pos, b) + floorB)
 		end)
 		return sorted
 	end
@@ -311,7 +346,7 @@ Core = (function()
 		local function clearTile(x, y, z)
 			local item = xeno.getTileUseTargetID(x, y, z)
 			local selfPos = xeno.getSelfPosition()
-			local distance = xeno.getDistanceBetween(selfPos, {x=x,y=y,z=z})
+			local distance = getDistanceBetween(selfPos, {x=x,y=y,z=z})
 
 			-- Creature
 			if item.id == 99 and distance < 3 then
@@ -350,7 +385,7 @@ Core = (function()
 		local index = 1
 		local valid = false
 		repeat
-			local tilePos = xeno.getPositionFromDirection({x=pos.x, y=pos.y}, directions[index], 1)
+			local tilePos = getPositionFromDirection({x=pos.x, y=pos.y}, directions[index], 1)
 			valid = clearTile(tilePos.x, tilePos.y, pos.z)
 			index = index + 1
 		until valid or index > #directions
@@ -406,6 +441,50 @@ Core = (function()
 		return false
 	end
 
+	local function getWalkableTiles(center, range)
+		local walkables = {}
+		local base = center
+		range = (range > 10) and 10 or range
+		for x = -range, range do
+			for y = -range, range do
+				if xeno.getTileIsWalkable(base.x + x, base.y + y, base.z) then
+					walkables[#walkables+1] = {x = base.x + x, y = base.y + y, z = base.z}
+				end
+			end
+		end
+		return walkables
+	end
+
+	local function getDirectionTo(pos1, pos2)
+		local dir = NORTH
+		if (pos1.x > pos2.x) then
+			dir = WEST
+			if (pos1.y > pos2.y) then
+				dir = NORTHWEST
+			elseif (pos1.y < pos2.y) then
+				dir = SOUTHWEST
+			end
+		elseif (pos1.x < pos2.x) then
+			dir = EAST
+			if (pos1.y > pos2.y) then
+				dir = NORTHEAST
+			elseif (pos1.y < pos2.y) then
+				dir = SOUTHEAST
+			end
+		else
+			if (pos1.y > pos2.y) then
+				dir = NORTH
+			elseif (pos1.y < pos2.y) then
+				dir = SOUTH
+			end
+		end
+		return dir
+	end
+
+	local function getSelfName()
+		return xeno.getCreatureName(xeno.getCreatureListIndex(xeno.getSelfID()))
+	end
+
 	-- Export global functions
 	return {
 		overflowText = overflowText,
@@ -435,6 +514,11 @@ Core = (function()
 		talk = talk,
 		clearWalkerPath = clearWalkerPath,
 		cast = cast,
-		isCorpseOpen = isCorpseOpen
+		isCorpseOpen = isCorpseOpen,
+		getWalkableTiles = getWalkableTiles,
+		getDirectionTo = getDirectionTo,
+		getPositionFromDirection = getPositionFromDirection,
+		getDistanceBetween = getDistanceBetween,
+		getSelfName = getSelfName
 	}
 end)()

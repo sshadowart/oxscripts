@@ -3,6 +3,7 @@ Settings = (function()
 	-- Imports
 	local titlecase = Core.titlecase
 	local formatList = Core.formatList
+	local getSelfName = Core.getSelfName
 	local warn = Console.warn
 	local error = Console.error
 	local prompt = Console.prompt
@@ -82,10 +83,7 @@ Settings = (function()
 		end
 
 		_settings = tbl
-
-		-- Load into XenoBot
-		xeno.loadSettings(_script.name, 'All')
-
+		
 		callback()
 
 		return true
@@ -318,7 +316,7 @@ Settings = (function()
 						lootKeys[#lootKeys+1] = itemid
 					end
 					table.sort(lootKeys, function(a, b)
-						return xeno.getItemValue(a) < xeno.getItemValue(b)
+						return xeno.getItemValue(a) > xeno.getItemValue(b)
 					end)
 
 					-- Iterate sorted keys
@@ -357,7 +355,7 @@ Settings = (function()
 
 			-- Save XBST if needed
 			if xbstContents then
-				local filename = 'tmp.' .. string.lower(xeno.getSelfName())
+				local filename = 'tmp.' .. string.lower(getSelfName())
 				local file = io.open(FOLDER_SETTINGS_PATH .. filename .. '.xbst', 'w+')
 				if file then
 					file:write(xbstContents)

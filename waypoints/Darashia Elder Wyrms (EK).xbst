@@ -330,10 +330,6 @@
 		<item title="New Area" consider="1" width="1" height="1" x="33066" y="32379" z="14"/>
 	</control>
 </panel>
-<panel name="Scripter">
-	<control name="RunningScriptList">
-	</control>
-</panel>
 <panel name="Alarms">
 	<control name="disAlarm" value="0"/>
 	<control name="damAlarm" value="0"/>

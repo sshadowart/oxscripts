@@ -7,7 +7,9 @@ Container = (function()
 	local setTimeout = Core.setTimeout
 	local setInterval = Core.setInterval
 	local when = Core.when
+	local formatList = Core.formatList
 	local log = Console.log
+	local info = Console.info
 	local prompt = Console.prompt
 
 	local function getLastContainer()
@@ -126,7 +128,7 @@ Container = (function()
 		local blackList = options.ignore
 		local itemFilter = options.filter
 
-		local disableSourceCascade = options.disableSourceCascade
+		local disableSourceCascade = options.disableSourceCascade or fromContainer == _backpacks['Main']
 		local openWindow = options.openwindow -- open first destination cascade in new window
 
 		local spotOffset = 0
@@ -150,6 +152,8 @@ Container = (function()
 			return when(EVENT_ERROR, ERROR_CONTAINER_FULL, onContainerFull)
 		end
 
+		local item = nil
+
 		-- Called to trigger a single item move
 		moveItem = function(self)
 
@@ -172,7 +176,7 @@ Container = (function()
 			end
 
 			-- Das item
-			local item = xeno.getContainerSpotData(fromContainer, spotOffset)
+			item = xeno.getContainerSpotData(fromContainer, spotOffset)
 
 			-- Cascade backpack, last slot of backpack
 			if xeno.isItemContainer(item.id) and (spotOffset + 1 >= itemCount) then 
@@ -235,7 +239,7 @@ Container = (function()
 		-- Triggered when the destination fills up
 		onContainerFull = function()
 			-- Check if we need to reverse a needed count
-			if whiteList and lastMove.itemid and lastMove.count > -1 and moveCounts[lastMove.itemid] then
+			if item and whiteList and lastMove.itemid and lastMove.count > -1 and moveCounts[lastMove.itemid] then
 				moveCounts[item.id] = moveCounts[item.id] + lastMove.count
 			end
 
@@ -312,6 +316,29 @@ Container = (function()
 		end)
 	end
 
+	local function cleanContainers(destination, itemList, callback, shallow)
+		-- Check all backpacks except for destination
+		-- for items in the list and move them to the destination
+		local containers = {}
+		for i = 0, 15 do
+			if i ~= destination and xeno.getContainerOpen(i) then
+				containers[#containers+1] = i
+			end
+		end
+		moveItems(containers, {
+			dest = destination,
+			slot = 0,
+			items = itemList,
+			-- Do not dig into the main backpack
+			disableSourceCascade = shallow,
+			openwindow = false
+		}, function(success)
+			if callback then
+				callback()
+			end
+		end)
+	end
+
 	local function openMainBackpack(callback)
 		-- Open
 		local opened = xeno.slotUseItem(3)
@@ -379,73 +406,65 @@ Container = (function()
 		local needAmmoContainer = false
 		local needSuppliesContainer = false
 
-		log('Automatically setting up your backpacks. Please wait...')
-		local backpackList = {}
+		log('Setting up your backpacks, please wait...')
 		local function finishSetup()
-			-- TODO: Display backpack order
-			log('Done. Your backpacks have been setup.')
+			log('Your backpacks have been setup. Do NOT rearrange containers!')
 			callback()
 		end
 
 		-- Move items in main backpack to the correct backpacks
 		local function organizeMainBackpack()
-			local moveList = {}
-			local moveBackpacks = {}
-			local mainbp = _backpacks['Main']
+			local destinations = {}
+			local itemLists = {}
 
-			-- Populate the list of items to move to their respective backpacks
-			for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
-				local item = xeno.getContainerSpotData(mainbp, spot)
-				local supply = _supplies[item.id]
-				-- This item is a supply
-				if supply then
-					-- Backpack name of the supply group
-					local backpackName = supply.group
-					if backpackName == 'Amulet' or backpackName == 'Ring' then
-						backpackName = 'Supplies'
+			-- Create itemid list for each supply group
+			for itemid, supply in pairs(_supplies) do
+				-- Amulets and Rings always go in the Supplies backpack
+				local name = supply.group
+				if name == 'Amulet' or name == 'Ring' then
+					name = 'Supplies'
+				end
+				-- Send to Main backpack list if it matches the index
+				local backpack = _backpacks[name]
+				if backpack then
+					if backpack == _backpacks['Main'] then
+						name = 'Main'
 					end
-					-- The group has a dedicated container
-					local backpack = _backpacks[backpackName]
-					if backpack and backpack ~= mainbp then
-						-- Create or update existing movelist for this backpack
-						if not moveList[backpack] then
-							moveList[backpack] = {}
-							-- Add backpack to index for easy iteration
-							moveBackpacks[#moveBackpacks+1] = backpack
-						end
-						-- Add item to movelist
-						moveList[backpack][item.id] = true
+					-- Init table if it doesn't exist
+					if not itemLists[backpack] then
+						itemLists[backpack] = {}
+						-- Add backpack to index for easy iteration
+						destinations[#destinations+1] = {name, backpack}
 					end
+					-- Add supply item to the list
+					itemLists[backpack][itemid] = true
 				end
 			end
 
 			local function moveItems(index)
-				local destination = moveBackpacks[index]
+				local backpack = destinations[index]
 
 				-- Check if destination exists (no items to move)
-				if not destination then
+				if not backpack then
 					finishSetup()
 					return
 				end
 
-				-- Move the all the items for this destination
-				local itemList = moveList[destination]
+				local backpackName = backpack[1]
+				local destination = backpack[2]
 
-				containerMoveItems({
-					src = _backpacks['Main'],
-					dest = destination,
-					slot = 0,
-					items = itemList,
-					disableSourceCascade = true,
-					openwindow = false
-				}, function(success)
+				-- Get itemid list for this backpack
+				local itemList = itemLists[destination]
+
+				-- Clean all backpacks and move valid items to this backpack
+				cleanContainers(destination, itemList, function(success)
 					-- Proceed to next destination
 					moveItems(index+1)
 				end)
 			end
 
 			-- Move items to proper backpack, then finish
-			if #moveBackpacks > 0 then
+			if #destinations > 0 then
 				moveItems(1)
 			-- None to move, finish up
 			else
@@ -457,47 +476,32 @@ Container = (function()
 		local function assignBackpacks()
 			-- Setup containers (start at index 2 since Main = 0, Loot = 1)
 			local index = 2
+			local list = {}
 
-			if needGoldContainer then
-				_backpacks['Gold'] = index
-				backpackList[#backpackList+1] = 'gold'
-				index = index + 1
-			else
-				_backpacks['Gold'] = 0
+			list[#list+1] = '1  -  Main backpack'
+			list[#list+1] = '2  -  Loot backpack'
+
+			local containerStatuses = {
+				{'Gold', needGoldContainer},
+				{'Potions', needPotionContainer},
+				{'Runes', needRuneContainer},
+				{'Ammo', needAmmoContainer},
+				{'Supplies', needSuppliesContainer}
+			}
+
+			for i = 1, #containerStatuses do
+				local status = containerStatuses[i]
+				if status and status[2] then
+					_backpacks[status[1]] = index
+					list[#list+1] = ('%d  -  %s backpack'):format(index+1, status[1])
+					index = index + 1
+				else
+					_backpacks[status[1]] = 0
+				end
 			end
 
-			if needPotionContainer then
-				_backpacks['Potions'] = index
-				backpackList[#backpackList+1] = 'potions'
-				index = index + 1
-			else
-				_backpacks['Potions'] = 0
-			end
-
-			if needRuneContainer then
-				_backpacks['Runes'] = index
-				backpackList[#backpackList+1] = 'runes'
-				index = index + 1
-			else
-				_backpacks['Runes'] = 0
-			end
-
-			if needAmmoContainer then
-				_backpacks['Ammo'] = index
-				backpackList[#backpackList+1] = 'ammo'
-				index = index + 1
-			else
-				_backpacks['Ammo'] = 0
-			end
-
-			if needSuppliesContainer then
-				_backpacks['Supplies'] = index
-				backpackList[#backpackList+1] = 'supplies'
-				index = index + 1
-			else
-				_backpacks['Supplies'] = 0
-			end
-
+			info('Your backpack setup:\n' .. formatList(list, '\n', '    '));
+			log('Organizing your backpacks, please wait...')
 			organizeMainBackpack()
 		end
 
@@ -576,102 +580,143 @@ Container = (function()
 		end)
 	end
 
-	local function getContainerItemCounts(index, callback, deep, start, depth)
-		-- Log incase this function takes awhile
-		if depth and not _depths[depth] then
-			log('Determining the depth of your ' .. depth .. ' backpack. Please wait...')
-		end
-
-		local items = nil
+	local function getContainerItemCounts(index, callback, deepSearch, startLevel)
+		local items = {}
 		local function countLevel(level)
 			-- Iterate through container spots
 			for spot = 0, xeno.getContainerItemCount(index) - 1 do
 				local item = xeno.getContainerSpotData(index, spot)
 				-- Create table and entries on-demand
-				if not items then
-					items = {}
-				end
 				if not items[item.id] then
 					items[item.id] = 0
 				end
 				-- Increment count
 				items[item.id] = items[item.id] + math.max(item.count, 1)
 			end
+
 			-- Only counting the current container level OR reached top level
-			if not deep or level <= 1 then
-				callback(items)
+			if not deepSearch or level <= 1 then
+				if callback then
+					callback(items)
+				end
+				return items
+			-- Not done, keep counting backwards
 			else
-				-- Go back one level
-				xeno.containerBack(index)
+				-- Navigate back a level
+				local ret = xeno.containerBack(index)
+				-- Failed to go back
+				if ret == 0 then
+					if callback then
+						callback(items)
+					end
 				-- Count new level
-				setTimeout(function()
-					countLevel(level-1)
-				end, pingDelay(DELAY.CONTAINER_BACK))
+				else
+					setTimeout(function()
+						countLevel(level-1)
+					end, pingDelay(DELAY.CONTAINER_BACK))
+				end
 			end
+			return nil
 		end
-		local function gotoBottom(level, func)
+		local function gotoBottom(depth)
 			local lastSlot = xeno.getContainerItemCount(index) - 1
 			local cascadeID = xeno.getContainerSpotData(index, lastSlot).id
 			-- Another cascade, go deeper
 			if xeno.isItemContainer(cascadeID) then
 				xeno.containerUseItem(index, lastSlot, true)
 				setTimeout(function()
-					gotoBottom(level+1, func)
+					gotoBottom(depth + 1)
 				end, pingDelay(DELAY.CONTAINER_USE_ITEM))
 				return
 			end
-			-- No entry for this depth yet, record the depth we just saw
-			if not _depths[depth] then
-				_depths[depth] = level
-				-- Log the depth we found
-				log('Done. Your ' .. depth .. ' backpack is ' .. level .. ' level' .. (level > 1 and 's' or '') .. ' deep.')
-			end
 			-- At the last level, start counting items
-			countLevel(_depths[depth])
+			countLevel(depth)
 		end
-		-- Deep count specified, start at last level
-		if deep then
-			gotoBottom(start or 1)
-		-- Start at the current level
+		-- Deep count specified, go to end of container and count backwards
+		if deepSearch then
+			gotoBottom(startLevel or 1)
+		-- Shallow count, function can be used synchronously
 		else
-			countLevel(start or 1)
+			return countLevel(1)
 		end
 	end
 
-	local function cleanContainers()
-		-- Check all backpacks except for loot
-		-- for items you get from skinning
-		-- and move them to the loot backpack
-		local containers = {}
-		for i = 0, 15 do
-			if i ~= _backpacks['Loot'] and xeno.getContainerOpen(i) then
-				containers[#containers+1] = i
+	local function getTotalItemCount(itemIdList, ignoreEquipment)
+		local totals = {}
+
+		-- Wrap single itemid in an index table
+		if type(itemIdList) ~= 'table' then
+			itemIdList = {[itemIdList] = true}
+		end
+
+		-- Count equipment
+		if not ignoreEquipment then
+			local slots = {
+				xeno.getHeadSlotData,
+				xeno.getArmorSlotData,
+				xeno.getLegsSlotData,
+				xeno.getFeetSlotData,
+				xeno.getAmuletSlotData,
+				xeno.getWeaponSlotData,
+				xeno.getRingSlotData,
+				xeno.getShieldSlotData,
+				xeno.getAmmoSlotData
+			}
+			for i = 1, #slots do -- count slots
+				local slot = slots[i]()
+				if itemIdList[slot.id] then
+					total = total + math.max(slot.count, 1)
+				end
 			end
 		end
-		moveItems(containers, {
-			dest = _backpacks['Loot'],
-			slot = 0,
-			items = {
-				[281] = true,
-				[282] = true,
-				[3026] = true,
-				[3029] = true,
-				[3032] = true,
-				[5876] = true,
-				[5877] = true,
-				[5878] = true,
-				[5893] = true,
-				[5905] = true,
-				[5906] = true,
-				[5925] = true,
-				[5948] = true,
-				[9303] = true
-			},
-			disableSourceCascade = true,
-			openwindow = false
-		}, function(success)
-			-- TODO: nothing needs a callback for this yet?
-		end)
+
+		-- Iterate all possible containers
+		for i = 0, 16 do
+			-- No more containers, stop searching
+			if not xeno.getContainerOpen(i) then
+				break
+			end
+			-- Count this container
+			local counts = getContainerItemCounts(i)
+			for itemid, itemcount in pairs(counts) do
+				-- Counting this item
+				if itemIdList[itemid] then
+					local itemTotal = totals[itemid]
+					if not itemTotal then
+						totals[itemid] = itemcount
+					else
+						itemTotal = itemTotal + itemcount
+					end
+				end
+			end
+		end
+
+		-- Pairs table with itemid = count
+		return totals
+	end
+
+	local function getMoney()
+		local counts = getTotalItemCount(ITEM_LIST_MONEY)
+
+		local gold = counts[3031] or 0
+		local plat = counts[3035] or 0
+		local crystal = counts[3043] or 0
+
+		local total = gold
+		total = total + (plat * 100)
+		total = total + (crystal * 10000)
+
+		return total
+	end
+
+	local function getFlasks()
+		local counts = getTotalItemCount(ITEM_LIST_FLASKS)
+
+		local small = counts[285] or 0
+		local med = counts[284] or 0
+		local large = counts[283] or 0
+
+		return small + med + large
 	end
 
 	local function unrustLoot(callback)
@@ -691,7 +736,11 @@ Container = (function()
 		getContainerByName = getContainerByName,
 		containerMoveItems = containerMoveItems,
 		setupContainers = setupContainers,
+		resetContainers = resetContainers,
 		getContainerItemCounts = getContainerItemCounts,
-		cleanContainers = cleanContainers
+		cleanContainers = cleanContainers,
+		getTotalItemCount = getTotalItemCount,
+		getMoney = getMoney,
+		getFlasks = getFlasks
 	}
 end)()
