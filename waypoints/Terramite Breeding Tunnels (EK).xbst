@@ -86,15 +86,21 @@
         <item text="Node (33110, 32500, 8)" tag="0"/>
         <item text="Node (33110, 32494, 8)" tag="0"/>
         <item text="Node (33114, 32491, 8)" tag="0"/>
+        <item text="huntcheck|2:" tag="255"/>
+        <item text="huntstart|2:" tag="255"/>
         <item text="Node (33122, 32491, 8)" tag="0"/>
         <item text="Node (33122, 32486, 8)" tag="0"/>
         <item text="Node (33127, 32486, 8)" tag="0"/>
+        <item text="huntcheck|3:" tag="255"/>
+        <item text="huntstart|3:" tag="255"/>
         <item text="Node (33128, 32491, 8)" tag="0"/>
         <item text="Node (33134, 32491, 8)" tag="0"/>
         <item text="Node (33134, 32486, 8)" tag="0"/>
         <item text="Node (33142, 32486, 8)" tag="0"/>
         <item text="Node (33144, 32491, 8)" tag="0"/>
         <item text="Node (33150, 32490, 8)" tag="0"/>
+        <item text="huntcheck|4:" tag="255"/>
+        <item text="huntstart|4:" tag="255"/>
         <item text="Node (33157, 32490, 8)" tag="0"/>
         <item text="Node (33163, 32490, 8)" tag="0"/>
         <item text="Node (33168, 32490, 8)" tag="0"/>
@@ -128,11 +134,15 @@
         <item text="Node (33211, 32461, 9)" tag="0"/>
         <item text="Node (33210, 32456, 9)" tag="0"/>
         <item text="Node (33210, 32451, 9)" tag="0"/>
+        <item text="huntcheck|5:" tag="255"/>
+        <item text="huntstart|5:" tag="255"/>
         <item text="Node (33211, 32447, 9)" tag="0"/>
         <item text="Node (33211, 32443, 9)" tag="0"/>
         <item text="Node (33211, 32439, 9)" tag="0"/>
         <item text="Node (33210, 32434, 9)" tag="0"/>
         <item text="Node (33207, 32432, 9)" tag="0"/>
+        <item text="huntcheck|6:" tag="255"/>
+        <item text="huntstart|6:" tag="255"/>
         <item text="Node (33207, 32427, 9)" tag="0"/>
         <item text="Node (33211, 32426, 9)" tag="0"/>
         <item text="Node (33212, 32421, 9)" tag="0"/>
@@ -151,14 +161,14 @@
         <item text="Node (33229, 32399, 9)" tag="0"/>
         <item text="Node (33224, 32400, 9)" tag="0"/>
         <item text="Node (33218, 32400, 9)" tag="0"/>
-        <item text="huntcheck|2:" tag="255"/>
-        <item text="huntexit|2:" tag="255"/>
+        <item text="huntcheck|7:" tag="255"/>
+        <item text="huntexit|7:" tag="255"/>
         <item text="SIgnore" tag="10"/>
         <item text="Node (33218, 32395, 9)" tag="0"/>
         <item text="Node (33218, 32390, 9)" tag="0"/>
         <item text="Stand (33218, 32389, 9)" tag="1"/>
         <item text="Walker.Goto('spawnexit')" tag="254"/>
-        <item text="huntstart|2:" tag="255"/>
+        <item text="huntstart|7:" tag="255"/>
         <item text="Node (33211, 32400, 9)" tag="0"/>
         <item text="Node (33205, 32398, 9)" tag="0"/>
         <item text="Node (33205, 32394, 9)" tag="0"/>
@@ -174,8 +184,10 @@
         <item text="Node (33196, 32427, 9)" tag="0"/>
         <item text="Node (33197, 32432, 9)" tag="0"/>
         <item text="Node (33202, 32434, 9)" tag="0"/>
+        <item text="huntexit|6:" tag="255"/>
         <item text="Node (33203, 32439, 9)" tag="0"/>
         <item text="Node (33203, 32445, 9)" tag="0"/>
+        <item text="huntexit|5:" tag="255"/>
         <item text="Node (33201, 32449, 9)" tag="0"/>
         <item text="Node (33196, 32452, 9)" tag="0"/>
         <item text="Rope (33196, 32452, 9)" tag="3"/>
@@ -195,11 +207,13 @@
         <item text="Node (33156, 32479, 8)" tag="0"/>
         <item text="Node (33152, 32480, 8)" tag="0"/>
         <item text="Node (33150, 32483, 8)" tag="0"/>
+        <item text="huntexit|4:" tag="255"/>
         <item text="Node (33146, 32483, 8)" tag="0"/>
         <item text="Node (33142, 32482, 8)" tag="0"/>
         <item text="Node (33138, 32481, 8)" tag="0"/>
         <item text="Node (33134, 32481, 8)" tag="0"/>
         <item text="Node (33129, 32481, 8)" tag="0"/>
+        <item text="huntexit|3:" tag="255"/>
         <item text="Node (33126, 32479, 8)" tag="0"/>
         <item text="Node (33122, 32476, 8)" tag="0"/>
         <item text="Node (33117, 32476, 8)" tag="0"/>
@@ -209,10 +223,13 @@
         <item text="Node (33107, 32483, 8)" tag="0"/>
         <item text="huntcheck|1:" tag="255"/>
         <item text="huntexit|1:" tag="255"/>
+        <item text="SIgnore" tag="10"/>
         <item text="Node (33111, 32485, 8)" tag="0"/>
         <item text="spawnexit:" tag="255"/>
-        <item text="darashia|spawn~south.exit:" tag="255"/>
         <item text="SIgnore" tag="10"/>
+        <item text="huntexit|2:" tag="255"/>
+        <item text="SIgnore" tag="10"/>
+        <item text="darashia|spawn~south.exit:" tag="255"/>
         <item text="Node (33115, 32483, 8)" tag="0"/>
         <item text="Rope (33115, 32483, 8)" tag="3"/>
         <item text="Node (33126, 32483, 7)" tag="0"/>
