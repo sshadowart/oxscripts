@@ -1669,7 +1669,7 @@
   {"label": "Node (32277, 32887, 6)", "tag": 0},
   {"label": "Node (32279, 32893, 6)", "tag": 0},
   {"label": "Node (32284, 32893, 6)", "tag": 0},
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~depot:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1686,7 +1686,7 @@
   {"label": "Node (32328, 32835, 7)", "tag": 0},
   {"label": "Node (32335, 32837, 7)", "tag": 0},
   {"label": "Stand (32336, 32838, 7)", "tag": 1},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~potions:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1707,7 +1707,7 @@
   {"label": "Node (32344, 32815, 7)", "tag": 0},
   {"label": "Node (32345, 32810, 7)", "tag": 0},
   {"label": "Stand (32345, 32810, 7)", "tag": 1},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~runes:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1728,7 +1728,7 @@
   {"label": "Node (32344, 32815, 7)", "tag": 0},
   {"label": "Node (32345, 32810, 7)", "tag": 0},
   {"label": "Stand (32345, 32810, 7)", "tag": 1},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~ammo:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1738,7 +1738,7 @@
   {"label": "Node (32287, 32818, 7)", "tag": 0},
   {"label": "Node (32293, 32820, 7)", "tag": 0},
   {"label": "Stand (32293, 32820, 7)", "tag": 1},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~loot:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1748,7 +1748,7 @@
   {"label": "Node (32287, 32818, 7)", "tag": 0},
   {"label": "Node (32293, 32820, 7)", "tag": 0},
   {"label": "Stand (32293, 32820, 7)", "tag": 1},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~temple:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1762,7 +1762,7 @@
   {"label": "Node (32308, 32827, 7)", "tag": 0},
   {"label": "Node (32312, 32831, 7)", "tag": 0},
   {"label": "Node (32316, 32827, 7)", "tag": 0},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~bank:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},
@@ -1779,7 +1779,7 @@
   {"label": "Node (32328, 32835, 7)", "tag": 0},
   {"label": "Node (32338, 32836, 7)", "tag": 0},
   {"label": "Stand (32338, 32836, 7)", "tag": 1},  
-  {"label": "end:", "tag": 255}
+  {"label": "end:", "tag": 255},
   
   {"label": "liberty bay|west.exit~food:", "tag": 255},
   {"label": "Node (32262, 32817, 7)", "tag": 0},

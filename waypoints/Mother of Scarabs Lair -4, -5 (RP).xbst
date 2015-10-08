@@ -96,7 +96,7 @@
         <item text="Node (33217, 32572, 7)" tag="0"/>
         <item text="Node (33226, 32575, 7)" tag="0"/>
         <item text="Node (33235, 32576, 7)" tag="0"/>
-        <item text="Rope (33236, 32577, 7)" tag="3"/>
+        <item text="Hole (33236, 32577, 7)" tag="4"/>
         <item text="Node (33242, 32581, 8)" tag="0"/>
         <item text="Node (33248, 32582, 8)" tag="0"/>
         <item text="Node (33254, 32582, 8)" tag="0"/>
@@ -142,8 +142,8 @@
         <item text="Node (33361, 32632, 12)" tag="0"/>
         <item text="Node (33361, 32638, 12)" tag="0"/>
         <item text="Node (33363, 32643, 12)" tag="0"/>
-        <item text="huntstart|2:" tag="255"/>
         <item text="huntcheck|2:" tag="255"/>
+        <item text="huntstart|2:" tag="255"/>
         <item text="Node (33368, 32648, 12)" tag="0"/>
         <item text="Node (33373, 32650, 12)" tag="0"/>
         <item text="Node (33380, 32648, 12)" tag="0"/>
@@ -151,24 +151,24 @@
         <item text="Node (33381, 32656, 12)" tag="0"/>
         <item text="Node (33374, 32658, 12)" tag="0"/>
         <item text="Node (33374, 32664, 12)" tag="0"/>
-        <item text="huntstart|3:" tag="255"/>
         <item text="huntcheck|3:" tag="255"/>
+        <item text="huntstart|3:" tag="255"/>
         <item text="Node (33382, 32666, 12)" tag="0"/>
         <item text="Node (33389, 32667, 12)" tag="0"/>
         <item text="Node (33385, 32670, 12)" tag="0"/>
         <item text="Node (33378, 32668, 12)" tag="0"/>
         <item text="huntexit|3:" tag="255"/>
         <item text="Node (33371, 32669, 12)" tag="0"/>
-        <item text="huntstart|4:" tag="255"/>
         <item text="huntcheck|4:" tag="255"/>
+        <item text="huntstart|4:" tag="255"/>
         <item text="Node (33372, 32675, 12)" tag="0"/>
         <item text="Node (33376, 32682, 12)" tag="0"/>
         <item text="Node (33369, 32682, 12)" tag="0"/>
         <item text="huntexit|4:" tag="255"/>
         <item text="Node (33366, 32674, 12)" tag="0"/>
         <item text="Node (33361, 32674, 12)" tag="0"/>
-        <item text="huntstart|5:" tag="255"/>
         <item text="huntcheck|5:" tag="255"/>
+        <item text="huntstart|5:" tag="255"/>
         <item text="Node (33357, 32679, 12)" tag="0"/>
         <item text="Node (33357, 32686, 12)" tag="0"/>
         <item text="Node (33352, 32686, 12)" tag="0"/>
@@ -184,8 +184,8 @@
         <item text="Node (33334, 32661, 12)" tag="0"/>
         <item text="Node (33339, 32661, 12)" tag="0"/>
         <item text="Node (33341, 32655, 12)" tag="0"/>
-        <item text="huntstart|6:" tag="255"/>
         <item text="huntcheck|6:" tag="255"/>
+        <item text="huntstart|6:" tag="255"/>
         <item text="Node (33341, 32648, 12)" tag="0"/>
         <item text="Node (33336, 32646, 12)" tag="0"/>
         <item text="Node (33332, 32642, 12)" tag="0"/>
@@ -209,8 +209,8 @@
         <item text="Stand (33370, 32616, 12)" tag="1"/>
         <item text="No-Bottom-Floor:" tag="255"/>
         <item text="Node (33366, 32618, 11)" tag="0"/>
-        <item text="huntstart|7:" tag="255"/>
         <item text="huntcheck|7:" tag="255"/>
+        <item text="huntstart|7:" tag="255"/>
         <item text="Node (33361, 32619, 11)" tag="0"/>
         <item text="Node (33359, 32626, 11)" tag="0"/>
         <item text="Node (33363, 32629, 11)" tag="0"/>
@@ -219,14 +219,14 @@
         <item text="Node (33364, 32637, 11)" tag="0"/>
         <item text="Node (33361, 32632, 11)" tag="0"/>
         <item text="Node (33358, 32627, 11)" tag="0"/>
-        <item text="huntstart|8:" tag="255"/>
         <item text="huntcheck|8:" tag="255"/>
+        <item text="huntstart|8:" tag="255"/>
         <item text="Node (33354, 32622, 11)" tag="0"/>
         <item text="Node (33349, 32619, 11)" tag="0"/>
         <item text="Node (33344, 32620, 11)" tag="0"/>
         <item text="Node (33342, 32625, 11)" tag="0"/>
-        <item text="huntstart|9:" tag="255"/>
         <item text="huntcheck|9:" tag="255"/>
+        <item text="huntstart|9:" tag="255"/>
         <item text="Node (33348, 32629, 11)" tag="0"/>
         <item text="Node (33348, 32634, 11)" tag="0"/>
         <item text="Node (33342, 32632, 11)" tag="0"/>
@@ -237,30 +237,30 @@
         <item text="Node (33332, 32623, 11)" tag="0"/>
         <item text="Node (33337, 32621, 11)" tag="0"/>
         <item text="huntexit|9:" tag="255"/>
-        <item text="huntstart|10:" tag="255"/>
         <item text="huntcheck|10:" tag="255"/>
+        <item text="huntstart|10:" tag="255"/>
         <item text="Node (33341, 32617, 11)" tag="0"/>
         <item text="Node (33343, 32611, 11)" tag="0"/>
         <item text="Node (33342, 32605, 11)" tag="0"/>
         <item text="Node (33338, 32602, 11)" tag="0"/>
-        <item text="huntstart|11:" tag="255"/>
         <item text="huntcheck|11:" tag="255"/>
+        <item text="huntstart|11:" tag="255"/>
         <item text="Node (33334, 32603, 11)" tag="0"/>
         <item text="Node (33333, 32610, 11)" tag="0"/>
         <item text="Node (33325, 32610, 11)" tag="0"/>
         <item text="Node (33327, 32605, 11)" tag="0"/>
         <item text="Node (33333, 32602, 11)" tag="0"/>
         <item text="Node (33335, 32600, 11)" tag="0"/>
-        <item text="huntstart|12:" tag="255"/>
         <item text="huntcheck|12:" tag="255"/>
+        <item text="huntstart|12:" tag="255"/>
         <item text="Node (33334, 32595, 11)" tag="0"/>
         <item text="Node (33326, 32594, 11)" tag="0"/>
         <item text="Node (33326, 32588, 11)" tag="0"/>
         <item text="Node (33332, 32588, 11)" tag="0"/>
         <item text="Node (33337, 32597, 11)" tag="0"/>
         <item text="Node (33341, 32600, 11)" tag="0"/>
-        <item text="huntstart|13:" tag="255"/>
         <item text="huntcheck|13:" tag="255"/>
+        <item text="huntstart|13:" tag="255"/>
         <item text="Node (33347, 32600, 11)" tag="0"/>
         <item text="Node (33347, 32594, 11)" tag="0"/>
         <item text="Node (33344, 32588, 11)" tag="0"/>
