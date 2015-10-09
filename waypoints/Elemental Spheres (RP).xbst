@@ -181,7 +181,8 @@
         <item text="Node (33266, 32202, 13)" tag="0"/>
         <item text="spawnexit:" tag="255"/>
         <item text="edron|spawn~towers:" tag="255"/>
-        <item text="Stand (33262, 32202, 13)" tag="1"/>
+        <item text="Stand (33263, 32202, 13)" tag="1"/>
+        <item text="Enter Teleport(West)" tag="246"/>
         <item text="Stand (33268, 31836, 10)" tag="1"/>
         <item text="Ladder (33268, 31830, 9)" tag="2"/>
         <item text="Stand (33271, 31832, 8)" tag="1"/>

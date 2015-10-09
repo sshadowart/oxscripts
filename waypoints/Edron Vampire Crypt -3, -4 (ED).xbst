@@ -239,7 +239,8 @@
         <item text="huntexit|12:" tag="255"/>
         <item text="SIgnore" tag="10"/>
         <item text="Node (33019, 31606, 11)" tag="0"/>
-        <item text="Stand (33019, 31605, 11)" tag="1"/>
+        <item text="Stand (33019, 31606, 11)" tag="1"/>
+        <item text="Enter Teleport(North)" tag="246"/>
         <item text="Walker.Goto('spawnexit')" tag="254"/>
         <item text="huntstart|12:" tag="255"/>
         <item text="Node (33006, 31611, 11)" tag="0"/>

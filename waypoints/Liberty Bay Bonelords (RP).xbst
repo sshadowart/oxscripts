@@ -189,7 +189,8 @@
         <item text="huntcheck|4:" tag="255"/>
         <item text="huntexit|4:" tag="255"/>
         <item text="Node (32117, 32751, 9)" tag="0"/>
-        <item text="Stand (32117, 32750, 9)" tag="1"/>
+        <item text="Stand (32117, 32751, 9)" tag="1"/>
+        <item text="Enter Teleport(North)" tag="246"/>
         <item text="Walker.Goto('spawnexit')" tag="254"/>
         <item text="huntstart|4:" tag="255"/>
         <item text="Node (32115, 32754, 9)" tag="0"/>
