@@ -99,7 +99,7 @@
         <item text="Node (32679, 32948, 7)" tag="0"/>
         <item text="Node (32681, 32954, 7)" tag="0"/>
         <item text="Node (32680, 32962, 7)" tag="0"/>
-        <item text="Rope (32679, 32963, 7)" tag="3"/>
+        <item text="Hole (32679, 32963, 7)" tag="4"/>
         <item text="end:" tag="255"/>
         <item text="enterspawn:" tag="255"/>
         <item text="Node (32678, 32970, 8)" tag="0"/>
@@ -122,7 +122,9 @@
         <item text="huntcheck|2:" tag="255"/>
         <item text="huntstart|2:" tag="255"/>
         <item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
-        <item text="Node (32653, 32978, 8)" tag="0"/>
+        <item text="Node (32652, 32978, 8)" tag="0"/>
+        <item text="Stand (32652, 32979, 8)" tag="1"/>
+        <item text="Stand (32652, 32980, 8)" tag="1"/>
         <item text="Node (32650, 32983, 8)" tag="0"/>
         <item text="Stand (32649, 32984, 8)" tag="1"/>
         <item text="Node (32643, 32977, 9)" tag="0"/>
@@ -130,10 +132,12 @@
         <item text="Node (32643, 32977, 9)" tag="0"/>
         <item text="Node (32649, 32981, 9)" tag="0"/>
         <item text="Stand (32650, 32981, 9)" tag="1"/>
+        <item text="Stand (32650, 32981, 8)" tag="1"/>
+        <item text="Stand (32651, 32979, 8)" tag="1"/>
         <item text="No-Bottom-Floor:" tag="255"/>
         <item text="huntcheck|3:" tag="255"/>
         <item text="huntstart|3:" tag="255"/>
-        <item text="Node (32650, 32978, 8)" tag="0"/>
+        <item text="Node (32651, 32978, 8)" tag="0"/>
         <item text="Node (32639, 32974, 8)" tag="0"/>
         <item text="Node (32630, 32973, 8)" tag="0"/>
         <item text="Node (32621, 32977, 8)" tag="0"/>
@@ -141,6 +145,10 @@
         <item text="huntcheck|4:" tag="255"/>
         <item text="huntstart|4:" tag="255"/>
         <item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
+        <item text="Node (32613, 32980, 8)" tag="0"/>
+        <item text="Stand (32613, 32979, 8)" tag="1"/>
+        <item text="Stand (32611, 32977, 8)" tag="1"/>
+        <item text="Node (32612, 32978, 8)" tag="0"/>
         <item text="Node (32610, 32976, 8)" tag="0"/>
         <item text="Stand (32609, 32975, 8)" tag="1"/>
         <item text="Node (32611, 32982, 9)" tag="0"/>
@@ -148,25 +156,46 @@
         <item text="Node (32611, 32982, 9)" tag="0"/>
         <item text="Node (32608, 32976, 9)" tag="0"/>
         <item text="Stand (32607, 32975, 9)" tag="1"/>
+        <item text="Stand (32609, 32978, 8)" tag="1"/>
+        <item text="Node (32610, 32978, 8)" tag="0"/>
+        <item text="Stand (32611, 32978, 8)" tag="1"/>
+        <item text="Node (32612, 32978, 8)" tag="0"/>
+        <item text="Stand (32612, 32979, 8)" tag="1"/>
+        <item text="Node (32612, 32980, 8)" tag="0"/>
         <item text="No-Bottom-Floor:" tag="255"/>
         <item text="huntcheck|5:" tag="255"/>
         <item text="huntstart|5:" tag="255"/>
-        <item text="Node (32611, 32980, 8)" tag="0"/>
         <item text="Node (32603, 32981, 8)" tag="0"/>
-        <item text="Node (32594, 32981, 8)" tag="0"/>
+        <item text="Node (32596, 32982, 8)" tag="0"/>
         <item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
+        <item text="Node (32593, 32982, 8)" tag="0"/>
+        <item text="Stand (32592, 32982, 8)" tag="1"/>
+        <item text="Node (32591, 32982, 8)" tag="0"/>
+        <item text="Stand (32590, 32982, 8)" tag="1"/>
+        <item text="Node (32589, 32982, 8)" tag="0"/>
+        <item text="Stand (32588, 32981, 8)" tag="1"/>
         <item text="Node (32589, 32981, 8)" tag="0"/>
         <item text="Stand (32588, 32981, 8)" tag="1"/>
-        <item text="No-Bottom-Floor:" tag="255"/>
         <item text="Node (32593, 32980, 9)" tag="0"/>
         <item text="Node (32598, 32980, 9)" tag="0"/>
         <item text="Node (32593, 32980, 9)" tag="0"/>
         <item text="Node (32588, 32980, 9)" tag="0"/>
         <item text="Stand (32587, 32980, 9)" tag="1"/>
-        <item text="Node (32593, 32984, 8)" tag="0"/>
+        <item text="No-Bottom-Floor:" tag="255"/>
+        <item text="Stand (32591, 32983, 8)" tag="1"/>
+        <item text="Stand (32592, 32983, 8)" tag="1"/>
+        <item text="Node (32593, 32983, 8)" tag="0"/>
+        <item text="Node (32592, 32989, 8)" tag="0"/>
         <item text="Node (32592, 32995, 8)" tag="0"/>
-        <item text="Node (32590, 33000, 8)" tag="0"/>
+        <item text="Node (32590, 32999, 8)" tag="0"/>
         <item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
+        <item text="Stand (32591, 32999, 8)" tag="1"/>
+        <item text="Node (32593, 33001, 8)" tag="0"/>
+        <item text="Stand (32594, 33002, 8)" tag="1"/>
+        <item text="Node (32594, 33003, 8)" tag="0"/>
+        <item text="Stand (32594, 33004, 8)" tag="1"/>
+        <item text="Node (32595, 33004, 8)" tag="0"/>
+        <item text="Stand (32595, 33005, 8)" tag="1"/>
         <item text="Node (32596, 33005, 8)" tag="0"/>
         <item text="Stand (32597, 33006, 8)" tag="1"/>
         <item text="Node (32601, 33002, 9)" tag="0"/>
@@ -174,8 +203,12 @@
         <item text="Node (32601, 33002, 9)" tag="0"/>
         <item text="Node (32596, 33003, 9)" tag="0"/>
         <item text="Stand (32595, 33004, 9)" tag="1"/>
+        <item text="Node (32594, 33003, 8)" tag="0"/>
+        <item text="Stand (32594, 33002, 8)" tag="1"/>
+        <item text="Node (32593, 33001, 8)" tag="0"/>
+        <item text="Stand (32591, 33000, 8)" tag="1"/>
+        <item text="Node (32590, 33000, 8)" tag="0"/>
         <item text="No-Bottom-Floor:" tag="255"/>
-        <item text="Node (32590, 33001, 8)" tag="0"/>
         <item text="Node (32592, 33008, 8)" tag="0"/>
         <item text="Node (32601, 33010, 8)" tag="0"/>
         <item text="Node (32609, 33006, 8)" tag="0"/>
@@ -183,8 +216,13 @@
         <item text="huntexit|5:" tag="255"/>
         <item text="huntexit|4:" tag="255"/>
         <item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
-        <item text="Node (32620, 32992, 8)" tag="0"/>
-        <item text="Node (32620, 32997, 8)" tag="0"/>
+        <item text="Node (32621, 32992, 8)" tag="0"/>
+        <item text="Stand (32621, 32993, 8)" tag="1"/>
+        <item text="Node (32621, 32994, 8)" tag="0"/>
+        <item text="Stand (32621, 32995, 8)" tag="1"/>
+        <item text="Node (32621, 32996, 8)" tag="0"/>
+        <item text="Stand (32621, 32997, 8)" tag="1"/>
+        <item text="Node (32621, 32997, 8)" tag="0"/>
         <item text="Stand (32620, 32998, 8)" tag="1"/>
         <item text="Node (32623, 32996, 9)" tag="0"/>
         <item text="Node (32626, 32991, 9)" tag="0"/>
@@ -192,10 +230,13 @@
         <item text="Node (32626, 32991, 9)" tag="0"/>
         <item text="Node (32626, 32996, 9)" tag="0"/>
         <item text="Stand (32625, 32997, 9)" tag="1"/>
+        <item text="Node (32622, 32994, 8)" tag="0"/>
+        <item text="Stand (32622, 32993, 8)" tag="1"/>
+        <item text="Node (32622, 32992, 8)" tag="0"/>
+        <item text="Node (32628, 32995, 8)" tag="0"/>
         <item text="No-Bottom-Floor:" tag="255"/>
         <item text="huntcheck|6:" tag="255"/>
         <item text="huntstart|6:" tag="255"/>
-        <item text="Node (32628, 32995, 8)" tag="0"/>
         <item text="Node (32625, 33003, 8)" tag="0"/>
         <item text="Node (32631, 33010, 8)" tag="0"/>
         <item text="Node (32640, 33008, 8)" tag="0"/>
@@ -214,7 +255,7 @@
         <item text="spawnexit:" tag="255"/>
         <item text="port hope|spawn~south.exit:" tag="255"/>
         <item text="Node (32678, 32965, 8)" tag="0"/>
-        <item text="Rope (32679, 32964, 8)" tag="3"/>
+        <item text="Rope (32679, 32963, 8)" tag="3"/>
         <item text="Node (32681, 32954, 7)" tag="0"/>
         <item text="Node (32679, 32948, 7)" tag="0"/>
         <item text="Node (32675, 32942, 7)" tag="0"/>
