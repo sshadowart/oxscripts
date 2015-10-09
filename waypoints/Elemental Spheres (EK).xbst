@@ -120,7 +120,8 @@
         <item text="huntexit|1:" tag="255"/>
         <item text="spawnexit:" tag="255"/>
         <item text="edron|spawn~towers:" tag="255"/>
-		<item text="Stand (33085, 32094, 13)" tag="1"/>
+		<item text="Stand (33085, 32095, 13)" tag="1"/>
+		<item text="Enter Teleport(North)" tag="246"/>
         <item text="Stand (33268, 31836, 10)" tag="1"/>
         <item text="Ladder (33268, 31830, 9)" tag="2"/>
         <item text="Stand (33271, 31832, 8)" tag="1"/>
