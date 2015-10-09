@@ -1,16 +1,17 @@
 <panel name="Spell Shooter">
-    <control name="shooterList">
-    </control>
+	<control name="shooterList">
+	</control>
 </panel>
 <panel name="Self Healer">
-    <control name="SpellList">
-        <item spell="Exura Vita" mana="160" vcomp="0" vsign="1" vrandom="0" vvalue="45" enabled="1"/>
-        <item spell="Exura Gran" mana="70" vcomp="0" vsign="1" vrandom="0" vvalue="70" enabled="1"/>
-        <item spell="Exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="90" enabled="1"/>
-    </control>
-    <control name="ItemList">
-        <item id="238" vcomp="0" vsign="3" vrandom="0" vvalue="50" enabled="1"/>
-    </control>
+	<control name="SpellList">
+		<item spell="exura san" mana="160" vcomp="0" vsign="1" vrandom="0" vvalue="50" enabled="1"/>
+		<item spell="exura gran" mana="70" vcomp="0" vsign="1" vrandom="0" vvalue="80" enabled="1"/>
+		<item spell="exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="92" enabled="1"/>
+	</control>
+	<control name="ItemList">
+		<item id="236" vcomp="0" vsign="1" vrandom="0" vvalue="35" enabled="1"/>
+		<item id="237" vcomp="0" vsign="3" vrandom="0" vvalue="70" enabled="1"/>
+	</control>
 </panel>
 <panel name="Tools">
 	<control name="LightEnable" value="0"/>
@@ -165,6 +166,7 @@
         <item text="Stand (33082, 32538, 9)" tag="1"/>
         <item text="Node (33080, 32545, 8)" tag="0"/>
         <item text="Rope (33080, 32545, 8)" tag="3"/>
+        <item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
         <item text="Node (33087, 32552, 7)" tag="0"/>
         <item text="Node (33092, 32557, 7)" tag="0"/>
         <item text="Node (33098, 32561, 7)" tag="0"/>

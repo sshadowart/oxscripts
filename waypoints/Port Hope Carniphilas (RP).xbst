@@ -193,6 +193,7 @@
 		<item text="Ladder (32886, 32590, 8)" tag="2"/>
         <item text="spawnexit:" tag="255"/>
         <item text="port hope|spawn~east.exit:" tag="255"/>
+        <item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
         <item text="Node (32879, 32594, 7)" tag="0"/>
         <item text="Node (32872, 32595, 7)" tag="0"/>
         <item text="Node (32867, 32599, 7)" tag="0"/>

@@ -159,6 +159,7 @@
         <item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33332, 31809, 13)" tag="0"/>
 		<item text="Stand (33331, 31809, 13)" tag="1"/>
+        <item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
 		<item text="Node (33322, 31804, 12)" tag="0"/>
 		<item text="Rope (33322, 31804, 12)" tag="3"/>
 		<item text="Node (33318, 31803, 11)" tag="0"/>

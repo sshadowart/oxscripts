@@ -160,6 +160,7 @@
         <item text="Node (33212, 31751, 7)" tag="0"/>
         <item text="Node (33215, 31757, 7)" tag="0"/>
         <item text="Stand (33216, 31757, 7)" tag="1"/>
+        <item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
         <item text="Node (33217, 31764, 6)" tag="0"/>
         <item text="Node (33221, 31768, 6)" tag="0"/>
         <item text="Node (33228, 31768, 6)" tag="0"/>
