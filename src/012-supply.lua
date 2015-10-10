@@ -604,18 +604,20 @@ Supply = (function()
 
 		-- Done, go to town exit
 		log('Ready to hunt. Walking to the spawn.')
+
+		-- Update script state
+		_script.state = 'Walking to town exit';
+		hudItemUpdate('Script', 'State', _script.state, false)
+		
 		walkerGotoLocation(_script.town, _script.townexit, function()
 
 			-- Update script state
-			if _config['HUD']['Enabled'] then
-				_script.state = 'Walking to spawn';
-				hudItemUpdate('Script', 'State', _script.state, false)
-			end
+			_script.state = 'Walking to spawn';
+			hudItemUpdate('Script', 'State', _script.state, false)
 
 			-- Exited town, go to spawn
 			walkerStartPath(_script.town, _script.townexit, 'spawn', function()
 				-- Enter spawn
-				print('DEBUG 1')
 				xeno.gotoLabel('enterspawn')
 				xeno.setWalkerEnabled(true)
 				xeno.setTargetingEnabled(true)

@@ -431,21 +431,40 @@ do
 			-- Time related statistics
 			local timediff = os.time() - _script.start
 			local serverSave = getTimeUntilServerSave() * 3600
+			local playerStamina = xeno.getSelfStamina() * 60
 			local logoutConfig = _config['Logout']
-			hudItemUpdate('General', 'Balance', _script.balance, true)
 
+			hudItemUpdate('General', 'Balance', _script.balance, true)
 			hudItemUpdate('General', 'Online Time', formatTime(timediff), true)
-	 		if logoutConfig['Enabled'] then
-	 			local timeLimit = logoutConfig['Time-Limit'] or 0
-	 			local ssLimit = logoutConfig['Server-Save'] or 0
-	 			local timeLeft = timeLimit > 0 and (timeLimit * 3600) - (os.time() - _script.start) or 0
-	 			local ssLeft = serverSave > 0 and serverSave - (ssLimit * 3600) or 0
-	 			if timeLimit > 0 or ssLeft > 0 then
-					hudItemUpdate('General', 'Time Remaining', formatTime((ssLeft < timeLeft or timeLeft == 0) and ssLeft or timeLeft), true)
-	 			end
-	 		end
+ 			
+ 			local timeLimit = logoutConfig['Time-Limit'] or 0
+ 			local ssLimit = logoutConfig['Server-Save'] or 0
+ 			local stamLimit = logoutConfig['Stamina'] or 0
+ 			local remaining = {}
+
+ 			if timeLimit > 0 then
+ 				remaining[#remaining+1] = (timeLimit * 3600) - (os.time() - _script.start)
+ 			end
+
+ 			if serverSave > 0 then
+ 				remaining[#remaining+1] = serverSave - (ssLimit * 3600)
+ 			end
+
+ 			if stamLimit > 0 then
+ 				remaining[#remaining+1] = playerStamina - (stamLimit * 3600)
+ 			end
+
+ 			-- Sort remaining times (lowest first)
+			table.sort(remaining)
+
+			-- Choose lowest remaining time to display
+			local remainingTime = remaining[1]
+ 			if remainingTime then
+				hudItemUpdate('General', 'Time Remaining', formatTime(remainingTime), true)
+ 			end
+
 			hudItemUpdate('General', 'Server Save', formatTime(serverSave), true)
-			hudItemUpdate('General', 'Stamina', formatTime(xeno.getSelfStamina() * 60), true)
+			hudItemUpdate('General', 'Stamina', formatTime(playerStamina), true)
 
 			local ping = xeno.ping()
 			if ping ~= _script.pingLast then
@@ -467,8 +486,10 @@ do
 			hudItemUpdate('Statistics', 'Profit', formatNumber(hourlygain) .. ' gp/h', true)
 
 			-- Loot & Supply Polling
-			hudQueryLootChanges()
-			hudQuerySupplyChanges()
+			if _script.state ~= 'Setting up backpacks' then
+				hudQueryLootChanges()
+				hudQuerySupplyChanges()
+			end
 
 			hudUpdateDimensions()
 			hudUpdatePositions()

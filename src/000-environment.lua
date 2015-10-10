@@ -90,6 +90,7 @@ xeno.selfUseItemWithCreature = selfUseItemWithCreature
 xeno.selfBrowseField = selfBrowseField
 xeno.doSelfTurn = doSelfTurn
 xeno.doSelfStep = doSelfStep
+xeno.doSelfWalkTo = doSelfWalkTo
 xeno.slotUseItem = slotUseItem
 xeno.slotMoveItemToContainer = slotMoveItemToContainer
 xeno.shopBuyItemByName = shopBuyItemByName

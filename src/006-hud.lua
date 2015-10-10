@@ -546,7 +546,7 @@ Hud = (function()
 		hudItemCreate('General', 'Latency', '--', true)
 		hudItemCreate('General', 'Balance', '--', true)
 
-		hudItemCreate('Script', 'State', 'Starting', true)
+		hudItemCreate('Script', 'State', 'Setting up backpacks', true)
 		hudItemCreate('Script', 'Route', '--', true)
 		--hudItemCreate('Script', 'Avg. Resupply', '--', true)
 		--hudItemCreate('Script', 'Avg. Round', '--', true)

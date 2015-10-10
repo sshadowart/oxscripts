@@ -435,7 +435,7 @@ Container = (function()
 
 	local function resetContainers(minimize, callback)
 		-- Close all containers
-		for i = 0, 15 do
+		for i = 0, 16 do
 			xeno.closeContainer(i)
 		end
 
@@ -448,8 +448,6 @@ Container = (function()
 				xeno.containerUseItem(0, spot)
 				-- Wait for child to open
 				setTimeout(function()
-					-- Minimize backpack
-					xeno.minimizeContainer(freeslot)
 					-- Open next child
 					if #backpacks > index then
 						openChild(index+1)
@@ -484,6 +482,12 @@ Container = (function()
 		log('Setting up your backpacks, please wait...')
 		local function finishSetup()
 			log('Your backpacks have been setup. Do NOT rearrange containers!')
+			-- Minimize all containers
+			for i = 1, 15 do
+				if xeno.getContainerOpen(i) then
+					xeno.minimizeContainer(i)
+				end
+			end
 			callback()
 		end
 

@@ -221,7 +221,6 @@ Npc = (function()
 						containerMoveItems({
 							src = _backpacks['Main'],
 							dest = destination,
-							slot = 0,
 							items = {[itemid] = true},
 							disableSourceCascade = true,
 							openwindow = false

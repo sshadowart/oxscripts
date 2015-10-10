@@ -27,6 +27,7 @@ local _script = {
 	ropeCode = 0,
 	shovelCode = 0,
 
+	state = 'Setting up backpacks',
 	stuck = false,
 	luring = false,
 	dynamicLuring = false,

@@ -203,7 +203,7 @@ Walker = (function()
 		return needsTools and tools or false
 	end
 
-	local function walkerReachNPC(name, callback, tries, isRetry)
+	local function walkerReachNPC(name, callback, tries)
 		tries = tries ~= nil and tries or 5
 		local index = nil
 		-- Loop through battle list
@@ -215,13 +215,7 @@ Walker = (function()
 				-- We need to walk to it
 				if distance > 2 then
 					index = i
-					-- First attempt we use ground (right-click)
-					if not isRetry then
-						xeno.selfUseItemFromGround(creaturePos.x, creaturePos.y, creaturePos.z)
-					-- Otherwise, we follow npc
-					else
-						xeno.followCreature(xeno.getCreatureIDFromIndex(i))
-					end
+					xeno.doSelfWalkTo(creaturePos.x, creaturePos.y, creaturePos.z)
 				-- We are close enough
 				else
 					callback()
@@ -237,7 +231,7 @@ Walker = (function()
 			elseif tries <= 0 then
 				error('Unable to reach ' .. name .. '. Please contact support.')
 			else
-				walkerReachNPC(name, callback, tries - 1, true)
+				walkerReachNPC(name, callback, tries - 1)
 			end
 		end, pingDelay(DELAY.FOLLOW_WAIT))
 	end
