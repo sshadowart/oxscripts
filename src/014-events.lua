@@ -547,6 +547,19 @@ do
 			return
 		end
 
+		-- Update script route
+		local routeLabel = split(name, 'No-')
+		local routeName = routeLabel and routeLabel[2]
+		if routeName then
+			if _config['HUD']['Enabled'] then
+				-- False route matches current route
+				-- if routeName:lower() == _script.state:lower() then
+					_script.route = '--';
+					hudItemUpdate('Script', 'Route', _script.route, true)
+				-- end
+			end
+		end
+
 		-- Label events
 		local label = split(name, '|')
 		local group = label[1]

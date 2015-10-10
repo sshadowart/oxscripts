@@ -431,7 +431,7 @@ Hud = (function()
 			local gain = (totalLooted + totalQueryValue) - totalWaste
 			local timediff = os.time() - _script.start
 			local hourlygain = tonumber(math.floor(gain / (timediff / 3600))) or 0
-			hudItemUpdate('Statistics', 'Profit', formatNumber(hourlygain) .. ' gp/h', false)
+			hudItemUpdate('Statistics', 'Hourly Profit', formatNumber(hourlygain) .. ' gp/h', false)
 			-- Update HUD
 			hudUpdatePositions()
 		end
@@ -548,7 +548,7 @@ Hud = (function()
 			local gain = totalLooted - (totalWaste + totalQueryValue)
 			local timediff = os.time() - _script.start
 			local hourlygain = tonumber(math.floor(gain / (timediff / 3600))) or 0
-			hudItemUpdate('Statistics', 'Profit', formatNumber(hourlygain) .. ' gp/h', false)
+			hudItemUpdate('Statistics', 'Hourly Profit', formatNumber(hourlygain) .. ' gp/h', false)
 		end
 	end
 
