@@ -570,8 +570,8 @@ Container = (function()
 			local index = 2
 			local list = {}
 
-			list[#list+1] = '1  -  Main backpack'
-			list[#list+1] = '2  -  Loot backpack'
+			list[#list+1] = '#1  -  Main backpack'
+			list[#list+1] = '#2  -  Loot backpack'
 
 			local containerStatuses = {
 				{'Gold', needGoldContainer},
@@ -585,7 +585,7 @@ Container = (function()
 				local status = containerStatuses[i]
 				if status and status[2] then
 					_backpacks[status[1]] = index
-					list[#list+1] = ('%d  -  %s backpack'):format(index+1, status[1])
+					list[#list+1] = ('#%d  -  %s backpack'):format(index+1, status[1])
 					index = index + 1
 				else
 					_backpacks[status[1]] = 0

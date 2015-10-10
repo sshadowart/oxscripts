@@ -4,8 +4,8 @@
 
 local function init()
 	-- Made in Texas with love <3
-	xeno.HUDCreateText(45, 33, 'X E N O B O T', 0, 0, 0)
-	xeno.HUDCreateText(46, 32, 'X E N O B O T', 255, 255, 255)
+	xeno.HUDCreateText(65, 33, 'X E N O B O T', 0, 0, 0)
+	xeno.HUDCreateText(66, 32, 'X E N O B O T', 255, 255, 255)
 
 	-- Imports
 	local loadConfigFile = Ini.loadConfigFile
