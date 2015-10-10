@@ -140,27 +140,15 @@ Npc = (function()
 			local preCap = xeno.getSelfCap()
 			-- Talk to NPC
 			talk(dialog, function(responses)
-				-- Search for amount in dialog
-				if responses then
-					for i = 1, #responses do
-						local response = responses[i]
-						if response then
-							local amountText = response:gsub(',', '')
-							local amount = amountText:match('(%d+) gold')
-							if amount then
-								local amount = tonumber(amount) or nil
-								if amount then
-									-- Move change to gold
-									moveTransactionGoldChange(0, function()
-										-- Recurse sell
-										sell(dialog)
-									end)
-									return true
-								end
-							end
-						end
-					end
-				end			
+				-- Capacity changed, selling flasks most likely succeeded
+				if preCap ~= xeno.getSelfCap() then
+					-- Move change
+					moveTransactionGoldChange(0, function()
+						-- Attempt to sell more
+						sell(dialog)
+					end)
+					return true
+				end
 				-- Final callback (no more flasks to deposit)
 				callback(true)
 			end)

@@ -8,6 +8,7 @@ Depot = (function()
 	local getSelfLookPosition = Core.getSelfLookPosition
 	local getPositionFromDirection = Core.getPositionFromDirection
 	local warn = Console.warn
+	local error = Console.error
 	local getLastContainer = Container.getLastContainer
 	local getContainerByName = Container.getContainerByName
 	local containerMoveItems = Container.containerMoveItems
@@ -186,6 +187,15 @@ Depot = (function()
 
 				-- Set depot state
 				_script.depotOpen = true
+
+				-- Check slots
+				for spot = 0, 2 do
+					local item = xeno.getContainerSpotData(depot, spot)
+					if not item or not xeno.isItemContainer(item.id) then
+						error('The first 3 depot slots must be containers. [non stackables, stackables, supplies]')
+						return 
+					end
+				end
 
 				-- We need to deposit
 				if needDeposit then

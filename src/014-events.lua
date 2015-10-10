@@ -474,16 +474,27 @@ do
 			end
 
 			hudItemUpdate('General', 'Latency', ping .. ' ms (' .. math.floor((_script.pingSum / _script.pingEntries) + 0.5) .. ')', true)
+			
+			-- Update experience gain
 			local gain = xeno.getSelfExperience() - _script.baseExp
 			local hourlyexp = tonumber(math.floor(gain / (timediff / 3600))) or 0
-			hudItemUpdate('Statistics', 'Experience', formatNumber(hourlyexp) .. ' xp/h', true)
+			hudItemUpdate('Statistics', 'Experience', formatNumber(gain) .. ' xp', true)
+			hudItemUpdate('Statistics', 'Hourly Exp', formatNumber(hourlyexp) .. ' xp/h', true)
 
 			-- Update profit
 			local totalLooted = _hud.index['Statistics']['Looted'].value
 			local totalWaste = _hud.index['Statistics']['Wasted'].value
 			local profit = totalLooted - totalWaste
 			local hourlygain = tonumber(math.floor(profit / (timediff / 3600))) or 0
-			hudItemUpdate('Statistics', 'Profit', formatNumber(hourlygain) .. ' gp/h', true)
+			hudItemUpdate('Statistics', 'Profit', formatNumber(profit) .. ' gp', true)
+			hudItemUpdate('Statistics', 'Hourly Profit', formatNumber(hourlygain) .. ' gp/h', true)
+
+			-- Update level stats
+			local playerLevel = xeno.getSelfLevel()
+			local targetLevel = playerLevel + 1
+			local expLeft = (50/3) * (targetLevel^3) - (100 * targetLevel^2) + ((850/3) * targetLevel) - 200
+			hudItemUpdate('Statistics', 'Exp to Level', formatNumber(expLeft) .. ' xp', true)
+			hudItemUpdate('Statistics', 'Time to Level', hourlyexp > 0 and formatTime(expLeft / hourlyexp) or formatTime(0), true)
 
 			-- Loot & Supply Polling
 			if _script.state ~= 'Setting up backpacks' then

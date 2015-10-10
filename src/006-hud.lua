@@ -59,7 +59,9 @@ Hud = (function()
 				end
 
 				-- Add panel title if it doesn't yet exist
-				if not panel.pointer then
+				if not panel.pointer
+					and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+					and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
 					leftcolumn.panels[i].pointer = xeno.HUDCreateText(currentAxisX, currentAxisY, '[' .. panel.title .. ']', unpack(THEME[_script.theme].title))
 				-- Update position
 				else
@@ -90,7 +92,9 @@ Hud = (function()
 						-- Icon doesn't exist, add it
 						if not item.ipointer then
 							-- Only add an icon if they are enabled
-							if _config['HUD']['Show-Icons'] then
+							if _config['HUD']['Show-Icons']
+								and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+								and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
 								-- Images need slight y-axis offset
 								panel.items[j].ipointer = xeno.HUDCreateItemImage(currentAxisX, currentAxisY-5, item.title, 16, 100)
 							end
@@ -101,7 +105,11 @@ Hud = (function()
 					end
 					-- Indent title if there's an icon
 					local xOffset = item.ipointer and 25 or 0
-					panel.items[j].tpointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+
+					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
+						panel.items[j].tpointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+					end
 				-- Update item title position
 				else
 					-- Update icon position (even if disabled, since we can't destroy them)
@@ -118,7 +126,10 @@ Hud = (function()
 					if type(item.value) == 'number' then
 						itemValue = formatNumber(item.value) .. ' gp'
 					end
-					panel.items[j].vpointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
+						panel.items[j].vpointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+					end
 				-- Update item value position
 				else
 					xeno.HUDUpdateLocation(item.vpointer, currentAxisX + 110, currentAxisY)
@@ -175,7 +186,9 @@ Hud = (function()
 				end
 
 				-- Add panel title if it doesn't yet exist
-				if not panel.pointer then
+				if not panel.pointer
+					and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+					and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
 					rightcolumn.panels[i].pointer = xeno.HUDCreateText(currentAxisX, currentAxisY, '[' .. panel.title .. ']', unpack(THEME[_script.theme].title))
 				-- Update position
 				else
@@ -206,7 +219,9 @@ Hud = (function()
 						-- Icon doesn't exist, add it
 						if not item.ipointer then
 							-- Only add an icon if they are enabled
-							if _config['HUD']['Show-Icons'] then
+							if _config['HUD']['Show-Icons']
+								and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+								and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
 								-- Images need slight y-axis offset
 								panel.items[j].ipointer = xeno.HUDCreateItemImage(currentAxisX, currentAxisY-5, item.title, 16, 100)
 							end
@@ -217,7 +232,10 @@ Hud = (function()
 					end
 					-- Indent title if there's an icon
 					local xOffset = item.ipointer and 25 or 0
-					panel.items[j].tpointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
+						panel.items[j].tpointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+					end
 				-- Update item title position
 				else
 					-- Update icon position (even if disabled, since we can't destroy them)
@@ -234,7 +252,10 @@ Hud = (function()
 					if type(item.value) == 'number' then
 						itemValue = formatNumber(item.value) .. ' gp'
 					end
-					panel.items[j].vpointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
+						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
+						panel.items[j].vpointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+					end
 				-- Update item value position
 				else
 					xeno.HUDUpdateLocation(item.vpointer, currentAxisX + 110, currentAxisY)
@@ -553,8 +574,12 @@ Hud = (function()
 
 		hudItemCreate('Statistics', 'Experience', '--', true)
 		hudItemCreate('Statistics', 'Profit', '--', true)
+		hudItemCreate('Statistics', 'Hourly Exp', '--', true)
+		hudItemCreate('Statistics', 'Hourly Profit', '--', true)
 		hudItemCreate('Statistics', 'Looted', 0, true)
 		hudItemCreate('Statistics', 'Wasted', 0, true)
+		hudItemCreate('Statistics', 'Exp to Level', '--', true)
+		hudItemCreate('Statistics', 'Time to Level', '--', true)
 		hudUpdatePositions()
 	end
 
