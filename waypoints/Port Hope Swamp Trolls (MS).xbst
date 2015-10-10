@@ -5,7 +5,7 @@
 <panel name="Self Healer">
 	<control name="SpellList">
 		<item spell="Exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="80" enabled="1"/>
-                <item spell="exura" mana="20" vcomp="1" vsign="3" vrandom="0" vvalue="99" enabled="1"/>
+        <item spell="exura" mana="20" vcomp="1" vsign="3" vrandom="0" vvalue="99" enabled="1"/>
 	</control>
 	<control name="ItemList">
 		<item id="266" vcomp="0" vsign="1" vrandom="0" vvalue="50" enabled="1"/>
@@ -57,6 +57,7 @@
         <item type="Bonelord" chs="0" max="100" min="0" prio="9" prox="7" count="1"/>
         <item type="Skeleton" chs="6" max="100" min="0" prio="8" prox="7" count="1"/>
         <item type="Crab" chs="6" max="100" min="0" prio="7" prox="7" count="1"/>
+        <item type="Swamp Troll" chs="0" max="10" min="0" prio="5" prox="7" count="1"/>
         <item type="Swamp Troll" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
         <item type="Poison Spider" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
         <item type="Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>

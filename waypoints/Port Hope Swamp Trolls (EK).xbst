@@ -57,6 +57,7 @@
         <item type="Bonelord" chs="0" max="100" min="0" prio="9" prox="7" count="1"/>
         <item type="Skeleton" chs="0" max="100" min="0" prio="8" prox="7" count="1"/>
         <item type="Crab" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
+        <item type="Swamp Troll" chs="0" max="10" min="0" prio="5" prox="7" count="1"/>
         <item type="Swamp Troll" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
         <item type="Poison Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
         <item type="Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
