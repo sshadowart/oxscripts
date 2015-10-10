@@ -74,7 +74,7 @@
 	</control>
 </panel>
 <panel name="Walker">
-	<control name="WaypointList">
+    <control name="WaypointList">
         <item text="edron|bridge~spawn:" tag="255"/>
         <item text="SIgnore" tag="10"/>
         <item text="Node (33243, 31801, 7)" tag="0"/>
@@ -139,31 +139,18 @@
         <item text="Node (33139, 31591, 12)" tag="0"/>
         <item text="Node (33143, 31589, 12)" tag="0"/>
         <item text="Stand (33144, 31589, 12)" tag="1"/>
-        <item text="Node (33147, 31596, 13)" tag="0"/>
-        <item text="Node (33147, 31602, 13)" tag="0"/>
-        <item text="Node (33147, 31608, 13)" tag="0"/>
-        <item text="Node (33147, 31614, 13)" tag="0"/>
-        <item text="Node (33147, 31620, 13)" tag="0"/>
-        <item text="Node (33147, 31626, 13)" tag="0"/>
-        <item text="Node (33147, 31632, 13)" tag="0"/>
-        <item text="Node (33147, 31638, 13)" tag="0"/>
-        <item text="Node (33151, 31641, 13)" tag="0"/>
-        <item text="Node (33159, 31641, 13)" tag="0"/>
-        <item text="Node (33166, 31642, 13)" tag="0"/>
-        <item text="Node (33173, 31642, 13)" tag="0"/>
-        <item text="Node (33180, 31642, 13)" tag="0"/>
-        <item text="Node (33187, 31642, 13)" tag="0"/>
-        <item text="Node (33192, 31646, 13)" tag="0"/>
-        <item text="Node (33192, 31651, 13)" tag="0"/>
-        <item text="Node (33192, 31657, 13)" tag="0"/>
-        <item text="Stand (33192, 31658, 13)" tag="1"/>
-        <item text="Node (33192, 31663, 14)" tag="0"/>
-        <item text="Node (33194, 31669, 14)" tag="0"/>
-        <item text="Node (33198, 31674, 14)" tag="0"/>
-        <item text="Node (33205, 31674, 14)" tag="0"/>
-        <item text="Node (33205, 31672, 14)" tag="0"/>
-        <item text="Stand (33205, 31671, 14)" tag="1"/>
-        <item text="Node (33259, 31940, 15)" tag="0"/>
+        <item text="Node (33146, 31595, 13)" tag="0"/>
+        <item text="Node (33146, 31603, 13)" tag="0"/>
+        <item text="Node (33146, 31610, 13)" tag="0"/>
+        <item text="Node (33146, 31617, 13)" tag="0"/>
+        <item text="Node (33146, 31624, 13)" tag="0"/>
+        <item text="Node (33146, 31631, 13)" tag="0"/>
+        <item text="Node (33146, 31638, 13)" tag="0"/>
+        <item text="Node (33151, 31642, 13)" tag="0"/>
+        <item text="Node (33159, 31642, 13)" tag="0"/>
+        <item text="Node (33165, 31645, 13)" tag="0"/>
+        <item text="Stand (33163, 31650, 13)" tag="1"/>
+        <item text="Enter Teleport(West)" tag="246"/>
         <item text="EIgnore" tag="11"/>
         <item text="end:" tag="255"/>
         <item text="enterspawn:" tag="255"/>
@@ -193,7 +180,7 @@
         <item text="Node (33238, 31932, 14)" tag="0"/>
         <item text="Node (33239, 31937, 14)" tag="0"/>  
         <item text="Node (33244, 31935, 14)" tag="0"/>
-		<item text="huntcheck|West-Second-Floor|No-West-Second-Floor:" tag="255"/>
+        <item text="huntcheck|West-Second-Floor|No-West-Second-Floor:" tag="255"/>
         <item text="Stand (33246, 31933, 14)" tag="1"/>
         <item text="Stand (33246, 31932, 14)" tag="1"/>
         <item text="Node (33244, 31938, 13)" tag="0"/>
@@ -214,7 +201,7 @@
         <item text="Node (33230, 31934, 13)" tag="0"/>
         <item text="Node (33235, 31934, 13)" tag="0"/>
         <item text="Node (33235, 31926, 13)" tag="0"/>
-		<item text="huntcheck|West-Third-Floor|No-West-Third-Floor:" tag="255"/>
+        <item text="huntcheck|West-Third-Floor|No-West-Third-Floor:" tag="255"/>
         <item text="Stand (33235, 31923, 13)" tag="1"/>    
         <item text="Stand (33235, 31922, 13)" tag="1"/>
         <item text="Node (33231, 31922, 12)" tag="0"/>
@@ -290,7 +277,7 @@
         <item text="Node (33287, 31942, 14)" tag="0"/>
         <item text="Node (33289, 31937, 14)" tag="0"/>
         <item text="Node (33286, 31934, 14)" tag="0"/>
-		<item text="huntcheck|East-Second-Floor|No-East-Second-Floor:" tag="255"/>
+        <item text="huntcheck|East-Second-Floor|No-East-Second-Floor:" tag="255"/>
         <item text="Stand (33286, 31931, 14)" tag="1"/>  
         <item text="Stand (33286, 31930, 14)" tag="1"/>
         <item text="Node (33292, 31930, 13)" tag="0"/>
@@ -314,7 +301,7 @@
         <item text="Node (33293, 31943, 13)" tag="0"/>
         <item text="Node (33296, 31945, 13)" tag="0"/>
         <item text="Stand (33296, 31949, 13)" tag="1"/>
-		<item text="huntcheck|East-Third-Floor|No-East-Third-Floor:" tag="255"/>
+        <item text="huntcheck|East-Third-Floor|No-East-Third-Floor:" tag="255"/>
         <item text="Stand (33296, 31948, 13)" tag="1"/>
         <item text="Node (33297, 31943, 12)" tag="0"/>
         <item text="Node (33298, 31939, 12)" tag="0"/>
@@ -364,32 +351,20 @@
         <item text="Stand (33262, 31939, 14)" tag="1"/>
         <item text="spawnexit:" tag="255"/>
         <item text="edron|spawn~bridge:" tag="255"/>
-        <item text="Node (33259, 31941, 15)" tag="0"/>
-        <item text="Stand (33259, 31942, 15)" tag="1"/>
-        <item text="Node (33205, 31674, 14)" tag="0"/>
-        <item text="Node (33198, 31674, 14)" tag="0"/>
-        <item text="Node (33194, 31669, 14)" tag="0"/>
-        <item text="Node (33192, 31663, 14)" tag="0"/>
-        <item text="Node (33192, 31659, 14)" tag="0"/>
-        <item text="Stand (33192, 31658, 14)" tag="1"/>
-        <item text="Node (33192, 31651, 13)" tag="0"/>
-        <item text="Node (33192, 31646, 13)" tag="0"/>
-        <item text="Node (33187, 31642, 13)" tag="0"/>
-        <item text="Node (33180, 31642, 13)" tag="0"/>
-        <item text="Node (33173, 31642, 13)" tag="0"/>
-        <item text="Node (33166, 31642, 13)" tag="0"/>
-        <item text="Node (33159, 31641, 13)" tag="0"/>
-        <item text="Node (33151, 31641, 13)" tag="0"/>
-        <item text="Node (33147, 31638, 13)" tag="0"/>
-        <item text="Node (33147, 31632, 13)" tag="0"/>
-        <item text="Node (33147, 31626, 13)" tag="0"/>
-        <item text="Node (33147, 31620, 13)" tag="0"/>
-        <item text="Node (33147, 31614, 13)" tag="0"/>
-        <item text="Node (33147, 31608, 13)" tag="0"/>
-        <item text="Node (33147, 31602, 13)" tag="0"/>
-        <item text="Node (33147, 31596, 13)" tag="0"/>
+        <item text="Stand (33259, 31941, 15)" tag="1"/>
+        <item text="Node (33165, 31645, 13)" tag="0"/>
+        <item text="Node (33159, 31642, 13)" tag="0"/>
+        <item text="Node (33151, 31642, 13)" tag="0"/>
+        <item text="Node (33146, 31638, 13)" tag="0"/>
+        <item text="Node (33146, 31631, 13)" tag="0"/>
+        <item text="Node (33146, 31624, 13)" tag="0"/>
+        <item text="Node (33146, 31617, 13)" tag="0"/>
+        <item text="Node (33146, 31610, 13)" tag="0"/>
+        <item text="Node (33146, 31603, 13)" tag="0"/>
+        <item text="Node (33146, 31595, 13)" tag="0"/>
         <item text="Node (33144, 31589, 13)" tag="0"/>
         <item text="Ladder (33144, 31589, 13)" tag="2"/>
+        <item text="Enter Teleport(South)" tag="246"/>
         <item text="Node (33139, 31591, 12)" tag="0"/>
         <item text="Node (33139, 31601, 12)" tag="0"/>
         <item text="Node (33149, 31601, 12)" tag="0"/>
@@ -452,7 +427,7 @@
         <item text="Node (33243, 31801, 7)" tag="0"/>
         <item text="EIgnore" tag="11"/>
         <item text="end:" tag="255"/>
-	</control>
+    </control>
 </panel>
 <panel name="Pathfinder">
 	<control name="walkOnFireEnable" value="1"/>
