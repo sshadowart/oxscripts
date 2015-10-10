@@ -54,7 +54,6 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-        <item type="Ancient Scarab" chs="6" max="35" min="0" prio="9" prox="7" count="1"/>
 		<item type="Ancient Scarab" chs="6" max="100" min="0" prio="8" prox="7" count="1"/>
         <item type="Scarab" chs="0" max="35" min="0" prio="7" prox="7" count="1"/>
 		<item type="Scarab" chs="6" max="100" min="0" prio="6" prox="7" count="1"/>
