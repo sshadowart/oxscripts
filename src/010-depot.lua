@@ -151,7 +151,6 @@ Depot = (function()
 			containerMoveItems({
 				src = depot,
 				dest = backpack,
-				slot = 0,
 				openwindow = false,
 				items = items,
 			}, function(success)

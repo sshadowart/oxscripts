@@ -788,6 +788,11 @@ do
 		toggleCriticalMode(false)
 	end
 
+	function onLogoutEvent()
+		_script.forceLogoutQueued = true
+		log('Returning to town to logout after the current round. [Xeno Monitor]')
+	end
+
 	function onChannelClose(channel)
 		toggleCriticalMode(true)
 
@@ -847,6 +852,7 @@ do
 	xeno.registerNativeEventListener(LOOT_MESSAGE, 'onLootMessage')
 	xeno.registerNativeEventListener(BATTLE_MESSAGE, 'onBattleMessage')
 	xeno.registerNativeEventListener(EVENT_SELF_CHANNELSPEECH, 'onChannelSpeak')
+	xeno.registerNativeEventListener(LOGOUT_COMMAND, 'onLogoutEvent')
 	xeno.registerNativeEventListener(EVENT_SELF_CHANNELCLOSE, 'onChannelClose')
 	xeno.registerNativeEventListener(PRIVATE_MESSAGE, 'onPrivateMessage')
 	xeno.registerNativeEventListener(NPC_MESSAGE, 'onNpcMessage')

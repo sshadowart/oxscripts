@@ -67,7 +67,6 @@ Container = (function()
 	end
 
 	local function resetContainerDepths(source, destination, sDepth, dDepth, callback)
-		-- DEBUG: print(source .. ', ' .. destination .. ', ' .. sDepth .. ', ' .. dDepth)
 		
 		-- Main backpack containers
 		local mainItemCount = xeno.getContainerItemCount(0)
@@ -122,7 +121,7 @@ Container = (function()
 	local function containerMoveItems(options, callback)
 		local fromContainer = options.src
 		local toContainer = options.dest
-		local toSlot = options.slot or 0
+		local toSlot = options.slot
 
 		local whiteList = options.items
 		local blackList = options.ignore
@@ -135,6 +134,8 @@ Container = (function()
 		local sourceDepth = 0
 		local destDepth = 0
 
+		local isMovingPaused = false
+
 		local moveItem = nil
 		local watchContainerFullError = nil
 		local onContainerFull = nil
@@ -142,10 +143,16 @@ Container = (function()
 		local fullEvent = nil
 
 		local moveCounts = {}
+		local moveHits = {}
 		local lastMove = {
 			itemid = nil,
 			count = nil
 		}
+
+		-- Target move slot is last slot in the container by default
+		if toSlot == nil then
+			toSlot = xeno.getContainerItemCapacity(toContainer) - 1
+		end
 
 		-- Registers the error watcher
 		watchContainerFullError = function()
@@ -157,26 +164,36 @@ Container = (function()
 		-- Called to trigger a single item move
 		moveItem = function(self)
 
-			-- Amount of this stack to move (defaults to all)
-			local moveStackCount = -1
+			-- Moving is paused, stop recurse
+			if isMovingPaused then
+				return
+			end
 
 			-- Remaining items
 			local itemCount = xeno.getContainerItemCount(fromContainer)
 
 			-- No items and cascade OR skipped all filled spots, stop entirely
 			if itemCount == 0 or spotOffset >= itemCount then
-				-- Kill moveInterval & fullEvent
-				clearTimeout(self)
-				clearWhen(EVENT_ERROR, fullEvent)
+				-- Kill monitoring container full errors
+				if fullEvent then
+					clearWhen(EVENT_ERROR, fullEvent)
+				end
+				-- Kill move event
+				if moveInterval then
+					clearTimeout(moveInterval)
+				end
 				-- Reset depths and finish
 				resetContainerDepths(fromContainer, toContainer, sourceDepth, destDepth, function()
-					callback(true)
+					callback(true, moveHits)
 				end)
 				return
 			end
 
 			-- Das item
 			item = xeno.getContainerSpotData(fromContainer, spotOffset)
+
+			-- Amount of this stack to move (defaults to entire stack)
+			local moveStackCount = item.count
 
 			-- Cascade backpack, last slot of backpack
 			if xeno.isItemContainer(item.id) and (spotOffset + 1 >= itemCount) then 
@@ -187,6 +204,8 @@ Container = (function()
 					xeno.containerUseItem(fromContainer, itemCount-1, true)
 				else
 					spotOffset = spotOffset + 1
+					-- Skip to next item immediately
+					moveItem(self)
 				end
 				return
 			end
@@ -194,18 +213,24 @@ Container = (function()
 			-- Item is in blacklist, try next spot
 			if blackList and blackList[item.id] then
 				spotOffset = spotOffset + 1
+				-- Skip to next item immediately
+				moveItem(self)
 				return
 			end
 
 			-- Item not in filter list, try next spot
 			if whiteList and not whiteList[item.id] then
 				spotOffset = spotOffset + 1
+				-- Skip to next item immediately
+				moveItem(self)
 				return
 			end
 
 			-- Item filter is set, run function to test validity
 			if itemFilter and not itemFilter(item) then
 				spotOffset = spotOffset + 1
+				-- Skip to next item immediately
+				moveItem(self)
 				return
 			end
 
@@ -219,6 +244,8 @@ Container = (function()
 				-- We don't need anymore of this item, skip
 				if moveCounts[item.id] <= 0 then
 					spotOffset = spotOffset + 1
+					-- Skip to next item immediately
+					moveItem(self)
 					return
 				end
 
@@ -229,30 +256,47 @@ Container = (function()
 				moveCounts[item.id] = moveCounts[item.id] - moveStackCount
 			end
 
+			-- Track move counts by itemid
+			local itemMoves = moveHits[item.id]
+			if not itemMoves then itemMoves = 0 end
+			moveHits[item.id] = itemMoves + moveStackCount
+
 			-- Track last move
 			lastMove.itemid = item.id
 			lastMove.count = moveStackCount
+			
 			-- Move item to destination
 			xeno.containerMoveItemToContainer(fromContainer, spotOffset, toContainer, toSlot, moveStackCount)
 		end
 
 		-- Triggered when the destination fills up
 		onContainerFull = function()
-			-- Check if we need to reverse a needed count
-			if item and whiteList and lastMove.itemid and lastMove.count > -1 and moveCounts[lastMove.itemid] then
-				moveCounts[item.id] = moveCounts[item.id] + lastMove.count
-			end
-
-			-- Pause moving items
+			-- Set flag so we stop moving items
 			-- No need to kill fullEvent, it dies after one use
-			clearTimeout(moveInterval)
+			isMovingPaused = true
+
+			-- Check if we need to reverse a move
+			if item and lastMove.itemid and lastMove.count > -1 then
+				-- Increase move counts
+				if whiteList and moveCounts[lastMove.itemid] then
+					moveCounts[item.id] = moveCounts[item.id] + lastMove.count
+				end
+				-- Decrease total item moves
+				local itemMoves = moveHits[item.id]
+				if not itemMoves then itemMoves = 0 end
+				moveHits[item.id] = math.max(0, itemMoves - lastMove.count)
+			end
 
 			setTimeout(function()
 				-- We weren't depositing into a backpack, no cascade available
 				if not xeno.isItemContainer(xeno.getContainerSpotData(toContainer, toSlot).id) then
+					-- Kill move event
+					if moveInterval then
+						clearTimeout(moveInterval)
+					end
 					-- Reset depths and finish
 					resetContainerDepths(fromContainer, toContainer, sourceDepth, destDepth, function()
-						callback(false)
+						callback(false, moveHits)
 					end)
 					return
 				end
@@ -275,16 +319,22 @@ Container = (function()
 						destDepth = destDepth + 1
 						toSlot = lastSlot
 
-						-- Re-register events
-						moveInterval = setInterval(moveItem, DELAY.CONTAINER_MOVE_ITEM)
+						-- Start moving again
+						isMovingPaused = false
+
+						-- Register full event again
 						fullEvent = watchContainerFullError()
 						return
 					end
 					-- No cascade backpack, stop entirely
 					-- Reset depths and finish
 					resetContainerDepths(fromContainer, toContainer, sourceDepth, destDepth, function()
-						callback(false)
-					end)
+						callback(false, moveHits)
+						-- Kill move event
+						if moveInterval then
+							clearTimeout(moveInterval)
+						end
+					end)		
 					return
 				end, pingDelay(DELAY.CONTAINER_USE_ITEM))
 			end, DELAY.CONTAINER_MOVE_ITEM)
@@ -292,26 +342,41 @@ Container = (function()
 
 		-- Begin moving
 		moveInterval = setInterval(moveItem, DELAY.CONTAINER_MOVE_ITEM)
+
 		-- Start watching for container full errors
 		fullEvent = watchContainerFullError()
 	end
 
-	local function moveItems(containers, options, callback)
+	local function moveItems(containers, options, callback, dirty)
 		local source = table.remove(containers)
 		containerMoveItems({
 			src = source,
 			dest = options.dest,
-			slot = options.slot,
 			items = options.items,
 			disableSourceCascade = options.disableSourceCascade,
 			openwindow = options.openwindow
-		}, function(success)
+		}, function(cascaded, moveCounts)
+			-- Count moved items
+			local totalCount = 0
+			if moveCounts then
+				for itemid, count in pairs(moveCounts) do
+					totalCount = totalCount + count
+				end
+			end
+			-- Moved items, flag entire move as "dirty"
+			-- means cleanContainer will reloop
+			-- we do this incase we freed up any slots
+			if totalCount > 0 then
+				dirty = true
+			end
+
+			-- Successfully moved items,
 			-- Last container, finish
-			if #containers == 0 then 
-				callback()
+			if #containers == 0 then
+				callback(dirty)
 			-- Recurse
 			else
-				moveItems(containers, options, callback)
+				moveItems(containers, options, callback, dirty)
 			end
 		end)
 	end
@@ -332,14 +397,20 @@ Container = (function()
 			-- Do not dig into the main backpack
 			disableSourceCascade = shallow,
 			openwindow = false
-		}, function(success)
-			if callback then
+		}, function(dirty)
+			-- Something was moved
+			if dirty then
+				cleanContainers(destination, itemList, callback, shallow)
+			elseif callback then
 				callback()
 			end
 		end)
 	end
 
-	local function openMainBackpack(callback)
+	local function openMainBackpack(callback, tries)
+		-- Retry attempts
+		tries = tries or 3
+
 		-- Open
 		local opened = xeno.slotUseItem(3)
 
@@ -350,10 +421,14 @@ Container = (function()
 				if _config['General']['Minimize-Main-BP'] then
 					xeno.minimizeContainer(0)
 				end
-				callback(opened)
+				callback(true)
+			-- Fail, out of retries
+			elseif tries <= 0 then
+				callback(false)
 			-- Fail, recurse
 			else
-				openMainBackpack(callback)
+				tries = tries - 1
+				openMainBackpack(callback, tries)
 			end
 		end, pingDelay(DELAY.USE_EQUIPMENT))
 	end
@@ -417,6 +492,19 @@ Container = (function()
 			local destinations = {}
 			local itemLists = {}
 
+			-- Move gold to gold backpack
+			local goldBackpack = _backpacks['Gold']
+			destinations[#destinations+1] = {'Gold', goldBackpack}
+			itemLists[goldBackpack] = {[3031] = true}
+
+			-- Move platinum and crystal coins to main
+			local mainBackpack = _backpacks['Main']
+			destinations[#destinations+1] = {'Main', mainBackpack}
+			itemLists[mainBackpack] = {
+				[3035] = true,
+				[3043] = true
+			}
+
 			-- Create itemid list for each supply group
 			for itemid, supply in pairs(_supplies) do
 				-- Amulets and Rings always go in the Supplies backpack
@@ -441,7 +529,7 @@ Container = (function()
 				end
 			end
 
-			local function moveItems(index)
+			local function moveNextItems(index)
 				local backpack = destinations[index]
 
 				-- Check if destination exists (no items to move)
@@ -459,13 +547,13 @@ Container = (function()
 				-- Clean all backpacks and move valid items to this backpack
 				cleanContainers(destination, itemList, function(success)
 					-- Proceed to next destination
-					moveItems(index+1)
+					moveNextItems(index+1)
 				end)
 			end
 
 			-- Move items to proper backpack, then finish
 			if #destinations > 0 then
-				moveItems(1)
+				moveNextItems(1)
 			-- None to move, finish up
 			else
 				finishSetup()
@@ -643,9 +731,11 @@ Container = (function()
 
 	local function getTotalItemCount(itemIdList, ignoreEquipment)
 		local totals = {}
+		local numberReturn = false
 
 		-- Wrap single itemid in an index table
 		if type(itemIdList) ~= 'table' then
+			numberReturn = itemIdList
 			itemIdList = {[itemIdList] = true}
 		end
 
@@ -691,8 +781,12 @@ Container = (function()
 			end
 		end
 
-		-- Pairs table with itemid = count
-		return totals
+		-- Returns number if single number was provided
+		-- otherwise returns a pairs table with itemid = count
+		if numberReturn then
+			totals = totals[numberReturn]
+		end
+		return totals or 0
 	end
 
 	local function getMoney()

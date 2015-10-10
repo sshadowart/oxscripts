@@ -16,7 +16,6 @@ Npc = (function()
 		containerMoveItems({
 			src = container,
 			dest = _backpacks['Gold'] or _backpacks['Main'],
-			slot = 0,
 			items = {
 				[3031] = true
 			},
