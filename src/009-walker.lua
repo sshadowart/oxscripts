@@ -442,11 +442,16 @@ Walker = (function()
 	end
 
 	local function walkerCapacityDrop()
-		if _config['Capacity'] and _config['Capacity']['Hunt-Minimum'] > 0 and (_config['Capacity']['Drop-Flasks'] or _config['Capacity']['Drop-Gold']) then
+		if not _config['Capacity'] then
+			return
+		end
+		local flaskDropCap = _config['Capacity']['Drop-Flasks']
+		local goldDropCap = _config['Capacity']['Drop-Gold']
+		if (goldDropCap and goldDropCap > 0) or (flaskDropCap and flaskDropCap > 0) then
 			local cap = xeno.getSelfCap()
 			local pos = xeno.getSelfPosition()
 			-- Check if we need to drop flasks
-			if _config['Capacity']['Drop-Flasks'] and cap < _config['Capacity']['Hunt-Minimum'] then
+			if flaskDropCap and flaskDropCap > 0 and cap <= flaskDropCap then
 				local flasks = ITEM_LIST_FLASKS
 				-- Potion Backpack
 				for spot = 0, xeno.getContainerItemCount(_backpacks['Potions']) - 1 do
@@ -479,7 +484,7 @@ Walker = (function()
 			end
 
 			-- Check if we need to drop gold
-			if _config['Capacity']['Drop-Gold'] and cap < _config['Capacity']['Hunt-Minimum'] then
+			if goldDropCap and goldDropCap > 0 and cap <= goldDropCap then
 				for spot = 0, xeno.getContainerItemCount(_backpacks['Gold']) - 1 do
 					local item = xeno.getContainerSpotData(_backpacks['Gold'], spot)
 					-- Item is gold

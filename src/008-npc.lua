@@ -27,7 +27,8 @@ Npc = (function()
 	end
 
 	local function bankDepositGold(callback)
-		talk({'hi', 'deposit all', 'yes'}, function(responses)
+		-- Deposit everything (skip deposit if no money)
+		talk(getMoney() <= 0 and {'hi'} or {'hi', 'deposit all', 'yes'}, function(responses)
 			-- TODO: verify funds deposited
 			callback()
 		end)
