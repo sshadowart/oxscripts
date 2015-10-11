@@ -55,7 +55,7 @@
     <control name="TargetingList">
         <item type="Vampire Viscount" chs="0" max="35" min="0" prio="9" prox="7" count="1"/>
         <item type="Vampire Bride" chs="0" max="35" min="0" prio="9" prox="7" count="1"/>
-        <item type="Vampire" chs="0" max="35" min="0" prio="8" prox="7" count="1"/>
+        <item type="Vampire" chs="0" max="10" min="0" prio="8" prox="7" count="1"/>
         <item type="Vampire Viscount" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
         <item type="Vampire Bride" chs="0" max="100" min="0" prio="6" prox="7" count="1"/>
         <item type="Necromancer" chs="0" max="35" min="0" prio="5" prox="7" count="1"/>
@@ -66,6 +66,7 @@
         <item type="Mummy" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
         <item type="Ghoul" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
         <item type="Skeleton Warrior" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
+        <item type="Snake" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
     </control>
 </panel>
 <panel name="Walker">
@@ -204,6 +205,7 @@
         <item text="Node (33031, 31634, 11)" tag="0"/>
         <item text="huntcheck|10:" tag="255"/>
         <item text="huntstart|10:" tag="255"/>
+        <item text="Node (33026, 31634, 11)" tag="0"/>
         <item text="Node (33020, 31634, 11)" tag="0"/>
         <item text="Node (33009, 31634, 11)" tag="0"/>
         <item text="Node (32999, 31634, 11)" tag="0"/>
@@ -223,13 +225,13 @@
         <item text="Node (33000, 31627, 12)" tag="0"/>
         <item text="Node (33000, 31617, 12)" tag="0"/>
         <item text="Node (32998, 31612, 12)" tag="0"/>
-        <item text="Stand (32998, 31612, 12)" tag="1"/>
+        <item text="Stand (32999, 31611, 12)" tag="1"/>
         <item text="No-Hardcore:" tag="255"/>
         <item text="huntcheck|11:" tag="255"/>
         <item text="huntstart|11:" tag="255"/>
         <item text="Node (32997, 31607, 11)" tag="0"/>
         <item text="Node (32999, 31603, 11)" tag="0"/>
-        <item text="Node (33000, 31595, 11)" tag="0"/>
+        <item text="Node (33000, 31594, 11)" tag="0"/>
         <item text="Node (33000, 31603, 11)" tag="0"/>
         <item text="Node (33006, 31610, 11)" tag="0"/>
         <item text="huntexit|11:" tag="255"/>
@@ -331,6 +333,7 @@
         <item text="Stand (33059, 31693, 9)" tag="1"/>
         <item text="spawnexit:" tag="255"/>
         <item text="edron|spawn~bridge:" tag="255"/>
+        <item text="SIgnore" tag="10"/>
         <item text="Node (33064, 31699, 8)" tag="0"/>
         <item text="Node (33070, 31702, 8)" tag="0"/>
         <item text="Node (33076, 31705, 8)" tag="0"/>
