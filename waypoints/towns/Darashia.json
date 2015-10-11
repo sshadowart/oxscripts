@@ -454,7 +454,7 @@
   {"label": "Stand (33214, 32461, 8)", "tag": 1},
   {"label": "end:", "tag": 255},
 
-  {"label": "darashia|trainers~depot:", "tag": 255},
+  {"label": "darashia|ammo~depot:", "tag": 255},
   {"label": "Node (33225, 32431, 7)", "tag": 0},
   {"label": "Node (33219, 32436, 7)", "tag": 0},
   {"label": "Node (33217, 32442, 7)", "tag": 0},
