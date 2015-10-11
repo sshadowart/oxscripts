@@ -573,6 +573,7 @@ local SELLABLE_LOOT = {
 		[3378] = 'azil', -- studded armor
 		[3376] = 'azil', -- studded helmet
 		[3362] = 'azil', -- studded legs
+		[3351] = 'azil', -- steel helmet
 		[3426] = 'azil', -- studded shield
 		[3367] = 'azil', -- viking helmet
 		[3431] = 'azil', -- viking helmet

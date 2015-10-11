@@ -63,7 +63,7 @@ export default task('bundle', async () => {
               local message, topic, data = sub:Recv()
               if message then
                 print('Reloading library...')
-                loadSettings('${spawnName}', "Scripter")
+                loadSettings("${spawnName}", "Scripter")
                 pub:PublishMessage("live-reload", Self.Name());
               end
               wait(200)

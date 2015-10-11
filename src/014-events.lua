@@ -99,7 +99,7 @@ do
 			-- Continue hunting
 			else
 				-- Resupply
-				local thresholds = {min = true}
+				local thresholds = {min = false}
 				if not skipSupplyCheck then
 					thresholds = checkAllSupplyThresholds()
 				end

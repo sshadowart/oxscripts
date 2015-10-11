@@ -10,6 +10,7 @@ Walker = (function()
 	local sortPositionsByDistance = Core.sortPositionsByDistance
 	local getPositionFromDirection = Core.getPositionFromDirection
 	local getDistanceBetween = Core.getDistanceBetween
+	local getWalkableTiles = Core.getWalkableTiles
 	local talk = Core.talk
 	local log = Console.log
 	local warn = Console.warn
@@ -205,28 +206,57 @@ Walker = (function()
 
 	local function walkerReachNPC(name, callback, tries)
 		tries = tries ~= nil and tries or 5
-		local index = nil
+		local targetIndex = nil
+		local targetPos = nil
+		local selfPos = xeno.getSelfPosition()
+
 		-- Loop through battle list
 		for i = 1, 1300 do
 			local creaturePos = xeno.getCreaturePosition(i)
-			local distance = getDistanceBetween(xeno.getSelfPosition(), creaturePos)
+			local distance = getDistanceBetween(selfPos, creaturePos)
 			-- NPC we are looking for
 			if string.lower(xeno.getCreatureName(i)) == string.lower(name) and distance < 7 then
 				-- We need to walk to it
 				if distance > 2 then
-					index = i
-					xeno.doSelfWalkTo(creaturePos.x, creaturePos.y, creaturePos.z)
+					targetIndex = i
+					targetPos = creaturePos
+					break
 				-- We are close enough
 				else
 					callback()
 					return
 				end
-				break
 			end
 		end
+
+		-- Failed to find NPC
+		if not targetPos then
+			error('Unable to find ' .. name .. '. Please contact support.')
+			return
+		end
+
+		-- Walk to NPC
+		local tiles = getWalkableTiles(targetPos, 1)
+
+		-- Failed to find walkable tile
+		if not tiles then
+			error('Unable to reach ' .. name .. '. Please contact support.')
+			return
+		end
+
+		-- Find closest tile
+		positions = sortPositionsByDistance(selfPos, tiles, 10)
+
+		-- Use the closest tile
+		local destination = positions[1]
+
+		--xeno.doSelfWalkTo(destination.x, destination.y, destination.z)
+		xeno.selfUseItemFromGround(destination.x, destination.y, destination.z)
+
+		-- Wait and see if we reached the NPC
 		setTimeout(function()
 			-- In range, finish with callback
-			if getDistanceBetween(xeno.getSelfPosition(), xeno.getCreaturePosition(index)) <= 2 then
+			if getDistanceBetween(xeno.getSelfPosition(), xeno.getCreaturePosition(targetIndex)) <= 2 then
 				callback()
 			elseif tries <= 0 then
 				error('Unable to reach ' .. name .. '. Please contact support.')
@@ -296,11 +326,19 @@ Walker = (function()
 		end
 
 		-- Find out where we are in town
-		local closestLabel = walkerGetClosestLabel(false, town)
+		local closestLabel = walkerGetClosestLabel(true, town)
+
+		-- Close label not found or too far away
+		if not closestLabel or getDistanceBetween(xeno.getSelfPosition(), closestLabel) > 30 then
+			error('Too far from any start point. Restart the script closer to a town.')
+			return
+		end
+
 		local closestRoute = split(closestLabel.name, '|')
 		local closestPath = split(closestRoute[2], '~')
 		local location = closestPath[1]
 		local destination = closestPath[2]
+
 
 		-- Tell the user what we're doing
 		log('You are near the ' .. town:lower() .. ' ' .. location .. ', traveling to ' .. targetTown .. '.')
@@ -337,7 +375,7 @@ Walker = (function()
 		-- Make sure we're in the right town
 		walkerGotoTown(town, function()
 			-- Find out where we are
-			local closestLabel = walkerGetClosestLabel(false, string.lower(town))
+			local closestLabel = walkerGetClosestLabel(true, string.lower(town))
 			local closestRoute = split(closestLabel.name, '|')
 			local closestPath = split(closestRoute[2], '~')
 			local location = closestPath[1]
