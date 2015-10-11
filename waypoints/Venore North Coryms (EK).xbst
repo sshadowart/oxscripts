@@ -144,9 +144,11 @@
 		<item text="RafzanUp:" tag="255"/>
         <item text="Stand (33051, 32099, 7)" tag="1"/>
 		<item text="Self.UseItemFromGround(33052, 32099, 7) wait(500) Walker.ConditionalGoto((Self.Position().z ~= 6), 'RafzanUp')" tag="254"/>
-        <item text="Stand (33052, 32097, 6)" tag="1"/>
+		<item text="Self.OpenDoor(33052, 32097, 6)" tag="254"/>
+        <item text="Stand (33052, 32096, 6)" tag="1"/>
 		<item text="special|RafzanTrade:" tag="255"/>
 		<item text="RafzanDown:" tag="255"/>
+		<item text="Self.OpenDoor(33052, 32097, 6)" tag="254"/>
         <item text="Stand (33051, 32098, 6)" tag="1"/>
 		<item text="Self.Step(SOUTH) wait(500) Self.UseItemFromGround(33052, 32099, 6) wait(500) Walker.ConditionalGoto((Self.Position().z ~= 7), 'RafzanDown')" tag="254"/>		
         <item text="Node (33048, 32096, 7)" tag="0"/>
