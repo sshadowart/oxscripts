@@ -494,7 +494,7 @@ do
 			local targetLevel = playerLevel + 1
 			local expLeft = ((50/3) * (targetLevel^3) - (100 * targetLevel^2) + ((850/3) * targetLevel) - 200) - xeno.getSelfExperience()
 			hudItemUpdate('Statistics', 'Exp to Level', formatNumber(expLeft) .. ' xp', true)
-			hudItemUpdate('Statistics', 'Time to Level', hourlyexp > 0 and formatTime(expLeft / hourlyexp) or formatTime(0), true)
+			hudItemUpdate('Statistics', 'Time to Level', hourlyexp > 0 and formatTime(expLeft / (gain / timediff)) or formatTime(0), true)
 
 			-- Loot & Supply Polling
 			if _script.state ~= 'Setting up backpacks' then
