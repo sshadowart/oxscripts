@@ -135,7 +135,7 @@ do
 			-- Update script state
 			if _config['HUD']['Enabled'] then
 				_script.state = state;
-				hudItemUpdate('Script', 'Route', route ~= '--' and route:gsub('-', ' ') or '--', true)
+				--hudItemUpdate('Script', 'Route', route ~= '--' and route:gsub('-', ' ') or '--', true)
 				hudItemUpdate('Script', 'State', state, false)
 			end
 			xeno.setWalkerEnabled(true)

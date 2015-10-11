@@ -479,6 +479,11 @@ Container = (function()
 		local needAmmoContainer = false
 		local needSuppliesContainer = false
 
+		-- Pause the bot		
+		xeno.setWalkerEnabled(false)
+		xeno.setLooterEnabled(false)
+		xeno.setTargetingEnabled(false)
+
 		log('Setting up your backpacks, please wait...')
 		local function finishSetup()
 			log('Your backpacks have been setup. Do NOT rearrange containers!')
@@ -488,6 +493,12 @@ Container = (function()
 					xeno.minimizeContainer(i)
 				end
 			end
+
+			-- Resume the bot		
+			xeno.setWalkerEnabled(true)
+			xeno.setLooterEnabled(true)
+			xeno.setTargetingEnabled(true)
+
 			callback()
 		end
 
@@ -676,14 +687,18 @@ Container = (function()
 		local items = {}
 		local function countLevel(level)
 			-- Iterate through container spots
-			for spot = 0, xeno.getContainerItemCount(index) - 1 do
+			local lastSlot = xeno.getContainerItemCount(index) - 1
+			for spot = 0, lastSlot do
 				local item = xeno.getContainerSpotData(index, spot)
-				-- Create table and entries on-demand
-				if not items[item.id] then
-					items[item.id] = 0
+				-- Do not count the cascade backpack 
+				if spot ~= lastSlot or not xeno.isItemContainer(item.id) then
+					-- Create table and entries on-demand
+					if not items[item.id] then
+						items[item.id] = 0
+					end
+					-- Increment count
+					items[item.id] = items[item.id] + math.max(item.count, 1)
 				end
-				-- Increment count
-				items[item.id] = items[item.id] + math.max(item.count, 1)
 			end
 
 			-- Only counting the current container level OR reached top level

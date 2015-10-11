@@ -81,7 +81,7 @@ Npc = (function()
 		talk(dialog, interact)
 	end
 
-	local function shopSellLoot(sellList, callback)
+	local function shopSellLoot(sellList, callback, nodialog)
 		-- Add key, value array to flat list
 		local itemlist = {}
 		for itemid, _ in pairs(sellList) do
@@ -112,6 +112,11 @@ Npc = (function()
 			end
 		end
 
+		if nodialog then
+			sell(1)
+			return
+		end
+
 		talk({'hi', 'trade'}, function()
 			-- Todo: use NPC proxy to verify trade window
 			setTimeout(function()
@@ -121,40 +126,7 @@ Npc = (function()
 	end
 
 	local function shopSellFlasks(callback)
-		-- No flasks to sell, simulate async callback
-		if getFlasks() == 0 then
-			callback()
-			return
-		end
-
-		local lotteryNPC = false
-		local spectators = {xeno.getCreatureSpectators(0)}
-		for i = 1, #spectators do
-			if xeno.getCreatureName(i) == 'Sandra' then
-				lotteryNPC = true
-				break
-			end
-		end
-
-		function sell(dialog)
-			local preCap = xeno.getSelfCap()
-			-- Talk to NPC
-			talk(dialog, function(responses)
-				-- Capacity changed, selling flasks most likely succeeded
-				if preCap ~= xeno.getSelfCap() then
-					-- Move change
-					moveTransactionGoldChange(0, function()
-						-- Attempt to sell more
-						sell(dialog)
-					end)
-					return true
-				end
-				-- Final callback (no more flasks to deposit)
-				callback(true)
-			end)
-		end
-
-		sell(lotteryNPC and {'deposit', 'no', 'yes'} or {'deposit', 'yes'})
+		shopSellLoot(ITEM_LIST_FLASKS, callback, true)
 	end
 
 	local function shopRefillSoftboots(callback)
@@ -288,8 +260,8 @@ Npc = (function()
 			talk({'hi'}, function()
 				-- Try to sell flasks if we may be at the magic shop
 				if group == 'Potions' then
-					shopSellFlasks(function()
-						talk({'trade'}, function()
+					talk({'trade'}, function()
+						shopSellFlasks(function()
 							buyListItem(1)
 						end)
 					end)

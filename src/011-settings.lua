@@ -202,8 +202,23 @@ Settings = (function()
 							mana = details.mana and math.ceil((details.mana / xeno.getSelfMaxMana()) * 100) or 0,
 							creature = targets,
 							count = supply.options['TargetMin'],
+							utito = supply.options['Utito'],
 							priority = supply.options['Priority']
 						}
+						-- If utito is enabled, make a shooter entry (copy spell conditions)
+						local utitoEnabled = supply.options['Utito'] == 'true'
+						if utitoEnabled then
+							shooterList[#shooterList+1] = {
+								spell = 'utito tempo',
+								rune = 0,
+								srange = details.srange,
+								type = 4,
+								mana = details.mana and math.ceil((details.mana / xeno.getSelfMaxMana()) * 100) or 0,
+								creature = targets,
+								count = supply.options['TargetMin'],
+								priority = 1
+							}
+						end
 					else
 						warn('Could not add "'..supplyid..'" to the shooter. You do not have enough mana to cast this spell.')
 					end

@@ -312,6 +312,7 @@ Supply = (function()
 		if step < 1 then
 			-- Deep search of loot backpack.
 			getContainerItemCounts(_backpacks['Loot'], function(items)
+
 				-- No items at all, skip step
 				if not items then
 					resupply(callback, 1, items)
@@ -375,6 +376,7 @@ Supply = (function()
 
 				-- We have loot to deposit
 				if closestPath then
+					log('Walking to the depot to deposit loot.')
 					walkerGotoLocation(_script.town, closestPath, function()
 						-- Arrived at loot shop
 						shopSellLoot(townLoot, function()
@@ -399,10 +401,8 @@ Supply = (function()
 		if step < 2 then
 			-- Deep count if gold backpack is not the main backpack
 			local deepCount = false
-			local depth = nil
 			if _backpacks['Gold'] ~= _backpacks['Main'] then
 				deepCount = true
-				depth = 'gold'
 			end
 			getContainerItemCounts(_backpacks['Gold'], function(items)
 				-- Loot remaining in loot backpack
@@ -459,7 +459,10 @@ Supply = (function()
 			local depositLoot = false
 			if loot then
 				for itemid, _ in pairs(loot) do
-					if itemid ~= ITEMID.OBSIDIAN_KNIFE and itemid ~= ITEMID.BLESSED_STAKE then
+					if itemid ~= ITEMID.OBSIDIAN_KNIFE
+						and itemid ~= ITEMID.MECHANICAL_ROD
+						and itemid ~= ITEMID.FISHING_ROD
+						and itemid ~= ITEMID.BLESSED_STAKE then
 						depositLoot = true
 						break
 					end
@@ -472,8 +475,16 @@ Supply = (function()
 				neededSupplies = checkAllSupplyThresholds(true).max
 			end
 
+			if depositLoot and neededSupplies then
+				log('Walking to the depot to withdraw supplies and deposit loot.')
+			elseif depositLoot then
+				log('Walking to the depot to deposit loot.')
+			elseif neededSupplies then
+				log('Walking to the depot to withdraw supplies.')
+			end
+
 			-- Do we need to head to the depot (deposit or withdraw)
-			if depositLoot or neededSupplies then
+			if depositLoot or neededSupplies then				
 				walkerGotoLocation(_script.town, 'depot', function()
 					-- Arrived at depot
 					startDepotTransfer(depositLoot, neededSupplies, function()
