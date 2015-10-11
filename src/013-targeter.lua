@@ -45,7 +45,7 @@ Targeter = (function()
 				end
 
 				-- Ready to attack?
-				local status = targetingGetCreatureThreshold(_config['Lure']['Creatures'], _config['Lure']['Range'], _config['Lure']['Amount'], true)
+				local status = targetingGetCreatureThreshold(_config['Lure']['Creatures'], _config['Lure']['Range'], _config['Lure']['Amount'], false)
 				local attackReady = status[1]
 				local newTargets = status[2]
 
