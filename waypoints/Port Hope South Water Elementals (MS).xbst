@@ -62,24 +62,25 @@
         <item type="Quara Pincher Scout" chs="6" max="100" min="0" prio="4" prox="7" count="2"/>
         <item type="Quara Constrictor Scout" chs="6" max="100" min="0" prio="3" prox="7" count="3"/>
         <item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="3" prox="7" count="3"/>
-        <item type="Quara Hydromancer Scout" chs="1" max="100" min="0" prio="2" prox="1" count="1"/>
-        <item type="Quara Hydromancer Scout" chs="1" max="100" min="0" prio="1" prox="3" count="1"/>
-        <item type="Water Elemental" chs="1" max="100" min="0" prio="9" prox="3" count="1"/>
-        <item type="Quara Predator Scout" chs="1" max="100" min="0" prio="1" prox="3" count="1"/>
-        <item type="Quara Pincher Scout" chs="1" max="100" min="0" prio="1" prox="3" count="1"/>
-        <item type="Quara Constrictor Scout" chs="1" max="100" min="0" prio="1" prox="3" count="1"/>
-        <item type="Quara Mantassin Scout" chs="1" max="100" min="0" prio="1" prox="3" count="1"/>
-        <item type="Quara Hydromancer Scout" chs="1" max="100" min="0" prio="0" prox="7" count="1"/>
-        <item type="Water Elemental" chs="1" max="100" min="0" prio="9" prox="7" count="1"/>
-        <item type="Quara Predator Scout" chs="1" max="100" min="0" prio="0" prox="7" count="1"/>
-        <item type="Quara Pincher Scout" chs="1" max="100" min="0" prio="0" prox="7" count="1"/>
-        <item type="Quara Constrictor Scout" chs="1" max="100" min="0" prio="0" prox="7" count="1"/>
-        <item type="Quara Mantassin Scout" chs="1" max="100" min="0" prio="0" prox="7" count="1"/>
+        <item type="Quara Hydromancer Scout" chs="6" max="100" min="0" prio="2" prox="1" count="1"/>
+        <item type="Quara Hydromancer Scout" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
+        <item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="3" count="1"/>
+        <item type="Quara Predator Scout" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
+        <item type="Quara Pincher Scout" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
+        <item type="Quara Constrictor Scout" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
+        <item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
+        <item type="Quara Hydromancer Scout" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
+        <item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="7" count="1"/>
+        <item type="Quara Predator Scout" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
+        <item type="Quara Pincher Scout" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
+        <item type="Quara Constrictor Scout" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
+        <item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
     </control>
 </panel>
 <panel name="Walker">
     <control name="WaypointList">
         <item text="port hope|south.exit~spawn:" tag="255"/>
+        <item text="SIgnore" tag="10"/>
         <item text="Node (32649, 32808, 7)" tag="0"/>
         <item text="Node (32650, 32815, 7)" tag="0"/>
         <item text="Node (32650, 32824, 7)" tag="0"/>
@@ -102,6 +103,7 @@
         <item text="Hole (32679, 32963, 7)" tag="4"/>
         <item text="end:" tag="255"/>
         <item text="enterspawn:" tag="255"/>
+        <item text="EIgnore" tag="11"/>
         <item text="Node (32678, 32970, 8)" tag="0"/>
         <item text="Node (32678, 32972, 8)" tag="0"/>
         <item text="huntstart|1:" tag="255"/>
@@ -254,6 +256,7 @@
         <item text="huntexit|1:" tag="255"/>
         <item text="spawnexit:" tag="255"/>
         <item text="port hope|spawn~south.exit:" tag="255"/>
+        <item text="SIgnore" tag="10"/>
         <item text="Node (32678, 32965, 8)" tag="0"/>
         <item text="Rope (32679, 32963, 8)" tag="3"/>
         <item text="Node (32681, 32954, 7)" tag="0"/>
@@ -274,6 +277,7 @@
         <item text="Node (32650, 32824, 7)" tag="0"/>
         <item text="Node (32650, 32815, 7)" tag="0"/>
         <item text="Node (32649, 32808, 7)" tag="0"/>
+        <item text="EIgnore" tag="11"/>
         <item text="end:" tag="255"/>
     </control>
 </panel>
