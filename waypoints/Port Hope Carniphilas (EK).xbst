@@ -63,50 +63,50 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="port hope|east.exit~spawn:" tag="255"/>
+		<item text="port hope|east.exit~spawn:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
-        <item text="Node (32649, 32755, 7)" tag="0"/>
-        <item text="Node (32657, 32752, 7)" tag="0"/>
-        <item text="Node (32658, 32746, 7)" tag="0"/>
-        <item text="Node (32667, 32745, 7)" tag="0"/>
-        <item text="Node (32677, 32742, 7)" tag="0"/>
-        <item text="Node (32685, 32742, 7)" tag="0"/>
-        <item text="Node (32690, 32735, 7)" tag="0"/>
-        <item text="Node (32696, 32731, 7)" tag="0"/>
-        <item text="Node (32701, 32726, 7)" tag="0"/>
-        <item text="Node (32707, 32721, 7)" tag="0"/>
-        <item text="Node (32714, 32716, 7)" tag="0"/>
-        <item text="Node (32722, 32710, 7)" tag="0"/>
-        <item text="Node (32729, 32702, 7)" tag="0"/>
-        <item text="Node (32736, 32694, 7)" tag="0"/>
-        <item text="Node (32743, 32686, 7)" tag="0"/>
-        <item text="Node (32749, 32678, 7)" tag="0"/>
-        <item text="Node (32757, 32671, 7)" tag="0"/>
-        <item text="Node (32763, 32663, 7)" tag="0"/>
-        <item text="Node (32769, 32655, 7)" tag="0"/>
-        <item text="Node (32772, 32645, 7)" tag="0"/>
-        <item text="Node (32776, 32637, 7)" tag="0"/>
-        <item text="Node (32781, 32628, 7)" tag="0"/>
-        <item text="Node (32790, 32624, 7)" tag="0"/>
-        <item text="Node (32798, 32620, 7)" tag="0"/>
-        <item text="Node (32807, 32612, 7)" tag="0"/>
-        <item text="Node (32818, 32609, 7)" tag="0"/>
-        <item text="Node (32829, 32609, 7)" tag="0"/>
-        <item text="Node (32841, 32609, 7)" tag="0"/>
-        <item text="Node (32853, 32607, 7)" tag="0"/>
-        <item text="Node (32862, 32604, 7)" tag="0"/>
-        <item text="Node (32867, 32599, 7)" tag="0"/>
-        <item text="Node (32872, 32595, 7)" tag="0"/>
-        <item text="Node (32879, 32594, 7)" tag="0"/>
-        <item text="Node (32886, 32591, 7)" tag="0"/>
-        <item text="Stand (32886, 32590, 7)" tag="1"/>
+		<item text="Node (32649, 32755, 7)" tag="0"/>
+		<item text="Node (32657, 32752, 7)" tag="0"/>
+		<item text="Node (32658, 32746, 7)" tag="0"/>
+		<item text="Node (32667, 32745, 7)" tag="0"/>
+		<item text="Node (32677, 32742, 7)" tag="0"/>
+		<item text="Node (32685, 32742, 7)" tag="0"/>
+		<item text="Node (32690, 32735, 7)" tag="0"/>
+		<item text="Node (32696, 32731, 7)" tag="0"/>
+		<item text="Node (32701, 32726, 7)" tag="0"/>
+		<item text="Node (32707, 32721, 7)" tag="0"/>
+		<item text="Node (32714, 32716, 7)" tag="0"/>
+		<item text="Node (32722, 32710, 7)" tag="0"/>
+		<item text="Node (32729, 32702, 7)" tag="0"/>
+		<item text="Node (32736, 32694, 7)" tag="0"/>
+		<item text="Node (32743, 32686, 7)" tag="0"/>
+		<item text="Node (32749, 32678, 7)" tag="0"/>
+		<item text="Node (32757, 32671, 7)" tag="0"/>
+		<item text="Node (32763, 32663, 7)" tag="0"/>
+		<item text="Node (32769, 32655, 7)" tag="0"/>
+		<item text="Node (32772, 32645, 7)" tag="0"/>
+		<item text="Node (32776, 32637, 7)" tag="0"/>
+		<item text="Node (32781, 32628, 7)" tag="0"/>
+		<item text="Node (32790, 32624, 7)" tag="0"/>
+		<item text="Node (32798, 32620, 7)" tag="0"/>
+		<item text="Node (32807, 32612, 7)" tag="0"/>
+		<item text="Node (32818, 32609, 7)" tag="0"/>
+		<item text="Node (32829, 32609, 7)" tag="0"/>
+		<item text="Node (32841, 32609, 7)" tag="0"/>
+		<item text="Node (32853, 32607, 7)" tag="0"/>
+		<item text="Node (32862, 32604, 7)" tag="0"/>
+		<item text="Node (32867, 32599, 7)" tag="0"/>
+		<item text="Node (32872, 32595, 7)" tag="0"/>
+		<item text="Node (32879, 32594, 7)" tag="0"/>
+		<item text="Node (32886, 32591, 7)" tag="0"/>
+		<item text="Stand (32886, 32590, 7)" tag="1"/>
 		<item text="EIgnore" tag="11"/>
-        <item text="Node (32881, 32594, 8)" tag="0"/>
-        <item text="Node (32883, 32586, 8)" tag="0"/>
-        <item text="Node (32886, 32581, 8)" tag="0"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
+		<item text="Node (32881, 32594, 8)" tag="0"/>
+		<item text="Node (32883, 32586, 8)" tag="0"/>
+		<item text="Node (32886, 32581, 8)" tag="0"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (32898, 32579, 8)" tag="0"/>
 		<item text="Stand (32899, 32579, 8)" tag="1"/>
 		<item text="Node (32902, 32584, 9)" tag="0"/>
@@ -181,52 +181,52 @@
 		<item text="Ladder (32899, 32579, 9)" tag="2"/>
 		<item text="Node (32894, 32576, 8)" tag="0"/>
 		<item text="Node (32890, 32580, 8)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="Node (32884, 32584, 8)" tag="0"/>
 		<item text="Node (32880, 32590, 8)" tag="0"/>
 		<item text="Node (32885, 32595, 8)" tag="0"/>
 		<item text="Node (32886, 32590, 8)" tag="0"/>
 		<item text="Ladder (32886, 32590, 8)" tag="2"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="port hope|spawn~east.exit:" tag="255"/>
-        <item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
-        <item text="Node (32879, 32594, 7)" tag="0"/>
-        <item text="Node (32872, 32595, 7)" tag="0"/>
-        <item text="Node (32867, 32599, 7)" tag="0"/>
-        <item text="Node (32862, 32604, 7)" tag="0"/>
-        <item text="Node (32853, 32607, 7)" tag="0"/>
-        <item text="Node (32841, 32609, 7)" tag="0"/>
-        <item text="Node (32829, 32609, 7)" tag="0"/>
-        <item text="Node (32818, 32609, 7)" tag="0"/>
-        <item text="Node (32807, 32612, 7)" tag="0"/>
-        <item text="Node (32798, 32620, 7)" tag="0"/>
-        <item text="Node (32790, 32624, 7)" tag="0"/>
-        <item text="Node (32781, 32628, 7)" tag="0"/>
-        <item text="Node (32776, 32637, 7)" tag="0"/>
-        <item text="Node (32772, 32645, 7)" tag="0"/>
-        <item text="Node (32769, 32655, 7)" tag="0"/>
-        <item text="Node (32763, 32663, 7)" tag="0"/>
-        <item text="Node (32757, 32671, 7)" tag="0"/>
-        <item text="Node (32749, 32678, 7)" tag="0"/>
-        <item text="Node (32743, 32686, 7)" tag="0"/>
-        <item text="Node (32736, 32694, 7)" tag="0"/>
-        <item text="Node (32729, 32702, 7)" tag="0"/>
-        <item text="Node (32722, 32710, 7)" tag="0"/>
-        <item text="Node (32714, 32716, 7)" tag="0"/>
-        <item text="Node (32707, 32721, 7)" tag="0"/>
-        <item text="Node (32701, 32726, 7)" tag="0"/>
-        <item text="Node (32696, 32731, 7)" tag="0"/>
-        <item text="Node (32690, 32735, 7)" tag="0"/>
-        <item text="Node (32685, 32742, 7)" tag="0"/>
-        <item text="Node (32677, 32742, 7)" tag="0"/>
-        <item text="Node (32667, 32745, 7)" tag="0"/>
-        <item text="Node (32658, 32746, 7)" tag="0"/>
-        <item text="Node (32657, 32752, 7)" tag="0"/>
-        <item text="Node (32649, 32755, 7)" tag="0"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="port hope|spawn~east.exit:" tag="255"/>
+		<item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
+		<item text="Node (32879, 32594, 7)" tag="0"/>
+		<item text="Node (32872, 32595, 7)" tag="0"/>
+		<item text="Node (32867, 32599, 7)" tag="0"/>
+		<item text="Node (32862, 32604, 7)" tag="0"/>
+		<item text="Node (32853, 32607, 7)" tag="0"/>
+		<item text="Node (32841, 32609, 7)" tag="0"/>
+		<item text="Node (32829, 32609, 7)" tag="0"/>
+		<item text="Node (32818, 32609, 7)" tag="0"/>
+		<item text="Node (32807, 32612, 7)" tag="0"/>
+		<item text="Node (32798, 32620, 7)" tag="0"/>
+		<item text="Node (32790, 32624, 7)" tag="0"/>
+		<item text="Node (32781, 32628, 7)" tag="0"/>
+		<item text="Node (32776, 32637, 7)" tag="0"/>
+		<item text="Node (32772, 32645, 7)" tag="0"/>
+		<item text="Node (32769, 32655, 7)" tag="0"/>
+		<item text="Node (32763, 32663, 7)" tag="0"/>
+		<item text="Node (32757, 32671, 7)" tag="0"/>
+		<item text="Node (32749, 32678, 7)" tag="0"/>
+		<item text="Node (32743, 32686, 7)" tag="0"/>
+		<item text="Node (32736, 32694, 7)" tag="0"/>
+		<item text="Node (32729, 32702, 7)" tag="0"/>
+		<item text="Node (32722, 32710, 7)" tag="0"/>
+		<item text="Node (32714, 32716, 7)" tag="0"/>
+		<item text="Node (32707, 32721, 7)" tag="0"/>
+		<item text="Node (32701, 32726, 7)" tag="0"/>
+		<item text="Node (32696, 32731, 7)" tag="0"/>
+		<item text="Node (32690, 32735, 7)" tag="0"/>
+		<item text="Node (32685, 32742, 7)" tag="0"/>
+		<item text="Node (32677, 32742, 7)" tag="0"/>
+		<item text="Node (32667, 32745, 7)" tag="0"/>
+		<item text="Node (32658, 32746, 7)" tag="0"/>
+		<item text="Node (32657, 32752, 7)" tag="0"/>
+		<item text="Node (32649, 32755, 7)" tag="0"/>
 		<item text="EIgnore" tag="11"/>
-        <item text="end:" tag="255"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">

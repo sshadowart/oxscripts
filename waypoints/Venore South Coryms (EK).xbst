@@ -53,10 +53,10 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-        <item type="Corym Vanguard" chs="1" max="100" min="0" prio="3" prox="7" count="1"/>
-        <item type="Corym Charlatan" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-        <item type="Corym Skirmisher" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-        <item type="Little Corym Charlatan" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>   
+		<item type="Corym Vanguard" chs="1" max="100" min="0" prio="3" prox="7" count="1"/>
+		<item type="Corym Charlatan" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Corym Skirmisher" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Little Corym Charlatan" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>   
 	</control>
 </panel>
 <panel name="Walker">
@@ -133,7 +133,7 @@
 		<item text="Node (33066, 32108, 10)" tag="0"/>
 		<item text="huntcheck|1:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
-        <item text="SIgnore" tag="10"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (33068, 32099, 10)" tag="0"/>
 		<item text="Rope (33071, 32102, 11)" tag="3"/>
 		<item text="Rope (33070, 32099, 10)" tag="3"/>
@@ -145,34 +145,34 @@
 		<item text="venore|spawn~east.gate:" tag="255"/>
 		<item text="Node (33072, 32086, 8)" tag="0"/>
 		<item text="Ladder (33072, 32086, 8)" tag="2"/>
-        <item text="Ladder (33073, 32086, 7)" tag="2"/>
-        <item text="Stand (33071, 32089, 6)" tag="1"/>
-        <item text="Node (33064, 32096, 7)" tag="0"/>
-        <item text="Node (33054, 32096, 7)" tag="0"/>
+		<item text="Ladder (33073, 32086, 7)" tag="2"/>
+		<item text="Stand (33071, 32089, 6)" tag="1"/>
+		<item text="Node (33064, 32096, 7)" tag="0"/>
+		<item text="Node (33054, 32096, 7)" tag="0"/>
 		<item text="huntcheck|Rafzan|No-Rafzan|true:" tag="255"/>
-        <item text="Node (33051, 32098, 7)" tag="0"/>
+		<item text="Node (33051, 32098, 7)" tag="0"/>
 		<item text="RafzanUp:" tag="255"/>
-        <item text="Stand (33051, 32099, 7)" tag="1"/>
+		<item text="Stand (33051, 32099, 7)" tag="1"/>
 		<item text="Self.UseItemFromGround(33052, 32099, 7) wait(500) Walker.ConditionalGoto((Self.Position().z ~= 6), 'RafzanUp')" tag="254"/>
 		<item text="Self.OpenDoor(33052, 32097, 6)" tag="254"/>
-        <item text="Stand (33052, 32096, 6)" tag="1"/>
+		<item text="Stand (33052, 32096, 6)" tag="1"/>
 		<item text="special|RafzanTrade:" tag="255"/>
 		<item text="RafzanDown:" tag="255"/>
 		<item text="Self.OpenDoor(33052, 32097, 6)" tag="254"/>
-        <item text="Stand (33051, 32098, 6)" tag="1"/>
+		<item text="Stand (33051, 32098, 6)" tag="1"/>
 		<item text="Self.Step(SOUTH) wait(500) Self.UseItemFromGround(33052, 32099, 6) wait(500) Walker.ConditionalGoto((Self.Position().z ~= 7), 'RafzanDown')" tag="254"/>		
-        <item text="Node (33048, 32096, 7)" tag="0"/>
+		<item text="Node (33048, 32096, 7)" tag="0"/>
 		<item text="No-Rafzan:" tag="255"/>
-        <item text="Node (33039, 32095, 7)" tag="0"/>
-        <item text="Node (33032, 32096, 7)" tag="0"/>
-        <item text="Ladder (33032, 32096, 7)" tag="2"/>
-        <item text="Node (33028, 32098, 6)" tag="0"/>
-        <item text="Node (33022, 32100, 6)" tag="0"/>
-        <item text="Node (33014, 32100, 6)" tag="0"/>
-        <item text="Node (33010, 32100, 6)" tag="0"/>
-        <item text="Stand (33009, 32100, 6)" tag="1"/>
-        <item text="Node (33005, 32102, 7)" tag="0"/>
-        <item text="EIgnore" tag="11"/>
+		<item text="Node (33039, 32095, 7)" tag="0"/>
+		<item text="Node (33032, 32096, 7)" tag="0"/>
+		<item text="Ladder (33032, 32096, 7)" tag="2"/>
+		<item text="Node (33028, 32098, 6)" tag="0"/>
+		<item text="Node (33022, 32100, 6)" tag="0"/>
+		<item text="Node (33014, 32100, 6)" tag="0"/>
+		<item text="Node (33010, 32100, 6)" tag="0"/>
+		<item text="Stand (33009, 32100, 6)" tag="1"/>
+		<item text="Node (33005, 32102, 7)" tag="0"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 	</control>
 </panel>
@@ -183,15 +183,15 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
-	    <item title="Special Area #1" consider="3" width="3" height="3" x="32964" y="32198" z="10"/>
-        <item title="Special Area #2" consider="3" width="3" height="3" x="33036" y="32158" z="10"/>
-        <item title="Special Area #3" consider="3" width="3" height="3" x="33119" y="32155" z="10"/>
-        <item title="Special Area #4" consider="3" width="3" height="3" x="33070" y="32101" z="10"/>
-        <item title="Special Area #5" consider="3" width="3" height="3" x="33095" y="32086" z="10"/>
-        <item title="Special Area #6" consider="3" width="3" height="3" x="33128" y="32117" z="10"/>
-        <item title="Special Area #7" consider="3" width="2" height="3" x="33134" y="32015" z="10"/>
-        <item title="Special Area #8" consider="3" width="2" height="3" x="33023" y="32017" z="10"/>
-        <item title="Special Area #9" consider="3" width="3" height="3" x="33006" y="32184" z="10"/>
+		<item title="Special Area #1" consider="3" width="3" height="3" x="32964" y="32198" z="10"/>
+		<item title="Special Area #2" consider="3" width="3" height="3" x="33036" y="32158" z="10"/>
+		<item title="Special Area #3" consider="3" width="3" height="3" x="33119" y="32155" z="10"/>
+		<item title="Special Area #4" consider="3" width="3" height="3" x="33070" y="32101" z="10"/>
+		<item title="Special Area #5" consider="3" width="3" height="3" x="33095" y="32086" z="10"/>
+		<item title="Special Area #6" consider="3" width="3" height="3" x="33128" y="32117" z="10"/>
+		<item title="Special Area #7" consider="3" width="2" height="3" x="33134" y="32015" z="10"/>
+		<item title="Special Area #8" consider="3" width="2" height="3" x="33023" y="32017" z="10"/>
+		<item title="Special Area #9" consider="3" width="3" height="3" x="33006" y="32184" z="10"/>
 	</control>
 </panel>
 <panel name="Alarms">

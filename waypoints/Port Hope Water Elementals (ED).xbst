@@ -68,71 +68,71 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="port hope|south.exit~spawn:" tag="255"/>
-        <item text="Node (32645, 32804, 7)" tag="0"/>
-        <item text="Node (32635, 32808, 7)" tag="0"/>
-        <item text="Node (32625, 32811, 7)" tag="0"/>
-        <item text="Node (32615, 32814, 7)" tag="0"/>
-        <item text="Node (32605, 32817, 7)" tag="0"/>
-        <item text="Node (32595, 32821, 7)" tag="0"/>
-        <item text="Node (32586, 32828, 7)" tag="0"/>
-        <item text="Node (32580, 32834, 7)" tag="0"/>
-        <item text="Node (32575, 32842, 7)" tag="0"/>
-        <item text="Node (32569, 32850, 7)" tag="0"/>
-        <item text="Node (32565, 32855, 7)" tag="0"/>
-        <item text="Node (32560, 32859, 7)" tag="0"/>
-        <item text="Stand (32560, 32860, 7)" tag="1"/>
-        <item text="Stand (32558, 32860, 8)" tag="1"/>
-        <item text="Stand (32555, 32860, 9)" tag="1"/>
+		<item text="port hope|south.exit~spawn:" tag="255"/>
+		<item text="Node (32645, 32804, 7)" tag="0"/>
+		<item text="Node (32635, 32808, 7)" tag="0"/>
+		<item text="Node (32625, 32811, 7)" tag="0"/>
+		<item text="Node (32615, 32814, 7)" tag="0"/>
+		<item text="Node (32605, 32817, 7)" tag="0"/>
+		<item text="Node (32595, 32821, 7)" tag="0"/>
+		<item text="Node (32586, 32828, 7)" tag="0"/>
+		<item text="Node (32580, 32834, 7)" tag="0"/>
+		<item text="Node (32575, 32842, 7)" tag="0"/>
+		<item text="Node (32569, 32850, 7)" tag="0"/>
+		<item text="Node (32565, 32855, 7)" tag="0"/>
+		<item text="Node (32560, 32859, 7)" tag="0"/>
+		<item text="Stand (32560, 32860, 7)" tag="1"/>
+		<item text="Stand (32558, 32860, 8)" tag="1"/>
+		<item text="Stand (32555, 32860, 9)" tag="1"/>
 		<item text="door1:" tag="255"/>
 		<item text="Self.UseDoor(32554, 32860, 9) wait(500) Self.Step(WEST)" tag="254"/>
 		<item text="Node (32550, 32856, 9)" tag="0"/>
 		<item text="Walker.ConditionalGoto((Self.Position().x >= 32554), 'door1')" tag="254"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
-        <item text="Node (32543, 32850, 9)" tag="0"/>
-        <item text="Node (32547, 32842, 9)" tag="0"/>
-        <item text="Node (32559, 32833, 9)" tag="0"/>
-        <item text="Node (32564, 32823, 9)" tag="0"/>
-        <item text="Node (32560, 32815, 9)" tag="0"/>
-        <item text="Node (32560, 32805, 9)" tag="0"/>
-        <item text="Node (32553, 32810, 9)" tag="0"/>
-        <item text="Node (32540, 32819, 9)" tag="0"/>
-        <item text="Node (32540, 32827, 9)" tag="0"/>
-        <item text="huntcheck|2:" tag="255"/>
-        <item text="huntstart|2:" tag="255"/>
-        <item text="Node (32545, 32827, 9)" tag="0"/>
-        <item text="Node (32540, 32820, 9)" tag="0"/>
-        <item text="Node (32536, 32810, 9)" tag="0"/>
-        <item text="huntcheck|3:" tag="255"/>
-        <item text="huntstart|3:" tag="255"/>
-        <item text="Node (32526, 32800, 9)" tag="0"/>
-        <item text="Node (32519, 32793, 9)" tag="0"/>
-        <item text="Node (32516, 32789, 9)" tag="0"/>
-        <item text="Node (32516, 32779, 9)" tag="0"/>
-        <item text="Node (32514, 32767, 9)" tag="0"/>
-        <item text="Node (32497, 32769, 9)" tag="0"/>
-        <item text="Node (32495, 32781, 9)" tag="0"/>
-        <item text="Node (32497, 32795, 9)" tag="0"/>
-        <item text="Node (32496, 32804, 9)" tag="0"/>
-        <item text="Node (32501, 32808, 9)" tag="0"/>
-        <item text="Node (32505, 32816, 9)" tag="0"/>
-        <item text="Node (32499, 32820, 9)" tag="0"/>
-        <item text="Node (32496, 32826, 9)" tag="0"/>
-        <item text="Node (32508, 32818, 9)" tag="0"/>
-        <item text="huntexit|3:" tag="255"/>
-        <item text="Node (32518, 32813, 9)" tag="0"/>
-        <item text="Node (32514, 32823, 9)" tag="0"/>
-        <item text="Node (32519, 32832, 9)" tag="0"/>
-        <item text="Node (32529, 32837, 9)" tag="0"/>
-        <item text="Node (32537, 32841, 9)" tag="0"/>
-        <item text="huntexit|2:" tag="255"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
+		<item text="Node (32543, 32850, 9)" tag="0"/>
+		<item text="Node (32547, 32842, 9)" tag="0"/>
+		<item text="Node (32559, 32833, 9)" tag="0"/>
+		<item text="Node (32564, 32823, 9)" tag="0"/>
+		<item text="Node (32560, 32815, 9)" tag="0"/>
+		<item text="Node (32560, 32805, 9)" tag="0"/>
+		<item text="Node (32553, 32810, 9)" tag="0"/>
+		<item text="Node (32540, 32819, 9)" tag="0"/>
+		<item text="Node (32540, 32827, 9)" tag="0"/>
+		<item text="huntcheck|2:" tag="255"/>
+		<item text="huntstart|2:" tag="255"/>
+		<item text="Node (32545, 32827, 9)" tag="0"/>
+		<item text="Node (32540, 32820, 9)" tag="0"/>
+		<item text="Node (32536, 32810, 9)" tag="0"/>
+		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntstart|3:" tag="255"/>
+		<item text="Node (32526, 32800, 9)" tag="0"/>
+		<item text="Node (32519, 32793, 9)" tag="0"/>
+		<item text="Node (32516, 32789, 9)" tag="0"/>
+		<item text="Node (32516, 32779, 9)" tag="0"/>
+		<item text="Node (32514, 32767, 9)" tag="0"/>
+		<item text="Node (32497, 32769, 9)" tag="0"/>
+		<item text="Node (32495, 32781, 9)" tag="0"/>
+		<item text="Node (32497, 32795, 9)" tag="0"/>
+		<item text="Node (32496, 32804, 9)" tag="0"/>
+		<item text="Node (32501, 32808, 9)" tag="0"/>
+		<item text="Node (32505, 32816, 9)" tag="0"/>
+		<item text="Node (32499, 32820, 9)" tag="0"/>
+		<item text="Node (32496, 32826, 9)" tag="0"/>
+		<item text="Node (32508, 32818, 9)" tag="0"/>
+		<item text="huntexit|3:" tag="255"/>
+		<item text="Node (32518, 32813, 9)" tag="0"/>
+		<item text="Node (32514, 32823, 9)" tag="0"/>
+		<item text="Node (32519, 32832, 9)" tag="0"/>
+		<item text="Node (32529, 32837, 9)" tag="0"/>
 		<item text="Node (32537, 32841, 9)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="port hope|spawn~south.exit:" tag="255"/>
+		<item text="huntexit|2:" tag="255"/>
+		<item text="Node (32537, 32841, 9)" tag="0"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="port hope|spawn~south.exit:" tag="255"/>
 		<item text="Node (32550, 32856, 9)" tag="0"/>
 		<item text="door2:" tag="255"/>
 		<item text="Stand (32553, 32860, 9)" tag="1"/>
@@ -140,18 +140,18 @@
 		<item text="Stand (32558, 32860, 9)" tag="1"/>
 		<item text="Walker.ConditionalGoto((Self.Position().x <= 32554), 'door2')" tag="254"/>
 		<item text="Stand (32560, 32860, 8)" tag="1"/>
-        <item text="Node (32565, 32855, 7)" tag="0"/>
-        <item text="Node (32569, 32850, 7)" tag="0"/>
-        <item text="Node (32575, 32842, 7)" tag="0"/>
-        <item text="Node (32580, 32834, 7)" tag="0"/>
-        <item text="Node (32586, 32828, 7)" tag="0"/>
-        <item text="Node (32595, 32821, 7)" tag="0"/>
-        <item text="Node (32605, 32817, 7)" tag="0"/>
-        <item text="Node (32615, 32814, 7)" tag="0"/>
-        <item text="Node (32625, 32811, 7)" tag="0"/>
-        <item text="Node (32635, 32808, 7)" tag="0"/>
-        <item text="Node (32645, 32804, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="Node (32565, 32855, 7)" tag="0"/>
+		<item text="Node (32569, 32850, 7)" tag="0"/>
+		<item text="Node (32575, 32842, 7)" tag="0"/>
+		<item text="Node (32580, 32834, 7)" tag="0"/>
+		<item text="Node (32586, 32828, 7)" tag="0"/>
+		<item text="Node (32595, 32821, 7)" tag="0"/>
+		<item text="Node (32605, 32817, 7)" tag="0"/>
+		<item text="Node (32615, 32814, 7)" tag="0"/>
+		<item text="Node (32625, 32811, 7)" tag="0"/>
+		<item text="Node (32635, 32808, 7)" tag="0"/>
+		<item text="Node (32645, 32804, 7)" tag="0"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">
@@ -161,26 +161,26 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
-        <item title="Special Area #1" consider="1" width="1" height="2" x="32499" y="32808" z="9"/>
-        <item title="Special Area #2" consider="1" width="6" height="1" x="32502" y="32813" z="9"/>
-        <item title="Special Area #3" consider="1" width="1" height="3" x="32564" y="32820" z="9"/>
-        <item title="Special Area #4" consider="1" width="3" height="1" x="32498" y="32793" z="9"/>
-        <item title="Special Area #5" consider="1" width="1" height="1" x="32551" y="32842" z="9"/>
-        <item title="Special Area #6" consider="1" width="2" height="1" x="32553" y="32833" z="9"/>
-        <item title="Special Area #7" consider="1" width="1" height="3" x="32562" y="32816" z="9"/>
-        <item title="Special Area #8" consider="1" width="1" height="2" x="32552" y="32810" z="9"/>
-        <item title="Special Area #9" consider="1" width="2" height="2" x="32549" y="32810" z="9"/>
-        <item title="Special Area #10" consider="1" width="3" height="1" x="32514" y="32823" z="9"/>
-        <item title="Special Area #11" consider="1" width="1" height="1" x="32536" y="32840" z="9"/>
-        <item title="Special Area #12" consider="1" width="1" height="1" x="32532" y="32840" z="9"/>
-        <item title="Special Area #13" consider="1" width="3" height="1" x="32525" y="32827" z="9"/>
-        <item title="Special Area #14" consider="1" width="1" height="2" x="32534" y="32825" z="9"/>
-        <item title="Special Area #15" consider="1" width="2" height="1" x="32515" y="32807" z="9"/>
-        <item title="Special Area #16" consider="1" width="1" height="1" x="32540" y="32815" z="9"/>
-        <item title="Special Area #17" consider="1" width="2" height="1" x="32525" y="32802" z="9"/>
-        <item title="Special Area #18" consider="1" width="2" height="1" x="32507" y="32794" z="9"/>
-        <item title="Special Area #19" consider="1" width="1" height="3" x="32501" y="32774" z="9"/>
-        <item title="Special Area #20" consider="1" width="4" height="1" x="32513" y="32787" z="9"/>
+		<item title="Special Area #1" consider="1" width="1" height="2" x="32499" y="32808" z="9"/>
+		<item title="Special Area #2" consider="1" width="6" height="1" x="32502" y="32813" z="9"/>
+		<item title="Special Area #3" consider="1" width="1" height="3" x="32564" y="32820" z="9"/>
+		<item title="Special Area #4" consider="1" width="3" height="1" x="32498" y="32793" z="9"/>
+		<item title="Special Area #5" consider="1" width="1" height="1" x="32551" y="32842" z="9"/>
+		<item title="Special Area #6" consider="1" width="2" height="1" x="32553" y="32833" z="9"/>
+		<item title="Special Area #7" consider="1" width="1" height="3" x="32562" y="32816" z="9"/>
+		<item title="Special Area #8" consider="1" width="1" height="2" x="32552" y="32810" z="9"/>
+		<item title="Special Area #9" consider="1" width="2" height="2" x="32549" y="32810" z="9"/>
+		<item title="Special Area #10" consider="1" width="3" height="1" x="32514" y="32823" z="9"/>
+		<item title="Special Area #11" consider="1" width="1" height="1" x="32536" y="32840" z="9"/>
+		<item title="Special Area #12" consider="1" width="1" height="1" x="32532" y="32840" z="9"/>
+		<item title="Special Area #13" consider="1" width="3" height="1" x="32525" y="32827" z="9"/>
+		<item title="Special Area #14" consider="1" width="1" height="2" x="32534" y="32825" z="9"/>
+		<item title="Special Area #15" consider="1" width="2" height="1" x="32515" y="32807" z="9"/>
+		<item title="Special Area #16" consider="1" width="1" height="1" x="32540" y="32815" z="9"/>
+		<item title="Special Area #17" consider="1" width="2" height="1" x="32525" y="32802" z="9"/>
+		<item title="Special Area #18" consider="1" width="2" height="1" x="32507" y="32794" z="9"/>
+		<item title="Special Area #19" consider="1" width="1" height="3" x="32501" y="32774" z="9"/>
+		<item title="Special Area #20" consider="1" width="4" height="1" x="32513" y="32787" z="9"/>
 	</control>
 </panel>
 <panel name="Alarms">

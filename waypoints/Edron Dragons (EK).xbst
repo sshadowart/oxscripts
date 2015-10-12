@@ -63,7 +63,7 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="edron|bridge~spawn:" tag="255"/>
+		<item text="edron|bridge~spawn:" tag="255"/>
 		<item text="Node (33243, 31798, 7)" tag="0"/>
 		<item text="Node (33244, 31792, 7)" tag="0"/>
 		<item text="Node (33247, 31787, 7)" tag="0"/>
@@ -95,9 +95,9 @@
 		<item text="Node (33115, 31703, 7)" tag="0"/>
 		<item text="Node (33107, 31706, 7)" tag="0"/>
 		<item text="Node (33098, 31706, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Stand (33098, 31701, 7)" tag="1"/>
 		<item text="huntcheck|Outdoors|No-Outdoors:" tag="255"/>
 		<item text="Stand (33096, 31700, 7)" tag="1"/>
@@ -163,18 +163,18 @@
 		<item text="Stand (33084, 31654, 8)" tag="1"/>
 		<item text="huntcheck|Hardcore|No-Hardcore:" tag="255"/>
 		<item text="Stand (33086, 31650, 9)" tag="1"/>
-        <item text="door|1|START:" tag="255"/>
+		<item text="door|1|START:" tag="255"/>
 		<item text="Stand (33086, 31650, 10)" tag="1"/>
-        <item text="door|1|WEST:" tag="255"/>
+		<item text="door|1|WEST:" tag="255"/>
 		<item text="Stand (33083, 31649, 10)" tag="1"/>
 		<item text="Node (33082, 31655, 11)" tag="0"/>
 		<item text="Node (33079, 31648, 11)" tag="0"/>
 		<item text="Node (33087, 31647, 11)" tag="0"/>
 		<item text="Node (33083, 31649, 11)" tag="0"/>
 		<item text="Rope (33083, 31649, 11)" tag="3"/>
-        <item text="door|2|START:" tag="255"/>
+		<item text="door|2|START:" tag="255"/>
 		<item text="Stand (33084, 31650, 10)" tag="1"/>
-        <item text="door|2|EAST:" tag="255"/>
+		<item text="door|2|EAST:" tag="255"/>
 		<item text="Rope (33086, 31650, 10)" tag="3"/>
 		<item text="No-Hardcore:" tag="255"/>
 		<item text="Node (33084, 31654, 9)" tag="0"/>
@@ -193,10 +193,10 @@
 		<item text="Node (33097, 31693, 8)" tag="0"/>
 		<item text="Node (33098, 31698, 8)" tag="0"/>
 		<item text="Stand (33099, 31699, 8)" tag="1"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="edron|spawn~bridge:" tag="255"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33098, 31706, 7)" tag="0"/>
 		<item text="Node (33107, 31706, 7)" tag="0"/>
 		<item text="Node (33115, 31703, 7)" tag="0"/>
@@ -229,7 +229,7 @@
 		<item text="Node (33244, 31792, 7)" tag="0"/>
 		<item text="Node (33243, 31798, 7)" tag="0"/>
 		<item text="Node (33243, 31804, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">

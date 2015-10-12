@@ -54,134 +54,134 @@
 <panel name="Targeting">
 	<control name="TargetingList">
 		<item type="Cyclops Smith" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-        <item type="Cyclops Drone" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
-        <item type="Cyclops" chs="0" max="100" min="0" prio="3" prox="7" count="1"/>
-        <item type="Ghoul" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-        <item type="Skeleton" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="Cyclops Drone" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
+		<item type="Cyclops" chs="0" max="100" min="0" prio="3" prox="7" count="1"/>
+		<item type="Ghoul" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Skeleton" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="thais|north.gate~spawn:" tag="255"/>
-        <item text="Node (32369, 32172, 7)" tag="0"/>
-        <item text="Node (32372, 32166, 7)" tag="0"/>
-        <item text="Node (32379, 32162, 7)" tag="0"/>
-        <item text="Node (32389, 32162, 7)" tag="0"/>
-        <item text="Node (32399, 32162, 7)" tag="0"/>
-        <item text="Node (32406, 32160, 7)" tag="0"/>
-        <item text="Node (32411, 32155, 7)" tag="0"/>
-        <item text="Node (32416, 32150, 7)" tag="0"/>
-        <item text="Node (32423, 32145, 7)" tag="0"/>
-        <item text="Node (32431, 32140, 7)" tag="0"/>
-        <item text="Node (32440, 32138, 7)" tag="0"/>
-        <item text="Node (32445, 32133, 7)" tag="0"/>
-        <item text="Node (32446, 32125, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
-        <item text="Node (32448, 32117, 7)" tag="0"/>
-        <item text="Node (32448, 32108, 7)" tag="0"/>
-        <item text="Node (32454, 32102, 7)" tag="0"/>
-        <item text="Node (32460, 32098, 7)" tag="0"/>
-        <item text="Node (32467, 32094, 7)" tag="0"/>
-        <item text="Node (32465, 32087, 7)" tag="0"/>
-        <item text="Node (32462, 32080, 7)" tag="0"/>
-        <item text="Node (32461, 32075, 7)" tag="0"/>
-        <item text="Node (32457, 32071, 7)" tag="0"/>
-        <item text="Stand (32453, 32065, 6)" tag="1"/>
-        <item text="Node (32449, 32069, 7)" tag="0"/>
-        <item text="Stand (32448, 32069, 7)" tag="1"/>
-        <item text="Node (32441, 32070, 8)" tag="0"/>
-        <item text="Node (32434, 32068, 8)" tag="0"/>
-        <item text="Rope (32431, 32064, 9)" tag="3"/>
-        <item text="Node (32424, 32065, 8)" tag="0"/>
-        <item text="Node (32414, 32065, 8)" tag="0"/>
-        <item text="Node (32404, 32068, 8)" tag="0"/>
-        <item text="Hole (32403, 32068, 8)" tag="4"/>
-        <item text="Node (32407, 32073, 9)" tag="0"/>
-        <item text="Node (32411, 32078, 9)" tag="0"/>
-        <item text="Node (32407, 32073, 9)" tag="0"/>
-        <item text="Node (32403, 32068, 9)" tag="0"/>
-        <item text="Rope (32403, 32068, 9)" tag="3"/>
-        <item text="Node (32409, 32066, 8)" tag="0"/>
-        <item text="Node (32419, 32063, 8)" tag="0"/>
-        <item text="Node (32419, 32056, 8)" tag="0"/>
-        <item text="Node (32417, 32046, 8)" tag="0"/>
-        <item text="Node (32423, 32048, 8)" tag="0"/>
-        <item text="Node (32434, 32049, 8)" tag="0"/>
-        <item text="Node (32442, 32048, 8)" tag="0"/>
-        <item text="Node (32447, 32055, 8)" tag="0"/>
-        <item text="Node (32453, 32055, 8)" tag="0"/>
-        <item text="Node (32461, 32052, 8)" tag="0"/>
-        <item text="Node (32462, 32045, 8)" tag="0"/>
-        <item text="Node (32465, 32038, 8)" tag="0"/>
-        <item text="Node (32462, 32045, 8)" tag="0"/>
-        <item text="Node (32461, 32052, 8)" tag="0"/>
-        <item text="Node (32453, 32057, 8)" tag="0"/>
-        <item text="Node (32453, 32064, 8)" tag="0"/>
-        <item text="Node (32453, 32071, 8)" tag="0"/>
-        <item text="Node (32453, 32078, 8)" tag="0"/>
-        <item text="Node (32452, 32085, 8)" tag="0"/>
-        <item text="Node (32446, 32088, 8)" tag="0"/>
-        <item text="Node (32448, 32095, 8)" tag="0"/>
-        <item text="Node (32452, 32099, 8)" tag="0"/>
-        <item text="Node (32446, 32103, 8)" tag="0"/>
-        <item text="Node (32439, 32103, 8)" tag="0"/>
-        <item text="Node (32438, 32096, 8)" tag="0"/>
-        <item text="Hole (32438, 32095, 8)" tag="4"/>
-        <item text="Node (32436, 32084, 9)" tag="0"/>
-        <item text="Node (32438, 32095, 9)" tag="0"/>
-        <item text="Ladder (32438, 32095, 9)" tag="2"/>
-        <item text="Node (32439, 32103, 8)" tag="0"/>
-        <item text="Node (32446, 32103, 8)" tag="0"/>
-        <item text="Node (32454, 32102, 8)" tag="0"/>
-        <item text="Node (32458, 32104, 8)" tag="0"/>
-        <item text="Node (32460, 32109, 8)" tag="0"/>
-        <item text="Node (32464, 32113, 8)" tag="0"/>
-        <item text="Node (32468, 32109, 8)" tag="0"/>
-        <item text="Node (32462, 32108, 8)" tag="0"/>
-        <item text="Node (32464, 32101, 8)" tag="0"/>
-        <item text="Node (32469, 32099, 8)" tag="0"/>
-        <item text="Node (32478, 32101, 8)" tag="0"/>
-        <item text="Node (32479, 32108, 8)" tag="0"/>
-        <item text="Node (32478, 32115, 8)" tag="0"/>
-        <item text="Node (32476, 32120, 8)" tag="0"/>
-        <item text="Node (32478, 32115, 8)" tag="0"/>
-        <item text="Node (32479, 32108, 8)" tag="0"/>
-        <item text="Node (32480, 32101, 8)" tag="0"/>
-        <item text="Node (32485, 32097, 8)" tag="0"/>
-        <item text="Node (32489, 32093, 8)" tag="0"/>
-        <item text="Node (32495, 32089, 8)" tag="0"/>
-        <item text="Node (32499, 32084, 8)" tag="0"/>
-        <item text="Rope (32496, 32083, 9)" tag="3"/>
-        <item text="Node (32495, 32089, 8)" tag="0"/>
-        <item text="Node (32494, 32092, 8)" tag="0"/>
-        <item text="Stand (32494, 32093, 8)" tag="1"/>
-        <item text="Node (32494, 32098, 7)" tag="0"/>
-        <item text="Node (32493, 32107, 7)" tag="0"/>
-        <item text="Node (32484, 32110, 7)" tag="0"/>
-        <item text="Node (32478, 32111, 7)" tag="0"/>
-        <item text="Node (32473, 32116, 7)" tag="0"/>
-        <item text="Node (32467, 32119, 7)" tag="0"/>
-        <item text="Node (32458, 32119, 7)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="thais|spawn~north.gate:" tag="255"/>
-        <item text="Node (32446, 32125, 7)" tag="0"/>
-        <item text="Node (32445, 32133, 7)" tag="0"/>
-        <item text="Node (32440, 32138, 7)" tag="0"/>
-        <item text="Node (32431, 32140, 7)" tag="0"/>
-        <item text="Node (32423, 32145, 7)" tag="0"/>
-        <item text="Node (32416, 32150, 7)" tag="0"/>
-        <item text="Node (32411, 32155, 7)" tag="0"/>
-        <item text="Node (32406, 32160, 7)" tag="0"/>
-        <item text="Node (32399, 32162, 7)" tag="0"/>
-        <item text="Node (32389, 32162, 7)" tag="0"/>
-        <item text="Node (32379, 32162, 7)" tag="0"/>
-        <item text="Node (32372, 32166, 7)" tag="0"/>
-        <item text="Node (32369, 32172, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="thais|north.gate~spawn:" tag="255"/>
+		<item text="Node (32369, 32172, 7)" tag="0"/>
+		<item text="Node (32372, 32166, 7)" tag="0"/>
+		<item text="Node (32379, 32162, 7)" tag="0"/>
+		<item text="Node (32389, 32162, 7)" tag="0"/>
+		<item text="Node (32399, 32162, 7)" tag="0"/>
+		<item text="Node (32406, 32160, 7)" tag="0"/>
+		<item text="Node (32411, 32155, 7)" tag="0"/>
+		<item text="Node (32416, 32150, 7)" tag="0"/>
+		<item text="Node (32423, 32145, 7)" tag="0"/>
+		<item text="Node (32431, 32140, 7)" tag="0"/>
+		<item text="Node (32440, 32138, 7)" tag="0"/>
+		<item text="Node (32445, 32133, 7)" tag="0"/>
+		<item text="Node (32446, 32125, 7)" tag="0"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
+		<item text="Node (32448, 32117, 7)" tag="0"/>
+		<item text="Node (32448, 32108, 7)" tag="0"/>
+		<item text="Node (32454, 32102, 7)" tag="0"/>
+		<item text="Node (32460, 32098, 7)" tag="0"/>
+		<item text="Node (32467, 32094, 7)" tag="0"/>
+		<item text="Node (32465, 32087, 7)" tag="0"/>
+		<item text="Node (32462, 32080, 7)" tag="0"/>
+		<item text="Node (32461, 32075, 7)" tag="0"/>
+		<item text="Node (32457, 32071, 7)" tag="0"/>
+		<item text="Stand (32453, 32065, 6)" tag="1"/>
+		<item text="Node (32449, 32069, 7)" tag="0"/>
+		<item text="Stand (32448, 32069, 7)" tag="1"/>
+		<item text="Node (32441, 32070, 8)" tag="0"/>
+		<item text="Node (32434, 32068, 8)" tag="0"/>
+		<item text="Rope (32431, 32064, 9)" tag="3"/>
+		<item text="Node (32424, 32065, 8)" tag="0"/>
+		<item text="Node (32414, 32065, 8)" tag="0"/>
+		<item text="Node (32404, 32068, 8)" tag="0"/>
+		<item text="Hole (32403, 32068, 8)" tag="4"/>
+		<item text="Node (32407, 32073, 9)" tag="0"/>
+		<item text="Node (32411, 32078, 9)" tag="0"/>
+		<item text="Node (32407, 32073, 9)" tag="0"/>
+		<item text="Node (32403, 32068, 9)" tag="0"/>
+		<item text="Rope (32403, 32068, 9)" tag="3"/>
+		<item text="Node (32409, 32066, 8)" tag="0"/>
+		<item text="Node (32419, 32063, 8)" tag="0"/>
+		<item text="Node (32419, 32056, 8)" tag="0"/>
+		<item text="Node (32417, 32046, 8)" tag="0"/>
+		<item text="Node (32423, 32048, 8)" tag="0"/>
+		<item text="Node (32434, 32049, 8)" tag="0"/>
+		<item text="Node (32442, 32048, 8)" tag="0"/>
+		<item text="Node (32447, 32055, 8)" tag="0"/>
+		<item text="Node (32453, 32055, 8)" tag="0"/>
+		<item text="Node (32461, 32052, 8)" tag="0"/>
+		<item text="Node (32462, 32045, 8)" tag="0"/>
+		<item text="Node (32465, 32038, 8)" tag="0"/>
+		<item text="Node (32462, 32045, 8)" tag="0"/>
+		<item text="Node (32461, 32052, 8)" tag="0"/>
+		<item text="Node (32453, 32057, 8)" tag="0"/>
+		<item text="Node (32453, 32064, 8)" tag="0"/>
+		<item text="Node (32453, 32071, 8)" tag="0"/>
+		<item text="Node (32453, 32078, 8)" tag="0"/>
+		<item text="Node (32452, 32085, 8)" tag="0"/>
+		<item text="Node (32446, 32088, 8)" tag="0"/>
+		<item text="Node (32448, 32095, 8)" tag="0"/>
+		<item text="Node (32452, 32099, 8)" tag="0"/>
+		<item text="Node (32446, 32103, 8)" tag="0"/>
+		<item text="Node (32439, 32103, 8)" tag="0"/>
+		<item text="Node (32438, 32096, 8)" tag="0"/>
+		<item text="Hole (32438, 32095, 8)" tag="4"/>
+		<item text="Node (32436, 32084, 9)" tag="0"/>
+		<item text="Node (32438, 32095, 9)" tag="0"/>
+		<item text="Ladder (32438, 32095, 9)" tag="2"/>
+		<item text="Node (32439, 32103, 8)" tag="0"/>
+		<item text="Node (32446, 32103, 8)" tag="0"/>
+		<item text="Node (32454, 32102, 8)" tag="0"/>
+		<item text="Node (32458, 32104, 8)" tag="0"/>
+		<item text="Node (32460, 32109, 8)" tag="0"/>
+		<item text="Node (32464, 32113, 8)" tag="0"/>
+		<item text="Node (32468, 32109, 8)" tag="0"/>
+		<item text="Node (32462, 32108, 8)" tag="0"/>
+		<item text="Node (32464, 32101, 8)" tag="0"/>
+		<item text="Node (32469, 32099, 8)" tag="0"/>
+		<item text="Node (32478, 32101, 8)" tag="0"/>
+		<item text="Node (32479, 32108, 8)" tag="0"/>
+		<item text="Node (32478, 32115, 8)" tag="0"/>
+		<item text="Node (32476, 32120, 8)" tag="0"/>
+		<item text="Node (32478, 32115, 8)" tag="0"/>
+		<item text="Node (32479, 32108, 8)" tag="0"/>
+		<item text="Node (32480, 32101, 8)" tag="0"/>
+		<item text="Node (32485, 32097, 8)" tag="0"/>
+		<item text="Node (32489, 32093, 8)" tag="0"/>
+		<item text="Node (32495, 32089, 8)" tag="0"/>
+		<item text="Node (32499, 32084, 8)" tag="0"/>
+		<item text="Rope (32496, 32083, 9)" tag="3"/>
+		<item text="Node (32495, 32089, 8)" tag="0"/>
+		<item text="Node (32494, 32092, 8)" tag="0"/>
+		<item text="Stand (32494, 32093, 8)" tag="1"/>
+		<item text="Node (32494, 32098, 7)" tag="0"/>
+		<item text="Node (32493, 32107, 7)" tag="0"/>
+		<item text="Node (32484, 32110, 7)" tag="0"/>
+		<item text="Node (32478, 32111, 7)" tag="0"/>
+		<item text="Node (32473, 32116, 7)" tag="0"/>
+		<item text="Node (32467, 32119, 7)" tag="0"/>
+		<item text="Node (32458, 32119, 7)" tag="0"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="thais|spawn~north.gate:" tag="255"/>
+		<item text="Node (32446, 32125, 7)" tag="0"/>
+		<item text="Node (32445, 32133, 7)" tag="0"/>
+		<item text="Node (32440, 32138, 7)" tag="0"/>
+		<item text="Node (32431, 32140, 7)" tag="0"/>
+		<item text="Node (32423, 32145, 7)" tag="0"/>
+		<item text="Node (32416, 32150, 7)" tag="0"/>
+		<item text="Node (32411, 32155, 7)" tag="0"/>
+		<item text="Node (32406, 32160, 7)" tag="0"/>
+		<item text="Node (32399, 32162, 7)" tag="0"/>
+		<item text="Node (32389, 32162, 7)" tag="0"/>
+		<item text="Node (32379, 32162, 7)" tag="0"/>
+		<item text="Node (32372, 32166, 7)" tag="0"/>
+		<item text="Node (32369, 32172, 7)" tag="0"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">
@@ -191,14 +191,14 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
-        <item title="New Area" consider="3" width="1" height="1" x="32432" y="32065" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32431" y="32065" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32430" y="32065" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32430" y="32064" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32430" y="32063" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32431" y="32063" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32432" y="32063" z="8"/>
-        <item title="New Area" consider="3" width="1" height="1" x="32430" y="32062" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32432" y="32065" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32431" y="32065" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32430" y="32065" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32430" y="32064" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32430" y="32063" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32431" y="32063" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32432" y="32063" z="8"/>
+		<item title="New Area" consider="3" width="1" height="1" x="32430" y="32062" z="8"/>
 	</control>
 </panel>
 <panel name="Alarms">

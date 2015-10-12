@@ -58,7 +58,7 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="edron|bridge~spawn:" tag="255"/>	
+		<item text="edron|bridge~spawn:" tag="255"/>	
 		<item text="Node (33243, 31803, 7)" tag="0"/>
 		<item text="Node (33243, 31794, 7)" tag="0"/>
 		<item text="Node (33247, 31787, 7)" tag="0"/>
@@ -98,10 +98,10 @@
 		<item text="Stand (33322, 31804, 11)" tag="1"/>
 		<item text="Node (33330, 31809, 12)" tag="0"/>
 		<item text="Stand (33331, 31809, 12)" tag="1"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>		
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>		
 		<item text="Node (33333, 31806, 13)" tag="0"/>
-        <item text="huntstart|1:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (33331, 31798, 13)" tag="0"/>
 		<item text="Node (33331, 31789, 13)" tag="0"/>
 		<item text="Node (33329, 31782, 13)" tag="0"/>
@@ -131,7 +131,7 @@
 		<item text="Node (33354, 31742, 12)" tag="0"/>
 		<item text="Node (33352, 31746, 12)" tag="0"/>
 		<item text="Stand (33351, 31746, 12)" tag="1"/>
-        <item text="No-Upstairs:" tag="255"/>
+		<item text="No-Upstairs:" tag="255"/>
 		<item text="Node (33354, 31742, 13)" tag="0"/>
 		<item text="huntcheck|Hardcore|No-Hardcore:" tag="255"/>
 		<item text="Node (33359, 31739, 13)" tag="0"/>
@@ -141,7 +141,7 @@
 		<item text="Node (33361, 31739, 14)" tag="0"/>
 		<item text="Rope (33360, 31739, 14)" tag="3"/>
 		<item text="Node (33354, 31742, 13)" tag="0"/>
-        <item text="No-Hardcore:" tag="255"/>
+		<item text="No-Hardcore:" tag="255"/>
 		<item text="Node (33352, 31750, 13)" tag="0"/>
 		<item text="Node (33352, 31756, 13)" tag="0"/>
 		<item text="Node (33348, 31761, 13)" tag="0"/>
@@ -153,13 +153,13 @@
 		<item text="Node (33330, 31790, 13)" tag="0"/>
 		<item text="Node (33330, 31798, 13)" tag="0"/>
 		<item text="Node (33335, 31805, 13)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="edron|spawn~bridge:" tag="255"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33332, 31809, 13)" tag="0"/>
 		<item text="Stand (33331, 31809, 13)" tag="1"/>
-        <item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
+		<item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
 		<item text="Node (33322, 31804, 12)" tag="0"/>
 		<item text="Rope (33322, 31804, 12)" tag="3"/>
 		<item text="Node (33318, 31803, 11)" tag="0"/>
@@ -198,7 +198,7 @@
 		<item text="Node (33247, 31787, 7)" tag="0"/>
 		<item text="Node (33243, 31794, 7)" tag="0"/>
 		<item text="Node (33243, 31803, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">

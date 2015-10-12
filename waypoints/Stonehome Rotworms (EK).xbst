@@ -62,7 +62,7 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="edron|bridge~spawn:" tag="255"/>	
+		<item text="edron|bridge~spawn:" tag="255"/>	
 		<item text="Node (33243, 31804, 7)" tag="0"/>
 		<item text="Node (33243, 31798, 7)" tag="0"/>
 		<item text="Node (33244, 31791, 7)" tag="0"/>
@@ -76,9 +76,9 @@
 		<item text="Node (33302, 31775, 7)" tag="0"/>
 		<item text="Node (33302, 31783, 7)" tag="0"/>
 		<item text="Hole (33303, 31784, 7)" tag="4"/>
-        <item text="end:" tag="255"/>		
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
+		<item text="end:" tag="255"/>		
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (33308, 31785, 8)" tag="0"/>
 		<item text="Node (33313, 31787, 8)" tag="0"/>
 		<item text="Node (33319, 31789, 8)" tag="0"/>
@@ -98,7 +98,7 @@
 		<item text="Rope (33324, 31828, 9)" tag="3"/>
 		<item text="Node (33327, 31824, 8)" tag="0"/>
 		<item text="Node (33332, 31822, 8)" tag="0"/>
-        <item text="No-Dwarf-Guard:" tag="255"/>
+		<item text="No-Dwarf-Guard:" tag="255"/>
 		<item text="Node (33334, 31817, 8)" tag="0"/>
 		<item text="Node (33333, 31811, 8)" tag="0"/>
 		<item text="Node (33328, 31808, 8)" tag="0"/>
@@ -143,10 +143,10 @@
 		<item text="Node (33327, 31808, 12)" tag="0"/>
 		<item text="Node (33322, 31804, 12)" tag="0"/>
 		<item text="Rope (33322, 31804, 12)" tag="3"/>
-        <item text="No-Fifth-Floor:" tag="255"/>
+		<item text="No-Fifth-Floor:" tag="255"/>
 		<item text="Rope (33318, 31803, 11)" tag="3"/>
 		<item text="Node (33316, 31796, 10)" tag="0"/>
-        <item text="No-Fourth-Floor:" tag="255"/>
+		<item text="No-Fourth-Floor:" tag="255"/>
 		<item text="Node (33315, 31791, 10)" tag="0"/>
 		<item text="Node (33317, 31787, 10)" tag="0"/>
 		<item text="Node (33321, 31783, 10)" tag="0"/>
@@ -156,7 +156,7 @@
 		<item text="Node (33323, 31760, 10)" tag="0"/>
 		<item text="Rope (33323, 31760, 10)" tag="3"/>
 		<item text="Node (33318, 31761, 9)" tag="0"/>
-        <item text="No-Third-Floor:" tag="255"/>
+		<item text="No-Third-Floor:" tag="255"/>
 		<item text="Node (33315, 31764, 9)" tag="0"/>
 		<item text="Node (33313, 31768, 9)" tag="0"/>
 		<item text="Node (33314, 31773, 9)" tag="0"/>
@@ -169,13 +169,13 @@
 		<item text="Node (33321, 31772, 9)" tag="0"/>
 		<item text="Rope (33321, 31772, 9)" tag="3"/>
 		<item text="Node (33318, 31776, 8)" tag="0"/>
-        <item text="No-Second-Floor:" tag="255"/>
+		<item text="No-Second-Floor:" tag="255"/>
 		<item text="Node (33314, 31778, 8)" tag="0"/>
 		<item text="Node (33308, 31779, 8)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>		
-        <item text="edron|spawn~bridge:" tag="255"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>		
+		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33321, 31772, 9)" tag="0"/>
 		<item text="Rope (33321, 31772, 9)" tag="3"/>
 		<item text="Node (33318, 31776, 8)" tag="0"/>
@@ -195,7 +195,7 @@
 		<item text="Node (33244, 31791, 7)" tag="0"/>
 		<item text="Node (33243, 31798, 7)" tag="0"/>
 		<item text="Node (33243, 31804, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">

@@ -5,7 +5,7 @@
 <panel name="Self Healer">
 	<control name="SpellList">
 		<item spell="Exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="80" enabled="1"/>
-        <item spell="exura" mana="20" vcomp="1" vsign="3" vrandom="0" vvalue="99" enabled="1"/>
+		<item spell="exura" mana="20" vcomp="1" vsign="3" vrandom="0" vvalue="99" enabled="1"/>
 	</control>
 	<control name="ItemList">
 		<item id="266" vcomp="0" vsign="1" vrandom="0" vvalue="50" enabled="1"/>
@@ -54,185 +54,185 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">        
-        <item type="Bonelord" chs="0" max="100" min="0" prio="9" prox="7" count="1"/>
-        <item type="Skeleton" chs="6" max="100" min="0" prio="8" prox="7" count="1"/>
-        <item type="Crab" chs="6" max="100" min="0" prio="7" prox="7" count="1"/>
-        <item type="Swamp Troll" chs="0" max="10" min="0" prio="5" prox="7" count="1"/>
-        <item type="Swamp Troll" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
-        <item type="Poison Spider" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
-        <item type="Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-        <item type="Bug" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-        <item type="Cave Rat" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Bonelord" chs="0" max="100" min="0" prio="9" prox="7" count="1"/>
+		<item type="Skeleton" chs="6" max="100" min="0" prio="8" prox="7" count="1"/>
+		<item type="Crab" chs="6" max="100" min="0" prio="7" prox="7" count="1"/>
+		<item type="Swamp Troll" chs="0" max="10" min="0" prio="5" prox="7" count="1"/>
+		<item type="Swamp Troll" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Poison Spider" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Bug" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Cave Rat" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="port hope|east.exit~spawn:" tag="255"/>
-        <item text="Node (32645, 32755, 7)" tag="0"/>
-        <item text="Node (32654, 32753, 7)" tag="0"/>
-        <item text="Node (32659, 32748, 7)" tag="0"/>
-        <item text="Node (32662, 32742, 7)" tag="0"/>
-        <item text="Stand (32662, 32741, 7)" tag="1"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
-        <item text="Node (32665, 32743, 8)" tag="0"/>
-        <item text="Node (32665, 32748, 8)" tag="0"/>
-        <item text="Node (32668, 32737, 8)" tag="0"/>
-        <item text="Node (32673, 32735, 8)" tag="0"/>
-        <item text="Node (32668, 32737, 8)" tag="0"/>
-        <item text="Node (32664, 32731, 8)" tag="0"/>
-        <item text="Node (32660, 32725, 8)" tag="0"/>
-        <item text="Node (32659, 32717, 8)" tag="0"/>
-        <item text="Node (32660, 32709, 8)" tag="0"/>
-        <item text="Node (32665, 32706, 8)" tag="0"/>
-        <item text="Node (32659, 32706, 8)" tag="0"/>
-        <item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
-        <item text="Node (32655, 32706, 8)" tag="0"/>
-        <item text="Stand (32654, 32706, 8)" tag="1"/>
-        <item text="Node (32656, 32711, 9)" tag="0"/>
-        <item text="Node (32660, 32717, 9)" tag="0"/>
-        <item text="Node (32669, 32719, 9)" tag="0"/>
-        <item text="Node (32660, 32717, 9)" tag="0"/>
-        <item text="Node (32656, 32711, 9)" tag="0"/>
-        <item text="Node (32657, 32701, 9)" tag="0"/>
-        <item text="Node (32660, 32696, 9)" tag="0"/>
-        <item text="Node (32666, 32692, 9)" tag="0"/>
-        <item text="Node (32672, 32687, 9)" tag="0"/>
-        <item text="Node (32678, 32683, 9)" tag="0"/>
-        <item text="Node (32688, 32682, 9)" tag="0"/>
-        <item text="Node (32678, 32682, 9)" tag="0"/>
-        <item text="huntcheck|Third-Floor|No-Third-Floor:" tag="255"/>
-        <item text="Node (32672, 32678, 9)" tag="0"/>
-        <item text="Stand (32672, 32677, 9)" tag="1"/>
-        <item text="Node (32666, 32677, 10)" tag="0"/>
-        <item text="Node (32656, 32676, 10)" tag="0"/>
-        <item text="Node (32666, 32676, 10)" tag="0"/>
-        <item text="Node (32670, 32673, 10)" tag="0"/>
-        <item text="Node (32674, 32669, 10)" tag="0"/>
-        <item text="Node (32678, 32664, 10)" tag="0"/>
-        <item text="Node (32679, 32658, 10)" tag="0"/>
-        <item text="Node (32681, 32651, 10)" tag="0"/>
-        <item text="Node (32682, 32645, 10)" tag="0"/>
-        <item text="huntcheck|Fourth-Floor|No-Fourth-Floor:" tag="255"/>
-        <item text="Node (32684, 32639, 10)" tag="0"/>
-        <item text="Rope (32684, 32639, 10)" tag="3"/>
-        <item text="Node (32691, 32640, 9)" tag="0"/>
-        <item text="Node (32696, 32645, 9)" tag="0"/>
-        <item text="Node (32692, 32639, 9)" tag="0"/>
-        <item text="Node (32687, 32633, 9)" tag="0"/>
-        <item text="Node (32685, 32627, 9)" tag="0"/>
-        <item text="Node (32683, 32621, 9)" tag="0"/>
-        <item text="Node (32678, 32616, 9)" tag="0"/>
-        <item text="huntcheck|Holy-Crab|No-Holy-Crab:" tag="255"/>
-        <item text="Node (32671, 32616, 9)" tag="0"/>
-        <item text="Node (32664, 32614, 9)" tag="0"/>
-        <item text="Stand (32664, 32613, 9)" tag="1"/>
-        <item text="Node (32662, 32609, 10)" tag="0"/>
-        <item text="Node (32658, 32605, 10)" tag="0"/>
-        <item text="Node (32656, 32601, 10)" tag="0"/>
-        <item text="Node (32658, 32605, 10)" tag="0"/>
-        <item text="Node (32662, 32609, 10)" tag="0"/>
-        <item text="Node (32664, 32613, 10)" tag="0"/>
-        <item text="Rope (32664, 32613, 10)" tag="3"/>
-        <item text="Node (32671, 32615, 9)" tag="0"/>
-        <item text="No-Holy-Crab:" tag="255"/>
-        <item text="Node (32678, 32613, 9)" tag="0"/>
-        <item text="Node (32682, 32607, 9)" tag="0"/>
-        <item text="Node (32685, 32600, 9)" tag="0"/>
-        <item text="Node (32689, 32594, 9)" tag="0"/>
-        <item text="huntcheck|Fifth-Floor|No-Fifth-Floor:" tag="255"/>
-        <item text="Node (32691, 32589, 9)" tag="0"/>
-        <item text="Rope (32691, 32589, 9)" tag="3"/>
-        <item text="Node (32694, 32585, 8)" tag="0"/>
-        <item text="Node (32695, 32576, 8)" tag="0"/>
-        <item text="Node (32694, 32585, 8)" tag="0"/>
-        <item text="Node (32695, 32593, 8)" tag="0"/>
-        <item text="Node (32702, 32597, 8)" tag="0"/>
-        <item text="Node (32695, 32593, 8)" tag="0"/>
-        <item text="Node (32689, 32595, 8)" tag="0"/>
-        <item text="Node (32687, 32599, 8)" tag="0"/>
-        <item text="Node (32687, 32606, 8)" tag="0"/>
-        <item text="Node (32682, 32612, 8)" tag="0"/>
-        <item text="Node (32685, 32620, 8)" tag="0"/>
-        <item text="Node (32682, 32612, 8)" tag="0"/>
-        <item text="Node (32681, 32604, 8)" tag="0"/>
-        <item text="Node (32678, 32598, 8)" tag="0"/>
-        <item text="Node (32674, 32594, 8)" tag="0"/>
-        <item text="Node (32670, 32589, 8)" tag="0"/>
-        <item text="Node (32674, 32593, 8)" tag="0"/>
-        <item text="Node (32680, 32595, 8)" tag="0"/>
-        <item text="Node (32686, 32593, 8)" tag="0"/>
-        <item text="Node (32690, 32589, 8)" tag="0"/>
-        <item text="Stand (32691, 32589, 8)" tag="1"/>
-        <item text="No-Fifth-Floor:" tag="255"/>
-        <item text="Node (32695, 32594, 9)" tag="0"/>
-        <item text="Node (32699, 32599, 9)" tag="0"/>
-        <item text="Node (32703, 32606, 9)" tag="0"/>
-        <item text="Node (32703, 32613, 9)" tag="0"/>
-        <item text="Node (32705, 32619, 9)" tag="0"/>
-        <item text="Node (32706, 32626, 9)" tag="0"/>
-        <item text="Node (32709, 32631, 9)" tag="0"/>
-        <item text="Node (32706, 32626, 9)" tag="0"/>
-        <item text="Node (32705, 32619, 9)" tag="0"/>
-        <item text="huntcheck|Bonelord|No-Bonelord:" tag="255"/>
-        <item text="Node (32708, 32617, 9)" tag="0"/>
-        <item text="Stand (32709, 32617, 9)" tag="1"/>
-        <item text="Node (32716, 32622, 10)" tag="0"/>
-        <item text="Node (32709, 32625, 10)" tag="0"/>
-        <item text="Node (32704, 32618, 10)" tag="0"/>
-        <item text="Node (32710, 32611, 10)" tag="0"/>
-        <item text="Node (32716, 32616, 10)" tag="0"/>
-        <item text="Node (32709, 32617, 10)" tag="0"/>
-        <item text="Rope (32709, 32617, 10)" tag="3"/>
-        <item text="No-Bonelord:" tag="255"/>
-        <item text="Node (32703, 32613, 9)" tag="0"/>
-        <item text="Node (32703, 32606, 9)" tag="0"/>
-        <item text="Node (32699, 32599, 9)" tag="0"/>
-        <item text="Node (32694, 32596, 9)" tag="0"/>
-        <item text="Node (32690, 32596, 9)" tag="0"/>
-        <item text="Node (32685, 32600, 9)" tag="0"/>
-        <item text="Node (32682, 32607, 9)" tag="0"/>
-        <item text="Node (32682, 32612, 9)" tag="0"/>
-        <item text="Node (32682, 32617, 9)" tag="0"/>
-        <item text="Node (32680, 32622, 9)" tag="0"/>
-        <item text="Node (32678, 32627, 9)" tag="0"/>
-        <item text="Node (32678, 32632, 9)" tag="0"/>
-        <item text="Node (32683, 32639, 9)" tag="0"/>
-        <item text="Stand (32684, 32639, 9)" tag="1"/>
-        <item text="No-Fourth-Floor:" tag="255"/>
-        <item text="Node (32682, 32645, 10)" tag="0"/>
-        <item text="Node (32681, 32651, 10)" tag="0"/>
-        <item text="Node (32679, 32658, 10)" tag="0"/>
-        <item text="Node (32678, 32664, 10)" tag="0"/>
-        <item text="Node (32674, 32669, 10)" tag="0"/>
-        <item text="Node (32672, 32676, 10)" tag="0"/>
-        <item text="Rope (32672, 32677, 10)" tag="3"/>
-        <item text="No-Third-Floor:" tag="255"/>
-        <item text="Node (32668, 32681, 9)" tag="0"/>
-        <item text="Node (32666, 32686, 9)" tag="0"/>
-        <item text="Node (32663, 32691, 9)" tag="0"/>
-        <item text="Node (32660, 32696, 9)" tag="0"/>
-        <item text="Node (32657, 32701, 9)" tag="0"/>
-        <item text="Node (32654, 32706, 9)" tag="0"/>
-        <item text="Rope (32654, 32706, 9)" tag="3"/>
-        <item text="No-Second-Floor:" tag="255"/>
-        <item text="Node (32657, 32711, 8)" tag="0"/>
-        <item text="Node (32659, 32717, 8)" tag="0"/>
-        <item text="Node (32656, 32723, 8)" tag="0"/>
-        <item text="Node (32650, 32727, 8)" tag="0"/>
-        <item text="Node (32651, 32737, 8)" tag="0"/>
-        <item text="Node (32662, 32738, 8)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="port hope|spawn~east.exit:" tag="255"/>
-        <item text="Node (32662, 32741, 8)" tag="0"/>
-        <item text="Rope (32662, 32741, 8)" tag="3"/>
-        <item text="Node (32659, 32748, 7)" tag="0"/>
-        <item text="Node (32654, 32753, 7)" tag="0"/>
-        <item text="Node (32645, 32755, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="port hope|east.exit~spawn:" tag="255"/>
+		<item text="Node (32645, 32755, 7)" tag="0"/>
+		<item text="Node (32654, 32753, 7)" tag="0"/>
+		<item text="Node (32659, 32748, 7)" tag="0"/>
+		<item text="Node (32662, 32742, 7)" tag="0"/>
+		<item text="Stand (32662, 32741, 7)" tag="1"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
+		<item text="Node (32665, 32743, 8)" tag="0"/>
+		<item text="Node (32665, 32748, 8)" tag="0"/>
+		<item text="Node (32668, 32737, 8)" tag="0"/>
+		<item text="Node (32673, 32735, 8)" tag="0"/>
+		<item text="Node (32668, 32737, 8)" tag="0"/>
+		<item text="Node (32664, 32731, 8)" tag="0"/>
+		<item text="Node (32660, 32725, 8)" tag="0"/>
+		<item text="Node (32659, 32717, 8)" tag="0"/>
+		<item text="Node (32660, 32709, 8)" tag="0"/>
+		<item text="Node (32665, 32706, 8)" tag="0"/>
+		<item text="Node (32659, 32706, 8)" tag="0"/>
+		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
+		<item text="Node (32655, 32706, 8)" tag="0"/>
+		<item text="Stand (32654, 32706, 8)" tag="1"/>
+		<item text="Node (32656, 32711, 9)" tag="0"/>
+		<item text="Node (32660, 32717, 9)" tag="0"/>
+		<item text="Node (32669, 32719, 9)" tag="0"/>
+		<item text="Node (32660, 32717, 9)" tag="0"/>
+		<item text="Node (32656, 32711, 9)" tag="0"/>
+		<item text="Node (32657, 32701, 9)" tag="0"/>
+		<item text="Node (32660, 32696, 9)" tag="0"/>
+		<item text="Node (32666, 32692, 9)" tag="0"/>
+		<item text="Node (32672, 32687, 9)" tag="0"/>
+		<item text="Node (32678, 32683, 9)" tag="0"/>
+		<item text="Node (32688, 32682, 9)" tag="0"/>
+		<item text="Node (32678, 32682, 9)" tag="0"/>
+		<item text="huntcheck|Third-Floor|No-Third-Floor:" tag="255"/>
+		<item text="Node (32672, 32678, 9)" tag="0"/>
+		<item text="Stand (32672, 32677, 9)" tag="1"/>
+		<item text="Node (32666, 32677, 10)" tag="0"/>
+		<item text="Node (32656, 32676, 10)" tag="0"/>
+		<item text="Node (32666, 32676, 10)" tag="0"/>
+		<item text="Node (32670, 32673, 10)" tag="0"/>
+		<item text="Node (32674, 32669, 10)" tag="0"/>
+		<item text="Node (32678, 32664, 10)" tag="0"/>
+		<item text="Node (32679, 32658, 10)" tag="0"/>
+		<item text="Node (32681, 32651, 10)" tag="0"/>
+		<item text="Node (32682, 32645, 10)" tag="0"/>
+		<item text="huntcheck|Fourth-Floor|No-Fourth-Floor:" tag="255"/>
+		<item text="Node (32684, 32639, 10)" tag="0"/>
+		<item text="Rope (32684, 32639, 10)" tag="3"/>
+		<item text="Node (32691, 32640, 9)" tag="0"/>
+		<item text="Node (32696, 32645, 9)" tag="0"/>
+		<item text="Node (32692, 32639, 9)" tag="0"/>
+		<item text="Node (32687, 32633, 9)" tag="0"/>
+		<item text="Node (32685, 32627, 9)" tag="0"/>
+		<item text="Node (32683, 32621, 9)" tag="0"/>
+		<item text="Node (32678, 32616, 9)" tag="0"/>
+		<item text="huntcheck|Holy-Crab|No-Holy-Crab:" tag="255"/>
+		<item text="Node (32671, 32616, 9)" tag="0"/>
+		<item text="Node (32664, 32614, 9)" tag="0"/>
+		<item text="Stand (32664, 32613, 9)" tag="1"/>
+		<item text="Node (32662, 32609, 10)" tag="0"/>
+		<item text="Node (32658, 32605, 10)" tag="0"/>
+		<item text="Node (32656, 32601, 10)" tag="0"/>
+		<item text="Node (32658, 32605, 10)" tag="0"/>
+		<item text="Node (32662, 32609, 10)" tag="0"/>
+		<item text="Node (32664, 32613, 10)" tag="0"/>
+		<item text="Rope (32664, 32613, 10)" tag="3"/>
+		<item text="Node (32671, 32615, 9)" tag="0"/>
+		<item text="No-Holy-Crab:" tag="255"/>
+		<item text="Node (32678, 32613, 9)" tag="0"/>
+		<item text="Node (32682, 32607, 9)" tag="0"/>
+		<item text="Node (32685, 32600, 9)" tag="0"/>
+		<item text="Node (32689, 32594, 9)" tag="0"/>
+		<item text="huntcheck|Fifth-Floor|No-Fifth-Floor:" tag="255"/>
+		<item text="Node (32691, 32589, 9)" tag="0"/>
+		<item text="Rope (32691, 32589, 9)" tag="3"/>
+		<item text="Node (32694, 32585, 8)" tag="0"/>
+		<item text="Node (32695, 32576, 8)" tag="0"/>
+		<item text="Node (32694, 32585, 8)" tag="0"/>
+		<item text="Node (32695, 32593, 8)" tag="0"/>
+		<item text="Node (32702, 32597, 8)" tag="0"/>
+		<item text="Node (32695, 32593, 8)" tag="0"/>
+		<item text="Node (32689, 32595, 8)" tag="0"/>
+		<item text="Node (32687, 32599, 8)" tag="0"/>
+		<item text="Node (32687, 32606, 8)" tag="0"/>
+		<item text="Node (32682, 32612, 8)" tag="0"/>
+		<item text="Node (32685, 32620, 8)" tag="0"/>
+		<item text="Node (32682, 32612, 8)" tag="0"/>
+		<item text="Node (32681, 32604, 8)" tag="0"/>
+		<item text="Node (32678, 32598, 8)" tag="0"/>
+		<item text="Node (32674, 32594, 8)" tag="0"/>
+		<item text="Node (32670, 32589, 8)" tag="0"/>
+		<item text="Node (32674, 32593, 8)" tag="0"/>
+		<item text="Node (32680, 32595, 8)" tag="0"/>
+		<item text="Node (32686, 32593, 8)" tag="0"/>
+		<item text="Node (32690, 32589, 8)" tag="0"/>
+		<item text="Stand (32691, 32589, 8)" tag="1"/>
+		<item text="No-Fifth-Floor:" tag="255"/>
+		<item text="Node (32695, 32594, 9)" tag="0"/>
+		<item text="Node (32699, 32599, 9)" tag="0"/>
+		<item text="Node (32703, 32606, 9)" tag="0"/>
+		<item text="Node (32703, 32613, 9)" tag="0"/>
+		<item text="Node (32705, 32619, 9)" tag="0"/>
+		<item text="Node (32706, 32626, 9)" tag="0"/>
+		<item text="Node (32709, 32631, 9)" tag="0"/>
+		<item text="Node (32706, 32626, 9)" tag="0"/>
+		<item text="Node (32705, 32619, 9)" tag="0"/>
+		<item text="huntcheck|Bonelord|No-Bonelord:" tag="255"/>
+		<item text="Node (32708, 32617, 9)" tag="0"/>
+		<item text="Stand (32709, 32617, 9)" tag="1"/>
+		<item text="Node (32716, 32622, 10)" tag="0"/>
+		<item text="Node (32709, 32625, 10)" tag="0"/>
+		<item text="Node (32704, 32618, 10)" tag="0"/>
+		<item text="Node (32710, 32611, 10)" tag="0"/>
+		<item text="Node (32716, 32616, 10)" tag="0"/>
+		<item text="Node (32709, 32617, 10)" tag="0"/>
+		<item text="Rope (32709, 32617, 10)" tag="3"/>
+		<item text="No-Bonelord:" tag="255"/>
+		<item text="Node (32703, 32613, 9)" tag="0"/>
+		<item text="Node (32703, 32606, 9)" tag="0"/>
+		<item text="Node (32699, 32599, 9)" tag="0"/>
+		<item text="Node (32694, 32596, 9)" tag="0"/>
+		<item text="Node (32690, 32596, 9)" tag="0"/>
+		<item text="Node (32685, 32600, 9)" tag="0"/>
+		<item text="Node (32682, 32607, 9)" tag="0"/>
+		<item text="Node (32682, 32612, 9)" tag="0"/>
+		<item text="Node (32682, 32617, 9)" tag="0"/>
+		<item text="Node (32680, 32622, 9)" tag="0"/>
+		<item text="Node (32678, 32627, 9)" tag="0"/>
+		<item text="Node (32678, 32632, 9)" tag="0"/>
+		<item text="Node (32683, 32639, 9)" tag="0"/>
+		<item text="Stand (32684, 32639, 9)" tag="1"/>
+		<item text="No-Fourth-Floor:" tag="255"/>
+		<item text="Node (32682, 32645, 10)" tag="0"/>
+		<item text="Node (32681, 32651, 10)" tag="0"/>
+		<item text="Node (32679, 32658, 10)" tag="0"/>
+		<item text="Node (32678, 32664, 10)" tag="0"/>
+		<item text="Node (32674, 32669, 10)" tag="0"/>
+		<item text="Node (32672, 32676, 10)" tag="0"/>
+		<item text="Rope (32672, 32677, 10)" tag="3"/>
+		<item text="No-Third-Floor:" tag="255"/>
+		<item text="Node (32668, 32681, 9)" tag="0"/>
+		<item text="Node (32666, 32686, 9)" tag="0"/>
+		<item text="Node (32663, 32691, 9)" tag="0"/>
+		<item text="Node (32660, 32696, 9)" tag="0"/>
+		<item text="Node (32657, 32701, 9)" tag="0"/>
+		<item text="Node (32654, 32706, 9)" tag="0"/>
+		<item text="Rope (32654, 32706, 9)" tag="3"/>
+		<item text="No-Second-Floor:" tag="255"/>
+		<item text="Node (32657, 32711, 8)" tag="0"/>
+		<item text="Node (32659, 32717, 8)" tag="0"/>
+		<item text="Node (32656, 32723, 8)" tag="0"/>
+		<item text="Node (32650, 32727, 8)" tag="0"/>
+		<item text="Node (32651, 32737, 8)" tag="0"/>
+		<item text="Node (32662, 32738, 8)" tag="0"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="port hope|spawn~east.exit:" tag="255"/>
+		<item text="Node (32662, 32741, 8)" tag="0"/>
+		<item text="Rope (32662, 32741, 8)" tag="3"/>
+		<item text="Node (32659, 32748, 7)" tag="0"/>
+		<item text="Node (32654, 32753, 7)" tag="0"/>
+		<item text="Node (32645, 32755, 7)" tag="0"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">
@@ -242,23 +242,23 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
-        <item title="Special Area #1" consider="3" width="1" height="1" x="32648" y="32734" z="8"/>
-        <item title="Special Area #2" consider="3" width="1" height="3" x="32645" y="32727" z="8"/>
-        <item title="Special Area #3" consider="1" width="3" height="3" x="32653" y="32705" z="8"/>
-        <item title="Special Area #4" consider="1" width="3" height="3" x="32661" y="32740" z="8"/>
-        <item title="Special Area #5" consider="1" width="3" height="3" x="32671" y="32676" z="9"/>
-        <item title="Special Area #6" consider="1" width="3" height="3" x="32683" y="32638" z="10"/>
-        <item title="Special Area #7" consider="1" width="3" height="3" x="32663" y="32612" z="9"/>
-        <item title="Special Area #8" consider="1" width="3" height="3" x="32690" y="32588" z="9"/>
-        <item title="Special Area #9" consider="1" width="3" height="3" x="32708" y="32616" z="9"/>
-        <item title="Special Area #10" consider="3" width="1" height="1" x="32678" y="32609" z="8"/>
-        <item title="Special Area #11" consider="3" width="1" height="1" x="32690" y="32592" z="8"/>
-        <item title="Special Area #12" consider="3" width="1" height="1" x="32689" y="32587" z="8"/>
-        <item title="Special Area #13" consider="3" width="1" height="1" x="32688" y="32602" z="8"/>
-        <item title="Special Area #14" consider="3" width="1" height="1" x="32675" y="32596" z="8"/>
-        <item title="Special Area #15" consider="3" width="1" height="1" x="32676" y="32593" z="8"/>
-        <item title="Special Area #16" consider="3" width="1" height="1" x="32711" y="32619" z="10"/>
-        <item title="Special Area #17" consider="3" width="1" height="1" x="32677" y="32644" z="10"/>
+		<item title="Special Area #1" consider="3" width="1" height="1" x="32648" y="32734" z="8"/>
+		<item title="Special Area #2" consider="3" width="1" height="3" x="32645" y="32727" z="8"/>
+		<item title="Special Area #3" consider="1" width="3" height="3" x="32653" y="32705" z="8"/>
+		<item title="Special Area #4" consider="1" width="3" height="3" x="32661" y="32740" z="8"/>
+		<item title="Special Area #5" consider="1" width="3" height="3" x="32671" y="32676" z="9"/>
+		<item title="Special Area #6" consider="1" width="3" height="3" x="32683" y="32638" z="10"/>
+		<item title="Special Area #7" consider="1" width="3" height="3" x="32663" y="32612" z="9"/>
+		<item title="Special Area #8" consider="1" width="3" height="3" x="32690" y="32588" z="9"/>
+		<item title="Special Area #9" consider="1" width="3" height="3" x="32708" y="32616" z="9"/>
+		<item title="Special Area #10" consider="3" width="1" height="1" x="32678" y="32609" z="8"/>
+		<item title="Special Area #11" consider="3" width="1" height="1" x="32690" y="32592" z="8"/>
+		<item title="Special Area #12" consider="3" width="1" height="1" x="32689" y="32587" z="8"/>
+		<item title="Special Area #13" consider="3" width="1" height="1" x="32688" y="32602" z="8"/>
+		<item title="Special Area #14" consider="3" width="1" height="1" x="32675" y="32596" z="8"/>
+		<item title="Special Area #15" consider="3" width="1" height="1" x="32676" y="32593" z="8"/>
+		<item title="Special Area #16" consider="3" width="1" height="1" x="32711" y="32619" z="10"/>
+		<item title="Special Area #17" consider="3" width="1" height="1" x="32677" y="32644" z="10"/>
 	</control>
 </panel>
 <panel name="Alarms">

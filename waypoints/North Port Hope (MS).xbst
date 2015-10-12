@@ -74,12 +74,12 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="port hope|north.exit~spawn:" tag="255"/>
+		<item text="port hope|north.exit~spawn:" tag="255"/>
 		<item text="Node (32616, 32748, 7)" tag="0"/>
 		<item text="Node (32615, 32740, 7)" tag="0"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (32613, 32731, 7)" tag="0"/>
 		<item text="Node (32596, 32728, 7)" tag="0"/>
 		<item text="Node (32582, 32727, 7)" tag="0"/>
@@ -91,8 +91,8 @@
 		<item text="Node (32615, 32686, 7)" tag="0"/>
 		<item text="Node (32630, 32677, 7)" tag="0"/>
 		<item text="Node (32642, 32665, 7)" tag="0"/>
-        <item text="huntcheck|2:" tag="255"/>
-        <item text="huntstart|2:" tag="255"/>
+		<item text="huntcheck|2:" tag="255"/>
+		<item text="huntstart|2:" tag="255"/>
 		<item text="Node (32643, 32650, 7)" tag="0"/>
 		<item text="Node (32642, 32635, 7)" tag="0"/>
 		<item text="Node (32632, 32625, 7)" tag="0"/>
@@ -109,8 +109,8 @@
 		<item text="Node (32703, 32618, 7)" tag="0"/>
 		<item text="Node (32685, 32620, 7)" tag="0"/>
 		<item text="Node (32679, 32627, 7)" tag="0"/>
-        <item text="huntcheck|3:" tag="255"/>
-        <item text="huntstart|3:" tag="255"/>
+		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntstart|3:" tag="255"/>
 		<item text="Node (32685, 32642, 7)" tag="0"/>
 		<item text="Node (32695, 32654, 7)" tag="0"/>
 		<item text="Node (32691, 32670, 7)" tag="0"/>
@@ -125,36 +125,36 @@
 		<item text="Node (32641, 32703, 7)" tag="0"/>
 		<item text="Node (32629, 32704, 7)" tag="0"/>
 		<item text="Node (32626, 32716, 7)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|2:" tag="255"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|2:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
-        <item text="Node (32637, 32672, 7)" tag="0"/>
-        <item text="Node (32635, 32684, 7)" tag="0"/>
-        <item text="Node (32632, 32693, 7)" tag="0"/>
-        <item text="Node (32628, 32701, 7)" tag="0"/>
-        <item text="Node (32624, 32708, 7)" tag="0"/>
-        <item text="Node (32621, 32717, 7)" tag="0"/>
-        <item text="Walker.Goto('spawnexit')" tag="254"/>
-        <item text="huntexit|3:" tag="255"/>
+		<item text="Node (32637, 32672, 7)" tag="0"/>
+		<item text="Node (32635, 32684, 7)" tag="0"/>
+		<item text="Node (32632, 32693, 7)" tag="0"/>
+		<item text="Node (32628, 32701, 7)" tag="0"/>
+		<item text="Node (32624, 32708, 7)" tag="0"/>
+		<item text="Node (32621, 32717, 7)" tag="0"/>
+		<item text="Walker.Goto('spawnexit')" tag="254"/>
+		<item text="huntexit|3:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
-        <item text="Node (32676, 32643, 7)" tag="0"/>
-        <item text="Node (32671, 32654, 7)" tag="0"/>
-        <item text="Node (32666, 32665, 7)" tag="0"/>
-        <item text="Node (32658, 32677, 7)" tag="0"/>
-        <item text="Node (32650, 32687, 7)" tag="0"/>
-        <item text="Node (32643, 32697, 7)" tag="0"/>
-        <item text="Node (32635, 32706, 7)" tag="0"/>
-        <item text="Node (32621, 32717, 7)" tag="0"/>
-        <item text="Walker.Goto('spawnexit')" tag="254"/>
-        <item text="huntexit|1:" tag="255"/>
+		<item text="Node (32676, 32643, 7)" tag="0"/>
+		<item text="Node (32671, 32654, 7)" tag="0"/>
+		<item text="Node (32666, 32665, 7)" tag="0"/>
+		<item text="Node (32658, 32677, 7)" tag="0"/>
+		<item text="Node (32650, 32687, 7)" tag="0"/>
+		<item text="Node (32643, 32697, 7)" tag="0"/>
+		<item text="Node (32635, 32706, 7)" tag="0"/>
+		<item text="Node (32621, 32717, 7)" tag="0"/>
+		<item text="Walker.Goto('spawnexit')" tag="254"/>
+		<item text="huntexit|1:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="port hope|spawn~north.exit:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="port hope|spawn~north.exit:" tag="255"/>
 		<item text="Node (32621, 32725, 7)" tag="0"/>
 		<item text="Node (32615, 32740, 7)" tag="0"/>
 		<item text="Node (32616, 32748, 7)" tag="0"/>
 		<item text="EIgnore" tag="11"/>
-        <item text="end:" tag="255"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">

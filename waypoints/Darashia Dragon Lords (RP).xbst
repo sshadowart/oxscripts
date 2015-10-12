@@ -56,7 +56,7 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-        <item type="Demodras" chs="2" max="100" min="0" prio="7" prox="7" count="1"/>
+		<item type="Demodras" chs="2" max="100" min="0" prio="7" prox="7" count="1"/>
 		<item type="Dragon Lord" chs="0" max="20" min="0" prio="6" prox="7" count="1"/>
 		<item type="Dragon" chs="0" max="30" min="0" prio="5" prox="7" count="1"/>
 		<item type="Dragon Lord Hatchling" chs="2" max="100" min="0" prio="4" prox="7" count="1"/>
@@ -67,116 +67,116 @@
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="darashia|north.exit~spawn:" tag="255"/>
-        <item text="SIgnore" tag="10"/>
-        <item text="Node (33245, 32369, 7)" tag="0"/>
-        <item text="Node (33245, 32357, 7)" tag="0"/>
-        <item text="Node (33245, 32345, 7)" tag="0"/>
-        <item text="Node (33246, 32332, 7)" tag="0"/>
-        <item text="Node (33249, 32317, 7)" tag="0"/>
-        <item text="Node (33255, 32303, 7)" tag="0"/>
-        <item text="Node (33261, 32290, 7)" tag="0"/>
-        <item text="doorCheck1:" tag="255"/>
-        <item text="Node (33265, 32279, 7)" tag="0"/>
-        <item text="Stand (33265, 32279, 7)" tag="1"/>
-        <item text="Self.UseDoor(33265, 32278, 7) wait(500) Self.Step(NORTH) wait(500) Walker.ConditionalGoto((Self.Position().y >= 32278), 'doorCheck1')" tag="254"/>
-        <item text="Stand (33265, 32276, 7)" tag="1"/>
-        <item text="Stand (33263, 32275, 8)" tag="1"/>
-        <item text="Stand (33259, 32275, 9)" tag="1"/>
-        <item text="Node (33257, 32280, 10)" tag="0"/>
-        <item text="Node (33258, 32287, 10)" tag="0"/>
-        <item text="Node (33260, 32294, 10)" tag="0"/>
-        <item text="Node (33263, 32300, 10)" tag="0"/>
-        <item text="Stand (33264, 32301, 10)" tag="1"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
-        <item text="EIgnore" tag="11"/>
-        <item text="Node (33266, 32296, 11)" tag="0"/>
-        <item text="Node (33267, 32285, 11)" tag="0"/>
-        <item text="Node (33267, 32275, 11)" tag="0"/>
-        <item text="Node (33267, 32264, 11)" tag="0"/>
-        <item text="Node (33267, 32255, 11)" tag="0"/>
-        <item text="Node (33263, 32260, 11)" tag="0"/>
-        <item text="Node (33256, 32264, 11)" tag="0"/>
-        <item text="Node (33248, 32267, 11)" tag="0"/>
-        <item text="Node (33243, 32271, 11)" tag="0"/>
-        <item text="Node (33243, 32277, 11)" tag="0"/>
-        <item text="Node (33243, 32284, 11)" tag="0"/>
-        <item text="Node (33246, 32290, 11)" tag="0"/>
-        <item text="Node (33237, 32286, 11)" tag="0"/>
-        <item text="Node (33242, 32281, 11)" tag="0"/>
-        <item text="huntcheck|Hardcore|No-Hardcore:" tag="255"/>
-        <item text="Stand (33241, 32281, 11)" tag="1"/>
-        <item text="Node (33230, 32278, 12)" tag="0"/>
-        <item text="Node (33233, 32271, 12)" tag="0"/>
-        <item text="Stand (33233, 32270, 12)" tag="1"/>
-        <item text="Walker.Goto('Route-Connection')" tag="254"/>
-        <item text="No-Hardcore:" tag="255"/>
-        <item text="Node (33243, 32274, 11)" tag="0"/>
-        <item text="Node (33238, 32269, 11)" tag="0"/>
-        <item text="Route-Connection:" tag="255"/>
-        <item text="Node (33230, 32269, 11)" tag="0"/>
-        <item text="Node (33224, 32264, 11)" tag="0"/>
-        <item text="Node (33220, 32260, 11)" tag="0"/>
-        <item text="Node (33215, 32254, 11)" tag="0"/>
-        <item text="Node (33212, 32249, 11)" tag="0"/>
-        <item text="huntcheck|2:" tag="255"/>
-        <item text="huntstart|2:" tag="255"/>
-        <item text="Node (33213, 32241, 11)" tag="0"/>
-        <item text="Node (33220, 32236, 11)" tag="0"/>
-        <item text="Node (33227, 32233, 11)" tag="0"/>
-        <item text="Node (33220, 32236, 11)" tag="0"/>
-        <item text="Node (33213, 32241, 11)" tag="0"/>
-        <item text="huntexit|2:" tag="255"/>
-        <item text="Node (33209, 32249, 11)" tag="0"/>
-        <item text="Node (33202, 32254, 11)" tag="0"/>
-        <item text="Node (33197, 32260, 11)" tag="0"/>
-        <item text="Node (33195, 32267, 11)" tag="0"/>
-        <item text="Node (33195, 32274, 11)" tag="0"/>
-        <item text="Node (33196, 32282, 11)" tag="0"/>
-        <item text="Node (33198, 32289, 11)" tag="0"/>
-        <item text="Node (33201, 32295, 11)" tag="0"/>
-        <item text="huntcheck|3:" tag="255"/>
-        <item text="huntstart|3:" tag="255"/>
-        <item text="Node (33208, 32295, 11)" tag="0"/>
-        <item text="Node (33214, 32290, 11)" tag="0"/>
-        <item text="Node (33221, 32285, 11)" tag="0"/>
-        <item text="Node (33214, 32290, 11)" tag="0"/>
-        <item text="Node (33208, 32295, 11)" tag="0"/>
-        <item text="huntexit|3:" tag="255"/>
-        <item text="Node (33209, 32303, 11)" tag="0"/>
-        <item text="Node (33216, 32307, 11)" tag="0"/>
-        <item text="Node (33227, 32308, 11)" tag="0"/>
-        <item text="Node (33239, 32308, 11)" tag="0"/>
-        <item text="Node (33249, 32309, 11)" tag="0"/>
-        <item text="Node (33260, 32307, 11)" tag="0"/>
-        <item text="Node (33265, 32301, 11)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="SIgnore" tag="10"/>
-        <item text="Stand (33264, 32301, 11)" tag="1"/>
-        <item text="Node (33260, 32294, 10)" tag="0"/>
-        <item text="Node (33258, 32287, 10)" tag="0"/>
-        <item text="Node (33257, 32280, 10)" tag="0"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="darashia|spawn~north.exit:" tag="255"/>
-        <item text="Node (33258, 32275, 10)" tag="0"/>
-        <item text="Stand (33259, 32275, 10)" tag="1"/>
-        <item text="Stand (33263, 32275, 9)" tag="1"/>
-        <item text="Stand (33265, 32276, 8)" tag="1"/>
-        <item text="doorCheck2:" tag="255"/>
-        <item text="Stand (33265, 32277, 7)" tag="1"/>
-        <item text="Self.UseDoor(33265, 32278, 7) wait(500) Self.Step(SOUTH) wait(500) Walker.ConditionalGoto((Self.Position().y <= 32278), 'doorCheck2')" tag="254"/>
-        <item text="Node (33261, 32290, 7)" tag="0"/>
-        <item text="Node (33255, 32303, 7)" tag="0"/>
-        <item text="Node (33249, 32317, 7)" tag="0"/>
-        <item text="Node (33246, 32332, 7)" tag="0"/>
-        <item text="Node (33245, 32345, 7)" tag="0"/>
-        <item text="Node (33245, 32357, 7)" tag="0"/>
-        <item text="Node (33245, 32369, 7)" tag="0"/>
-        <item text="EIgnore" tag="11"/>
-        <item text="end:" tag="255"/>
+		<item text="darashia|north.exit~spawn:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
+		<item text="Node (33245, 32369, 7)" tag="0"/>
+		<item text="Node (33245, 32357, 7)" tag="0"/>
+		<item text="Node (33245, 32345, 7)" tag="0"/>
+		<item text="Node (33246, 32332, 7)" tag="0"/>
+		<item text="Node (33249, 32317, 7)" tag="0"/>
+		<item text="Node (33255, 32303, 7)" tag="0"/>
+		<item text="Node (33261, 32290, 7)" tag="0"/>
+		<item text="doorCheck1:" tag="255"/>
+		<item text="Node (33265, 32279, 7)" tag="0"/>
+		<item text="Stand (33265, 32279, 7)" tag="1"/>
+		<item text="Self.UseDoor(33265, 32278, 7) wait(500) Self.Step(NORTH) wait(500) Walker.ConditionalGoto((Self.Position().y >= 32278), 'doorCheck1')" tag="254"/>
+		<item text="Stand (33265, 32276, 7)" tag="1"/>
+		<item text="Stand (33263, 32275, 8)" tag="1"/>
+		<item text="Stand (33259, 32275, 9)" tag="1"/>
+		<item text="Node (33257, 32280, 10)" tag="0"/>
+		<item text="Node (33258, 32287, 10)" tag="0"/>
+		<item text="Node (33260, 32294, 10)" tag="0"/>
+		<item text="Node (33263, 32300, 10)" tag="0"/>
+		<item text="Stand (33264, 32301, 10)" tag="1"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
+		<item text="EIgnore" tag="11"/>
+		<item text="Node (33266, 32296, 11)" tag="0"/>
+		<item text="Node (33267, 32285, 11)" tag="0"/>
+		<item text="Node (33267, 32275, 11)" tag="0"/>
+		<item text="Node (33267, 32264, 11)" tag="0"/>
+		<item text="Node (33267, 32255, 11)" tag="0"/>
+		<item text="Node (33263, 32260, 11)" tag="0"/>
+		<item text="Node (33256, 32264, 11)" tag="0"/>
+		<item text="Node (33248, 32267, 11)" tag="0"/>
+		<item text="Node (33243, 32271, 11)" tag="0"/>
+		<item text="Node (33243, 32277, 11)" tag="0"/>
+		<item text="Node (33243, 32284, 11)" tag="0"/>
+		<item text="Node (33246, 32290, 11)" tag="0"/>
+		<item text="Node (33237, 32286, 11)" tag="0"/>
+		<item text="Node (33242, 32281, 11)" tag="0"/>
+		<item text="huntcheck|Hardcore|No-Hardcore:" tag="255"/>
+		<item text="Stand (33241, 32281, 11)" tag="1"/>
+		<item text="Node (33230, 32278, 12)" tag="0"/>
+		<item text="Node (33233, 32271, 12)" tag="0"/>
+		<item text="Stand (33233, 32270, 12)" tag="1"/>
+		<item text="Walker.Goto('Route-Connection')" tag="254"/>
+		<item text="No-Hardcore:" tag="255"/>
+		<item text="Node (33243, 32274, 11)" tag="0"/>
+		<item text="Node (33238, 32269, 11)" tag="0"/>
+		<item text="Route-Connection:" tag="255"/>
+		<item text="Node (33230, 32269, 11)" tag="0"/>
+		<item text="Node (33224, 32264, 11)" tag="0"/>
+		<item text="Node (33220, 32260, 11)" tag="0"/>
+		<item text="Node (33215, 32254, 11)" tag="0"/>
+		<item text="Node (33212, 32249, 11)" tag="0"/>
+		<item text="huntcheck|2:" tag="255"/>
+		<item text="huntstart|2:" tag="255"/>
+		<item text="Node (33213, 32241, 11)" tag="0"/>
+		<item text="Node (33220, 32236, 11)" tag="0"/>
+		<item text="Node (33227, 32233, 11)" tag="0"/>
+		<item text="Node (33220, 32236, 11)" tag="0"/>
+		<item text="Node (33213, 32241, 11)" tag="0"/>
+		<item text="huntexit|2:" tag="255"/>
+		<item text="Node (33209, 32249, 11)" tag="0"/>
+		<item text="Node (33202, 32254, 11)" tag="0"/>
+		<item text="Node (33197, 32260, 11)" tag="0"/>
+		<item text="Node (33195, 32267, 11)" tag="0"/>
+		<item text="Node (33195, 32274, 11)" tag="0"/>
+		<item text="Node (33196, 32282, 11)" tag="0"/>
+		<item text="Node (33198, 32289, 11)" tag="0"/>
+		<item text="Node (33201, 32295, 11)" tag="0"/>
+		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntstart|3:" tag="255"/>
+		<item text="Node (33208, 32295, 11)" tag="0"/>
+		<item text="Node (33214, 32290, 11)" tag="0"/>
+		<item text="Node (33221, 32285, 11)" tag="0"/>
+		<item text="Node (33214, 32290, 11)" tag="0"/>
+		<item text="Node (33208, 32295, 11)" tag="0"/>
+		<item text="huntexit|3:" tag="255"/>
+		<item text="Node (33209, 32303, 11)" tag="0"/>
+		<item text="Node (33216, 32307, 11)" tag="0"/>
+		<item text="Node (33227, 32308, 11)" tag="0"/>
+		<item text="Node (33239, 32308, 11)" tag="0"/>
+		<item text="Node (33249, 32309, 11)" tag="0"/>
+		<item text="Node (33260, 32307, 11)" tag="0"/>
+		<item text="Node (33265, 32301, 11)" tag="0"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
+		<item text="Stand (33264, 32301, 11)" tag="1"/>
+		<item text="Node (33260, 32294, 10)" tag="0"/>
+		<item text="Node (33258, 32287, 10)" tag="0"/>
+		<item text="Node (33257, 32280, 10)" tag="0"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="darashia|spawn~north.exit:" tag="255"/>
+		<item text="Node (33258, 32275, 10)" tag="0"/>
+		<item text="Stand (33259, 32275, 10)" tag="1"/>
+		<item text="Stand (33263, 32275, 9)" tag="1"/>
+		<item text="Stand (33265, 32276, 8)" tag="1"/>
+		<item text="doorCheck2:" tag="255"/>
+		<item text="Stand (33265, 32277, 7)" tag="1"/>
+		<item text="Self.UseDoor(33265, 32278, 7) wait(500) Self.Step(SOUTH) wait(500) Walker.ConditionalGoto((Self.Position().y <= 32278), 'doorCheck2')" tag="254"/>
+		<item text="Node (33261, 32290, 7)" tag="0"/>
+		<item text="Node (33255, 32303, 7)" tag="0"/>
+		<item text="Node (33249, 32317, 7)" tag="0"/>
+		<item text="Node (33246, 32332, 7)" tag="0"/>
+		<item text="Node (33245, 32345, 7)" tag="0"/>
+		<item text="Node (33245, 32357, 7)" tag="0"/>
+		<item text="Node (33245, 32369, 7)" tag="0"/>
+		<item text="EIgnore" tag="11"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">

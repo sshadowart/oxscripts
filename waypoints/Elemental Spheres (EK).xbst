@@ -1,6 +1,6 @@
 <panel name="Spell Shooter">
-    <control name="shooterList">
-    </control>
+	<control name="shooterList">
+	</control>
 </panel>
 <panel name="Self Healer">
 	<control name="SpellList">
@@ -53,62 +53,62 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-        <item type="Energy Overlord" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
-        <item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="6" prox="1" count="1"/>
-        <item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="5" prox="1" count="1"/>
-        <item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="4" prox="3" count="1"/>
-        <item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="3" prox="3" count="1"/>
-        <item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-        <item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="Energy Overlord" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
+		<item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="6" prox="1" count="1"/>
+		<item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="5" prox="1" count="1"/>
+		<item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="4" prox="3" count="1"/>
+		<item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="3" prox="3" count="1"/>
+		<item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
-        <item text="edron|towers~spawn:" tag="255"/>
-        <item text="Node (33256, 31828, 6)" tag="0"/>
-        <item text="Stand (33260, 31827, 6)" tag="1"/>
-        <item text="Node (33264, 31825, 6)" tag="0"/>
-        <item text="Node (33268, 31825, 6)" tag="0"/>
-        <item text="Node (33268, 31830, 6)" tag="0"/>
-        <item text="Stand (33265, 31832, 6)" tag="1"/>
-        <item text="Stand (33271, 31832, 7)" tag="1"/>
-        <item text="Stand (33268, 31830, 8)" tag="1"/>
-        <item text="Stand (33267, 31833, 9)" tag="1"/>
-        <item text="Stand (33268, 31836, 9)" tag="1"/>
-        <item text="Stand (33268, 31831, 10)" tag="1"/>
+		<item text="edron|towers~spawn:" tag="255"/>
+		<item text="Node (33256, 31828, 6)" tag="0"/>
+		<item text="Stand (33260, 31827, 6)" tag="1"/>
+		<item text="Node (33264, 31825, 6)" tag="0"/>
+		<item text="Node (33268, 31825, 6)" tag="0"/>
+		<item text="Node (33268, 31830, 6)" tag="0"/>
+		<item text="Stand (33265, 31832, 6)" tag="1"/>
+		<item text="Stand (33271, 31832, 7)" tag="1"/>
+		<item text="Stand (33268, 31830, 8)" tag="1"/>
+		<item text="Stand (33267, 31833, 9)" tag="1"/>
+		<item text="Stand (33268, 31836, 9)" tag="1"/>
+		<item text="Stand (33268, 31831, 10)" tag="1"/>
 		<item text="special|SpheresMachine|678:" tag="255"/>
-        <item text="end:" tag="255"/>
-        <item text="enterspawn:" tag="255"/>
-        <item text="huntstart|1:" tag="255"/>
+		<item text="end:" tag="255"/>
+		<item text="enterspawn:" tag="255"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (33093, 32095, 13)" tag="0"/>
 		<item text="Node (33096, 32102, 13)" tag="0"/>
 		<item text="Node (33098, 32111, 13)" tag="0"/>
 		<item text="Node (33110, 32105, 13)" tag="0"/>
 		<item text="Node (33110, 32116, 13)" tag="0"/>
 		<item text="Node (33105, 32123, 13)" tag="0"/>
-        <item text="huntcheck|2:" tag="255"/>
-        <item text="huntstart|2:" tag="255"/>
+		<item text="huntcheck|2:" tag="255"/>
+		<item text="huntstart|2:" tag="255"/>
 		<item text="Node (33113, 32128, 13)" tag="0"/>
 		<item text="Node (33115, 32138, 13)" tag="0"/>
 		<item text="Node (33107, 32145, 13)" tag="0"/>
-        <item text="huntcheck|3:" tag="255"/>
-        <item text="huntstart|3:" tag="255"/>
+		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntstart|3:" tag="255"/>
 		<item text="Node (33109, 32155, 13)" tag="0"/>
-        <item text="huntcheck|4:" tag="255"/>
-        <item text="huntstart|4:" tag="255"/>
+		<item text="huntcheck|4:" tag="255"/>
+		<item text="huntstart|4:" tag="255"/>
 		<item text="Node (33119, 32158, 13)" tag="0"/>
 		<item text="Node (33117, 32168, 13)" tag="0"/>
 		<item text="Node (33108, 32172, 13)" tag="0"/>
 		<item text="Node (33100, 32174, 13)" tag="0"/>
 		<item text="Node (33092, 32172, 13)" tag="0"/>
-        <item text="huntexit|4:" tag="255"/>
+		<item text="huntexit|4:" tag="255"/>
 		<item text="Node (33099, 32161, 13)" tag="0"/>
 		<item text="Node (33091, 32155, 13)" tag="0"/>
 		<item text="Node (33085, 32149, 13)" tag="0"/>
 		<item text="Node (33090, 32141, 13)" tag="0"/>
-        <item text="huntexit|3:" tag="255"/>
+		<item text="huntexit|3:" tag="255"/>
 		<item text="Node (33099, 32140, 13)" tag="0"/>
-        <item text="huntexit|2:" tag="255"/>
+		<item text="huntexit|2:" tag="255"/>
 		<item text="Node (33096, 32126, 13)" tag="0"/>
 		<item text="Node (33084, 32130, 13)" tag="0"/>
 		<item text="Node (33080, 32122, 13)" tag="0"/>
@@ -116,38 +116,38 @@
 		<item text="Node (33080, 32112, 13)" tag="0"/>
 		<item text="Node (33086, 32108, 13)" tag="0"/>
 		<item text="Node (33085, 32098, 13)" tag="0"/>
-        <item text="huntcheck|1:" tag="255"/>
-        <item text="huntexit|1:" tag="255"/>
-        <item text="spawnexit:" tag="255"/>
-        <item text="edron|spawn~towers:" tag="255"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="spawnexit:" tag="255"/>
+		<item text="edron|spawn~towers:" tag="255"/>
 		<item text="Stand (33085, 32095, 13)" tag="1"/>
 		<item text="Enter Teleport(North)" tag="246"/>
-        <item text="Stand (33268, 31836, 10)" tag="1"/>
-        <item text="Ladder (33268, 31830, 9)" tag="2"/>
-        <item text="Stand (33271, 31832, 8)" tag="1"/>
-        <item text="Stand (33265, 31832, 7)" tag="1"/>
+		<item text="Stand (33268, 31836, 10)" tag="1"/>
+		<item text="Ladder (33268, 31830, 9)" tag="2"/>
+		<item text="Stand (33271, 31832, 8)" tag="1"/>
+		<item text="Stand (33265, 31832, 7)" tag="1"/>
 		<item text="huntcheck|Arkulius|No-Arkulius|true:" tag="255"/>
-        <item text="Node (33270, 31834, 6)" tag="0"/>
-        <item text="Node (33277, 31834, 6)" tag="0"/>
-        <item text="Node (33281, 31838, 6)" tag="0"/>
-        <item text="Node (33282, 31842, 6)" tag="0"/>
-        <item text="Ladder (33283, 31843, 6)" tag="2"/>
-        <item text="Ladder (33279, 31843, 5)" tag="2"/>
-        <item text="Ladder (33278, 31844, 4)" tag="2"/>
-        <item text="special|SoilsTrade:" tag="255"/>
-        <item text="Stand (33278, 31844, 3)" tag="1"/>
-        <item text="Stand (33279, 31843, 4)" tag="1"/>
-        <item text="Stand (33283, 31843, 5)" tag="1"/>
-        <item text="Node (33281, 31838, 6)" tag="0"/>
-        <item text="Node (33277, 31834, 6)" tag="0"/>
-        <item text="Node (33270, 31833, 6)" tag="0"/>
-        <item text="No-Arkulius:" tag="255"/>
-        <item text="Node (33268, 31829, 6)" tag="0"/>
-        <item text="Node (33268, 31825, 6)" tag="0"/>
-        <item text="Node (33263, 31825, 6)" tag="0"/>
-        <item text="Stand (33260, 31827, 6)" tag="1"/>
-        <item text="Node (33257, 31829, 6)" tag="0"/>
-        <item text="end:" tag="255"/>
+		<item text="Node (33270, 31834, 6)" tag="0"/>
+		<item text="Node (33277, 31834, 6)" tag="0"/>
+		<item text="Node (33281, 31838, 6)" tag="0"/>
+		<item text="Node (33282, 31842, 6)" tag="0"/>
+		<item text="Ladder (33283, 31843, 6)" tag="2"/>
+		<item text="Ladder (33279, 31843, 5)" tag="2"/>
+		<item text="Ladder (33278, 31844, 4)" tag="2"/>
+		<item text="special|SoilsTrade:" tag="255"/>
+		<item text="Stand (33278, 31844, 3)" tag="1"/>
+		<item text="Stand (33279, 31843, 4)" tag="1"/>
+		<item text="Stand (33283, 31843, 5)" tag="1"/>
+		<item text="Node (33281, 31838, 6)" tag="0"/>
+		<item text="Node (33277, 31834, 6)" tag="0"/>
+		<item text="Node (33270, 31833, 6)" tag="0"/>
+		<item text="No-Arkulius:" tag="255"/>
+		<item text="Node (33268, 31829, 6)" tag="0"/>
+		<item text="Node (33268, 31825, 6)" tag="0"/>
+		<item text="Node (33263, 31825, 6)" tag="0"/>
+		<item text="Stand (33260, 31827, 6)" tag="1"/>
+		<item text="Node (33257, 31829, 6)" tag="0"/>
+		<item text="end:" tag="255"/>
 	</control>
 </panel>
 <panel name="Pathfinder">
