@@ -154,8 +154,9 @@ Npc = (function()
 		end)
 	end
 
-	local function shopBuyItemUpToCount(itemid, neededCount, destination, callback)
+	local function shopBuyItemUpToCount(itemid, neededCount, destination, callback, tries)
 		destination = destination or 0
+		tries = tries or 10
 		local remaining = neededCount
 
 		local function buyItem()
@@ -203,11 +204,14 @@ Npc = (function()
 						end
 					end
 				end, pingDelay(DELAY.TRADE_TRANSACTION))
-			-- Failed to buy stack
+			-- Failed to buy, retrying
+			elseif tries > 0 then
+				shopBuyItemUpToCount(itemid, neededCount, destination, callback, tries-1)
+			-- Out of tries. Failed to buy stack.
 			else
 				error('Failed to buy ' .. xeno.getItemNameByID(itemid) .. ' (' .. neededStackCount .. 'x). ' .. 'Make sure you have enough capacity and gold.')
-				return
 			end
+			return
 		end
 		-- Start recursive buying
 		buyItem()

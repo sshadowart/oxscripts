@@ -206,8 +206,7 @@ Settings = (function()
 							priority = supply.options['Priority']
 						}
 						-- If utito is enabled, make a shooter entry (copy spell conditions)
-						local utitoEnabled = supply.options['Utito'] == 'true'
-						if utitoEnabled then
+						if supply.options['Utito'] then
 							shooterList[#shooterList+1] = {
 								spell = 'utito tempo',
 								rune = 0,
@@ -216,7 +215,7 @@ Settings = (function()
 								mana = details.mana and math.ceil((details.mana / xeno.getSelfMaxMana()) * 100) or 0,
 								creature = targets,
 								count = supply.options['TargetMin'],
-								priority = 1
+								priority = 0
 							}
 						end
 					else

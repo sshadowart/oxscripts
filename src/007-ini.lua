@@ -72,7 +72,7 @@ Ini = (function()
 		loadBlockSection('Food')
 		loadBlockSection('Supplies')
 		loadBlockSection('Runes', {'Priority', 'TargetMin', 'Targets'})
-		loadBlockSection('Spells', {'Priority', 'TargetMin', 'Targets'})
+		loadBlockSection('Spells', {'Priority', 'TargetMin', 'Targets', 'Utito'})
 		loadBlockSection('Ring', {'Creature-Equip', 'Health-Equip', 'Mana-Equip'})
 		loadBlockSection('Amulet', {'Creature-Equip', 'Health-Equip', 'Mana-Equip'})
 	end

@@ -337,7 +337,10 @@ do
 	}
 
 	local function toggleCriticalMode(state)
-		-- We want to turn crit mode on
+		-- Disabled critical mode
+		return
+
+		--[[ We want to turn crit mode on
 		if state then
 			-- Crit mode is not already on
 			if _script.unsafeQueue < 1 then
@@ -355,7 +358,7 @@ do
 				xeno.exitCriticalMode()
 				_script.unsafeQueue = 0
 			end
-		end
+		end--]]
 	end
 
 	local _huntingForDepot = false

@@ -250,8 +250,7 @@ Walker = (function()
 		-- Use the closest tile
 		local destination = positions[1]
 
-		--xeno.doSelfWalkTo(destination.x, destination.y, destination.z)
-		xeno.selfUseItemFromGround(destination.x, destination.y, destination.z)
+		xeno.doSelfWalkTo(destination.x, destination.y, destination.z)
 
 		-- Wait and see if we reached the NPC
 		setTimeout(function()
@@ -482,6 +481,11 @@ Walker = (function()
 		if (goldDropCap and goldDropCap > 0) or (flaskDropCap and flaskDropCap > 0) then
 			local cap = xeno.getSelfCap()
 			local pos = xeno.getSelfPosition()
+
+			-- Get random position
+			local tiles = getWalkableTiles(pos, 3)
+			local destination = tiles[math.random(1, #tiles)]
+
 			-- Check if we need to drop flasks
 			if flaskDropCap and flaskDropCap > 0 and cap <= flaskDropCap then
 				local flasks = ITEM_LIST_FLASKS
@@ -491,7 +495,7 @@ Walker = (function()
 					-- Item is a flask
 					if flasks[item.id] then
 						-- Drop this stack of flasks
-						xeno.containerMoveItemToGround(_backpacks['Potions'], spot, pos.x, pos.y, pos.z, -1)
+						xeno.containerMoveItemToGround(_backpacks['Potions'], spot, destination.x, destination.y, destination.z, -1)
 						setTimeout(function()
 							walkerCapacityDrop()
 						end, pingDelay(DELAY.CONTAINER_MOVE_ITEM))
@@ -505,7 +509,7 @@ Walker = (function()
 						-- Item is a flask
 						if flasks[item.id] then
 							-- Drop this stack of flasks
-							xeno.containerMoveItemToGround(_backpacks['Main'], spot, pos.x, pos.y, pos.z, -1)
+							xeno.containerMoveItemToGround(_backpacks['Main'], spot, destination.x, destination.y, destination.z, -1)
 							setTimeout(function()
 								walkerCapacityDrop()
 							end, pingDelay(DELAY.CONTAINER_MOVE_ITEM))
@@ -522,7 +526,7 @@ Walker = (function()
 					-- Item is gold
 					if item.id == 3031 then
 						-- Drop this stack of gold
-						xeno.containerMoveItemToGround(_backpacks['Gold'], spot, pos.x, pos.y, pos.z, -1)
+						xeno.containerMoveItemToGround(_backpacks['Gold'], spot, destination.x, destination.y, destination.z, -1)
 						setTimeout(function()
 							walkerCapacityDrop()
 						end, pingDelay(DELAY.CONTAINER_MOVE_ITEM))
@@ -536,7 +540,7 @@ Walker = (function()
 						-- Item is gold
 						if item.id == 3031 then
 							-- Drop this stack of gold
-							xeno.containerMoveItemToGround(_backpacks['Main'], spot, pos.x, pos.y, pos.z, -1)
+							xeno.containerMoveItemToGround(_backpacks['Main'], spot, destination.x, destination.y, destination.z, -1)
 							setTimeout(function()
 								walkerCapacityDrop()
 							end, pingDelay(DELAY.CONTAINER_MOVE_ITEM))

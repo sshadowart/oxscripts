@@ -6,6 +6,9 @@ Hud = (function()
 	local titlecase = Core.titlecase
 	local isCorpseOpen = Core.isCorpseOpen
 
+	-- All HUD pointers are referenced here
+	local hudPointers = {}
+
 	local function hudUpdateDimensions()
 		local screen = xeno.HUDGetDimensions()
 		local changed = _hud.gamewindow.x ~= screen.gamewindowx or
@@ -62,7 +65,9 @@ Hud = (function()
 				if not panel.pointer
 					and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 					and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
-					leftcolumn.panels[i].pointer = xeno.HUDCreateText(currentAxisX, currentAxisY, '[' .. panel.title .. ']', unpack(THEME[_script.theme].title))
+					local pointer = xeno.HUDCreateText(currentAxisX, currentAxisY, '[' .. panel.title .. ']', unpack(THEME[_script.theme].title))
+					leftcolumn.panels[i].pointer = pointer
+					hudPointers[#hudPointers+1] = pointer
 				-- Update position
 				else
 					xeno.HUDUpdateLocation(panel.pointer, currentAxisX, currentAxisY)
@@ -96,7 +101,9 @@ Hud = (function()
 								and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 								and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
 								-- Images need slight y-axis offset
-								panel.items[j].ipointer = xeno.HUDCreateItemImage(currentAxisX, currentAxisY-5, item.title, 16, 100)
+								local pointer = xeno.HUDCreateItemImage(currentAxisX, currentAxisY-5, item.title, 16, 100)
+								panel.items[j].ipointer = pointer
+								hudPointers[#hudPointers+1] = pointer
 							end
 						-- Update icon position (even if disabled, since we can't destroy them)
 						else
@@ -108,7 +115,9 @@ Hud = (function()
 
 					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
-						panel.items[j].tpointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+						local pointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+						panel.items[j].tpointer = pointer
+						hudPointers[#hudPointers+1] = pointer
 					end
 				-- Update item title position
 				else
@@ -128,7 +137,9 @@ Hud = (function()
 					end
 					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
-						panel.items[j].vpointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+						local pointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+						panel.items[j].vpointer = pointer
+						hudPointers[#hudPointers+1] = pointer
 					end
 				-- Update item value position
 				else
@@ -189,7 +200,9 @@ Hud = (function()
 				if not panel.pointer
 					and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 					and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
-					rightcolumn.panels[i].pointer = xeno.HUDCreateText(currentAxisX, currentAxisY, '[' .. panel.title .. ']', unpack(THEME[_script.theme].title))
+					local pointer = xeno.HUDCreateText(currentAxisX, currentAxisY, '[' .. panel.title .. ']', unpack(THEME[_script.theme].title))
+					rightcolumn.panels[i].pointer = pointer
+					hudPointers[#hudPointers+1] = pointer
 				-- Update position
 				else
 					xeno.HUDUpdateLocation(panel.pointer, currentAxisX, currentAxisY)
@@ -223,7 +236,9 @@ Hud = (function()
 								and (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 								and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
 								-- Images need slight y-axis offset
-								panel.items[j].ipointer = xeno.HUDCreateItemImage(currentAxisX, currentAxisY-5, item.title, 16, 100)
+								local pointer = xeno.HUDCreateItemImage(currentAxisX, currentAxisY-5, item.title, 16, 100)
+								panel.items[j].ipointer = pointer
+								hudPointers[#hudPointers+1] = pointer
 							end
 						-- Update icon position (even if disabled, since we can't destroy them)
 						else
@@ -234,7 +249,9 @@ Hud = (function()
 					local xOffset = item.ipointer and 25 or 0
 					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
-						panel.items[j].tpointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+						local pointer = xeno.HUDCreateText(currentAxisX + xOffset, currentAxisY, itemTitle, unpack(THEME[_script.theme].primary))
+						panel.items[j].tpointer = pointer
+						hudPointers[#hudPointers+1] = pointer
 					end
 				-- Update item title position
 				else
@@ -254,7 +271,9 @@ Hud = (function()
 					end
 					if (_config['HUD']['Show-Supplies'] or panel.title ~= 'Supplies')
 						and (_config['HUD']['Show-Loot'] or panel.title ~= 'Loot') then
-						panel.items[j].vpointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+						local pointer = xeno.HUDCreateText(currentAxisX + 110, currentAxisY, itemValue, unpack(THEME[_script.theme].secondary))
+						panel.items[j].vpointer = pointer
+						hudPointers[#hudPointers+1] = pointer
 					end
 				-- Update item value position
 				else
@@ -552,7 +571,18 @@ Hud = (function()
 		end
 	end
 
+	local function hudUpdate()
+		-- TODO: categorize based on hud color, update theme colors
+		for i = 1, #hudPointers do
+			local pointer = hudPointers[i]
+			if pointer then
+				-- Change color
+			end
+		end
+	end
+
 	local function hudInit()
+
 		hudPanelCreate('General', 'leftcolumn', true)
 		hudPanelCreate('Statistics', 'leftcolumn', true)
 		hudPanelCreate('Script', 'leftcolumn', true)
