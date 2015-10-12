@@ -55,12 +55,12 @@
 <panel name="Targeting">
 	<control name="TargetingList">
 		<item type="Demodras" chs="2" max="100" min="0" prio="7" prox="7" count="1"/>
-		<item type="Dragon Lord" chs="0" max="20" min="0" prio="6" prox="7" count="1"/>
-		<item type="Dragon" chs="0" max="30" min="0" prio="5" prox="7" count="1"/>
+		<item type="Dragon Lord" chs="0" max="10" min="0" prio="6" prox="7" count="1"/>
+		<item type="Dragon" chs="0" max="20" min="0" prio="5" prox="7" count="1"/>
 		<item type="Dragon Lord Hatchling" chs="2" max="100" min="0" prio="4" prox="7" count="1"/>
 		<item type="Dragon Hatchling" chs="2" max="100" min="0" prio="3" prox="7" count="1"/>
-		<item type="Dragon Lord" chs="2" max="100" min="20" prio="2" prox="7" count="1"/>
-		<item type="Dragon" chs="2" max="100" min="30" prio="1" prox="7" count="1"/>
+		<item type="Dragon Lord" chs="2" max="100" min="10" prio="2" prox="7" count="1"/>
+		<item type="Dragon" chs="2" max="100" min="20" prio="1" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">
