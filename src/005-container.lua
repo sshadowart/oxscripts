@@ -479,7 +479,9 @@ Container = (function()
 		local needAmmoContainer = false
 		local needSuppliesContainer = false
 
-		-- Pause the bot		
+		-- Pause the bot
+		xeno.attackCreature(0)
+		xeno.followCreature(0)
 		xeno.setWalkerEnabled(false)
 		xeno.setLooterEnabled(false)
 		xeno.setTargetingEnabled(false)
@@ -494,7 +496,7 @@ Container = (function()
 				end
 			end
 
-			-- Resume the bot		
+			-- Resume the bot
 			xeno.setWalkerEnabled(true)
 			xeno.setLooterEnabled(true)
 			xeno.setTargetingEnabled(true)
