@@ -111,7 +111,7 @@ local THEME = {
 		secondary = {206, 206, 206}
 	},
 	dark = {
-		title = {135, 135, 135},
+		title = {255, 255, 255},
 		primary = {135, 135, 135},
 		secondary = {206, 206, 206}
 	},

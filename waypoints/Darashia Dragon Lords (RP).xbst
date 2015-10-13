@@ -15,13 +15,18 @@
 	</control>
 </panel>
 <panel name="Tools">
+	<control name="EnableAntiIdle" value="0"/>
+	<control name="EnableEatFood" value="1"/>
+	<control name="EnableReconnect" value="0"/>
+</panel>
+<panel name="Visuals">
 	<control name="LightEnable" value="0"/>
 	<control name="XRayEnable" value="0"/>
 	<control name="ShowLookIDs" value="1"/>
 	<control name="ShowManaBar" value="0"/>
 	<control name="ShowBPInfo" value="1"/>
-	<control name="EnableAntiIdle" value="0"/>
-	<control name="EnableEatFood" value="1"/>
+	<control name="EnableSmallBPs" value="1"/>
+	<control name="EnableAdvancedInfo" value="0"/>
 </panel>
 <panel name="Condition Manager">
 	<control name="PoisonCureLimit" value="6"/>
