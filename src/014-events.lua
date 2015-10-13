@@ -772,7 +772,6 @@ do
 			-- Help command
 			if command == 'help' then
 				log([[Available commands:
-	                /reload  =  Reloads the script config file.
 	                /resupply  =  Forces the script to return to town after the current round.
 	                /logout  =  Forces the script to return to town and logout after the current round.
 	                /resethud  =  Reset the session start time.
@@ -805,8 +804,9 @@ do
 			elseif command == 'resupply' then
 				_script.returnQueued = true
 				log('Returning to town after the current round.')
+			-- TODO: implement a more modular reload system in RC2
 			-- Reload config
-			elseif command == 'reload' then
+			--[[elseif command == 'reload' then
 				_config = {}
 				_supplies = {}
 				loadConfigFile(function()
@@ -824,7 +824,7 @@ do
 							end
 						end)
 					end)
-				end, true)
+				end, true)--]]
 			end
 		-- Not command, handle as usual
 		else
