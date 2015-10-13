@@ -81,14 +81,14 @@ Targeter = (function()
 					-- No victims, start luring them, turn targeter OFF
 					targets = {}
 					_script.dynamicLuring = true
-					xeno.setTargetingEnabled(false)
+					xeno.setTargetingIgnoreEnabled(true)
 					return
 				end
 
 				-- We have enough victims, stop luring, turn targeter ON
 				if attackReady then
 					_script.dynamicLuring = false
-					xeno.setTargetingEnabled(true)
+					xeno.setTargetingIgnoreEnabled(false)
 				end
 			end, 100)
 		end

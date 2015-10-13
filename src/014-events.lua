@@ -814,7 +814,7 @@ do
 						setDynamicSettings(function()
 							-- Start dynamic lure (if needed)
 							_script.dynamicLuring = false
-							xeno.setTargetingEnabled(true)
+							xeno.setTargetingIgnoreEnabled(false)
 							targetingInitDynamicLure()
 							log('Reloaded the config.')
 							-- If reloaded in town, trigger resupply
