@@ -111,9 +111,34 @@ local THEME = {
 		secondary = {206, 206, 206}
 	},
 	dark = {
-		title = {95, 95, 95},
-		primary = {95, 95, 95},
+		title = {105, 105, 105},
+		primary = {105, 107, 120},
 		secondary = {135, 135, 135}
+	},
+	orange = {
+		title = {255, 255, 255},
+		primary = {240, 199, 166},
+		secondary = {206, 206, 206}
+	},
+	pink = {
+		title = {255, 255, 255},
+		primary = {242, 193, 193},
+		secondary = {206, 206, 206}
+	},
+	green = {
+		title = {255, 255, 255},
+		primary = {193, 240, 183},
+		secondary = {206, 206, 206}
+	},
+	blue = {
+		title = {255, 255, 255},
+		primary = {135, 210, 207},
+		secondary = {206, 206, 206}
+	},
+	purple = {
+		title = {255, 255, 255},
+		primary = {247, 225, 252},
+		secondary = {206, 206, 206}
 	}
 }
 
