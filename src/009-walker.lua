@@ -250,7 +250,8 @@ Walker = (function()
 		-- Use the closest tile
 		local destination = positions[1]
 
-		xeno.doSelfWalkTo(destination.x, destination.y, destination.z)
+		--xeno.doSelfWalkTo(destination.x, destination.y, destination.z)
+		xeno.selfUseItemFromGround(destination.x, destination.y, destination.z)
 
 		-- Wait and see if we reached the NPC
 		setTimeout(function()
