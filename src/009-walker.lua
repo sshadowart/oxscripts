@@ -127,13 +127,15 @@ Walker = (function()
 		for i = 1, #waypoints do
 			if waypoints[i].tag == '255' then
 				local label = cleanLabel(waypoints[i].text)
-				-- Prefix filter
-				if not prefix or string.lower(split(label, '|')[1]) == string.lower(prefix) then
-					-- Floor filter
-					local pos = walkerGetPosAfterLabel(nil, i)
-					if pos and (multiFloor or selfPos.z == pos.z) then
-						pos.name = label
-						table.insert(positions, pos)
+				if not string.find(label, 'spawn~') then
+					-- Prefix filter
+					if not prefix or string.lower(split(label, '|')[1]) == string.lower(prefix) then
+						-- Floor filter
+						local pos = walkerGetPosAfterLabel(nil, i)
+						if pos and (multiFloor or selfPos.z == pos.z) then
+							pos.name = label
+							table.insert(positions, pos)
+						end
 					end
 				end
 			end
@@ -314,9 +316,21 @@ Walker = (function()
 						walkerReachNPC(name, function()
 							-- Start talking
 							talk(transcript, function()
-								-- TODO: compare position to see if we moved
-								-- We're in the correct town now
-								callback()
+								-- Get closest town, fire function again if we're still not in the correct town
+								-- some towns take multiple routes to reach
+								local newTownPositions = sortPositionsByDistance(xeno.getSelfPosition(), TOWN_POSITIONS)
+								local newTown = newTownPositions[1].name:lower()
+								-- Not in the new town yet, recurse
+								if newTown ~= targetTown:lower() then
+									walkerGotoTown(targetTown, callback)
+								-- Didn't leave the last town
+								elseif newTown == town:lower() then
+									error('Failed to travel to ' .. targetTown .. ' from ' .. newTown .. '.')
+									return
+								-- Reached the target town
+								else
+									callback()
+								end
 							end)
 						end)
 						break
@@ -485,6 +499,10 @@ Walker = (function()
 
 			-- Get random position
 			local tiles = getWalkableTiles(pos, 3)
+			if not tiles or #tiles < 1 then
+				tiles = {pos}
+			end
+
 			local destination = tiles[math.random(1, #tiles)]
 
 			-- Check if we need to drop flasks

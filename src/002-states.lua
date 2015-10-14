@@ -15,7 +15,7 @@ local _script = {
 	town = "{{SCRIPT_TOWN}}",
 	vocation = "{{SCRIPT_VOCATION}}",
 
-	exit = nil,
+	townexit = nil,
 	channel = nil,
 	historyChannel = nil,
 	disableWithdraw = false,
@@ -28,6 +28,7 @@ local _script = {
 	shovelCode = 0,
 
 	state = 'Setting up backpacks',
+	route = '--',
 	stuck = false,
 	luring = false,
 	dynamicLuring = false,

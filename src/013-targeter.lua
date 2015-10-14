@@ -29,6 +29,8 @@ Targeter = (function()
 	end
 
 	local function targetingInitDynamicLure()
+		local setIgnore = setTargetingIgnoreEnabled
+
 		-- Clear previously running dynamic lure
 		if _script.dynamicLureInterval then
 			clearTimeout(_script.dynamicLureInterval)
@@ -81,14 +83,14 @@ Targeter = (function()
 					-- No victims, start luring them, turn targeter OFF
 					targets = {}
 					_script.dynamicLuring = true
-					xeno.setTargetingIgnoreEnabled(true)
+					setIgnore(true)
 					return
 				end
 
 				-- We have enough victims, stop luring, turn targeter ON
 				if attackReady then
 					_script.dynamicLuring = false
-					xeno.setTargetingIgnoreEnabled(false)
+					setIgnore(false)
 				end
 			end, 100)
 		end

@@ -132,10 +132,19 @@ do
 					end
 				end
 			end
+			if not route then route = '--' end
 			-- Update script state
 			if _config['HUD']['Enabled'] then
 				_script.state = state;
-				--hudItemUpdate('Script', 'Route', route ~= '--' and route:gsub('-', ' ') or '--', true)
+				-- We don't currently have a route
+				if _script.route == '--' then
+					hudItemUpdate('Script', 'Route', route ~= '--' and route:gsub('-', ' ') or '--', true)
+				end
+				-- The current label is a route
+				if route ~= '--' then
+					-- Set the new route
+					_script.route = route
+				end
 				hudItemUpdate('Script', 'State', state, false)
 			end
 			xeno.setWalkerEnabled(true)
@@ -247,10 +256,11 @@ do
 		['run'] = function(group, name, id, waitTime)
 			-- Reached the end, wait
 			if id == 'end' then
+				local setIgnore = setTargetingIgnoreEnabled
 				-- Pause walker
 				xeno.setWalkerEnabled(false)
 				-- Disable ignore mode
-				xeno.setTargetingIgnoreEnabled(false)
+				setIgnore(false)
 				-- Enable the walker when there's no more threats
 				_script.antiLureCheckInterval = setInterval(function()
 					-- Check if we can continue
@@ -377,6 +387,7 @@ do
 		if _config['Anti Lure'] and _config['Anti Lure']['Amount'] and _config['Anti Lure']['Amount'] > 0 then
 			-- Not already running away like a little bitch
 			if not _script.ignoring then
+				local setIgnore = setTargetingIgnoreEnabled
 				local threshold = targetingGetCreatureThreshold(
 					_config['Anti Lure']['Creatures'],
 					_config['Anti Lure']['Range'],
@@ -384,7 +395,7 @@ do
 					false)
 				-- Threshold met, goto run path
 				if threshold[1] then
-					xeno.setTargetingIgnoreEnabled(true)
+					setIgnore(true)
 					xeno.attackCreature(0)
 					log('Anti-lure triggered. Returning to safety.')
 					local closestPath = walkerGetClosestLabel(false, 'run')

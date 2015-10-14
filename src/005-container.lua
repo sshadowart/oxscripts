@@ -418,7 +418,7 @@ Container = (function()
 		setTimeout(function()
 			-- Success
 			if opened > 0 then
-				if _config['General']['Minimize-Main-BP'] then
+				if _config['General']['Minimize-Backpacks'] then
 					xeno.minimizeContainer(0)
 				end
 				callback(true)
@@ -439,6 +439,7 @@ Container = (function()
 			xeno.closeContainer(i)
 		end
 
+		local minimizeBackpacks = _config['General']['Minimize-Backpacks']
 		openMainBackpack(function()
 			local backpacks = {}
 			local function openChild(index)
@@ -446,8 +447,17 @@ Container = (function()
 				local freeslot = getLastContainer() + 1
 				-- Open child backpack
 				xeno.containerUseItem(0, spot)
+
 				-- Wait for child to open
 				setTimeout(function()
+					-- Minimize all containers
+					if minimizeBackpacks then
+						for i = 1, 16 do
+							if xeno.getContainerOpen(i) then
+								xeno.minimizeContainer(i)
+							end
+						end
+					end
 					-- Open next child
 					if #backpacks > index then
 						openChild(index+1)
@@ -489,12 +499,6 @@ Container = (function()
 		log('Setting up your backpacks, please wait...')
 		local function finishSetup()
 			log('Your backpacks have been setup. Do NOT rearrange containers!')
-			-- Minimize all containers
-			for i = 1, 15 do
-				if xeno.getContainerOpen(i) then
-					xeno.minimizeContainer(i)
-				end
-			end
 
 			-- Resume the bot
 			xeno.setWalkerEnabled(true)

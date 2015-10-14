@@ -185,6 +185,9 @@ Depot = (function()
 					return
 				end
 
+				-- Minimize depot container
+				xeno.minimizeContainer(depot)
+
 				-- Set depot state
 				_script.depotOpen = true
 

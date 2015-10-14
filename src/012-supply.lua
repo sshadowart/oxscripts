@@ -203,6 +203,7 @@ Supply = (function()
 		local venoreTravel = false
 		local edronTravel = false
 		local runeTravel = nil
+		local sourceTown = string.lower(_script.town)
 
 		-- Softboots refill (+ travel costs if not in venore and not already)
 		if _config['Soft Boots']['Mana-Percent'] > 0 then
@@ -211,7 +212,7 @@ Supply = (function()
 			if wornSoftBootCount > 0 then
 				refillSoftboots = true
 				-- Not in Venore, we need to travel
-				if _script.town ~= 'Venore' then
+				if sourceTown ~= 'venore' then
 					venoreTravel = true
 				end
 				totalCost = totalCost + math.max(0, wornSoftBootCount) * PRICE.SOFTBOOTS_REFILL
@@ -219,7 +220,6 @@ Supply = (function()
 		end
 
 		-- Supply refill cost (+ travel costs for exotic runes)
-		local sourceTown = string.lower(_script.town)
 		local thresholds = checkAllSupplyThresholds(true)
 		if thresholds.max then
 			for itemid, supply in pairs(thresholds.max) do
@@ -253,7 +253,6 @@ Supply = (function()
 			local travelRoute = TRAVEL_ROUTES[sourceTown .. '~venore']
 			if not travelRoute then
 				error('Missing travel route from ' .. sourceTown .. ' to venore. Please contact support.')
-				return
 			end
 			totalCost = totalCost + travelRoute.cost
 		end
@@ -265,7 +264,6 @@ Supply = (function()
 			local travelRoute = TRAVEL_ROUTES[sourceTown .. '~edron']
 			if not travelRoute then
 				error('Missing travel route from ' .. sourceTown .. ' to edron. Please contact support.')
-				return
 			end
 			totalCost = totalCost + travelRoute.cost
 		end
