@@ -2,15 +2,15 @@
 
 Official XenoBot cavebot scripts for botting on Tibia and some Open-Tibia servers.
 
-[![Slack Status](http://slack.theoxserver.com/badge.svg)](http://slack.theoxserver.com)
+[![Slack Status](https://ox-slackin.herokuapp.com/badge.svg)](http://slack.xenobot.net)
 
 ### Dependencies
 Before attempting to get started, please install the following depedencies if you do not already have them.
 
 - [Install NodeJS](https://nodejs.org/en/)
-- [Install Python 3](https://www.python.org/downloads/)
+- [Install Python 3.3](https://www.python.org/download/releases/3.3.3/)
 - [Install Lua 5.1](https://github.com/rjpcomputing/luaforwindows/releases/tag/v5.1.4-49)
-- [Install ZMQ (py33+)](https://github.com/zeromq/pyzmq/downloads)
+- [Install ZMQ (py33)](https://github.com/zeromq/pyzmq/downloads)
 
 ### Getting Started
 
