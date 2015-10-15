@@ -21,8 +21,8 @@ Open the command prompt and navigate to the directory you wish to clone to and r
 ```shell
 $ git clone git@github.com:OXGaming/scripts.git oxscripts
 $ cd oxscripts
-$ npm install                   # Install dependencies in ./package.json
-$ npm start                     # Start the build server
+$ npm install                                # Install dependencies in ./package.json
+$ npm start --script="Edron Demons (MS)"     # Start the build server
 ```
 
 ### Directory Layout
@@ -43,18 +43,18 @@ $ npm start                     # Start the build server
 └── package.json                # The list of 3rd party libraries and utilities
 ```
 
-### How to Build
+### How to build a single script
 
 ```shell
-$ npm run build                 # or, `npm run build -- release`
+$ npm run build --script="Edron Demons (MS)"
 ```
 
 Packages the source files into a single file.
 
-### How to Run
+### How to run the live reload server
 
 ```shell
-$ npm start                     # or, `npm start -- release`
+$ npm start --script="Edron Demons (MS)"
 ```
 
 This will start a build server that detects changes to source and live-reloads the script.
