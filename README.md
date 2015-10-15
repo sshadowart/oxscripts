@@ -2,6 +2,8 @@
 
 Official XenoBot cavebot scripts for botting on Tibia and some Open-Tibia servers.
 
+[![Slack Status](http://slack.theoxserver.com/badge.svg)](http://slack.theoxserver.com)
+
 ### Getting Started
 
 *Make sure you have the latest [Node.js](https://nodejs.org/en/) installed!*
