@@ -23,7 +23,7 @@ Before attempting to get started, please install the following depedencies if yo
 Open the command prompt and navigate to the directory you wish to clone to and run the following:
 
 ```shell
-$ git clone git@github.com:OXGaming/oxscripts.git oxscripts
+$ git clone https://github.com/OXGaming/oxscripts.git
 $ cd oxscripts
 $ npm install                                # Install dependencies in ./package.json
 $ npm start --script="Edron Demons (MS)"     # Start the build server
