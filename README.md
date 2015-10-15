@@ -10,10 +10,10 @@ Before attempting to get started, please install the following depedencies if yo
 **You may need to restart your computer after installing these dependencies!**
 
 - [Install NodeJS](https://nodejs.org/en/)
-- [Install Python 3.3](https://www.python.org/downloads/release/python-336/) (make sure you install in PATH!)
-- [Install Lua 5.1](https://github.com/rjpcomputing/luaforwindows/releases/tag/v5.1.4-49)
-- [Install ZMQ (py33)](https://github.com/zeromq/pyzmq/downloads)
 - [Install Git](https://git-scm.com/download/win)
+- [Install Python 3.3](http://www.python.org/ftp/python/3.3.5/python-3.3.5.amd64.msi) (make sure you install in PATH!)
+- [Install Lua 5.1](https://github.com/rjpcomputing/luaforwindows/releases/download/v5.1.4-49/LuaForWindows_v5.1.4-49.exe)
+- [Install ZMQ (py33)](https://github.com/downloads/zeromq/pyzmq/pyzmq-2.2.0.1.win-amd64-py3.3.msi)
 
 
 ### Getting Started
