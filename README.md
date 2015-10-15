@@ -4,9 +4,17 @@ Official XenoBot cavebot scripts for botting on Tibia and some Open-Tibia server
 
 [![Slack Status](http://slack.theoxserver.com/badge.svg)](http://slack.theoxserver.com)
 
+### Dependencies
+Before attempting to get started, please install the following depedencies if you do not already have them.
+
+- [Install NodeJS](https://nodejs.org/en/)
+- [Install Python 3](https://www.python.org/downloads/)
+- [Install Lua 5.1](https://github.com/rjpcomputing/luaforwindows/releases/tag/v5.1.4-49)
+- [Install ZMQ (py33+)](https://github.com/zeromq/pyzmq/downloads)
+
 ### Getting Started
 
-*Make sure you have the latest [Node.js](https://nodejs.org/en/) installed!*
+**Make sure you have all the required depedencies listed above installed!**
 
 Open the command prompt and navigate to the directory you wish to clone to and run the following:
 
