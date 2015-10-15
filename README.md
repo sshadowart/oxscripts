@@ -14,15 +14,29 @@ Before attempting to get started, please install the following depedencies if yo
 
 ### Getting Started
 
-**Make sure you have all the required depedencies listed above installed!**
+*Make sure you have all the required depedencies listed above installed!*
 
 Open the command prompt and navigate to the directory you wish to clone to and run the following:
 
 ```shell
-$ git clone git@github.com:OXGaming/scripts.git oxscripts
+$ git clone git@github.com:OXGaming/oxscripts.git oxscripts
 $ cd oxscripts
 $ npm install                                # Install dependencies in ./package.json
 $ npm start --script="Edron Demons (MS)"     # Start the build server
+```
+
+### How to run the live reload server
+This will start a build server that detects changes to source and live-reloads the script.
+
+```shell
+$ npm start --script="Edron Demons (MS)"
+```
+
+### How to build a single script without live reload
+Packages the source files into a single file and copies it to your XenoBot settings folder.
+
+```shell
+$ npm run build --script="Edron Demons (MS)"
 ```
 
 ### Directory Layout
@@ -42,19 +56,3 @@ $ npm start --script="Edron Demons (MS)"     # Start the build server
 │   └── /start.js               # Launches the build server to auto build changes
 └── package.json                # The list of 3rd party libraries and utilities
 ```
-
-### How to build a single script
-
-```shell
-$ npm run build --script="Edron Demons (MS)"
-```
-
-Packages the source files into a single file.
-
-### How to run the live reload server
-
-```shell
-$ npm start --script="Edron Demons (MS)"
-```
-
-This will start a build server that detects changes to source and live-reloads the script.
