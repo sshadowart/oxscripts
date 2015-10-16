@@ -137,6 +137,8 @@
 		<item text="Node (33303, 32287, 10)" tag="0"/>
 		<item text="Node (33305, 32289, 10)" tag="0"/>
 		<item text="Stand (33306, 32290, 10)" tag="1"/>
+		<item text="Node (33306, 32291, 11)" tag="0"/>
+		<item text="Stand (33306, 32290, 11)" tag="1"/>
 		<item text="Node (33303, 32286, 10)" tag="0"/>
 		<item text="No-Underground-Bottom-Floors:" tag="255"/>
 		<item text="Node (33300, 32280, 10)" tag="0"/>
