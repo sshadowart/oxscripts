@@ -121,6 +121,8 @@
 		<item text="Node (33091, 32537, 10)" tag="0"/>
 		<item text="Node (33084, 32536, 10)" tag="0"/>
 		<item text="Node (33080, 32533, 10)" tag="0"/>
+		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntstart|3:" tag="255"/>
 		<item text="Node (33077, 32529, 10)" tag="0"/>
 		<item text="Node (33071, 32526, 10)" tag="0"/>
 		<item text="Node (33064, 32525, 10)" tag="0"/>
@@ -131,8 +133,8 @@
 		<item text="Node (33026, 32524, 10)" tag="0"/>
 		<item text="Node (33023, 32527, 10)" tag="0"/>
 		<item text="Node (33023, 32531, 10)" tag="0"/>
-		<item text="huntcheck|3:" tag="255"/>
-		<item text="huntstart|3:" tag="255"/>
+		<item text="huntcheck|4:" tag="255"/>
+		<item text="huntstart|4:" tag="255"/>
 		<item text="Node (33019, 32529, 10)" tag="0"/>
 		<item text="Node (33013, 32529, 10)" tag="0"/>
 		<item text="Node (33009, 32532, 10)" tag="0"/>
@@ -146,7 +148,7 @@
 		<item text="Node (33039, 32558, 10)" tag="0"/>
 		<item text="Node (33039, 32550, 10)" tag="0"/>
 		<item text="Walker.Goto('skipIgnore')" tag="254"/>
-		<item text="huntexit|3:" tag="255"/>
+		<item text="huntexit|4:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="skipIgnore:" tag="255"/>
 		<item text="Node (33036, 32543, 10)" tag="0"/>
@@ -159,10 +161,11 @@
 		<item text="Node (33071, 32526, 10)" tag="0"/>
 		<item text="Node (33077, 32531, 10)" tag="0"/>
 		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|3:" tag="255"/>
 		<item text="huntexit|2:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
 		<item text="spawnexit:" tag="255"/>
-		<item text="darashia|spawn~north.exit:" tag="255"/>
+		<item text="darashia|spawn~south.exit:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="Stand (33077, 32532, 10)" tag="1"/>
 		<item text="Node (33081, 32537, 9)" tag="0"/>
