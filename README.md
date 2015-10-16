@@ -60,3 +60,9 @@ $ npm run build --script="Edron Demons (MS)"
 │   └── /start.js               # Launches the build server to auto build changes
 └── package.json                # The list of 3rd party libraries and utilities
 ```
+
+### Project Management
+[Trello](https://trello.com/b/3bo3eJH4/ox-scripts) is a project management tool.
+The OX Team uses it to plan and execute features, fix bugs, and test patches.
+Follow OX development, comment and vote on tasks that interest you.
+Subscribe to a task and get notified when it updates.
