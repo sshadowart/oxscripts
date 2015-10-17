@@ -138,25 +138,27 @@ do
 				_script.state = state;
 				-- We don't currently have a route
 				if _script.route == '--' then
-					hudItemUpdate('Script', 'Route', route ~= '--' and route:gsub('-', ' ') or '--', true)
+					_script.route = route ~= '--' and route:gsub('-', ' ') or '--'
 				end
 				-- The current label is a route
 				if route ~= '--' then
 					-- Set the new route
 					_script.route = route
 				end
-				hudItemUpdate('Script', 'State', state, false)
 			end
 			xeno.setWalkerEnabled(true)
 		end,
 
 		-- Exit spawn and return to town
 		['spawnexit'] = function(group)
-			-- States update
+			-- Update state
 			log('Exiting spawn.')
-			_script.state = 'Walking to town';
-			_script.inSpawn = false;
-			hudItemUpdate('Script', 'State', _script.state, false)
+			_script.inSpawn = false
+			_script.state = 'Walking to town'
+
+			-- Update round
+			_script.round = _script.round + 1
+			hudItemCreate('Script', 'Round', tostring(_script.round), true)
 
 			-- Disable active alarm if running
 			if _script.alarmInterval then
@@ -198,7 +200,6 @@ do
 			log('Entering spawn.')
 			_script.state = 'Hunting';
 			_script.inSpawn = true;
-			hudItemUpdate('Script', 'State', _script.state, false)
 		end,
 
 		-- Door System
@@ -516,6 +517,11 @@ do
 			hudItemUpdate('Statistics', 'Exp to Level', formatNumber(expLeft) .. ' xp', true)
 			hudItemUpdate('Statistics', 'Time to Level', hourlyexp > 0 and formatTime(expLeft / (gain / timediff)) or formatTime(0), true)
 
+			-- Update state
+			hudItemUpdate('Script', 'State', _script.state, true)
+			hudItemUpdate('Script', 'Reason', _script.reason, true)
+			hudItemUpdate('Script', 'Route', _script.route, true)
+
 			-- Loot & Supply Polling
 			if _script.state ~= 'Setting up backpacks' then
 				hudQueryLootChanges()
@@ -526,8 +532,6 @@ do
 			hudUpdatePositions()
 		end
 
-		-- Check if we need to drop anything
-		throttle(THROTTLE_CAP_DROP, walkerCapacityDrop)
 		toggleCriticalMode(false)
 	end
 
@@ -567,16 +571,16 @@ do
 			return
 		end
 
-		-- Update script route
-		local routeLabel = split(name, 'No-')
-		local routeName = routeLabel and routeLabel[2]
-		if routeName then
-			if _config['HUD']['Enabled'] then
-				-- False route matches current route
-				-- if routeName:lower() == _script.state:lower() then
-					_script.route = '--';
-					hudItemUpdate('Script', 'Route', _script.route, true)
-				-- end
+		-- Reached the end of a route
+		local routeLabel = split(name, '|')
+		local routeName = routeLabel and routeLabel[1]
+		if routeName:sub(1,3) == 'No-' then
+			print(name)
+			print(_script.route)
+			print(routeName)
+			-- False route matches current route
+			if routeName:sub(4):lower() == _script.route:lower() then
+				_script.route = '--';
 			end
 		end
 
@@ -682,7 +686,6 @@ do
 		local playerPos = xeno.getSelfPosition()
 		local playerRing = xeno.getRingSlotData().id
 		local playerAmulet = xeno.getAmuletSlotData().id
-		local playerBoots = xeno.getFeetSlotData().id
 		local playerHealth = math.abs((xeno.getSelfHealth() / xeno.getSelfMaxHealth()) * 100)
 		local playerMana = math.abs((xeno.getSelfMana() / xeno.getSelfMaxMana()) * 100)
 		local playerTargets = 0
@@ -746,36 +749,7 @@ do
 			xeno.slotMoveItemToContainer(slot, _backpacks['Supplies'], 0)
 		end
 
-		-- Check softboots
-		if _config['Soft Boots']['Mana-Percent'] > 0 then
-			local needSoftBoots = playerMana <= _config['Soft Boots']['Mana-Percent']
-			local mainbp = _backpacks['Main']
-			-- Needs soft boots
-			if needSoftBoots then
-				-- Needs to swap normal or worn boots with softboots
-				if playerBoots ~= ITEMID.SOFTBOOTS_ACTIVE then
-					-- Search for soft boots in main backpack
-					for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
-						-- Equip soft boots
-						if xeno.getContainerSpotData(mainbp, spot).id == ITEMID.SOFTBOOTS then
-							xeno.containerMoveItemToSlot(mainbp, spot, "feet", 1)
-							break
-						end
-					end
-				end
-			-- Need to swap active or worn softboots with normal boots
-			elseif playerBoots == ITEMID.SOFTBOOTS_ACTIVE or playerBoots == ITEMID.SOFTBOOTS_WORN then
-				-- Search for regular boots
-				for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
-					-- Equip regular boots
-					if NORMAL_BOOTS[xeno.getContainerSpotData(mainbp, spot).id] then
-						xeno.containerMoveItemToSlot(mainbp, spot, "feet", 1)
-						break
-					end
-				end
-			end
-		end
-
+		checkSoftBoots()
 		checkEvents(EVENT_BATTLE, message)
 		toggleCriticalMode(false)
 	end

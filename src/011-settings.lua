@@ -167,17 +167,24 @@ Settings = (function()
 		callback(tools)
 	end
 
-	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="%d" prioMin="%d" prioRaw="%d" enabled="1"/></control></panel>'
+	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="9" prioMin="%d" prioRaw="%d" until="%d" enabled="1"/></control></panel>'
 	local function getDynamicLureXBST()
 		local amount = _config['Lure']['Amount']
-		local min = _config['Lure']['MinPriority']
-		local max = _config['Lure']['MaxPriority']
-		local rawPrio = 100 -- ???
-		if min > max then
-			error('[Config Error] Minimum lure priority cannot be higher than maximum lure priority!')
+		local priority = _config['Lure']['MinPriority']
+		local untilCount = _config['Lure']['Until'] or 0
+		-- Validate config
+		if not priority or priority > 9 or priority < 0 then
+			error('[Config Error] Dynamic lure minimum priority is missing or invalid [0-9]!')
 			return
 		end
-		return lureTemplate:format(amount, max, min, rawPrio)
+		-- Validate amounts
+		if untilCount >= amount then
+			error('[Config Error] Dynamic lure "until" cannot be greater than "amount"!')
+			return
+		end
+
+		local rawPrio = 100 + priority
+		return lureTemplate:format(amount, priority, rawPrio, untilCount)
 	end
 
 	local function getShooterXBST()

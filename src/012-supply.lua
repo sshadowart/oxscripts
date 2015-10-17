@@ -192,7 +192,7 @@ Supply = (function()
 						end
 						-- Check if alarm for this item is triggered
 						local important = ''
-						if _script.inSpawn and alarmThresholds[itemid] then
+						if _script.inSpawn and (alarmThresholds and alarmThresholds[itemid]) then
 							important = '!!!'
 						end
 						-- Add to log
@@ -344,7 +344,6 @@ Supply = (function()
 
 		-- Update HUD and script state
 		_script.state = 'Resupplying';
-		hudItemUpdate('Script', 'State', _script.state, false)
 
 		step = step or 0
 
@@ -658,13 +657,11 @@ Supply = (function()
 
 		-- Update script state
 		_script.state = 'Walking to town exit';
-		hudItemUpdate('Script', 'State', _script.state, false)
 		
 		walkerGotoLocation(_script.town, _script.townexit, function()
 
 			-- Update script state
 			_script.state = 'Walking to spawn';
-			hudItemUpdate('Script', 'State', _script.state, false)
 
 			-- Exited town, go to spawn
 			walkerStartPath(_script.town, _script.townexit, 'spawn', function()
@@ -685,6 +682,7 @@ Supply = (function()
 
 	-- Export global functions
 	return {
+		checkSoftBoots = checkSoftBoots,
 		checkAllSupplyThresholds = checkAllSupplyThresholds,
 		resupply = resupply
 	}

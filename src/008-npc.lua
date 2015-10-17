@@ -4,6 +4,7 @@ Npc = (function()
 	local pingDelay = Core.pingDelay
 	local setTimeout = Core.setTimeout
 	local talk = Core.talk
+	local checkSoftBoots = Core.checkSoftBoots
 	local error = Console.error
 	local getTotalItemCount = Container.getTotalItemCount
 	local containerMoveItems = Container.containerMoveItems
@@ -181,6 +182,8 @@ Npc = (function()
 					moveTransactionGoldChange(0, function()
 						-- No more boots, or failed too much
 						if getTotalItemCount(ITEMID.SOFTBOOTS_WORN) <= 0 or tries <= 0 then
+							-- Equip softboots if needed
+							checkSoftBoots()
 							callback()
 						else
 							tries = tries - 1

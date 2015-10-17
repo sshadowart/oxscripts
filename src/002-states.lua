@@ -2,9 +2,8 @@ local _script = {
 	start = os.time(),
 	baseExp = xeno.getSelfExperience(),
 	balance = 0,
-
+	round = 0,
 	unsafeQueue = 0,
-
 	pingSum = 0,
 	pingEntries = 0,
 	pingLast = 0,
@@ -29,7 +28,9 @@ local _script = {
 	shovelCode = 0,
 
 	state = 'Setting up backpacks',
+	reason = 'Initializing',
 	route = '--',
+
 	inSpawn = false,
 	stuck = false,
 	luring = false,

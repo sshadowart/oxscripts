@@ -782,11 +782,18 @@ Container = (function()
 				xeno.getShieldSlotData,
 				xeno.getAmmoSlotData
 			}
-			for i = 1, #slots do -- count slots
+			for i = 1, #slots do
 				local slot = slots[i]()
 				if slot and slot.id then
+					-- Counting this item
 					if itemIdList[slot.id] then
-						total = total + math.max(slot.count, 1)
+						local itemTotal = totals[slot.id]
+						local itemcount = math.max(slot.count, 1)
+						if not itemTotal then
+							totals[slot.id] = itemcount
+						else
+							itemTotal = itemTotal + itemcount
+						end
 					end
 				end
 			end

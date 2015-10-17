@@ -487,6 +487,44 @@ Core = (function()
 		return xeno.getCreatureName(xeno.getCreatureListIndex(xeno.getSelfID()))
 	end
 
+	local function updateState()
+
+	end
+
+	local function checkSoftBoots()
+		-- Check softboots
+		local playerMana = math.abs((xeno.getSelfMana() / xeno.getSelfMaxMana()) * 100)
+		if _config['Soft Boots']['Mana-Percent'] > 0 then
+			local playerBoots = xeno.getFeetSlotData().id
+			local needSoftBoots = playerMana <= _config['Soft Boots']['Mana-Percent']
+			local mainbp = _backpacks['Main']
+			-- Needs soft boots
+			if needSoftBoots then
+				-- Needs to swap normal or worn boots with softboots
+				if playerBoots ~= ITEMID.SOFTBOOTS_ACTIVE then
+					-- Search for soft boots in main backpack
+					for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
+						-- Equip soft boots
+						if xeno.getContainerSpotData(mainbp, spot).id == ITEMID.SOFTBOOTS then
+							xeno.containerMoveItemToSlot(mainbp, spot, "feet", 1)
+							break
+						end
+					end
+				end
+			-- Need to swap active or worn softboots with normal boots
+			elseif playerBoots == 0 or playerBoots == ITEMID.SOFTBOOTS_ACTIVE or playerBoots == ITEMID.SOFTBOOTS_WORN then
+				-- Search for regular boots
+				for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
+					-- Equip regular boots
+					if NORMAL_BOOTS[xeno.getContainerSpotData(mainbp, spot).id] then
+						xeno.containerMoveItemToSlot(mainbp, spot, "feet", 1)
+						break
+					end
+				end
+			end
+		end
+	end
+
 	-- Export global functions
 	return {
 		overflowText = overflowText,
@@ -521,6 +559,7 @@ Core = (function()
 		getDirectionTo = getDirectionTo,
 		getPositionFromDirection = getPositionFromDirection,
 		getDistanceBetween = getDistanceBetween,
-		getSelfName = getSelfName
+		getSelfName = getSelfName,
+		checkSoftBoots = checkSoftBoots
 	}
 end)()
