@@ -2129,5 +2129,5 @@
   {"label": "Node (32209, 31160, 7)", "tag": 0},
   {"label": "Node (32204, 31160, 7)", "tag": 0},
   {"label": "Stand (32204, 31160, 7)", "tag": 1},
-  {"label": "end:", "tag": 255},
+  {"label": "end:", "tag": 255}
 ]
