@@ -2865,7 +2865,8 @@
   {"label": "door|1174|START:", "tag": 255},
   {"label": "Node (33239, 32398, 7)", "tag": 0},
   {"label": "door|1174|SOUTH:", "tag": 255},
-  {"label": "Node (33239, 32408, 7)", "tag": 0},
+  {"label": "Node (33239, 32409, 7)", "tag": 0},
+  {"label": "Stand (33239, 32409, 7)", "tag": 1},
   {"label": "end:", "tag": 255},
 
   {"label": "darashia|south.exit~north.exit:", "tag": 255},

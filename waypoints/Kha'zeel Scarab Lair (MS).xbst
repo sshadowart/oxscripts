@@ -4,13 +4,12 @@
 </panel>
 <panel name="Self Healer">
 	<control name="SpellList">
-		<item spell="exura san" mana="160" vcomp="0" vsign="1" vrandom="0" vvalue="50" enabled="1"/>
-		<item spell="exura gran" mana="70" vcomp="0" vsign="1" vrandom="0" vvalue="80" enabled="1"/>
-		<item spell="exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="92" enabled="1"/>
+		<item spell="Exura Vita" mana="160" vcomp="0" vsign="1" vrandom="0" vvalue="45" enabled="1"/>
+		<item spell="Exura Gran" mana="70" vcomp="0" vsign="1" vrandom="0" vvalue="70" enabled="1"/>
+		<item spell="Exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="90" enabled="1"/>
 	</control>
 	<control name="ItemList">
-		<item id="236" vcomp="0" vsign="1" vrandom="0" vvalue="35" enabled="1"/>
-		<item id="237" vcomp="0" vsign="3" vrandom="0" vvalue="70" enabled="1"/>
+		<item id="238" vcomp="0" vsign="3" vrandom="0" vvalue="50" enabled="1"/>
 	</control>
 </panel>
 <panel name="Tools">
@@ -123,6 +122,8 @@
 		<item text="Node (33091, 32537, 10)" tag="0"/>
 		<item text="Node (33084, 32536, 10)" tag="0"/>
 		<item text="Node (33080, 32533, 10)" tag="0"/>
+		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntstart|3:" tag="255"/>
 		<item text="Node (33077, 32529, 10)" tag="0"/>
 		<item text="Node (33071, 32526, 10)" tag="0"/>
 		<item text="Node (33064, 32525, 10)" tag="0"/>
@@ -133,8 +134,8 @@
 		<item text="Node (33026, 32524, 10)" tag="0"/>
 		<item text="Node (33023, 32527, 10)" tag="0"/>
 		<item text="Node (33023, 32531, 10)" tag="0"/>
-		<item text="huntcheck|3:" tag="255"/>
-		<item text="huntstart|3:" tag="255"/>
+		<item text="huntcheck|4:" tag="255"/>
+		<item text="huntstart|4:" tag="255"/>
 		<item text="Node (33019, 32529, 10)" tag="0"/>
 		<item text="Node (33013, 32529, 10)" tag="0"/>
 		<item text="Node (33009, 32532, 10)" tag="0"/>
@@ -148,7 +149,7 @@
 		<item text="Node (33039, 32558, 10)" tag="0"/>
 		<item text="Node (33039, 32550, 10)" tag="0"/>
 		<item text="Walker.Goto('skipIgnore')" tag="254"/>
-		<item text="huntexit|3:" tag="255"/>
+		<item text="huntexit|4:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="skipIgnore:" tag="255"/>
 		<item text="Node (33036, 32543, 10)" tag="0"/>
@@ -161,6 +162,7 @@
 		<item text="Node (33071, 32526, 10)" tag="0"/>
 		<item text="Node (33077, 32531, 10)" tag="0"/>
 		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|3:" tag="255"/>
 		<item text="huntexit|2:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
 		<item text="spawnexit:" tag="255"/>
