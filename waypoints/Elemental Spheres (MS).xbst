@@ -194,7 +194,10 @@
 <panel name="Pathfinder">
 	<control name="walkOnFireEnable" value="1"/>
 	<control name="walkOnFurnitureEnable" value="1"/>
-	<control name="lastWPEvadeEnable" value="0"/>
+	<control name="walkOnMaroonGround" value="0"/>
+	<control name="pathThroughRangedCreatures" value="1"/>
+	<control name="walkWithMapclicks" value="0"/>
+	<control name="elasticEvasion" value="0"/>
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">

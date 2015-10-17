@@ -4,7 +4,7 @@
 </panel>
 <panel name="Self Healer">
 	<control name="SpellList">
-		<item spell="Exura Ico" mana="40" vcomp="0" vsign="1" vrandom="0" vvalue="85" enabled="1"/>
+		<item spell="Exura Ico" mana="100" vcomp="0" vsign="1" vrandom="0" vvalue="85" enabled="1"/>
 	</control>
 	<control name="ItemList">
 		<item id="7643" vcomp="0" vsign="1" vrandom="0" vvalue="45" enabled="1"/>
@@ -46,14 +46,14 @@
 	<control name="ParaCureSpell" value="exura ico"/>
 	<control name="HasteCastMana" value="1000"/>
 	<control name="HasteCastSpell" value="Utani Hur"/>
-	<control name="HasteCastEnable" value="0"/>
+	<control name="HasteCastEnable" value="1"/>
 	<control name="InvisibleCastMana" value="50"/>
 	<control name="InvisibleCastEnable" value="0"/>
 	<control name="ShieldCastMana" value="50"/>
 	<control name="ShieldCastEnable" value="0"/>
-	<control name="RecoveryCastEnable" value="0"/>
-	<control name="RecoveryCastType" value="0"/>
-	<control name="RecoveryCastMana" value="50"/>
+	<control name="RecoveryCastEnable" value="1"/>
+	<control name="RecoveryCastType" value="1"/>
+	<control name="RecoveryCastMana" value="1000"/>
 	<control name="RecoveryCheckPzEnable" value="1"/>
 </panel>
 <panel name="Targeting">
@@ -324,7 +324,10 @@
 <panel name="Pathfinder">
 	<control name="walkOnFireEnable" value="1"/>
 	<control name="walkOnFurnitureEnable" value="1"/>
-	<control name="lastWPEvadeEnable" value="0"/>
+	<control name="walkOnMaroonGround" value="0"/>
+	<control name="pathThroughRangedCreatures" value="1"/>
+	<control name="walkWithMapclicks" value="0"/>
+	<control name="elasticEvasion" value="0"/>
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
