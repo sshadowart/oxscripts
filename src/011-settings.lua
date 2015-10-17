@@ -167,7 +167,7 @@ Settings = (function()
 		callback(tools)
 	end
 
-	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="9" prioMin="%d" prioRaw="%d" until="%d" enabled="1"/></control></panel>'
+	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="9" prioMin="%d" prioRaw="%d" until="%d" enabled="1" /></control><control name="AttackWhileLuring" value="0"/></panel>'
 	local function getDynamicLureXBST()
 		local amount = _config['Lure']['Amount']
 		local priority = _config['Lure']['MinPriority']

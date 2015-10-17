@@ -16,6 +16,7 @@ do
 	local getDistanceBetween = Core.getDistanceBetween
 	local getSelfName =  Core.getSelfName
 	local cast = Core.cast
+	local checkSoftBoots = Core.checkSoftBoots
 	local log = Console.log
 	local warn = Console.warn
 	local openConsole = Console.openConsole
@@ -158,7 +159,6 @@ do
 
 			-- Update round
 			_script.round = _script.round + 1
-			hudItemCreate('Script', 'Round', tostring(_script.round), true)
 
 			-- Disable active alarm if running
 			if _script.alarmInterval then
@@ -521,7 +521,8 @@ do
 			hudItemUpdate('Script', 'State', _script.state, true)
 			hudItemUpdate('Script', 'Reason', _script.reason, true)
 			hudItemUpdate('Script', 'Route', _script.route, true)
-
+			hudItemUpdate('Script', 'Round', tostring(_script.round), true)
+			
 			-- Loot & Supply Polling
 			if _script.state ~= 'Setting up backpacks' then
 				hudQueryLootChanges()

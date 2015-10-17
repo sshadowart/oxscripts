@@ -1,8 +1,8 @@
 local _script = {
 	start = os.time(),
 	baseExp = xeno.getSelfExperience(),
+	round = 1,
 	balance = 0,
-	round = 0,
 	unsafeQueue = 0,
 	pingSum = 0,
 	pingEntries = 0,
