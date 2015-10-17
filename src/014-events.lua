@@ -17,6 +17,7 @@ do
 	local getSelfName =  Core.getSelfName
 	local cast = Core.cast
 	local log = Console.log
+	local warn = Console.warn
 	local openConsole = Console.openConsole
 	local cleanContainers = Container.cleanContainers
 	local resetContainers = Container.resetContainers
@@ -41,7 +42,6 @@ do
 	local checkAllSupplyThresholds = Supply.checkAllSupplyThresholds
 	local resupply = Supply.resupply
 	local targetingGetCreatureThreshold = Targeter.targetingGetCreatureThreshold
-	local targetingInitDynamicLure = Targeter.targetingInitDynamicLure
 
 	local LABEL_ACTIONS = {
 		-- Player & Supply Check [huntcheck|id]
@@ -155,7 +155,15 @@ do
 			-- States update
 			log('Exiting spawn.')
 			_script.state = 'Walking to town';
+			_script.inSpawn = false;
 			hudItemUpdate('Script', 'State', _script.state, false)
+
+			-- Disable active alarm if running
+			if _script.alarmInterval then
+				clearTimeout(_script.alarmInterval)
+				_script.alarmInterval = nil
+				warn('Alarm disabled.')
+			end
 
 			-- Clear return queued
 			_script.returnQueued = false
@@ -189,6 +197,7 @@ do
 		['enterspawn'] = function(group)
 			log('Entering spawn.')
 			_script.state = 'Hunting';
+			_script.inSpawn = true;
 			hudItemUpdate('Script', 'State', _script.state, false)
 		end,
 
@@ -823,10 +832,6 @@ do
 				loadConfigFile(function()
 					setupContainers(function()
 						setDynamicSettings(function()
-							-- Start dynamic lure (if needed)
-							_script.dynamicLuring = false
-							xeno.setTargetingIgnoreEnabled(false)
-							targetingInitDynamicLure()
 							log('Reloaded the config.')
 							-- If reloaded in town, trigger resupply
 							if _script.state == 'Resupplying' or _script.state == 'Starting' then

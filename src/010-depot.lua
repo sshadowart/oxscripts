@@ -83,6 +83,11 @@ Depot = (function()
 			slot = slot,
 			openwindow = false,
 			ignore = {
+				-- Flasks
+				[283] = true,
+				[284] = true,
+				[285] = true,
+				-- Tools
 				[ITEMID.OBSIDIAN_KNIFE] = true,
 				[ITEMID.BLESSED_STAKE] = true,
 			},

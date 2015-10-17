@@ -167,6 +167,19 @@ Settings = (function()
 		callback(tools)
 	end
 
+	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="%d" prioMin="%d" prioRaw="%d" enabled="1"/></control></panel>'
+	local function getDynamicLureXBST()
+		local amount = _config['Lure']['Amount']
+		local min = _config['Lure']['MinPriority']
+		local max = _config['Lure']['MaxPriority']
+		local rawPrio = 100 -- ???
+		if min > max then
+			error('[Config Error] Minimum lure priority cannot be higher than maximum lure priority!')
+			return
+		end
+		return lureTemplate:format(amount, max, min, rawPrio)
+	end
+
 	local function getShooterXBST()
 		local xbst = nil
 		local shooterList = {}
@@ -364,6 +377,17 @@ Settings = (function()
 						xbstContents = ''
 					end
 					xbstContents = xbstContents .. shooter
+				end
+			end
+
+			-- Dynamic Lure
+			if _config['Lure']['Amount'] and _config['Lure']['Amount'] > 0 then
+				local lurexml = getDynamicLureXBST()
+				if lurexml then
+					if not xbstContents then
+						xbstContents = ''
+					end
+					xbstContents = xbstContents .. lurexml
 				end
 			end
 

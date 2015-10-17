@@ -3,9 +3,11 @@ Supply = (function()
 	-- Imports
 	local formatList = Core.formatList
 	local setInterval = Core.setInterval
+	local clearTimeout = Core.clearTimeout
 	local getDistanceBetween = Core.getDistanceBetween
 	local log = Console.log
 	local warn = Console.warn
+	local prompt = Console.prompt
 	local getContainerItemCounts = Container.getContainerItemCounts
 	local cleanContainers = Container.cleanContainers
 	local getTotalItemCount = Container.getTotalItemCount
@@ -118,6 +120,16 @@ Supply = (function()
 		end
 	end
 
+	local disableAlarm = function()
+		prompt('To disable the alarm, enter any text to stop the alarm.', function(response)
+			if _script.alarmInterval then
+				clearTimeout(_script.alarmInterval)
+				_script.alarmInterval = nil
+				warn('Alarm disabled.')
+			end
+		end)
+	end
+
 	local function checkAllSupplyThresholds(updatedNeededCount)
 		-- Update all supply counts before checking
 		updateSupplyCount()
@@ -137,7 +149,8 @@ Supply = (function()
 				minThresholds[itemid] = supply
 			end
 			-- Maximum is expected to be checked and is below expected
-			if supply.max > 0 and supply.count < supply.max then
+			local maxThreshold = supply.max >= 200 and supply.max - 20 or supply.max
+			if supply.max > 0 and supply.count < maxThreshold then
 				if not maxThresholds then
 					maxThresholds = {}
 				end
@@ -159,27 +172,56 @@ Supply = (function()
 			end
 		end
 
-		-- Log items below minimum
-		if minThresholds then
-			local itemNames = {}
-			for itemid, _ in pairs(minThresholds) do
-				-- Make name plural
-				local name = xeno.getItemNameByID(itemid)
-				local suffix = 's'
-				-- Name ends with 's', make suffix 'es'
-				if string.sub(name, -1) == 's' then
-					suffix = 'es'
+		-- Log items below minimum & max
+		local itemNames = {}
+		local itemsAdded = {}
+		local itemLists = {minThresholds, maxThresholds}
+		-- Add items from min and max tables
+		for i = 1, #itemLists do
+			local list = itemLists[i]
+			if list then
+				for itemid, _ in pairs(list) do
+					-- Make sure we don't add duplicates
+					if not itemsAdded[itemid] then
+						-- Make name plural
+						local name = xeno.getItemNameByID(itemid)
+						local suffix = 's'
+						-- Name ends with 's', make suffix 'es'
+						if string.sub(name, -1) == 's' then
+							suffix = 'es'
+						end
+						-- Check if alarm for this item is triggered
+						local important = ''
+						if _script.inSpawn and alarmThresholds[itemid] then
+							important = '!!!'
+						end
+						-- Add to log
+						itemNames[#itemNames+1] = name .. suffix .. important
+						-- Flag as added to log
+						itemsAdded[itemid] = true
+					end
 				end
-				itemNames[#itemNames+1] = name .. suffix
-			end
-
-			if #itemNames > 0 then
-				warn('Low supply count for ' .. formatList(itemNames) .. '.')
 			end
 		end
 
-		-- TODO: print & alarm below alarm threshold
-		-- TODO: setInterval to keep alarm going
+		-- Print the min and max items
+		if #itemNames > 0 then
+			warn('Low supply count for ' .. formatList(itemNames) .. '.')
+		end
+
+		-- If any item was added to the alarm threshold, start alarm
+		if _script.inSpawn and alarmThresholds and not _script.alarmInterval then
+			-- Sound alarm until disabled
+			_script.alarmInterval = setInterval(function()
+				xeno.alert()
+			end, DELAY.AlARM_INTERVAL)
+
+			-- Send alarm immediately
+			xeno.alert()
+
+			-- Send stop alarm prompt to user
+			disableAlarm()
+		end
 
 		-- Return all supplies below thresholds
 		return {
@@ -634,6 +676,8 @@ Supply = (function()
 				-- Reached spawn
 				if callback then
 					callback()
+					-- We finished our first resupply
+					_script.firstResupply = false
 				end
 			end)
 		end)

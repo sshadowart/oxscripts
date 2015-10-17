@@ -610,8 +610,13 @@ Container = (function()
 			end
 
 			info('Your backpack setup:\n' .. formatList(list, '\n', '    '));
-			log('Organizing your backpacks, please wait...')
-			organizeMainBackpack()
+
+			if _config['General']['Organize-Backpacks'] then
+				log('Organizing your backpacks, please wait...')
+				organizeMainBackpack()
+			else
+				finishSetup()
+			end
 		end
 
 		-- Open main bp and children
@@ -779,8 +784,10 @@ Container = (function()
 			}
 			for i = 1, #slots do -- count slots
 				local slot = slots[i]()
-				if itemIdList[slot.id] then
-					total = total + math.max(slot.count, 1)
+				if slot and slot.id then
+					if itemIdList[slot.id] then
+						total = total + math.max(slot.count, 1)
+					end
 				end
 			end
 		end

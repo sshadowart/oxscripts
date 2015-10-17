@@ -18,7 +18,6 @@ local function init()
 	local loadSettingsFile = Settings.loadSettingsFile
 	local setDynamicSettings = Settings.setDynamicSettings
 	local resupply = Supply.resupply
-	local targetingInitDynamicLure = Targeter.targetingInitDynamicLure
 
 	-- Load config.ini
 	loadConfigFile(function()
@@ -34,8 +33,6 @@ local function init()
 			loadSettingsFile(function()
 				-- Modify XBST
 				setDynamicSettings(function()
-					-- Startup dynamic lure (if enabled)
-					targetingInitDynamicLure()
 					-- Detect town exit
 					walkerGetTownExit()
 					walkerGetTownEntrance()

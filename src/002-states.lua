@@ -19,6 +19,7 @@ local _script = {
 	channel = nil,
 	historyChannel = nil,
 	disableWithdraw = false,
+	firstResupply = true,
 
 	rope = nil,
 	shovel = nil,
@@ -29,6 +30,7 @@ local _script = {
 
 	state = 'Setting up backpacks',
 	route = '--',
+	inSpawn = false,
 	stuck = false,
 	luring = false,
 	dynamicLuring = false,
@@ -38,6 +40,8 @@ local _script = {
 	trainingQueued = false,
 	returnQueued = false,
 	forceLogoutQueued = false,
+
+	alarmInterval = nil,
 
 	wasted = 0,
 	looted = 0,

@@ -81,6 +81,51 @@ Npc = (function()
 		talk(dialog, interact)
 	end
 
+	local function shopSellItem(itemid, callback, neededCount, tries)
+		tries = tries or 10
+
+		-- Sell specific amount or "all"
+		local remaining = neededCount or 100000
+
+		local function sellItem()
+			-- Item doesn't exist, ignore
+			local amount = xeno.shopGetItemSaleCountByID(itemid)
+
+			-- No more to sell
+			if amount <= 0 then
+				callback()
+				return
+			end
+
+			-- Sell 100x at a time
+			local neededStackCount = math.min(remaining, amount)
+
+			-- Successfully sold the stack
+			if xeno.shopSellItemByID(itemid, neededStackCount) > 0 then
+				-- Reduce remaining by sold stack count, reset tries
+				remaining = remaining - neededStackCount
+				setTimeout(function()
+					-- Remaining count to sell, recurse
+					if remaining > 0 then
+						sellItem()
+					-- Sold all items, callback
+					else
+						callback()
+					end
+				end, pingDelay(DELAY.TRADE_TRANSACTION))
+			-- Failed to sell, retrying
+			elseif tries > 0 then
+				shopSellItem(itemid, callback, neededCount, tries-1)
+			-- Out of tries. Failed to sell stack.
+			else
+				error('Failed to sell ' .. xeno.getItemNameByID(itemid) .. ' (' .. neededStackCount .. 'x).')
+			end
+			return
+		end
+		-- Start recursive selling
+		sellItem()
+	end
+
 	local function shopSellLoot(sellList, callback, nodialog)
 		-- Add key, value array to flat list
 		local itemlist = {}
@@ -101,15 +146,12 @@ Npc = (function()
 				return
 			end
 
-			local count = xeno.shopGetItemSaleCountByID(itemid)
-			if count > 0 then
-				xeno.shopSellItemByID(itemid, count)
+			shopSellItem(itemid, function()
+				-- Recurse to next item in list
 				setTimeout(function()
 					sell(index + 1)
 				end, pingDelay(DELAY.TRADE_TRANSACTION))
-			else
-				sell(index + 1)
-			end
+			end)
 		end
 
 		if nodialog then

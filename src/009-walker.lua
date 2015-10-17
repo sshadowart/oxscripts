@@ -325,7 +325,7 @@ Walker = (function()
 									walkerGotoTown(targetTown, callback)
 								-- Didn't leave the last town
 								elseif newTown == town:lower() then
-									error('Failed to travel to ' .. targetTown .. ' from ' .. newTown .. '.')
+									error('Failed to travel to ' .. targetTown:lower() .. ' from ' .. newTown .. '.')
 									return
 								-- Reached the target town
 								else
@@ -355,13 +355,14 @@ Walker = (function()
 
 
 		-- Tell the user what we're doing
-		log('You are near the ' .. town:lower() .. ' ' .. location .. ', traveling to ' .. targetTown .. '.')
+		local locationName = location:gsub('%.', ' ');
+		log('You are near the ' .. town:lower() .. ' ' .. locationName .. ', traveling to ' .. targetTown:lower() .. '.')
 
 		-- Needs gold to travel, go to bank from here
 		local travelCostDifference = travelCost - getMoney()
 		if travelCostDifference > 0 then
 			-- Tell the user we need to go to the bank
-			local bankMessage = 'Traveling to ' .. targetTown .. ' requires an additional ' .. travelCostDifference .. ' gold.'
+			local bankMessage = 'Traveling to ' .. targetTown:lower() .. ' requires an additional ' .. travelCostDifference .. ' gold.'
 			if location ~= 'bank' then
 				bankMessage = bankMessage .. ' Heading to the ' .. town .. ' bank.'    
 			end

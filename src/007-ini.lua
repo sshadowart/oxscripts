@@ -124,24 +124,6 @@ Ini = (function()
 
 			-- Adjust specific config options
 
-			-- Convert lure creatures to key,value table
-			if tbl['Lure'] then
-				local lureCreatures = tbl['Lure']['Creatures']
-				if lureCreatures then
-					local lureTbl = {}
-					if type(lureCreatures) == 'table' then
-						for i = 1, #lureCreatures do
-							lureTbl[string.lower(lureCreatures[i])] = true
-						end
-						tbl['Lure']['Creatures'] = lureTbl
-					else
-						tbl['Lure']['Creatures'] = {
-							[string.lower(lureCreatures)] = true 
-						}
-					end
-				end
-			end
-
 			-- Convert anti-lure creatures to key,value table
 			if tbl['Anti Lure'] then
 				local lureCreatures = tbl['Anti Lure']['Creatures']

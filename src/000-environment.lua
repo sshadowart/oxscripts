@@ -150,3 +150,4 @@ xeno.getCreatureSpectators = getCreatureSpectators
 xeno.enterCriticalMode = veryUnsafeFunctionEnterCriticalMode
 xeno.exitCriticalMode = veryUnsafeFunctionExitCriticalMode
 xeno.setTargetingIgnoreEnabled = setTargetingIgnoreEnabled
+xeno.alert = alert
