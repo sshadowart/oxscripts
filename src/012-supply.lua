@@ -175,7 +175,13 @@ Supply = (function()
 		-- Log items below minimum & max
 		local itemNames = {}
 		local itemsAdded = {}
-		local itemLists = {minThresholds, maxThresholds}
+		local itemLists = {minThresholds}
+
+		-- Town check, print max items too
+		if not _script.inSpawn then
+			itemLists[#itemLists + 1] = maxThresholds
+		end
+
 		-- Add items from min and max tables
 		for i = 1, #itemLists do
 			local list = itemLists[i]
