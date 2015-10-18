@@ -62,6 +62,7 @@
 		<item type="Ice Golem" chs="0" max="100" min="0" prio="2" prox="3" count="1"/>
 		<item type="Crystal Spider" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="Ice Golem" chs="0" max="100" min="0" prio="0" prox="7" count="1"/>
+		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">

@@ -66,6 +66,7 @@
 		<item type="Wyrm" chs="2" max="100" min="50" prio="3" prox="3" count="1"/>
 		<item type="Wyrm" chs="2" max="100" min="50" prio="2" prox="7" count="1"/>
 		<item type="Grim Reaper" chs="2" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">

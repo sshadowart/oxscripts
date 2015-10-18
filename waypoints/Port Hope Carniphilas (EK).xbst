@@ -64,6 +64,7 @@
 		<item type="Mad Scientist" chs="0" max="100" min="0" prio="6" prox="7" count="1"/>
 		<item type="Swampling" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
 		<item type="Water Elemental" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
+		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">

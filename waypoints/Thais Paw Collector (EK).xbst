@@ -62,16 +62,7 @@
 		<item type="Wasp" chs="0" max="100" min="0" prio="3" prox="7" count="1"/>
 		<item type="Bear" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
 		<item type="Wolf" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
-		<item type="Wild Warrior" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Troll Champion" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Troll" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Poison Spider" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Snake" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Valkyrie" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Rat" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Spider" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Bug" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-		<item type="Dog" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
+		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">

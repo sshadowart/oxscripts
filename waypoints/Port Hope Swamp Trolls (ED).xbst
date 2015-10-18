@@ -68,6 +68,7 @@
 		<item type="Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
 		<item type="Bug" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
 		<item type="Cave Rat" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">
