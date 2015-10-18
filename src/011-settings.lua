@@ -221,10 +221,14 @@ Settings = (function()
 							type = details.type,
 							mana = details.mana and math.ceil((details.mana / xeno.getSelfMaxMana()) * 100) or 0,
 							creature = targets,
+							minhp = supply.options['MinHP'],
+							maxhp = supply.options['MaxHP'],
 							count = supply.options['TargetMin'],
 							utito = supply.options['Utito'],
 							priority = supply.options['Priority']
 						}
+						print(supply.options['MaxHP'])
+						print(supply.options['MinHP'])
 						-- If utito is enabled, make a shooter entry (copy spell conditions)
 						if supply.options['Utito'] then
 							shooterList[#shooterList+1] = {
@@ -234,6 +238,8 @@ Settings = (function()
 								type = 4,
 								mana = details.mana and math.ceil((details.mana / xeno.getSelfMaxMana()) * 100) or 0,
 								creature = targets,
+								minhp = supply.options['MinHP'],
+								maxhp = supply.options['MaxHP'],
 								count = supply.options['TargetMin'],
 								priority = 0
 							}
@@ -261,8 +267,8 @@ Settings = (function()
 			for i = 1, #shooterList do
 				local item = shooterList[i]
 				xbst = xbst .. string.format(
-					'<item spell="%s" rune="%d" srange="%s" type="%s" reason="0" minhp="0" maxhp="100" mana="%d" count="%d" creature="%s" danger="1" enabled="1"/>',
-					item.spell, item.rune, item.srange, item.type, item.mana, item.count, item.creature
+					'<item spell="%s" rune="%d" srange="%s" type="%s" reason="0" minhp="%d" maxhp="%d" mana="%d" count="%d" creature="%s" danger="1" enabled="1"/>',
+					item.spell, item.rune, item.srange, item.type, item.minhp, item.maxhp, item.mana, item.count, item.creature
 				)
 			end
 			xbst = xbst .. '</control></panel>'
