@@ -522,7 +522,7 @@ do
 			hudItemUpdate('Script', 'Reason', _script.reason, true)
 			hudItemUpdate('Script', 'Route', _script.route, true)
 			hudItemUpdate('Script', 'Round', tostring(_script.round), true)
-			
+
 			-- Loot & Supply Polling
 			if _script.state ~= 'Setting up backpacks' then
 				hudQueryLootChanges()
@@ -576,9 +576,6 @@ do
 		local routeLabel = split(name, '|')
 		local routeName = routeLabel and routeLabel[1]
 		if routeName:sub(1,3) == 'No-' then
-			print(name)
-			print(_script.route)
-			print(routeName)
 			-- False route matches current route
 			if routeName:sub(4):lower() == _script.route:lower() then
 				_script.route = '--';
