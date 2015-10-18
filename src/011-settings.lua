@@ -227,8 +227,6 @@ Settings = (function()
 							utito = supply.options['Utito'],
 							priority = supply.options['Priority']
 						}
-						print(supply.options['MaxHP'])
-						print(supply.options['MinHP'])
 						-- If utito is enabled, make a shooter entry (copy spell conditions)
 						if supply.options['Utito'] then
 							shooterList[#shooterList+1] = {
