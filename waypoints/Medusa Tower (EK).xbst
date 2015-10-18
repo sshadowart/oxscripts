@@ -238,6 +238,8 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
+		<item title="Special Area #1" consider="3" width="6" height="1" x="32845" y="32830" z="8"/>
+		<item title="Special Area #2" consider="3" width="6" height="1" x="32855" y="32830" z="8"/>
 	</control>
 </panel>
 <panel name="Alarms">
