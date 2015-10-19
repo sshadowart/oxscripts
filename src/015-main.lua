@@ -18,6 +18,7 @@ local function init()
 	local loadSettingsFile = Settings.loadSettingsFile
 	local setDynamicSettings = Settings.setDynamicSettings
 	local resupply = Supply.resupply
+    local walkerGetClosestLabel = Walker.walkerGetClosestLabel
 
 	-- Load config.ini
 	loadConfigFile(function()
@@ -37,7 +38,14 @@ local function init()
 					walkerGetTownExit()
 					walkerGetTownEntrance()
 					-- Resupply what we need
-					resupply()
+
+                    -- Check if we're in the spawn or in town
+                    local closestStartLabel = walkerGetClosestLabel(false, "huntstart")
+                    if closestStartLabel and closestStartLabel.name and getDistanceBetween(xeno.getSelfPosition(), closestStartLabel) < 30 then
+                        gotoLabel(closestStartLabel.name)
+                    else
+                        resupply()
+                    end
 				end)
 			end)
 		end)
