@@ -307,6 +307,11 @@
   {"label": "Node (33125, 32844, 7)", "tag": 0},
   {"label": "end:", "tag": 255},
 
+  {"label": "depot|ankrahmun|1:", "tag": 255},
+  {"label": "Node (33125, 32844, 7)", "tag": 0},
+  {"label": "Reach Depot", "tag": 253},
+  {"label": "depotend:", "tag": 255},
+
   {"label": "ankrahmun|boat~depot:", "tag": 255},
   {"label": "Node (33085, 32883, 6)", "tag": 0},
   {"label": "Node (33084, 32878, 6)", "tag": 0},
