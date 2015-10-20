@@ -5,15 +5,18 @@ node_js:
 
 env:
   - LUA='Lua 5.1'
-  - LUA='Lua 5.2'
-  - LUA='Lua 5.3'
-  - LUA='LuaJIT 2.0'
 
 sudo: true
 
 before_install:
+  - wget http://download.zeromq.org/zeromq-3.2.4.tar.gz
+  - tar -xf zeromq-3.2.4.tar.gz
+  - cd zeromq-3.2.4
+  - ./configure --prefix=$(readlink -f ..)
+  - make && make install
+  - export CXXFLAGS="-I $(readlink -f ../include)"
+  - export LDFLAGS="-L $(readlink -f ../lib) -Wl,-rpath=$(readlink -f ../lib)"
   - bash .travis_setup.sh
-  - sudo apt-get install libzmq3-dev
 
 install:
   - sudo apt-get update -qq
