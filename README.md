@@ -3,6 +3,7 @@
 Official XenoBot cavebot scripts for botting on Tibia and some Open-Tibia servers.
 
 [![Build Status](https://travis-ci.org/OXGaming/oxscripts.svg?branch=master)](https://travis-ci.org/OXGaming/oxscripts)
+[![Dev Dependency Status](https://david-dm.org/OXGaming/oxscripts/dev-status.svg)](https://david-dm.org/OXGaming/oxscripts#info=devDependencies)
 [![Slack Status](https://ox-slackin.herokuapp.com/badge.svg)](http://slack.xenobot.net)
 
 ### Dependencies
