@@ -32,6 +32,7 @@
     "clean": "babel-node -e \"require('./tools/clean')().catch(err => console.error(err.stack))\"",
     "bundle": "babel-node -e \"require('./tools/bundle')().catch(err => console.error(err.stack))\"",
     "start": "babel-node -e \"require('./tools/start')().catch(err => console.error(err.stack))\"",
+    "test": "babel-node -e \"require('./tools/test')().catch(err => console.error(err.stack))\"",
     "run": "babel-node -e \"require('./tools/run')().catch(err => console.error(err.stack))\""
   }
 }
