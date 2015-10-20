@@ -7,9 +7,12 @@ node_js:
 
 sudo: false
 
+before_script:
+  - wget http://www.lua.org/ftp/lua-5.1.5.tar.gz -O /tmp/lua-5.1.5.tar.gz
+  - tar -xvf /tmp/lua-5.1.5.tar.gz
+  - export PATH=$PATH:$PWD/lua-5.1.5.tar.gz/bin/
+
 before_install:
-  - sudo apt-get install lua5.1 luarocks -y
-  - sudo luarocks install busted
   - wget http://download.zeromq.org/zeromq-4.1.3.tar.gz
   - tar xzvf zeromq-4.1.3.tar.gz
   - cd zeromq-4.1.3 && ./configure --prefix=$HOME/zeromq && make && make install
