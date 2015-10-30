@@ -151,10 +151,15 @@
 		<item text="rush3:" tag="255"/>
 		<item text="Node (32272, 32877, 8)" tag="0"/>
 		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
-		<item text="Stand (32272, 32875, 8)" tag="1"/>
-		<item text="Stand (32272, 32874, 8)" tag="1"/>
-		<item text="Node (32271, 32872, 8)" tag="0"/>
-		<item text="Stand (32270, 32871, 8)" tag="1"/>
+		<item text="PreWater1:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32272, 32876, 8)" tag="1"/>
+		<item text="local tries = 5 repeat Self.Step(NORTH) tries = tries - 1 until Self.Position().y <= 32874 or tries <= 0 Walker.ConditionalGoto(Self.Position().y > 32875, 'PreWater1')" tag="254"/>
+		<item text="PreWhirlpool1:" tag="255"/>
+		<item text="Node (32271, 32871, 8)" tag="0"/>
+		<item text="Stand (32271, 32871, 8)" tag="1"/>
+		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool1')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="huntcheck|Rush-Third-Floor|No-Rush-Third-Floor:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="Walker.Goto('rush4')" tag="254"/>
@@ -225,11 +230,18 @@
 		<item text="Node (32261, 32866, 9)" tag="0"/>
 		<item text="Node (32266, 32870, 9)" tag="0"/>
 		<item text="secondFloorLeave1:" tag="255"/>
+		<item text="SLure" tag="6"/>
 		<item text="Node (32272, 32871, 9)" tag="0"/>
-		<item text="Stand (32273, 32871, 9)" tag="1"/>
+		<item text="Stand (32272, 32871, 9)" tag="1"/>
+		<item text="Self.Step(EAST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'secondFloorLeave1')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="Node (32271, 32872, 8)" tag="0"/>
 		<item text="Node (32272, 32874, 8)" tag="0"/>
-		<item text="Stand (32272, 32875, 8)" tag="1"/>
+		<item text="PreWater2:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32272, 32874, 8)" tag="1"/>
+		<item text="local tries = 5 repeat Self.Step(SOUTH) tries = tries - 1 until Self.Position().y >= 32876 or tries <= 0 Walker.ConditionalGoto(Self.Position().y < 32875, 'PreWater2')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="No-Second-Floor:" tag="255"/>
 		<item text="Node (32272, 32877, 8)" tag="0"/>
 		<item text="Node (32266, 32877, 8)" tag="0"/>
@@ -268,11 +280,16 @@
 		<item text="Node (32227, 32908, 8)" tag="0"/>
 		<item text="Node (32230, 32910, 8)" tag="0"/>
 		<item text="Node (32233, 32912, 8)" tag="0"/>
-		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
-		<item text="Node (32235, 32918, 8)" tag="0"/>
-		<item text="Stand (32235, 32919, 8)" tag="1"/>
+		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>        
+		<item text="PreWater3:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32235, 32918, 8)" tag="1"/>
+		<item text="local tries = 5 repeat Self.Step(SOUTH) tries = tries - 1 until Self.Position().y >= 31920 or tries <= 0 Walker.ConditionalGoto(Self.Position().y < 32919, 'PreWater3')" tag="254"/>
+		<item text="PreWhirlpool2:" tag="255"/>
 		<item text="Node (32237, 32920, 8)" tag="0"/>
-		<item text="Stand (32238, 32920, 8)" tag="1"/>
+		<item text="Stand (32237, 32920, 8)" tag="1"/>
+		<item text="Self.Step(EAST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool2')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="Node (32238, 32917, 9)" tag="0"/>
 		<item text="Node (32241, 32910, 9)" tag="0"/>
 		<item text="Node (32242, 32917, 9)" tag="0"/>
@@ -281,10 +298,16 @@
 		<item text="Node (32247, 32923, 9)" tag="0"/>
 		<item text="Node (32242, 32920, 9)" tag="0"/>
 		<item text="secondFloorLeave3:" tag="255"/>
+		<item text="SLure" tag="6"/>
 		<item text="Node (32236, 32921, 9)" tag="0"/>
-		<item text="Stand (32235, 32922, 9)" tag="1"/>
-		<item text="Node (32235, 32919, 8)" tag="0"/>
-		<item text="Stand (32235, 32918, 8)" tag="1"/>
+		<item text="Stand (32235, 32921, 9)" tag="1"/>
+		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'secondFloorLeave3')" tag="254"/>
+		<item text="ELure" tag="9"/>
+		<item text="PreWater4:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32235, 32919, 8)" tag="1"/>
+		<item text="local tries = 5 if Self.Position().y <= 32919 then repeat Self.Step(NORTH) tries = tries - 1 until Self.Position().y <= 32917 or tries <= 0 end Walker.ConditionalGoto(Self.Position().y > 32917, 'PreWater4')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="Node (32236, 32914, 8)" tag="0"/>
 		<item text="No-Second-Floor:" tag="255"/>
 		<item text="Node (32237, 32910, 8)" tag="0"/>
@@ -295,17 +318,28 @@
 		<item text="Node (32246, 32902, 8)" tag="0"/>
 		<item text="Node (32249, 32899, 8)" tag="0"/>
 		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
-		<item text="Node (32248, 32892, 8)" tag="0"/>
-		<item text="Stand (32247, 32893, 8)" tag="1"/>
-		<item text="Node (32244, 32893, 8)" tag="0"/>
-		<item text="Stand (32243, 32894, 8)" tag="1"/>
+		<item text="PreWater5:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32248, 32892, 8)" tag="1"/>
+		<item text="local tries = 5 if Self.Position().x >= 32248 then repeat Self.Step(WEST) tries = tries - 1 until Self.Position().x <= 32246 or tries <= 0 end Walker.ConditionalGoto(Self.Position().x > 32247, 'PreWater5')" tag="254"/>
+		<item text="PreWhirlpool3:" tag="255"/>
+		<item text="Node (32243, 32893, 8)" tag="0"/>
+		<item text="Stand (32243, 32893, 8)" tag="1"/>
+		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool3')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="Node (32239, 32888, 9)" tag="0"/>
 		<item text="Node (32235, 32885, 9)" tag="0"/>
 		<item text="secondFloorLeave2:" tag="255"/>
+		<item text="SLure" tag="6"/>
 		<item text="Node (32243, 32891, 9)" tag="0"/>
-		<item text="Stand (32244, 32891, 9)" tag="1"/>
-		<item text="Node (32247, 32893, 8)" tag="0"/>
-		<item text="Stand (32248, 32892, 8)" tag="1"/>
+		<item text="Stand (32243, 32891, 9)" tag="1"/>
+		<item text="Self.Step(EAST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'secondFloorLeave2')" tag="254"/>
+		<item text="ELure" tag="9"/>
+		<item text="PreWater6:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32247, 32892, 8)" tag="1"/>
+		<item text="local tries = 5 if Self.Position().x <= 32247 then repeat Self.Step(EAST) tries = tries - 1 until Self.Position().x >= 32249 or tries <= 0 end Walker.ConditionalGoto(Self.Position().x < 32248, 'PreWater6')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="huntcheck|6:" tag="255"/>
 		<item text="huntstart|6:" tag="255"/>
 		<item text="No-Second-Floor:" tag="255"/>
@@ -321,11 +355,16 @@
 		<item text="huntstart|7:" tag="255"/>
 		<item text="Stand (32265, 32916, 8)" tag="1"/>
 		<item text="Node (32259, 32920, 8)" tag="0"/>
+		<item text="PreWater7:" tag="255"/>
+		<item text="SLure" tag="6"/>
 		<item text="Stand (32265, 32916, 8)" tag="1"/>
 		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
-		<item text="Stand (32265, 32915, 8)" tag="1"/>
-		<item text="Node (32263, 32912, 8)" tag="0"/>
-		<item text="Stand (32262, 32911, 8)" tag="1"/>
+		<item text="local tries = 5 if Self.Position().y >= 32916 then repeat Self.Step(NORTH) tries = tries - 1 until Self.Position().y <= 32914 or tries <= 0 end Walker.ConditionalGoto(Self.Position().y > 32915, 'PreWater7')" tag="254"/>
+		<item text="PreWhirlpool4:" tag="255"/>
+		<item text="Node (32263, 32911, 8)" tag="0"/>
+		<item text="Stand (32263, 32911, 8)" tag="1"/>
+		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool4')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="Node (32261, 32916, 9)" tag="0"/>
 		<item text="Node (32265, 32921, 9)" tag="0"/>
 		<item text="Node (32271, 32919, 9)" tag="0"/>
@@ -337,10 +376,16 @@
 		<item text="Node (32268, 32901, 9)" tag="0"/>
 		<item text="Node (32267, 32907, 9)" tag="0"/>
 		<item text="secondFloorLeave4:" tag="255"/>
-		<item text="Node (32266, 32910, 9)" tag="0"/>
-		<item text="Stand (32266, 32912, 9)" tag="1"/>
-		<item text="Node (32265, 32915, 8)" tag="0"/>
-		<item text="Stand (32265, 32916, 8)" tag="1"/>
+		<item text="SLure" tag="6"/>
+		<item text="Node (32266, 32911, 9)" tag="0"/>
+		<item text="Stand (32266, 32911, 9)" tag="1"/>
+		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'secondFloorLeave4')" tag="254"/>
+		<item text="ELure" tag="9"/>
+		<item text="PreWater8:" tag="255"/>
+		<item text="SLure" tag="6"/>
+		<item text="Stand (32265, 32915, 8)" tag="1"/>
+		<item text="local tries = 5 if Self.Position().y <= 32915 then repeat Self.Step(SOUTH) tries = tries - 1 until Self.Position().y >= 32917 or tries <= 0 end Walker.ConditionalGoto(Self.Position().y < 32916, 'PreWater7')" tag="254"/>
+		<item text="ELure" tag="9"/>
 		<item text="No-Second-Floor:" tag="255"/>
 		<item text="Node (32269, 32913, 8)" tag="0"/>
 		<item text="huntexit|7:" tag="255"/>
@@ -456,315 +501,315 @@
 		<item title="Special Area #3" consider="1" width="1" height="1" x="32244" y="32891" z="9"/>
 		<item title="Special Area #4" consider="1" width="1" height="1" x="32266" y="32912" z="9"/>
 		<item title="Special Area #5" consider="1" width="1" height="1" x="32235" y="32922" z="9"/>
-        <item title="Special Area #1" consider="1" width="1" height="1" x="32273" y="32871" z="9"/>
-        <item title="Special Area #2" consider="1" width="1" height="1" x="32235" y="32870" z="9"/>
-        <item title="Special Area #3" consider="1" width="1" height="1" x="32244" y="32891" z="9"/>
-        <item title="Special Area #4" consider="1" width="1" height="1" x="32266" y="32912" z="9"/>
-        <item title="Special Area #5" consider="1" width="1" height="1" x="32235" y="32922" z="9"/>
-        <item title="Special Area #6" consider="1" width="1" height="1" x="32200" y="32881" z="8"/>
-        <item title="Special Area #7" consider="1" width="2" height="1" x="32200" y="32882" z="8"/>
-        <item title="Special Area #8" consider="1" width="1" height="3" x="32195" y="32880" z="8"/>
-        <item title="Special Area #9" consider="1" width="1" height="3" x="32196" y="32880" z="8"/>
-        <item title="Special Area #10" consider="1" width="1" height="2" x="32197" y="32880" z="8"/>
-        <item title="Special Area #11" consider="1" width="1" height="1" x="32198" y="32881" z="8"/>
-        <item title="Special Area #12" consider="1" width="1" height="4" x="32196" y="32884" z="8"/>
-        <item title="Special Area #13" consider="1" width="1" height="3" x="32195" y="32884" z="8"/>
-        <item title="Special Area #14" consider="1" width="3" height="1" x="32205" y="32883" z="8"/>
-        <item title="Special Area #15" consider="1" width="1" height="1" x="32207" y="32884" z="8"/>
-        <item title="Special Area #16" consider="1" width="1" height="1" x="32213" y="32882" z="8"/>
-        <item title="Special Area #17" consider="1" width="2" height="1" x="32227" y="32886" z="8"/>
-        <item title="Special Area #18" consider="1" width="1" height="2" x="32244" y="32885" z="8"/>
-        <item title="Special Area #19" consider="1" width="1" height="3" x="32222" y="32869" z="8"/>
-        <item title="Special Area #20" consider="1" width="1" height="1" x="32221" y="32868" z="8"/>
-        <item title="Special Area #21" consider="1" width="1" height="1" x="32226" y="32873" z="8"/>
-        <item title="Special Area #22" consider="1" width="1" height="1" x="32225" y="32874" z="8"/>
-        <item title="Special Area #23" consider="1" width="1" height="2" x="32204" y="32869" z="8"/>
-        <item title="Special Area #24" consider="1" width="1" height="1" x="32205" y="32870" z="8"/>
-        <item title="Special Area #25" consider="1" width="1" height="1" x="32199" y="32875" z="8"/>
-        <item title="Special Area #26" consider="1" width="2" height="1" x="32200" y="32876" z="8"/>
-        <item title="Special Area #27" consider="1" width="1" height="2" x="32200" y="32874" z="8"/>
-        <item title="Special Area #28" consider="1" width="2" height="1" x="32207" y="32870" z="8"/>
-        <item title="Special Area #29" consider="1" width="1" height="1" x="32238" y="32874" z="8"/>
-        <item title="Special Area #30" consider="1" width="1" height="1" x="32241" y="32871" z="8"/>
-        <item title="Special Area #31" consider="1" width="2" height="1" x="32250" y="32873" z="8"/>
-        <item title="Special Area #32" consider="1" width="2" height="1" x="32251" y="32867" z="8"/>
-        <item title="Special Area #33" consider="1" width="2" height="1" x="32265" y="32873" z="8"/>
-        <item title="Special Area #34" consider="1" width="1" height="1" x="32268" y="32874" z="8"/>
-        <item title="Special Area #35" consider="1" width="1" height="1" x="32273" y="32882" z="8"/>
-        <item title="Special Area #36" consider="1" width="3" height="1" x="32272" y="32881" z="8"/>
-        <item title="Special Area #37" consider="1" width="5" height="1" x="32279" y="32880" z="8"/>
-        <item title="Special Area #38" consider="1" width="4" height="1" x="32280" y="32879" z="8"/>
-        <item title="Special Area #39" consider="1" width="2" height="1" x="32283" y="32878" z="8"/>
-        <item title="Special Area #40" consider="1" width="3" height="1" x="32280" y="32881" z="8"/>
-        <item title="Special Area #41" consider="1" width="1" height="1" x="32275" y="32868" z="8"/>
-        <item title="Special Area #42" consider="1" width="1" height="2" x="32277" y="32869" z="8"/>
-        <item title="Special Area #43" consider="1" width="1" height="2" x="32278" y="32870" z="8"/>
-        <item title="Special Area #44" consider="1" width="1" height="1" x="32279" y="32871" z="8"/>
-        <item title="Special Area #45" consider="1" width="1" height="2" x="32201" y="32903" z="8"/>
-        <item title="Special Area #46" consider="1" width="1" height="1" x="32198" y="32906" z="8"/>
-        <item title="Special Area #47" consider="1" width="1" height="1" x="32199" y="32905" z="8"/>
-        <item title="Special Area #48" consider="1" width="2" height="1" x="32203" y="32914" z="8"/>
-        <item title="Special Area #49" consider="1" width="2" height="1" x="32203" y="32913" z="8"/>
-        <item title="Special Area #50" consider="1" width="1" height="1" x="32236" y="32895" z="8"/>
-        <item title="Special Area #51" consider="1" width="1" height="3" x="32239" y="32897" z="8"/>
-        <item title="Special Area #52" consider="1" width="1" height="1" x="32234" y="32907" z="8"/>
-        <item title="Special Area #53" consider="1" width="1" height="1" x="32233" y="32917" z="8"/>
-        <item title="Special Area #54" consider="1" width="1" height="3" x="32240" y="32910" z="8"/>
-        <item title="Special Area #55" consider="1" width="2" height="1" x="32249" y="32890" z="8"/>
-        <item title="Special Area #56" consider="1" width="1" height="1" x="32256" y="32897" z="8"/>
-        <item title="Special Area #57" consider="1" width="1" height="1" x="32266" y="32897" z="8"/>
-        <item title="Special Area #58" consider="1" width="1" height="1" x="32269" y="32906" z="8"/>
-        <item title="Special Area #59" consider="1" width="1" height="1" x="32258" y="32904" z="8"/>
-        <item title="Special Area #60" consider="1" width="1" height="1" x="32259" y="32905" z="8"/>
-        <item title="Special Area #61" consider="1" width="1" height="2" x="32256" y="32919" z="8"/>
-        <item title="Special Area #62" consider="1" width="1" height="3" x="32266" y="32922" z="8"/>
-        <item title="Special Area #63" consider="1" width="1" height="2" x="32265" y="32922" z="8"/>
-        <item title="Special Area #64" consider="1" width="1" height="2" x="32264" y="32922" z="8"/>
-        <item title="Special Area #65" consider="1" width="1" height="1" x="32263" y="32922" z="8"/>
-        <item title="Special Area #66" consider="1" width="3" height="1" x="32217" y="32877" z="8"/>
-        <item title="Special Area #67" consider="1" width="1" height="1" x="32217" y="32878" z="8"/>
-        <item title="Special Area #68" consider="1" width="1" height="1" x="32219" y="32878" z="8"/>
-        <item title="Special Area #69" consider="1" width="1" height="4" x="32211" y="32887" z="8"/>
-        <item title="Special Area #70" consider="1" width="1" height="2" x="32223" y="32884" z="8"/>
-        <item title="Special Area #71" consider="1" width="1" height="1" x="32222" y="32885" z="8"/>
-        <item title="Special Area #72" consider="1" width="2" height="1" x="32212" y="32894" z="8"/>
-        <item title="Special Area #73" consider="1" width="1" height="1" x="32213" y="32895" z="8"/>
-        <item title="Special Area #74" consider="1" width="1" height="1" x="32211" y="32893" z="8"/>
-        <item title="Special Area #75" consider="1" width="1" height="2" x="32233" y="32884" z="8"/>
-        <item title="Special Area #76" consider="1" width="1" height="1" x="32234" y="32885" z="8"/>
-        <item title="Special Area #77" consider="1" width="3" height="1" x="32239" y="32877" z="8"/>
-        <item title="Special Area #78" consider="1" width="1" height="1" x="32239" y="32876" z="8"/>
-        <item title="Special Area #79" consider="1" width="1" height="1" x="32241" y="32878" z="8"/>
-        <item title="Special Area #80" consider="1" width="1" height="5" x="32251" y="32868" z="8"/>
-        <item title="Special Area #81" consider="1" width="1" height="1" x="32250" y="32872" z="8"/>
-        <item title="Special Area #82" consider="1" width="1" height="1" x="32250" y="32871" z="8"/>
-        <item title="Special Area #83" consider="1" width="1" height="1" x="32250" y="32868" z="8"/>
-        <item title="Special Area #84" consider="1" width="1" height="1" x="32252" y="32872" z="8"/>
-        <item title="Special Area #85" consider="1" width="1" height="1" x="32252" y="32869" z="8"/>
-        <item title="Special Area #86" consider="1" width="2" height="1" x="32252" y="32868" z="8"/>
-        <item title="Special Area #87" consider="1" width="1" height="4" x="32269" y="32876" z="8"/>
-        <item title="Special Area #88" consider="1" width="1" height="1" x="32270" y="32876" z="8"/>
-        <item title="Special Area #89" consider="1" width="1" height="1" x="32268" y="32879" z="8"/>
-        <item title="Special Area #90" consider="1" width="2" height="2" x="32219" y="32903" z="8"/>
-        <item title="Special Area #91" consider="1" width="1" height="1" x="32221" y="32903" z="8"/>
-        <item title="Special Area #92" consider="1" width="1" height="1" x="32218" y="32904" z="8"/>
-        <item title="Special Area #93" consider="1" width="4" height="1" x="32226" y="32908" z="8"/>
-        <item title="Special Area #94" consider="1" width="1" height="1" x="32226" y="32909" z="8"/>
-        <item title="Special Area #95" consider="1" width="1" height="2" x="32228" y="32906" z="8"/>
-        <item title="Special Area #96" consider="1" width="1" height="1" x="32227" y="32907" z="8"/>
-        <item title="Special Area #97" consider="1" width="1" height="2" x="32227" y="32909" z="8"/>
-        <item title="Special Area #98" consider="1" width="1" height="1" x="32228" y="32909" z="8"/>
-        <item title="Special Area #99" consider="1" width="1" height="1" x="32228" y="32911" z="8"/>
-        <item title="Special Area #100" consider="1" width="1" height="3" x="32240" y="32904" z="8"/>
-        <item title="Special Area #101" consider="1" width="1" height="1" x="32241" y="32906" z="8"/>
-        <item title="Special Area #102" consider="1" width="1" height="2" x="32239" y="32905" z="8"/>
-        <item title="Special Area #103" consider="1" width="7" height="1" x="32256" y="32899" z="8"/>
-        <item title="Special Area #104" consider="1" width="1" height="3" x="32267" y="32907" z="8"/>
-        <item title="Special Area #105" consider="1" width="1" height="1" x="32268" y="32907" z="8"/>
-        <item title="Special Area #106" consider="1" width="2" height="1" x="32265" y="32908" z="8"/>
-        <item title="Special Area #107" consider="1" width="1" height="1" x="32266" y="32907" z="8"/>
-        <item title="Special Area #108" consider="1" width="1" height="3" x="32274" y="32907" z="8"/>
-        <item title="Special Area #109" consider="1" width="1" height="1" x="32273" y="32909" z="8"/>
-        <item title="Special Area #110" consider="1" width="1" height="1" x="32275" y="32908" z="8"/>
-        <item title="Special Area #1" consider="1" width="5" height="1" x="32255" y="32904" z="10"/>
-        <item title="Special Area #2" consider="1" width="1" height="1" x="32256" y="32903" z="10"/>
-        <item title="Special Area #3" consider="1" width="1" height="6" x="32271" y="32889" z="10"/>
-        <item title="Special Area #4" consider="1" width="1" height="1" x="32270" y="32892" z="10"/>
-        <item title="Special Area #5" consider="1" width="1" height="1" x="32272" y="32893" z="10"/>
-        <item title="Special Area #6" consider="1" width="1" height="1" x="32272" y="32888" z="10"/>
-        <item title="Special Area #7" consider="1" width="1" height="1" x="32275" y="32886" z="10"/>
-        <item title="Special Area #8" consider="1" width="1" height="1" x="32290" y="32887" z="10"/>
-        <item title="Special Area #9" consider="1" width="1" height="3" x="32274" y="32876" z="10"/>
-        <item title="Special Area #10" consider="1" width="1" height="1" x="32275" y="32878" z="10"/>
-        <item title="Special Area #11" consider="1" width="1" height="1" x="32292" y="32874" z="10"/>
-        <item title="Special Area #12" consider="1" width="10" height="1" x="32278" y="32881" z="10"/>
-        <item title="Special Area #13" consider="1" width="1" height="1" x="32287" y="32880" z="10"/>
-        <item title="Special Area #14" consider="1" width="1" height="1" x="32278" y="32882" z="10"/>
-        <item title="Special Area #15" consider="1" width="1" height="1" x="32277" y="32880" z="10"/>
-        <item title="Special Area #16" consider="1" width="1" height="3" x="32271" y="32868" z="10"/>
-        <item title="Special Area #17" consider="1" width="1" height="1" x="32272" y="32868" z="10"/>
-        <item title="Special Area #18" consider="1" width="1" height="1" x="32272" y="32870" z="10"/>
-        <item title="Special Area #19" consider="1" width="1" height="1" x="32270" y="32869" z="10"/>
-        <item title="Special Area #20" consider="1" width="1" height="1" x="32270" y="32867" z="10"/>
-        <item title="Special Area #21" consider="1" width="5" height="1" x="32252" y="32874" z="10"/>
-        <item title="Special Area #22" consider="1" width="1" height="1" x="32253" y="32873" z="10"/>
-        <item title="Special Area #23" consider="1" width="1" height="2" x="32254" y="32872" z="10"/>
-        <item title="Special Area #24" consider="1" width="1" height="1" x="32256" y="32875" z="10"/>
-        <item title="Special Area #25" consider="1" width="1" height="2" x="32233" y="32874" z="10"/>
-        <item title="Special Area #26" consider="1" width="1" height="1" x="32235" y="32870" z="10"/>
-        <item title="Special Area #27" consider="1" width="1" height="1" x="32234" y="32871" z="10"/>
-        <item title="Special Area #28" consider="1" width="1" height="2" x="32240" y="32888" z="10"/>
-        <item title="Special Area #29" consider="1" width="1" height="3" x="32241" y="32887" z="10"/>
-        <item title="Special Area #30" consider="1" width="4" height="1" x="32243" y="32883" z="10"/>
-        <item title="Special Area #31" consider="1" width="4" height="1" x="32247" y="32883" z="10"/>
-        <item title="Special Area #32" consider="1" width="3" height="1" x="32251" y="32883" z="10"/>
-        <item title="Special Area #33" consider="1" width="4" height="1" x="32254" y="32883" z="10"/>
-        <item title="Special Area #34" consider="1" width="1" height="4" x="32254" y="32884" z="10"/>
-        <item title="Special Area #35" consider="1" width="1" height="3" x="32255" y="32884" z="10"/>
-        <item title="Special Area #36" consider="1" width="1" height="2" x="32256" y="32884" z="10"/>
-        <item title="Special Area #37" consider="1" width="1" height="1" x="32257" y="32884" z="10"/>
-        <item title="Special Area #38" consider="1" width="1" height="1" x="32253" y="32884" z="10"/>
-        <item title="Special Area #39" consider="1" width="1" height="1" x="32243" y="32884" z="10"/>
-        <item title="Special Area #40" consider="1" width="1" height="2" x="32258" y="32880" z="10"/>
-        <item title="Special Area #41" consider="1" width="1" height="1" x="32257" y="32882" z="10"/>
-        <item title="Special Area #42" consider="1" width="6" height="1" x="32235" y="32915" z="10"/>
-        <item title="Special Area #43" consider="1" width="1" height="2" x="32240" y="32913" z="10"/>
-        <item title="Special Area #44" consider="1" width="1" height="1" x="32239" y="32914" z="10"/>
-        <item title="Special Area #45" consider="1" width="1" height="1" x="32239" y="32911" z="10"/>
-        <item title="Special Area #46" consider="1" width="3" height="1" x="32241" y="32913" z="10"/>
-        <item title="Special Area #47" consider="1" width="1" height="1" x="32241" y="32914" z="10"/>
-        <item title="Special Area #48" consider="1" width="1" height="1" x="32234" y="32916" z="10"/>
-        <item title="Special Area #49" consider="1" width="1" height="2" x="32230" y="32922" z="10"/>
-        <item title="Special Area #50" consider="1" width="5" height="1" x="32247" y="32912" z="10"/>
-        <item title="Special Area #51" consider="1" width="2" height="1" x="32247" y="32911" z="10"/>
-        <item title="Special Area #52" consider="1" width="1" height="1" x="32251" y="32913" z="10"/>
-        <item title="Special Area #53" consider="1" width="1" height="1" x="32250" y="32913" z="10"/>
-        <item title="Special Area #54" consider="1" width="4" height="1" x="32284" y="32908" z="10"/>
-        <item title="Special Area #55" consider="1" width="1" height="1" x="32285" y="32907" z="10"/>
-        <item title="Special Area #56" consider="1" width="6" height="1" x="32279" y="32897" z="10"/>
-        <item title="Special Area #57" consider="1" width="1" height="1" x="32280" y="32898" z="10"/>
-        <item title="Special Area #58" consider="1" width="1" height="2" x="32281" y="32898" z="10"/>
-        <item title="Special Area #59" consider="1" width="1" height="1" x="32282" y="32898" z="10"/>
-        <item title="Special Area #60" consider="1" width="1" height="3" x="32265" y="32925" z="10"/>
-        <item title="Special Area #61" consider="1" width="3" height="1" x="32262" y="32926" z="10"/>
-        <item title="Special Area #62" consider="1" width="1" height="1" x="32266" y="32927" z="10"/>
-        <item title="Special Area #63" consider="1" width="1" height="2" x="32253" y="32924" z="10"/>
-        <item title="Special Area #64" consider="1" width="1" height="1" x="32254" y="32925" z="10"/>
-        <item title="Special Area #65" consider="1" width="3" height="1" x="32251" y="32926" z="10"/>
-        <item title="Special Area #66" consider="1" width="2" height="1" x="32251" y="32927" z="10"/>
-        <item title="Special Area #67" consider="1" width="1" height="1" x="32252" y="32928" z="10"/>
-        <item title="Special Area #68" consider="1" width="3" height="1" x="32250" y="32925" z="10"/>
-        <item title="Special Area #69" consider="1" width="1" height="1" x="32252" y="32924" z="10"/>
-        <item title="Special Area #70" consider="1" width="1" height="1" x="32253" y="32929" z="10"/>
-        <item title="Special Area #71" consider="1" width="2" height="1" x="32238" y="32929" z="10"/>
-        <item title="Special Area #72" consider="1" width="1" height="4" x="32291" y="32917" z="10"/>
-        <item title="Special Area #73" consider="1" width="3" height="1" x="32267" y="32912" z="10"/>
-        <item title="Special Area #74" consider="1" width="6" height="1" x="32265" y="32913" z="10"/>
-        <item title="Special Area #75" consider="1" width="1" height="1" x="32264" y="32914" z="10"/>
-        <item title="Special Area #76" consider="1" width="1" height="5" x="32263" y="32917" z="10"/>
-        <item title="Special Area #77" consider="1" width="1" height="9" x="32264" y="32915" z="10"/>
-        <item title="Special Area #78" consider="1" width="2" height="1" x="32265" y="32915" z="10"/>
-        <item title="Special Area #79" consider="1" width="3" height="1" x="32265" y="32914" z="10"/>
-        <item title="Special Area #80" consider="1" width="1" height="1" x="32265" y="32916" z="10"/>
-        <item title="Special Area #81" consider="1" width="8" height="1" x="32274" y="32931" z="10"/>
-        <item title="Special Area #82" consider="1" width="1" height="1" x="32274" y="32912" z="10"/>
-        <item title="Special Area #83" consider="1" width="1" height="1" x="32286" y="32909" z="10"/>
-        <item title="Special Area #84" consider="1" width="5" height="1" x="32279" y="32865" z="10"/>
-        <item title="Special Area #85" consider="1" width="1" height="4" x="32291" y="32872" z="10"/>
-        <item title="Special Area #86" consider="1" width="3" height="1" x="32241" y="32868" z="10"/>
-        <item title="Special Area #87" consider="1" width="1" height="4" x="32257" y="32878" z="10"/>
-        <item title="Special Area #88" consider="1" width="1" height="1" x="32256" y="32882" z="10"/>
-        <item title="Special Area #89" consider="1" width="1" height="4" x="32231" y="32920" z="10"/>
-        <item title="Special Area #90" consider="1" width="1" height="6" x="32232" y="32919" z="10"/>
-        <item title="Special Area #91" consider="1" width="3" height="1" x="32274" y="32913" z="10"/>
-        <item title="Special Area #92" consider="1" width="2" height="1" x="32275" y="32912" z="10"/>
-        <item title="Special Area #93" consider="1" width="1" height="1" x="32277" y="32911" z="10"/>
-        <item title="Special Area #94" consider="1" width="1" height="1" x="32278" y="32911" z="10"/>
-        <item title="Special Area #95" consider="1" width="1" height="1" x="32277" y="32912" z="10"/>
-        <item title="Special Area #96" consider="1" width="1" height="7" x="32290" y="32916" z="10"/>
-        <item title="Special Area #97" consider="1" width="1" height="1" x="32289" y="32914" z="10"/>
-        <item title="Special Area #1" consider="1" width="2" height="1" x="32251" y="32879" z="9"/>
-        <item title="Special Area #2" consider="1" width="1" height="1" x="32251" y="32880" z="9"/>
-        <item title="Special Area #3" consider="1" width="2" height="1" x="32246" y="32885" z="9"/>
-        <item title="Special Area #4" consider="1" width="1" height="1" x="32245" y="32884" z="9"/>
-        <item title="Special Area #5" consider="1" width="1" height="1" x="32247" y="32884" z="9"/>
-        <item title="Special Area #6" consider="1" width="1" height="5" x="32234" y="32869" z="9"/>
-        <item title="Special Area #7" consider="1" width="1" height="2" x="32235" y="32869" z="9"/>
-        <item title="Special Area #8" consider="1" width="1" height="2" x="32282" y="32873" z="9"/>
-        <item title="Special Area #9" consider="1" width="1" height="3" x="32281" y="32873" z="9"/>
-        <item title="Special Area #10" consider="1" width="1" height="6" x="32280" y="32871" z="9"/>
-        <item title="Special Area #11" consider="1" width="1" height="1" x="32279" y="32877" z="9"/>
-        <item title="Special Area #12" consider="1" width="7" height="1" x="32269" y="32880" z="9"/>
-        <item title="Special Area #13" consider="1" width="1" height="2" x="32274" y="32881" z="9"/>
-        <item title="Special Area #14" consider="1" width="1" height="3" x="32273" y="32881" z="9"/>
-        <item title="Special Area #15" consider="1" width="1" height="3" x="32272" y="32881" z="9"/>
-        <item title="Special Area #16" consider="1" width="1" height="1" x="32271" y="32881" z="9"/>
-        <item title="Special Area #17" consider="1" width="1" height="1" x="32271" y="32884" z="9"/>
-        <item title="Special Area #18" consider="1" width="1" height="3" x="32265" y="32884" z="9"/>
-        <item title="Special Area #19" consider="1" width="5" height="1" x="32279" y="32907" z="9"/>
-        <item title="Special Area #20" consider="1" width="7" height="1" x="32277" y="32906" z="9"/>
-        <item title="Special Area #21" consider="1" width="2" height="1" x="32282" y="32905" z="9"/>
-        <item title="Special Area #22" consider="1" width="1" height="1" x="32283" y="32904" z="9"/>
-        <item title="Special Area #23" consider="1" width="2" height="1" x="32277" y="32905" z="9"/>
-        <item title="Special Area #24" consider="1" width="3" height="1" x="32281" y="32911" z="9"/>
-        <item title="Special Area #25" consider="1" width="1" height="1" x="32246" y="32924" z="9"/>
-        <item title="Special Area #26" consider="1" width="1" height="2" x="32231" y="32922" z="9"/>
-        <item title="Special Area #27" consider="1" width="1" height="2" x="32232" y="32922" z="9"/>
-        <item title="Special Area #28" consider="1" width="4" height="1" x="32233" y="32924" z="9"/>
-        <item title="Special Area #29" consider="1" width="4" height="1" x="32233" y="32923" z="9"/>
-        <item title="Special Area #30" consider="1" width="3" height="1" x="32233" y="32922" z="9"/>
-        <item title="Special Area #31" consider="1" width="1" height="1" x="32233" y="32921" z="9"/>
-        <item title="Special Area #32" consider="1" width="1" height="3" x="32229" y="32913" z="9"/>
-        <item title="Special Area #33" consider="1" width="1" height="4" x="32230" y="32912" z="9"/>
-        <item title="Special Area #34" consider="1" width="2" height="1" x="32237" y="32906" z="9"/>
-        <item title="Special Area #35" consider="1" width="1" height="1" x="32237" y="32907" z="9"/>
-        <item title="Special Area #36" consider="1" width="1" height="1" x="32242" y="32904" z="9"/>
-        <item title="Special Area #37" consider="1" width="3" height="1" x="32242" y="32895" z="9"/>
-        <item title="Special Area #38" consider="1" width="1" height="2" x="32231" y="32882" z="9"/>
-        <item title="Special Area #39" consider="1" width="3" height="1" x="32232" y="32881" z="9"/>
-        <item title="Special Area #40" consider="1" width="4" height="1" x="32232" y="32882" z="9"/>
-        <item title="Special Area #41" consider="1" width="1" height="3" x="32232" y="32883" z="9"/>
-        <item title="Special Area #42" consider="1" width="1" height="1" x="32233" y="32883" z="9"/>
-        <item title="Special Area #43" consider="1" width="1" height="1" x="32240" y="32884" z="9"/>
-        <item title="Special Area #44" consider="1" width="3" height="1" x="32270" y="32867" z="9"/>
-        <item title="Special Area #45" consider="1" width="4" height="1" x="32239" y="32868" z="9"/>
-        <item title="Special Area #46" consider="1" width="2" height="1" x="32243" y="32920" z="9"/>
-        <item title="Special Area #47" consider="1" width="1" height="1" x="32244" y="32919" z="9"/>
-        <item title="Special Area #48" consider="1" width="1" height="3" x="32245" y="32917" z="9"/>
-        <item title="Special Area #49" consider="1" width="1" height="2" x="32246" y="32918" z="9"/>
-        <item title="Special Area #50" consider="1" width="1" height="1" x="32244" y="32921" z="9"/>
-        <item title="Special Area #51" consider="1" width="1" height="1" x="32245" y="32920" z="9"/>
-        <item title="Special Area #52" consider="1" width="1" height="1" x="32245" y="32923" z="9"/>
-        <item title="Special Area #53" consider="1" width="5" height="1" x="32242" y="32905" z="9"/>
-        <item title="Special Area #54" consider="1" width="2" height="1" x="32243" y="32904" z="9"/>
-        <item title="Special Area #55" consider="1" width="1" height="1" x="32244" y="32903" z="9"/>
-        <item title="Special Area #56" consider="1" width="1" height="1" x="32246" y="32906" z="9"/>
-        <item title="Special Area #57" consider="1" width="1" height="1" x="32245" y="32904" z="9"/>
-        <item title="Special Area #58" consider="1" width="2" height="1" x="32237" y="32923" z="9"/>
-        <item title="Special Area #59" consider="1" width="3" height="1" x="32231" y="32910" z="9"/>
-        <item title="Special Area #60" consider="1" width="2" height="1" x="32231" y="32911" z="9"/>
-        <item title="Special Area #61" consider="1" width="1" height="5" x="32231" y="32912" z="9"/>
-        <item title="Special Area #62" consider="1" width="1" height="3" x="32253" y="32895" z="9"/>
-        <item title="Special Area #63" consider="1" width="1" height="1" x="32254" y="32895" z="9"/>
-        <item title="Special Area #64" consider="1" width="1" height="1" x="32254" y="32897" z="9"/>
-        <item title="Special Area #65" consider="1" width="1" height="1" x="32252" y="32894" z="9"/>
-        <item title="Special Area #66" consider="1" width="1" height="3" x="32261" y="32865" z="9"/>
-        <item title="Special Area #67" consider="1" width="2" height="1" x="32259" y="32867" z="9"/>
-        <item title="Special Area #68" consider="1" width="2" height="1" x="32262" y="32865" z="9"/>
-        <item title="Special Area #69" consider="1" width="1" height="1" x="32262" y="32866" z="9"/>
-        <item title="Special Area #70" consider="1" width="1" height="1" x="32260" y="32866" z="9"/>
-        <item title="Special Area #71" consider="1" width="1" height="4" x="32260" y="32895" z="9"/>
-        <item title="Special Area #72" consider="1" width="1" height="1" x="32259" y="32898" z="9"/>
-        <item title="Special Area #73" consider="1" width="1" height="1" x="32259" y="32895" z="9"/>
-        <item title="Special Area #74" consider="1" width="1" height="1" x="32261" y="32898" z="9"/>
-        <item title="Special Area #75" consider="1" width="1" height="5" x="32278" y="32893" z="9"/>
-        <item title="Special Area #76" consider="1" width="1" height="6" x="32277" y="32893" z="9"/>
-        <item title="Special Area #77" consider="1" width="1" height="2" x="32279" y="32895" z="9"/>
-        <item title="Special Area #78" consider="1" width="1" height="8" x="32276" y="32892" z="9"/>
-        <item title="Special Area #79" consider="1" width="1" height="1" x="32275" y="32891" z="9"/>
-        <item title="Special Area #80" consider="1" width="4" height="1" x="32266" y="32905" z="9"/>
-        <item title="Special Area #81" consider="1" width="1" height="1" x="32268" y="32906" z="9"/>
-        <item title="Special Area #82" consider="1" width="1" height="1" x="32265" y="32906" z="9"/>
-        <item title="Special Area #83" consider="1" width="1" height="1" x="32261" y="32909" z="9"/>
-        <item title="Special Area #84" consider="1" width="1" height="3" x="32256" y="32915" z="9"/>
-        <item title="Special Area #85" consider="1" width="1" height="5" x="32257" y="32914" z="9"/>
-        <item title="Special Area #86" consider="1" width="1" height="5" x="32258" y="32914" z="9"/>
-        <item title="Special Area #87" consider="1" width="1" height="8" x="32259" y="32913" z="9"/>
-        <item title="Special Area #88" consider="1" width="1" height="5" x="32259" y="32922" z="9"/>
-        <item title="Special Area #89" consider="1" width="1" height="1" x="32260" y="32926" z="9"/>
-        <item title="Special Area #90" consider="1" width="3" height="1" x="32260" y="32925" z="9"/>
-        <item title="Special Area #91" consider="1" width="1" height="1" x="32260" y="32924" z="9"/>
-        <item title="Special Area #92" consider="1" width="1" height="1" x="32258" y="32924" z="9"/>
-        <item title="Special Area #93" consider="1" width="1" height="1" x="32258" y="32927" z="9"/>
-        <item title="Special Area #94" consider="1" width="6" height="1" x="32254" y="32896" z="9"/>
-        <item title="Special Area #95" consider="1" width="4" height="1" x="32255" y="32895" z="9"/>
-        <item title="Special Area #96" consider="1" width="5" height="1" x="32255" y="32897" z="9"/>
-        <item title="Special Area #97" consider="1" width="3" height="1" x="32256" y="32898" z="9"/>
-        <item title="Special Area #98" consider="1" width="1" height="4" x="32261" y="32894" z="9"/>
-        <item title="Special Area #99" consider="1" width="4" height="1" x="32266" y="32904" z="9"/>
-        <item title="Special Area #100" consider="1" width="4" height="1" x="32266" y="32903" z="9"/>
-        <item title="Special Area #101" consider="1" width="1" height="1" x="32266" y="32902" z="9"/>
-        <item title="Special Area #102" consider="1" width="4" height="1" x="32245" y="32886" z="9"/>
+		<item title="Special Area #1" consider="1" width="1" height="1" x="32273" y="32871" z="9"/>
+		<item title="Special Area #2" consider="1" width="1" height="1" x="32235" y="32870" z="9"/>
+		<item title="Special Area #3" consider="1" width="1" height="1" x="32244" y="32891" z="9"/>
+		<item title="Special Area #4" consider="1" width="1" height="1" x="32266" y="32912" z="9"/>
+		<item title="Special Area #5" consider="1" width="1" height="1" x="32235" y="32922" z="9"/>
+		<item title="Special Area #6" consider="1" width="1" height="1" x="32200" y="32881" z="8"/>
+		<item title="Special Area #7" consider="1" width="2" height="1" x="32200" y="32882" z="8"/>
+		<item title="Special Area #8" consider="1" width="1" height="3" x="32195" y="32880" z="8"/>
+		<item title="Special Area #9" consider="1" width="1" height="3" x="32196" y="32880" z="8"/>
+		<item title="Special Area #10" consider="1" width="1" height="2" x="32197" y="32880" z="8"/>
+		<item title="Special Area #11" consider="1" width="1" height="1" x="32198" y="32881" z="8"/>
+		<item title="Special Area #12" consider="1" width="1" height="4" x="32196" y="32884" z="8"/>
+		<item title="Special Area #13" consider="1" width="1" height="3" x="32195" y="32884" z="8"/>
+		<item title="Special Area #14" consider="1" width="3" height="1" x="32205" y="32883" z="8"/>
+		<item title="Special Area #15" consider="1" width="1" height="1" x="32207" y="32884" z="8"/>
+		<item title="Special Area #16" consider="1" width="1" height="1" x="32213" y="32882" z="8"/>
+		<item title="Special Area #17" consider="1" width="2" height="1" x="32227" y="32886" z="8"/>
+		<item title="Special Area #18" consider="1" width="1" height="2" x="32244" y="32885" z="8"/>
+		<item title="Special Area #19" consider="1" width="1" height="3" x="32222" y="32869" z="8"/>
+		<item title="Special Area #20" consider="1" width="1" height="1" x="32221" y="32868" z="8"/>
+		<item title="Special Area #21" consider="1" width="1" height="1" x="32226" y="32873" z="8"/>
+		<item title="Special Area #22" consider="1" width="1" height="1" x="32225" y="32874" z="8"/>
+		<item title="Special Area #23" consider="1" width="1" height="2" x="32204" y="32869" z="8"/>
+		<item title="Special Area #24" consider="1" width="1" height="1" x="32205" y="32870" z="8"/>
+		<item title="Special Area #25" consider="1" width="1" height="1" x="32199" y="32875" z="8"/>
+		<item title="Special Area #26" consider="1" width="2" height="1" x="32200" y="32876" z="8"/>
+		<item title="Special Area #27" consider="1" width="1" height="2" x="32200" y="32874" z="8"/>
+		<item title="Special Area #28" consider="1" width="2" height="1" x="32207" y="32870" z="8"/>
+		<item title="Special Area #29" consider="1" width="1" height="1" x="32238" y="32874" z="8"/>
+		<item title="Special Area #30" consider="1" width="1" height="1" x="32241" y="32871" z="8"/>
+		<item title="Special Area #31" consider="1" width="2" height="1" x="32250" y="32873" z="8"/>
+		<item title="Special Area #32" consider="1" width="2" height="1" x="32251" y="32867" z="8"/>
+		<item title="Special Area #33" consider="1" width="2" height="1" x="32265" y="32873" z="8"/>
+		<item title="Special Area #34" consider="1" width="1" height="1" x="32268" y="32874" z="8"/>
+		<item title="Special Area #35" consider="1" width="1" height="1" x="32273" y="32882" z="8"/>
+		<item title="Special Area #36" consider="1" width="3" height="1" x="32272" y="32881" z="8"/>
+		<item title="Special Area #37" consider="1" width="5" height="1" x="32279" y="32880" z="8"/>
+		<item title="Special Area #38" consider="1" width="4" height="1" x="32280" y="32879" z="8"/>
+		<item title="Special Area #39" consider="1" width="2" height="1" x="32283" y="32878" z="8"/>
+		<item title="Special Area #40" consider="1" width="3" height="1" x="32280" y="32881" z="8"/>
+		<item title="Special Area #41" consider="1" width="1" height="1" x="32275" y="32868" z="8"/>
+		<item title="Special Area #42" consider="1" width="1" height="2" x="32277" y="32869" z="8"/>
+		<item title="Special Area #43" consider="1" width="1" height="2" x="32278" y="32870" z="8"/>
+		<item title="Special Area #44" consider="1" width="1" height="1" x="32279" y="32871" z="8"/>
+		<item title="Special Area #45" consider="1" width="1" height="2" x="32201" y="32903" z="8"/>
+		<item title="Special Area #46" consider="1" width="1" height="1" x="32198" y="32906" z="8"/>
+		<item title="Special Area #47" consider="1" width="1" height="1" x="32199" y="32905" z="8"/>
+		<item title="Special Area #48" consider="1" width="2" height="1" x="32203" y="32914" z="8"/>
+		<item title="Special Area #49" consider="1" width="2" height="1" x="32203" y="32913" z="8"/>
+		<item title="Special Area #50" consider="1" width="1" height="1" x="32236" y="32895" z="8"/>
+		<item title="Special Area #51" consider="1" width="1" height="3" x="32239" y="32897" z="8"/>
+		<item title="Special Area #52" consider="1" width="1" height="1" x="32234" y="32907" z="8"/>
+		<item title="Special Area #53" consider="1" width="1" height="1" x="32233" y="32917" z="8"/>
+		<item title="Special Area #54" consider="1" width="1" height="3" x="32240" y="32910" z="8"/>
+		<item title="Special Area #55" consider="1" width="2" height="1" x="32249" y="32890" z="8"/>
+		<item title="Special Area #56" consider="1" width="1" height="1" x="32256" y="32897" z="8"/>
+		<item title="Special Area #57" consider="1" width="1" height="1" x="32266" y="32897" z="8"/>
+		<item title="Special Area #58" consider="1" width="1" height="1" x="32269" y="32906" z="8"/>
+		<item title="Special Area #59" consider="1" width="1" height="1" x="32258" y="32904" z="8"/>
+		<item title="Special Area #60" consider="1" width="1" height="1" x="32259" y="32905" z="8"/>
+		<item title="Special Area #61" consider="1" width="1" height="2" x="32256" y="32919" z="8"/>
+		<item title="Special Area #62" consider="1" width="1" height="3" x="32266" y="32922" z="8"/>
+		<item title="Special Area #63" consider="1" width="1" height="2" x="32265" y="32922" z="8"/>
+		<item title="Special Area #64" consider="1" width="1" height="2" x="32264" y="32922" z="8"/>
+		<item title="Special Area #65" consider="1" width="1" height="1" x="32263" y="32922" z="8"/>
+		<item title="Special Area #66" consider="1" width="3" height="1" x="32217" y="32877" z="8"/>
+		<item title="Special Area #67" consider="1" width="1" height="1" x="32217" y="32878" z="8"/>
+		<item title="Special Area #68" consider="1" width="1" height="1" x="32219" y="32878" z="8"/>
+		<item title="Special Area #69" consider="1" width="1" height="4" x="32211" y="32887" z="8"/>
+		<item title="Special Area #70" consider="1" width="1" height="2" x="32223" y="32884" z="8"/>
+		<item title="Special Area #71" consider="1" width="1" height="1" x="32222" y="32885" z="8"/>
+		<item title="Special Area #72" consider="1" width="2" height="1" x="32212" y="32894" z="8"/>
+		<item title="Special Area #73" consider="1" width="1" height="1" x="32213" y="32895" z="8"/>
+		<item title="Special Area #74" consider="1" width="1" height="1" x="32211" y="32893" z="8"/>
+		<item title="Special Area #75" consider="1" width="1" height="2" x="32233" y="32884" z="8"/>
+		<item title="Special Area #76" consider="1" width="1" height="1" x="32234" y="32885" z="8"/>
+		<item title="Special Area #77" consider="1" width="3" height="1" x="32239" y="32877" z="8"/>
+		<item title="Special Area #78" consider="1" width="1" height="1" x="32239" y="32876" z="8"/>
+		<item title="Special Area #79" consider="1" width="1" height="1" x="32241" y="32878" z="8"/>
+		<item title="Special Area #80" consider="1" width="1" height="5" x="32251" y="32868" z="8"/>
+		<item title="Special Area #81" consider="1" width="1" height="1" x="32250" y="32872" z="8"/>
+		<item title="Special Area #82" consider="1" width="1" height="1" x="32250" y="32871" z="8"/>
+		<item title="Special Area #83" consider="1" width="1" height="1" x="32250" y="32868" z="8"/>
+		<item title="Special Area #84" consider="1" width="1" height="1" x="32252" y="32872" z="8"/>
+		<item title="Special Area #85" consider="1" width="1" height="1" x="32252" y="32869" z="8"/>
+		<item title="Special Area #86" consider="1" width="2" height="1" x="32252" y="32868" z="8"/>
+		<item title="Special Area #87" consider="1" width="1" height="4" x="32269" y="32876" z="8"/>
+		<item title="Special Area #88" consider="1" width="1" height="1" x="32270" y="32876" z="8"/>
+		<item title="Special Area #89" consider="1" width="1" height="1" x="32268" y="32879" z="8"/>
+		<item title="Special Area #90" consider="1" width="2" height="2" x="32219" y="32903" z="8"/>
+		<item title="Special Area #91" consider="1" width="1" height="1" x="32221" y="32903" z="8"/>
+		<item title="Special Area #92" consider="1" width="1" height="1" x="32218" y="32904" z="8"/>
+		<item title="Special Area #93" consider="1" width="4" height="1" x="32226" y="32908" z="8"/>
+		<item title="Special Area #94" consider="1" width="1" height="1" x="32226" y="32909" z="8"/>
+		<item title="Special Area #95" consider="1" width="1" height="2" x="32228" y="32906" z="8"/>
+		<item title="Special Area #96" consider="1" width="1" height="1" x="32227" y="32907" z="8"/>
+		<item title="Special Area #97" consider="1" width="1" height="2" x="32227" y="32909" z="8"/>
+		<item title="Special Area #98" consider="1" width="1" height="1" x="32228" y="32909" z="8"/>
+		<item title="Special Area #99" consider="1" width="1" height="1" x="32228" y="32911" z="8"/>
+		<item title="Special Area #100" consider="1" width="1" height="3" x="32240" y="32904" z="8"/>
+		<item title="Special Area #101" consider="1" width="1" height="1" x="32241" y="32906" z="8"/>
+		<item title="Special Area #102" consider="1" width="1" height="2" x="32239" y="32905" z="8"/>
+		<item title="Special Area #103" consider="1" width="7" height="1" x="32256" y="32899" z="8"/>
+		<item title="Special Area #104" consider="1" width="1" height="3" x="32267" y="32907" z="8"/>
+		<item title="Special Area #105" consider="1" width="1" height="1" x="32268" y="32907" z="8"/>
+		<item title="Special Area #106" consider="1" width="2" height="1" x="32265" y="32908" z="8"/>
+		<item title="Special Area #107" consider="1" width="1" height="1" x="32266" y="32907" z="8"/>
+		<item title="Special Area #108" consider="1" width="1" height="3" x="32274" y="32907" z="8"/>
+		<item title="Special Area #109" consider="1" width="1" height="1" x="32273" y="32909" z="8"/>
+		<item title="Special Area #110" consider="1" width="1" height="1" x="32275" y="32908" z="8"/>
+		<item title="Special Area #1" consider="1" width="5" height="1" x="32255" y="32904" z="10"/>
+		<item title="Special Area #2" consider="1" width="1" height="1" x="32256" y="32903" z="10"/>
+		<item title="Special Area #3" consider="1" width="1" height="6" x="32271" y="32889" z="10"/>
+		<item title="Special Area #4" consider="1" width="1" height="1" x="32270" y="32892" z="10"/>
+		<item title="Special Area #5" consider="1" width="1" height="1" x="32272" y="32893" z="10"/>
+		<item title="Special Area #6" consider="1" width="1" height="1" x="32272" y="32888" z="10"/>
+		<item title="Special Area #7" consider="1" width="1" height="1" x="32275" y="32886" z="10"/>
+		<item title="Special Area #8" consider="1" width="1" height="1" x="32290" y="32887" z="10"/>
+		<item title="Special Area #9" consider="1" width="1" height="3" x="32274" y="32876" z="10"/>
+		<item title="Special Area #10" consider="1" width="1" height="1" x="32275" y="32878" z="10"/>
+		<item title="Special Area #11" consider="1" width="1" height="1" x="32292" y="32874" z="10"/>
+		<item title="Special Area #12" consider="1" width="10" height="1" x="32278" y="32881" z="10"/>
+		<item title="Special Area #13" consider="1" width="1" height="1" x="32287" y="32880" z="10"/>
+		<item title="Special Area #14" consider="1" width="1" height="1" x="32278" y="32882" z="10"/>
+		<item title="Special Area #15" consider="1" width="1" height="1" x="32277" y="32880" z="10"/>
+		<item title="Special Area #16" consider="1" width="1" height="3" x="32271" y="32868" z="10"/>
+		<item title="Special Area #17" consider="1" width="1" height="1" x="32272" y="32868" z="10"/>
+		<item title="Special Area #18" consider="1" width="1" height="1" x="32272" y="32870" z="10"/>
+		<item title="Special Area #19" consider="1" width="1" height="1" x="32270" y="32869" z="10"/>
+		<item title="Special Area #20" consider="1" width="1" height="1" x="32270" y="32867" z="10"/>
+		<item title="Special Area #21" consider="1" width="5" height="1" x="32252" y="32874" z="10"/>
+		<item title="Special Area #22" consider="1" width="1" height="1" x="32253" y="32873" z="10"/>
+		<item title="Special Area #23" consider="1" width="1" height="2" x="32254" y="32872" z="10"/>
+		<item title="Special Area #24" consider="1" width="1" height="1" x="32256" y="32875" z="10"/>
+		<item title="Special Area #25" consider="1" width="1" height="2" x="32233" y="32874" z="10"/>
+		<item title="Special Area #26" consider="1" width="1" height="1" x="32235" y="32870" z="10"/>
+		<item title="Special Area #27" consider="1" width="1" height="1" x="32234" y="32871" z="10"/>
+		<item title="Special Area #28" consider="1" width="1" height="2" x="32240" y="32888" z="10"/>
+		<item title="Special Area #29" consider="1" width="1" height="3" x="32241" y="32887" z="10"/>
+		<item title="Special Area #30" consider="1" width="4" height="1" x="32243" y="32883" z="10"/>
+		<item title="Special Area #31" consider="1" width="4" height="1" x="32247" y="32883" z="10"/>
+		<item title="Special Area #32" consider="1" width="3" height="1" x="32251" y="32883" z="10"/>
+		<item title="Special Area #33" consider="1" width="4" height="1" x="32254" y="32883" z="10"/>
+		<item title="Special Area #34" consider="1" width="1" height="4" x="32254" y="32884" z="10"/>
+		<item title="Special Area #35" consider="1" width="1" height="3" x="32255" y="32884" z="10"/>
+		<item title="Special Area #36" consider="1" width="1" height="2" x="32256" y="32884" z="10"/>
+		<item title="Special Area #37" consider="1" width="1" height="1" x="32257" y="32884" z="10"/>
+		<item title="Special Area #38" consider="1" width="1" height="1" x="32253" y="32884" z="10"/>
+		<item title="Special Area #39" consider="1" width="1" height="1" x="32243" y="32884" z="10"/>
+		<item title="Special Area #40" consider="1" width="1" height="2" x="32258" y="32880" z="10"/>
+		<item title="Special Area #41" consider="1" width="1" height="1" x="32257" y="32882" z="10"/>
+		<item title="Special Area #42" consider="1" width="6" height="1" x="32235" y="32915" z="10"/>
+		<item title="Special Area #43" consider="1" width="1" height="2" x="32240" y="32913" z="10"/>
+		<item title="Special Area #44" consider="1" width="1" height="1" x="32239" y="32914" z="10"/>
+		<item title="Special Area #45" consider="1" width="1" height="1" x="32239" y="32911" z="10"/>
+		<item title="Special Area #46" consider="1" width="3" height="1" x="32241" y="32913" z="10"/>
+		<item title="Special Area #47" consider="1" width="1" height="1" x="32241" y="32914" z="10"/>
+		<item title="Special Area #48" consider="1" width="1" height="1" x="32234" y="32916" z="10"/>
+		<item title="Special Area #49" consider="1" width="1" height="2" x="32230" y="32922" z="10"/>
+		<item title="Special Area #50" consider="1" width="5" height="1" x="32247" y="32912" z="10"/>
+		<item title="Special Area #51" consider="1" width="2" height="1" x="32247" y="32911" z="10"/>
+		<item title="Special Area #52" consider="1" width="1" height="1" x="32251" y="32913" z="10"/>
+		<item title="Special Area #53" consider="1" width="1" height="1" x="32250" y="32913" z="10"/>
+		<item title="Special Area #54" consider="1" width="4" height="1" x="32284" y="32908" z="10"/>
+		<item title="Special Area #55" consider="1" width="1" height="1" x="32285" y="32907" z="10"/>
+		<item title="Special Area #56" consider="1" width="6" height="1" x="32279" y="32897" z="10"/>
+		<item title="Special Area #57" consider="1" width="1" height="1" x="32280" y="32898" z="10"/>
+		<item title="Special Area #58" consider="1" width="1" height="2" x="32281" y="32898" z="10"/>
+		<item title="Special Area #59" consider="1" width="1" height="1" x="32282" y="32898" z="10"/>
+		<item title="Special Area #60" consider="1" width="1" height="3" x="32265" y="32925" z="10"/>
+		<item title="Special Area #61" consider="1" width="3" height="1" x="32262" y="32926" z="10"/>
+		<item title="Special Area #62" consider="1" width="1" height="1" x="32266" y="32927" z="10"/>
+		<item title="Special Area #63" consider="1" width="1" height="2" x="32253" y="32924" z="10"/>
+		<item title="Special Area #64" consider="1" width="1" height="1" x="32254" y="32925" z="10"/>
+		<item title="Special Area #65" consider="1" width="3" height="1" x="32251" y="32926" z="10"/>
+		<item title="Special Area #66" consider="1" width="2" height="1" x="32251" y="32927" z="10"/>
+		<item title="Special Area #67" consider="1" width="1" height="1" x="32252" y="32928" z="10"/>
+		<item title="Special Area #68" consider="1" width="3" height="1" x="32250" y="32925" z="10"/>
+		<item title="Special Area #69" consider="1" width="1" height="1" x="32252" y="32924" z="10"/>
+		<item title="Special Area #70" consider="1" width="1" height="1" x="32253" y="32929" z="10"/>
+		<item title="Special Area #71" consider="1" width="2" height="1" x="32238" y="32929" z="10"/>
+		<item title="Special Area #72" consider="1" width="1" height="4" x="32291" y="32917" z="10"/>
+		<item title="Special Area #73" consider="1" width="3" height="1" x="32267" y="32912" z="10"/>
+		<item title="Special Area #74" consider="1" width="6" height="1" x="32265" y="32913" z="10"/>
+		<item title="Special Area #75" consider="1" width="1" height="1" x="32264" y="32914" z="10"/>
+		<item title="Special Area #76" consider="1" width="1" height="5" x="32263" y="32917" z="10"/>
+		<item title="Special Area #77" consider="1" width="1" height="9" x="32264" y="32915" z="10"/>
+		<item title="Special Area #78" consider="1" width="2" height="1" x="32265" y="32915" z="10"/>
+		<item title="Special Area #79" consider="1" width="3" height="1" x="32265" y="32914" z="10"/>
+		<item title="Special Area #80" consider="1" width="1" height="1" x="32265" y="32916" z="10"/>
+		<item title="Special Area #81" consider="1" width="8" height="1" x="32274" y="32931" z="10"/>
+		<item title="Special Area #82" consider="1" width="1" height="1" x="32274" y="32912" z="10"/>
+		<item title="Special Area #83" consider="1" width="1" height="1" x="32286" y="32909" z="10"/>
+		<item title="Special Area #84" consider="1" width="5" height="1" x="32279" y="32865" z="10"/>
+		<item title="Special Area #85" consider="1" width="1" height="4" x="32291" y="32872" z="10"/>
+		<item title="Special Area #86" consider="1" width="3" height="1" x="32241" y="32868" z="10"/>
+		<item title="Special Area #87" consider="1" width="1" height="4" x="32257" y="32878" z="10"/>
+		<item title="Special Area #88" consider="1" width="1" height="1" x="32256" y="32882" z="10"/>
+		<item title="Special Area #89" consider="1" width="1" height="4" x="32231" y="32920" z="10"/>
+		<item title="Special Area #90" consider="1" width="1" height="6" x="32232" y="32919" z="10"/>
+		<item title="Special Area #91" consider="1" width="3" height="1" x="32274" y="32913" z="10"/>
+		<item title="Special Area #92" consider="1" width="2" height="1" x="32275" y="32912" z="10"/>
+		<item title="Special Area #93" consider="1" width="1" height="1" x="32277" y="32911" z="10"/>
+		<item title="Special Area #94" consider="1" width="1" height="1" x="32278" y="32911" z="10"/>
+		<item title="Special Area #95" consider="1" width="1" height="1" x="32277" y="32912" z="10"/>
+		<item title="Special Area #96" consider="1" width="1" height="7" x="32290" y="32916" z="10"/>
+		<item title="Special Area #97" consider="1" width="1" height="1" x="32289" y="32914" z="10"/>
+		<item title="Special Area #1" consider="1" width="2" height="1" x="32251" y="32879" z="9"/>
+		<item title="Special Area #2" consider="1" width="1" height="1" x="32251" y="32880" z="9"/>
+		<item title="Special Area #3" consider="1" width="2" height="1" x="32246" y="32885" z="9"/>
+		<item title="Special Area #4" consider="1" width="1" height="1" x="32245" y="32884" z="9"/>
+		<item title="Special Area #5" consider="1" width="1" height="1" x="32247" y="32884" z="9"/>
+		<item title="Special Area #6" consider="1" width="1" height="5" x="32234" y="32869" z="9"/>
+		<item title="Special Area #7" consider="1" width="1" height="2" x="32235" y="32869" z="9"/>
+		<item title="Special Area #8" consider="1" width="1" height="2" x="32282" y="32873" z="9"/>
+		<item title="Special Area #9" consider="1" width="1" height="3" x="32281" y="32873" z="9"/>
+		<item title="Special Area #10" consider="1" width="1" height="6" x="32280" y="32871" z="9"/>
+		<item title="Special Area #11" consider="1" width="1" height="1" x="32279" y="32877" z="9"/>
+		<item title="Special Area #12" consider="1" width="7" height="1" x="32269" y="32880" z="9"/>
+		<item title="Special Area #13" consider="1" width="1" height="2" x="32274" y="32881" z="9"/>
+		<item title="Special Area #14" consider="1" width="1" height="3" x="32273" y="32881" z="9"/>
+		<item title="Special Area #15" consider="1" width="1" height="3" x="32272" y="32881" z="9"/>
+		<item title="Special Area #16" consider="1" width="1" height="1" x="32271" y="32881" z="9"/>
+		<item title="Special Area #17" consider="1" width="1" height="1" x="32271" y="32884" z="9"/>
+		<item title="Special Area #18" consider="1" width="1" height="3" x="32265" y="32884" z="9"/>
+		<item title="Special Area #19" consider="1" width="5" height="1" x="32279" y="32907" z="9"/>
+		<item title="Special Area #20" consider="1" width="7" height="1" x="32277" y="32906" z="9"/>
+		<item title="Special Area #21" consider="1" width="2" height="1" x="32282" y="32905" z="9"/>
+		<item title="Special Area #22" consider="1" width="1" height="1" x="32283" y="32904" z="9"/>
+		<item title="Special Area #23" consider="1" width="2" height="1" x="32277" y="32905" z="9"/>
+		<item title="Special Area #24" consider="1" width="3" height="1" x="32281" y="32911" z="9"/>
+		<item title="Special Area #25" consider="1" width="1" height="1" x="32246" y="32924" z="9"/>
+		<item title="Special Area #26" consider="1" width="1" height="2" x="32231" y="32922" z="9"/>
+		<item title="Special Area #27" consider="1" width="1" height="2" x="32232" y="32922" z="9"/>
+		<item title="Special Area #28" consider="1" width="4" height="1" x="32233" y="32924" z="9"/>
+		<item title="Special Area #29" consider="1" width="4" height="1" x="32233" y="32923" z="9"/>
+		<item title="Special Area #30" consider="1" width="3" height="1" x="32233" y="32922" z="9"/>
+		<item title="Special Area #31" consider="1" width="1" height="1" x="32233" y="32921" z="9"/>
+		<item title="Special Area #32" consider="1" width="1" height="3" x="32229" y="32913" z="9"/>
+		<item title="Special Area #33" consider="1" width="1" height="4" x="32230" y="32912" z="9"/>
+		<item title="Special Area #34" consider="1" width="2" height="1" x="32237" y="32906" z="9"/>
+		<item title="Special Area #35" consider="1" width="1" height="1" x="32237" y="32907" z="9"/>
+		<item title="Special Area #36" consider="1" width="1" height="1" x="32242" y="32904" z="9"/>
+		<item title="Special Area #37" consider="1" width="3" height="1" x="32242" y="32895" z="9"/>
+		<item title="Special Area #38" consider="1" width="1" height="2" x="32231" y="32882" z="9"/>
+		<item title="Special Area #39" consider="1" width="3" height="1" x="32232" y="32881" z="9"/>
+		<item title="Special Area #40" consider="1" width="4" height="1" x="32232" y="32882" z="9"/>
+		<item title="Special Area #41" consider="1" width="1" height="3" x="32232" y="32883" z="9"/>
+		<item title="Special Area #42" consider="1" width="1" height="1" x="32233" y="32883" z="9"/>
+		<item title="Special Area #43" consider="1" width="1" height="1" x="32240" y="32884" z="9"/>
+		<item title="Special Area #44" consider="1" width="3" height="1" x="32270" y="32867" z="9"/>
+		<item title="Special Area #45" consider="1" width="4" height="1" x="32239" y="32868" z="9"/>
+		<item title="Special Area #46" consider="1" width="2" height="1" x="32243" y="32920" z="9"/>
+		<item title="Special Area #47" consider="1" width="1" height="1" x="32244" y="32919" z="9"/>
+		<item title="Special Area #48" consider="1" width="1" height="3" x="32245" y="32917" z="9"/>
+		<item title="Special Area #49" consider="1" width="1" height="2" x="32246" y="32918" z="9"/>
+		<item title="Special Area #50" consider="1" width="1" height="1" x="32244" y="32921" z="9"/>
+		<item title="Special Area #51" consider="1" width="1" height="1" x="32245" y="32920" z="9"/>
+		<item title="Special Area #52" consider="1" width="1" height="1" x="32245" y="32923" z="9"/>
+		<item title="Special Area #53" consider="1" width="5" height="1" x="32242" y="32905" z="9"/>
+		<item title="Special Area #54" consider="1" width="2" height="1" x="32243" y="32904" z="9"/>
+		<item title="Special Area #55" consider="1" width="1" height="1" x="32244" y="32903" z="9"/>
+		<item title="Special Area #56" consider="1" width="1" height="1" x="32246" y="32906" z="9"/>
+		<item title="Special Area #57" consider="1" width="1" height="1" x="32245" y="32904" z="9"/>
+		<item title="Special Area #58" consider="1" width="2" height="1" x="32237" y="32923" z="9"/>
+		<item title="Special Area #59" consider="1" width="3" height="1" x="32231" y="32910" z="9"/>
+		<item title="Special Area #60" consider="1" width="2" height="1" x="32231" y="32911" z="9"/>
+		<item title="Special Area #61" consider="1" width="1" height="5" x="32231" y="32912" z="9"/>
+		<item title="Special Area #62" consider="1" width="1" height="3" x="32253" y="32895" z="9"/>
+		<item title="Special Area #63" consider="1" width="1" height="1" x="32254" y="32895" z="9"/>
+		<item title="Special Area #64" consider="1" width="1" height="1" x="32254" y="32897" z="9"/>
+		<item title="Special Area #65" consider="1" width="1" height="1" x="32252" y="32894" z="9"/>
+		<item title="Special Area #66" consider="1" width="1" height="3" x="32261" y="32865" z="9"/>
+		<item title="Special Area #67" consider="1" width="2" height="1" x="32259" y="32867" z="9"/>
+		<item title="Special Area #68" consider="1" width="2" height="1" x="32262" y="32865" z="9"/>
+		<item title="Special Area #69" consider="1" width="1" height="1" x="32262" y="32866" z="9"/>
+		<item title="Special Area #70" consider="1" width="1" height="1" x="32260" y="32866" z="9"/>
+		<item title="Special Area #71" consider="1" width="1" height="4" x="32260" y="32895" z="9"/>
+		<item title="Special Area #72" consider="1" width="1" height="1" x="32259" y="32898" z="9"/>
+		<item title="Special Area #73" consider="1" width="1" height="1" x="32259" y="32895" z="9"/>
+		<item title="Special Area #74" consider="1" width="1" height="1" x="32261" y="32898" z="9"/>
+		<item title="Special Area #75" consider="1" width="1" height="5" x="32278" y="32893" z="9"/>
+		<item title="Special Area #76" consider="1" width="1" height="6" x="32277" y="32893" z="9"/>
+		<item title="Special Area #77" consider="1" width="1" height="2" x="32279" y="32895" z="9"/>
+		<item title="Special Area #78" consider="1" width="1" height="8" x="32276" y="32892" z="9"/>
+		<item title="Special Area #79" consider="1" width="1" height="1" x="32275" y="32891" z="9"/>
+		<item title="Special Area #80" consider="1" width="4" height="1" x="32266" y="32905" z="9"/>
+		<item title="Special Area #81" consider="1" width="1" height="1" x="32268" y="32906" z="9"/>
+		<item title="Special Area #82" consider="1" width="1" height="1" x="32265" y="32906" z="9"/>
+		<item title="Special Area #83" consider="1" width="1" height="1" x="32261" y="32909" z="9"/>
+		<item title="Special Area #84" consider="1" width="1" height="3" x="32256" y="32915" z="9"/>
+		<item title="Special Area #85" consider="1" width="1" height="5" x="32257" y="32914" z="9"/>
+		<item title="Special Area #86" consider="1" width="1" height="5" x="32258" y="32914" z="9"/>
+		<item title="Special Area #87" consider="1" width="1" height="8" x="32259" y="32913" z="9"/>
+		<item title="Special Area #88" consider="1" width="1" height="5" x="32259" y="32922" z="9"/>
+		<item title="Special Area #89" consider="1" width="1" height="1" x="32260" y="32926" z="9"/>
+		<item title="Special Area #90" consider="1" width="3" height="1" x="32260" y="32925" z="9"/>
+		<item title="Special Area #91" consider="1" width="1" height="1" x="32260" y="32924" z="9"/>
+		<item title="Special Area #92" consider="1" width="1" height="1" x="32258" y="32924" z="9"/>
+		<item title="Special Area #93" consider="1" width="1" height="1" x="32258" y="32927" z="9"/>
+		<item title="Special Area #94" consider="1" width="6" height="1" x="32254" y="32896" z="9"/>
+		<item title="Special Area #95" consider="1" width="4" height="1" x="32255" y="32895" z="9"/>
+		<item title="Special Area #96" consider="1" width="5" height="1" x="32255" y="32897" z="9"/>
+		<item title="Special Area #97" consider="1" width="3" height="1" x="32256" y="32898" z="9"/>
+		<item title="Special Area #98" consider="1" width="1" height="4" x="32261" y="32894" z="9"/>
+		<item title="Special Area #99" consider="1" width="4" height="1" x="32266" y="32904" z="9"/>
+		<item title="Special Area #100" consider="1" width="4" height="1" x="32266" y="32903" z="9"/>
+		<item title="Special Area #101" consider="1" width="1" height="1" x="32266" y="32902" z="9"/>
+		<item title="Special Area #102" consider="1" width="4" height="1" x="32245" y="32886" z="9"/>
 	</control>
 </panel>
 <panel name="Alarms">
