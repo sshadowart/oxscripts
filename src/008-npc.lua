@@ -82,6 +82,26 @@ Npc = (function()
 		talk(dialog, interact)
 	end
 
+	local function shopSellableCount(itemid, includeEq)
+		local countWithEq = xeno.shopGetItemSaleCountByID(itemid)
+		if includeEq then
+			return countWithEq
+		end
+
+		local slots = {"getHeadSlotData", "getArmorSlotData", "getLegsSlotData", "getFeetSlotData", "getAmuletSlotData", "getWeaponSlotData", 
+					   "getRingSlotData", "getBackpackSlotData", "getShieldSlotData", "getAmmoSlotData"}
+
+		local count = countWithEq
+		for _, slot in ipairs(slots) do
+			local itemInSlot = xeno[slot]()
+			if itemInSlot.id == itemid then
+				count = count - math.max(itemInSlot.count, 1)
+			end
+		end
+
+		return count
+	end
+
 	local function shopSellItem(itemid, callback, neededCount, tries)
 		tries = tries or 10
 
@@ -90,7 +110,7 @@ Npc = (function()
 
 		local function sellItem()
 			-- Item doesn't exist, ignore
-			local amount = xeno.shopGetItemSaleCountByID(itemid)
+			local amount = shopSellableCount(itemid)
 
 			-- No more to sell
 			if amount <= 0 then
@@ -147,7 +167,7 @@ Npc = (function()
 				return
 			end
 
-			local amount = xeno.shopGetItemSaleCountByID(itemid)
+			local amount = shopSellableCount(itemid)
 
 			if amount > 0 then
 				shopSellItem(itemid, function()
