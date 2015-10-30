@@ -147,12 +147,19 @@ Npc = (function()
 				return
 			end
 
-			shopSellItem(itemid, function()
-				-- Recurse to next item in list
-				setTimeout(function()
-					sell(index + 1)
-				end, pingDelay(DELAY.TRADE_TRANSACTION))
-			end)
+			local amount = xeno.shopGetItemSaleCountByID(itemid)
+
+			if amount > 0 then
+				shopSellItem(itemid, function()
+					-- Recurse to next item in list
+					setTimeout(function()
+						sell(index + 1)
+					end, pingDelay(DELAY.TRADE_TRANSACTION))
+				end)
+			else
+				-- If we don't have the item, recurse without a wait.
+				sell(index + 1)
+			end
 		end
 
 		if nodialog then
