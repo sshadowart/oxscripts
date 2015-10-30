@@ -796,6 +796,9 @@ do
 			elseif command == 'resupply' then
 				_script.returnQueued = true
 				log('Returning to town after the current round.')
+			elseif command == 'refill' then
+				_script.returnQueued = true
+				log('Returning to town after the current round.')
 			-- TODO: implement a more modular reload system in RC2
 			-- Reload config
 			--[[elseif command == 'reload' then
