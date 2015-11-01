@@ -1278,6 +1278,18 @@ local TRAVEL_ROUTES = {
 			['Captain Fearless'] = {'hi', 'yalahar', 'yes'}
 		}
 	},
+	['goroma~liberty bay'] = {
+		cost = 0,
+		transcript = {
+			['Jack Fate'] = {'hi', 'liberty bay', 'yes'}
+		}
+	},
+	['liberty bay~goroma'] = {
+		cost = 500,
+		transcript = {
+			['Jack Fate'] = {'hi', 'goroma', 'yes'}
+		}
+	},
 	['liberty bay~edron'] = {
 		cost = 170,
 		transcript = {
