@@ -14,7 +14,7 @@ do
 	local clearWalkerPath = Core.clearWalkerPath
 	local getPositionFromDirection = Core.getPositionFromDirection
 	local getDistanceBetween = Core.getDistanceBetween
-	local getSelfName =  Core.getSelfName
+	local getSelfName = Core.getSelfName
 	local cast = Core.cast
 	local checkSoftBoots = Core.checkSoftBoots
 	local log = Console.log
