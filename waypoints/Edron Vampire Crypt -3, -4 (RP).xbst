@@ -250,10 +250,10 @@
 		<item text="huntcheck|12:" tag="255"/>
 		<item text="huntexit|12:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="beforeTeleport:" tag="255"/>
 		<item text="Node (33019, 31606, 11)" tag="0"/>
 		<item text="Stand (33019, 31606, 11)" tag="1"/>
-		<item text="Enter Teleport(North)" tag="246"/>
-		<item text="Walker.Goto('spawnexit')" tag="254"/>
+		<item text="Self.Step(NORTH) wait(500, 800) Walker.ConditionalGoto((Self.Position().z == 8), 'spawnexit' 'beforeTeleport')" tag="254"/>
 		<item text="huntstart|12:" tag="255"/>
 		<item text="Node (33006, 31611, 11)" tag="0"/>
 		<item text="Node (33006, 31619, 11)" tag="0"/>
