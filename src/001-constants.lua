@@ -1560,6 +1560,14 @@ local TRAVEL_ROUTES = {
 	}
 }
 
+local SPAWN_TRAVELLING = {
+	-- Script Name = Price (gold)
+	['edron demon war (ek)'] = 100,
+	['edron demon war (rp)'] = 100,
+	['edron demon war (ed)'] = 100,
+	['edron demon war (ms)'] = 100
+}
+
 local MONSTER_LOOT = {
 	["Acid Blob"] = {9054},
 	["Acolyte of Darkness"] = {9615},

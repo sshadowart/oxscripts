@@ -120,8 +120,11 @@ do
 				else
 					-- Route system
 					if failLabel then
-						-- Route disabled
-						if _script.returnQueued or not _config['Route'][id] then
+						-- Check route status (disable, enabled, random)
+						-- random is a 50% chance to take the route
+						local routeState = _config['Route'][id]
+						local routeEnabled = routeState == 'random' and math.random(1, 10) > 5 or routeState
+						if _script.returnQueued or not routeEnabled then
 							xeno.gotoLabel(failLabel)
 						-- Route enabled, update script state
 						else
@@ -399,6 +402,7 @@ do
 	local _snapbacks = 0
 	local _lastsnapback = 0
 	local _lastposition = xeno.getSelfPosition()
+	local _walkerStuckScreenshotInterval = nil
 
 	function onTick()
 		toggleCriticalMode(true)
@@ -409,6 +413,19 @@ do
 		-- Update conditions (that need polling)
 		_script.stuck = xeno.getWalkerStuck()
 		_script.ignoring = xeno.getTargetingIgnoring()
+
+		-- We're stuck, take a screenshot in 10 seconds if we are still stuck then
+		if _script.stuck and not _walkerStuckScreenshotInterval then
+			_walkerStuckScreenshotInterval = setTimeout(function()
+				xeno.screenshot('stuck-' .. os.time())
+				_walkerStuckScreenshotInterval = nil
+			end, 10 * 1000)
+
+		-- No longer stuck, cancel the screenshot
+		elseif not _script.stuck and _walkerStuckScreenshotInterval then
+			clearTimeout(_walkerStuckScreenshotInterval)
+			_walkerStuckScreenshotInterval = nil
+		end
 
 		-- Anti-lure checks
 		if _config['Anti Lure'] and _config['Anti Lure']['Amount'] and _config['Anti Lure']['Amount'] > 0 then

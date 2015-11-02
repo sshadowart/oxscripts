@@ -11,6 +11,7 @@ Supply = (function()
 	local getContainerItemCounts = Container.getContainerItemCounts
 	local cleanContainers = Container.cleanContainers
 	local getTotalItemCount = Container.getTotalItemCount
+	local getFlaskWeight = Container.getFlaskWeight
 	local hudItemUpdate = Hud.hudItemUpdate
 	local bankDepositGold = Npc.bankDepositGold
 	local bankGetBalance = Npc.bankGetBalance
@@ -252,6 +253,12 @@ Supply = (function()
 		local edronTravel = false
 		local runeTravel = nil
 		local sourceTown = string.lower(_script.town)
+
+		-- Spawn traveling, lookup by script name, apply a flat fee
+		local spawnTravelFee = SPAWN_TRAVELLING[string.lower(_script.name)]
+		if spawnTravelFee then
+			totalCost = spawnTravelFee
+		end
 
 		-- Softboots refill (+ travel costs if not in venore and not already)
 		if _config['Soft Boots']['Mana-Percent'] > 0 then
@@ -553,8 +560,10 @@ Supply = (function()
 			if details.withdrawGold > 0 then 
 				-- Check capacity
 				if details.capNeeded > 0 then
+					-- Deduct weight of supplies we sell before buying (flasks)
+					local estimatedCap = xeno.getSelfCap() - getFlaskWeight()
 					-- Not enough capacity for supplies error
-					if details.capNeeded > xeno.getSelfCap() then
+					if details.capNeeded > estimatedCap then
 						error('Not enough capacity for supplies. Please lower config values or increase your capacity.')
 						return
 					end

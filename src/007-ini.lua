@@ -153,29 +153,50 @@ Ini = (function()
 			callback()
 		end
 
-		-- Could not load config, try to write default
+		-- Open config file
 		local file = io.open(configPath, 'r')
+
+		-- Could not find default config, look in alt path
 		if not file then
-			-- Look in alt location (Config folder)
 			file = io.open(configAltPath, 'r')
-			if not file then
-				local defaultConfig = io.open(configPath, 'w+')
-				if defaultConfig then
-					defaultConfig:write(LIB_CONFIG)
-					defaultConfig:close()
-					setTimeout(function()
-						local newFile = io.open(configPath, 'r')
-						parseConfig(newFile)
-					end, 1000)
-				else
-					error('Could not write default config.')
-				end
-			else
-				parseConfig(file)
-			end
-		else
-			parseConfig(file)
 		end
+
+		-- Found config, compare config version against embedded config
+		if file then
+			local match = false
+			for line in file:lines() do
+				if string.match(line, '^; Version ' .. _script.configHash .. '$') then
+					match = true
+					break
+				end
+			end
+			if not match then
+				log('Updating script config file...')
+				file:close()
+				file = nil
+			end
+		end
+
+		-- Could not find a config anywhere (or we wanted to update)
+		if not file then
+			-- Write the embedded config to disk
+			local defaultConfig = io.open(configPath, 'w+')
+			if defaultConfig then
+				defaultConfig:write(LIB_CONFIG)
+				defaultConfig:close()
+				local message = 'A new config file was generated, please reconfigure before proceeding. Enter any text to continue.'
+				prompt(message, function(response)
+					local newFile = io.open(configPath, 'r')
+					parseConfig(newFile)
+				end)
+			else
+				error('Could not write default config file.')
+			end
+			return
+		end
+
+		-- Using existing config
+		parseConfig(file)
 	end
 
 	-- Export global functions

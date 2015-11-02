@@ -7,6 +7,8 @@ Depot = (function()
 	local getDirectionTo = Core.getDirectionTo
 	local getSelfLookPosition = Core.getSelfLookPosition
 	local getPositionFromDirection = Core.getPositionFromDirection
+	local formatList = Core.formatList
+	local flattenItemCounts = Core.flattenItemCounts
 	local warn = Console.warn
 	local error = Console.error
 	local getLastContainer = Container.getLastContainer
@@ -99,10 +101,20 @@ Depot = (function()
 				end
 				return false
 			end
-		}, function(success)
+		}, function(success, moveCounts)
+			local totalCount = 0
+			if moveCounts then
+				for itemid, count in pairs(moveCounts) do
+					totalCount = totalCount + count
+				end
+			end
+			if totalCount > 0 then
+				local moveList = formatList(flattenItemCounts(moveCounts))
+				log('Deposited ' .. moveList .. '.')
+			end
 			-- Warn player not all their loot was moved
 			if not success then
-				warn('Some loot was unable to be deposited.')
+				warn('Some loot was unable to be deposited. Make sure you have enough containers and free slots in your depot.')
 			end
 			-- Return
 			callback()
@@ -159,10 +171,24 @@ Depot = (function()
 				dest = backpack,
 				openwindow = false,
 				items = items,
-			}, function(success)
+			}, function(success, moveCounts)
+				-- If we didn't withdraw anything, disable withdrawing supplies in the future
+				local totalCount = 0
+				if moveCounts then
+					for itemid, count in pairs(moveCounts) do
+						totalCount = totalCount + count
+					end
+				end
+				if totalCount == 0 then
+					_script.disableWithdraw = true
+					log('No supplies found in depot, disabling withdraw attempts.')
+				else
+					local moveList = formatList(flattenItemCounts(moveCounts))
+					log('Withdrew ' .. moveList .. '.')
+				end
 				-- Warn player not all their loot was moved
 				if not success then
-					warn('Some loot was unable to be deposited.')
+					warn('Unable to withdraw all supplies. Make sure your character has slots and capacity.')
 				end
 				-- Next group, after short delay
 				setTimeout(function()
@@ -200,7 +226,7 @@ Depot = (function()
 				for spot = 0, 2 do
 					local item = xeno.getContainerSpotData(depot, spot)
 					if not item or not xeno.isItemContainer(item.id) then
-						error('The first 3 depot slots must be containers. [non stackables, stackables, supplies]')
+						error('The first 3 depot slots must be a container. [loot, stackable loot, supplies]')
 						return 
 					end
 				end

@@ -25,6 +25,16 @@ Core = (function()
 		end)
 	end
 
+	local function flattenItemCounts(items)
+		-- Iterate through itemid indexed counts
+		-- flatten to array with count and itemid combined
+		local list = {}
+		for itemid, count in pairs(items) do
+			list[#list+1] = ('%s (x%d)'):format(itemid, count)
+		end
+		return list
+	end
+
 	local function formatList(items, delim, prefix)
 		prefix = prefix or ''
 		local message = nil
@@ -496,7 +506,8 @@ Core = (function()
 		local playerMana = math.abs((xeno.getSelfMana() / xeno.getSelfMaxMana()) * 100)
 		if _config['Soft Boots']['Mana-Percent'] > 0 then
 			local playerBoots = xeno.getFeetSlotData().id
-			local needSoftBoots = playerMana <= _config['Soft Boots']['Mana-Percent']
+			local inProtectionZone = xeno.getSelfFlag('inpz')
+			local needSoftBoots = not inProtectionZone and playerMana <= _config['Soft Boots']['Mana-Percent']
 			local mainbp = _backpacks['Main']
 			-- Needs soft boots
 			if not xeno.getSelfFlag('inpz') and needSoftBoots then

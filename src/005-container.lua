@@ -852,6 +852,18 @@ Container = (function()
 		return small + med + large
 	end
 
+	local function getFlaskWeight()
+		local counts = getTotalItemCount(ITEM_LIST_FLASKS)
+
+		local small = counts[285] or 0
+		local med = counts[284] or 0
+		local large = counts[283] or 0
+
+		return (small * xeno.getItemWeight(285))
+			+ (med * xeno.getItemWeight(284))
+			+ (large * xeno.getItemWeight(283))
+	end
+
 	local function unrustLoot(callback)
 		-- Make sure a corpse is not currently open
 		-- Loop through each slot in the loot container

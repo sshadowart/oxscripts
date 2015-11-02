@@ -13,6 +13,7 @@ local _script = {
 	name = "{{SCRIPT_NAME}}",
 	town = "{{SCRIPT_TOWN}}",
 	vocation = "{{SCRIPT_VOCATION}}",
+	configHash = "{{SCRIPT_CONFIG_HASH}}",
 
 	townexit = nil,
 	channel = nil,
