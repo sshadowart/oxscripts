@@ -1194,6 +1194,18 @@ local TRAVEL_ROUTES = {
 			['Captain Bluebear'] = {'hi', 'oramond', 'yes'}
 		}
 	},
+	['svargrond~nibelor'] = {
+		cost = 0,
+		transcript = {
+			['Iskan'] = {'hi', 'passage', 'yes'}
+		}
+	},
+	['nibelor~svargrond'] = {
+		cost = 0,
+		transcript = {
+			['Nilsor'] = {'hi', 'passage', 'yes'}
+		}
+	},
 	['edron~thais'] = {
 		cost = 160,
 		transcript = {
