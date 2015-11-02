@@ -172,6 +172,23 @@ do
 
 			-- Walk to town|spawn~townentrance
 			walkerStartPath(_script.town, 'spawn', _script.townentrance or _script.townexit, function()
+				-- Cure Conditions
+				if getSelfFlag('poisoned')then
+					cast('exana pox')
+				end
+				if getSelfFlag('burning')then
+					cast('exana flam')
+				end
+				if getSelfFlag('cursed')then
+					cast('exana mort')
+				end
+				if getSelfFlag('bleeding')then
+					cast('exana kor')
+				end
+				if getSelfFlag('electrified')then
+					cast('exana vis')
+				end
+
 				-- Trainers
 				if _script.trainingQueued then
 					walkerStartPath(_script.town, _script.townentrance or _script.townexit, 'trainers', function()
