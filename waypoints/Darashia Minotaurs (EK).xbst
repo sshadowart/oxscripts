@@ -58,11 +58,7 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Mummy" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
-		<item type="Minotaur Mage" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
-		<item type="Minotaur Archer" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
-		<item type="Minotaur Guard" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
-		<item type="Minotaur" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="Mummy, Minotaur Mage, Minotaur Archer, Minotaur Guard, Minotaur" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>

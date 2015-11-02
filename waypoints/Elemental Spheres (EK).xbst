@@ -58,13 +58,8 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Energy Overlord" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
-		<item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="6" prox="1" count="1"/>
-		<item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="5" prox="1" count="1"/>
-		<item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="4" prox="3" count="1"/>
-		<item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Overcharged Energy Element" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Charged Energy Elemental" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="Energy Overlord" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Overcharged Energy Element, Charged Energy Elemental" chs="0" max="100" min="0" prio="1" prox="1" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>

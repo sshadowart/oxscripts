@@ -58,8 +58,8 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Giant Spider" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
-		<item type="Tarantula" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="Giant Spider" chs="0" max="100" min="0" prio="3" prox="7" count="1"/>
+		<item type="Tarantula" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
 		<item type="Poison Spider" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>

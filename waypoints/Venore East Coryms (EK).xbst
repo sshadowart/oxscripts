@@ -58,10 +58,8 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Corym Vanguard" chs="1" max="100" min="0" prio="3" prox="7" count="1"/>
-		<item type="Corym Charlatan" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Corym Skirmisher" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Little Corym Charlatan" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Corym Vanguard" chs="1" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Corym Charlatan, Corym Skirmisher, Little Corym Charlatan" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>

@@ -59,13 +59,9 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="1" count="2"/>
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="3" count="2"/>
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="7" count="2"/>
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="1" count="1"/>
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="3" count="1"/>
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="9" prox="7" count="1"/>
-		<item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="3" prox="7" count="3"/>
+		<item type="Water Elemental" chs="6" max="100" min="0" prio="5" prox="1" count="1"/>
+		<item type="Water Elemental" chs="6" max="100" min="0" prio="4" prox="3" count="1"/>
+		<item type="Water Elemental" chs="6" max="100" min="0" prio="3" prox="7" count="1"/>
 		<item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="2" prox="1" count="1"/>
 		<item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
 		<item type="Quara Mantassin Scout" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>

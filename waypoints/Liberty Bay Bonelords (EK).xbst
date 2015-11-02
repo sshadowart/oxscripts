@@ -57,14 +57,13 @@
 	<control name="RecoveryCheckPzEnable" value="1"/>
 </panel>
 <panel name="Targeting">
-	<control name="TargetingList">	
-		<item type="Braindeath" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+	<control name="TargetingList">
+		<item type="Braindeath" chs="0" max="100" min="0" prio="6" prox="7" count="1"/>
 		<item type="Elder Bonelord" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Bonelord" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Gazer" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Vampire" chs="0" max="30" min="0" prio="5" prox="7" count="1"/>
-		<item type="Vampire" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Crypt Shambler" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Bonelord" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
+		<item type="Gazer" chs="0" max="100" min="0" prio="3" prox="7" count="1"/>
+		<item type="Vampire, Crypt Shambler" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Crypt Shambler" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
