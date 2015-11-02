@@ -65,19 +65,9 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Mammoth" chs="6" max="100" min="0" prio="4" prox="1" count="0"/>
-		<item type="Mammoth" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Mammoth" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Elephant" chs="6" max="100" min="0" prio="4" prox="1" count="0"/>
-		<item type="Elephant" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Elephant" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Frost Giant" chs="6" max="100" min="0" prio="4" prox="1" count="0"/>
-		<item type="Frost Giant" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Frost Giant" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Frost Giantess" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Frost Giantess" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Witch" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Witch" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Mammoth, Elephant, Frost Giant" chs="6" max="100" min="0" prio="4" prox="1" count="0"/>
+		<item type="Mammoth, Elephant, Frost Giant, Frost Giantess, Witch" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
+		<item type="Mammoth, Elephant, Frost Giant, Frost Giantess, Witch" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
 		<item type="*" chs="6" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
