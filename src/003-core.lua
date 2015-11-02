@@ -510,7 +510,7 @@ Core = (function()
 			local needSoftBoots = not inProtectionZone and playerMana <= _config['Soft Boots']['Mana-Percent']
 			local mainbp = _backpacks['Main']
 			-- Needs soft boots
-			if not xeno.getSelfFlag('inpz') and needSoftBoots then
+			if needSoftBoots then
 				-- Needs to swap normal or worn boots with softboots
 				if playerBoots ~= ITEMID.SOFTBOOTS_ACTIVE then
 					-- Search for soft boots in main backpack
@@ -523,7 +523,7 @@ Core = (function()
 					end
 				end
 			-- Need to swap active or worn softboots with normal boots
-			elseif xeno.getSelfFlag('inpz') or playerBoots == 0 or playerBoots == ITEMID.SOFTBOOTS_ACTIVE or playerBoots == ITEMID.SOFTBOOTS_WORN then
+			elseif playerBoots == 0 or playerBoots == ITEMID.SOFTBOOTS_ACTIVE or playerBoots == ITEMID.SOFTBOOTS_WORN then
 				-- Search for regular boots
 				for spot = 0, xeno.getContainerItemCount(mainbp) - 1 do
 					-- Equip regular boots
