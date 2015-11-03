@@ -1,0 +1,8 @@
+{
+    "name": "NAME",
+    "town": "TOWN",
+    "vocation": "VOCATION",
+    "vocshort": "VOC",
+    "level": 000,
+    "type": "powergamer" // "moneymaker", "hardcore"
+}
