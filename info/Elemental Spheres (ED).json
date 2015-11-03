@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Elemental Spheres",
+    "town": "Edron",
+    "vocation": "Druid",
+    "vocshort": "ED",
+    "level": 150,
+    "type": "moneymaker"
 }

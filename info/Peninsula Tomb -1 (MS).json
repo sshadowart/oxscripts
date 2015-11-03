@@ -1,8 +1,7 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Peninsula Tomb -1",
+    "town": "Ankrahmun",
+    "vocation": "Sorcerer",
+    "vocshort": "MS",
+    "level": 15,
 }

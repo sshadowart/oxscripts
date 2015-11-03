@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Darashia Dragon Lords",
+    "town": "Darashia",
+    "vocation": "Paladin",
+    "vocshort": "RP",
+    "level": 80,
+    "type": "powergamer
 }

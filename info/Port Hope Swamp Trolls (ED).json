@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Port Hope Swamp Trolls",
+    "town": "Port Hope",
+    "vocation": "Druid",
+    "vocshort": "ED",
+    "level": 8,
+    "type": "moneymaker"
 }
