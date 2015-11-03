@@ -1297,7 +1297,7 @@ local TRAVEL_ROUTES = {
 		}
 	},
 	['liberty bay~goroma'] = {
-		cost = 500,
+		cost = 0,
 		transcript = {
 			['Jack Fate'] = {'hi', 'goroma', 'yes'}
 		}
@@ -1562,10 +1562,9 @@ local TRAVEL_ROUTES = {
 
 local SPAWN_TRAVELLING = {
 	-- Script Name = Price (gold)
-	['edron demon war (ek)'] = 100,
-	['edron demon war (rp)'] = 100,
-	['edron demon war (ed)'] = 100,
-	['edron demon war (ms)'] = 100
+	['goroma ss (ms)'] = 500,
+	['goroma ss (ed)'] = 500,
+	['goroma ss (rp)'] = 500
 }
 
 local MONSTER_LOOT = {

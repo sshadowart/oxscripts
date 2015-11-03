@@ -175,22 +175,33 @@ do
 
 			-- Walk to town|spawn~townentrance
 			walkerStartPath(_script.town, 'spawn', _script.townentrance or _script.townexit, function()
+
 				-- Cure Conditions
-				if getSelfFlag('poisoned')then
-					cast('exana pox')
+				local conditions = {
+					poisoned = {spell = 'exana pox', voc = {druid = true, sorcerer = true, paladin = true, knight = true}},
+					burning = {spell = 'exana flam', voc = {druid = true}},
+					cursed = {spell = 'exana mort', voc = {paladin = true}},
+					bleeding = {spell = 'exana kor', voc = {druid = true, knight = true}},
+					electrified = {spell = 'exana vis', voc = {druid = true}},
+				}
+
+				local function cureCondition(callback)
+					if _config['General']['Cure-Conditions'] then
+						for condition, data in pairs(conditions) do
+							if xeno.getSelfFlag(condition) and not data.cured then
+								data.cured = true
+								-- Cure the condition
+								if data.voc[_script.vocation:lower()] then
+									cast(data.spell)									
+								end
+								break
+							end
+						end
+					end
+					callback()
 				end
-				if getSelfFlag('burning')then
-					cast('exana flam')
-				end
-				if getSelfFlag('cursed')then
-					cast('exana mort')
-				end
-				if getSelfFlag('bleeding')then
-					cast('exana kor')
-				end
-				if getSelfFlag('electrified')then
-					cast('exana vis')
-				end
+
+				cureCondition()
 
 				-- Trainers
 				if _script.trainingQueued then
