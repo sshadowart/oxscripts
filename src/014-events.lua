@@ -428,7 +428,9 @@ do
 		-- We're stuck, take a screenshot in 10 seconds if we are still stuck then
 		if _script.stuck and not _walkerStuckScreenshotInterval then
 			_walkerStuckScreenshotInterval = setTimeout(function()
+				xeno.setDiagnosticsEnabled(1)
 				xeno.screenshot('stuck-' .. os.time())
+				xeno.setDiagnosticsEnabled(0)
 				_walkerStuckScreenshotInterval = nil
 			end, 10 * 1000)
 

@@ -149,5 +149,6 @@ xeno.getUserName = getUserName
 xeno.getCreatureSpectators = getCreatureSpectators
 xeno.enterCriticalMode = veryUnsafeFunctionEnterCriticalMode
 xeno.exitCriticalMode = veryUnsafeFunctionExitCriticalMode
+xeno.setDiagnosticsEnabled = setDiagnosticsEnabled
 xeno.setTargetingIgnoreEnabled = setTargetingIgnoreEnabled
 xeno.alert = alert

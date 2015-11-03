@@ -167,11 +167,12 @@ Settings = (function()
 		callback(tools)
 	end
 
-	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="9" prioMin="%d" prioRaw="%d" until="%d" enabled="1" /></control><control name="AttackWhileLuring" value="0"/></panel>'
+	local lureTemplate = '<panel name="Dynamic Lure"><control name="LureList"><item count="%d" prioMax="9" prioMin="%d" prioRaw="%d" until="%d" enabled="1" /></control><control name="AttackWhileLuring" value="%d"/></panel>'
 	local function getDynamicLureXBST()
 		local amount = _config['Lure']['Amount']
 		local priority = _config['Lure']['MinPriority']
 		local untilCount = _config['Lure']['Until'] or 0
+		local attackWhileLure = _config['Lure']['AttackWhileLure'] and 1 or 0
 		-- Validate config
 		if not priority or priority > 9 or priority < 0 then
 			error('[Config Error] Dynamic lure minimum priority is missing or invalid [0-9]!')
@@ -184,7 +185,7 @@ Settings = (function()
 		end
 
 		local rawPrio = 100 + priority
-		return lureTemplate:format(amount, priority, rawPrio, untilCount)
+		return lureTemplate:format(amount, priority, rawPrio, untilCount, attackWhileLure)
 	end
 
 	local function getShooterXBST()
