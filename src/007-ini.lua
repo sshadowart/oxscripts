@@ -5,6 +5,8 @@ Ini = (function()
 	local setTimeout = Core.setTimeout
 	local getSelfName = Core.getSelfName
 	local error = Console.error
+	local log = Console.log
+	local prompt = Console.prompt
 
 	local function updateSupplyConfig()
 		local function loadBlockSection(sectionName, extras)
