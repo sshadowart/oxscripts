@@ -1386,6 +1386,18 @@ local TRAVEL_ROUTES = {
 			['Captain Bluebear'] = {'hi', 'oramond', 'yes'}
 		}
 	},
+	['old adall~lorek'] = {
+		cost = 7,
+		transcript = {
+			['Old Adall'] = {'hi', 'east', 'yes'}
+		}
+	},
+	['lorek~banuta'] = {
+		cost = 30,
+		transcript = {
+			['Lorek'] = {'hi', 'banuta', 'yes'}
+		}
+	},
 	['port hope~ab\'dendriel'] = {
 		cost = 250,
 		transcript = {
@@ -1564,7 +1576,8 @@ local SPAWN_TRAVELLING = {
 	-- Script Name = Price (gold)
 	['goroma ss (ms)'] = 500,
 	['goroma ss (ed)'] = 500,
-	['goroma ss (rp)'] = 500
+	['goroma ss (rp)'] = 500,
+	['banuta -2 (ek)'] = 50
 }
 
 local MONSTER_LOOT = {
