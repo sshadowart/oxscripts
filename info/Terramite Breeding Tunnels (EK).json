@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Terramite Breeding Tunnels",
+    "town": "Darashia",
+    "vocation": "Knight",
+    "vocshort": "EK",
+    "level": 25,
+    "type": "moneymaker"
 }

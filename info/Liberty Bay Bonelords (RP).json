@@ -1,8 +1,7 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Liberty Bay Bonelords",
+    "town": "Liberty Bay",
+    "vocation": "Paladin",
+    "vocshort": "RP",
+    "level": 50,
 }

@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Mother of Scarabs Lair -4, -5",
+    "town": "Darashia",
+    "vocation": "Sorcerer",
+    "vocshort": "MS",
+    "level": 100,
+    "type": "powergamer"
 }

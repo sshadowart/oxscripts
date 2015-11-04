@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Port Hope Water Elementals",
+    "town": "Port Hope",
+    "vocation": "Sorcerer",
+    "vocshort": "MS",
+    "level": 50,
+    "type": "hardcore"
 }

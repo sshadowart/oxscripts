@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Formorgar Crystal Spiders",
+    "town": "Svargrond",
+    "vocation": "Knight",
+    "vocshort": "EK",
+    "level": 80,
+    "type": "moneymaker"
 }

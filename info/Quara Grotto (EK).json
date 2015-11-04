@@ -1,8 +1,8 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Quara Grotto",
+    "town": "Liberty Bay",
+    "vocation": "Knight",
+    "vocshort": "EK",
+    "level": 225,
+    "type": "powergamer"
 }

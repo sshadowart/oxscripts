@@ -1,8 +1,7 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "name": "Kha'zeel Scarab Lair",
+    "town": "Darashia",
+    "vocation": "Druid",
+    "vocshort": "ED",
+    "level": 80,
 }
