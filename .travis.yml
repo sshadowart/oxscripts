@@ -8,11 +8,10 @@ cache:
 
 # Install misc dependencies
 before_install:
-  - wget http://www.lua.org/ftp/lua-5.1.5.tar.gz -O /tmp/lua-5.1.5.tar.gz
-  - tar -xvf /tmp/lua-5.1.5.tar.gz
-  - cd /tmp/lua-5.1.5 && make linux test
-  - export PATH=$PATH:$PWD/tmp/lua-5.1.5/bin/
-  - cd /home/travis/build/OXGaming/oxscripts
+  - wget -O - http://www.lua.org/ftp/lua-5.1.5.tar.gz | tar xz
+  - cd lua-5.1.5 && make linux test
+  - export PATH=$PATH:$PWD/bin/
+  - cd ..
 
 # Install node dependencies
 install: npm install
