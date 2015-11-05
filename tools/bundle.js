@@ -9,12 +9,14 @@ import del from 'del';
 import open from 'open';
 import readm from 'read-multiple-files';
 import fse from 'fs-extra';
+import archiver from 'archiver';
 import task from './lib/task';
 import copy from './lib/copy';
 import watch from './lib/watch';
 import cfs from './lib/fs';
 
-const luaOutputPath = 'build/ox.lua';
+const luaOutputPath = './build/lib.lua';
+const packagePath = './build/scripts.zip';
 const reloadPort = 3000;
 const vocationsMap = {
   '(MS)': 'Sorcerer',
@@ -25,7 +27,7 @@ const vocationsMap = {
 
 let vocationTags = Object.keys(vocationsMap);
 
-function buildFile(spawnName, luaOutputData) {
+function buildFile(spawnName, luaOutputData, outputPath, buildCallback) {
   // Generate sync script
   let timestamp = Date.now();
   let homePath = cfs.getUserHome();
@@ -130,12 +132,10 @@ function buildFile(spawnName, luaOutputData) {
         xbstCombinedData += '\n' + scripterPanelXML;
 
         // Save XBST
-        let scriptpath = `${homePath}/Documents/XenoBot/Settings/${spawnName}.xbst`;
-        fs.writeFile(scriptpath, xbstCombinedData, function (err) {
-
-          // Success message
-          console.log(colors.green(`Successfully built ${spawnName}.`), scriptpath);
-
+        fs.writeFile(outputPath, xbstCombinedData, function (err) {
+          console.log(colors.green(spawnName), outputPath);
+          if (buildCallback)
+            buildCallback(xbstCombinedData);
         });
       });
     });
@@ -145,12 +145,10 @@ function buildFile(spawnName, luaOutputData) {
 /**
  * Concatenate and modify the final build script
  */
-export default task('bundle', async () => {
-  // Clean build folder
-  await require('./clean')();
+export default task('bundle', () => {
 
   // Combine all lua together
-  await concat(glob.sync('./src/*.lua'), luaOutputPath, function() {
+  concat(glob.sync('./src/*.lua'), luaOutputPath, function() {
 
     // Lint source
     let lint;
@@ -173,15 +171,41 @@ export default task('bundle', async () => {
       // Read error
       if (err) throw err;
 
-      // Build single file if spawn defined, all files otherwise
+      // Build single script
       if (spawnName) {
-        buildFile(spawnName, luaOutputData);
+        const outputPath = `${homePath}/Documents/XenoBot/Settings/${spawnName}.xbst`;
+        buildFile(spawnName, luaOutputData, outputPath);
+      // Build all scripts
       } else {
+        const stream = fs.createWriteStream(packagePath);
+        const archive = archiver.create('zip', {});
+
+        stream.on('close', function() {
+          console.log(colors.green(`Successfully packaged ${spawnFiles.length} scripts.`), packagePath, archive.pointer() + ' bytes');
+        });
+
+        archive.on('error', function(err) {
+          throw err;
+        });
+
+        archive.pipe(stream);
+
         const spawnFiles = glob.sync('./waypoints/*.xbst');
+        let i = 0;
         spawnFiles.forEach((spawnPath) => {
-          buildFile(path.basename(spawnPath, '.xbst'), luaOutputData);
-        })
+          const fileName = path.basename(spawnPath, '.xbst');
+          const outputPath = `./build/${fileName}.xbst`;
+          buildFile(fileName, luaOutputData, outputPath, (contents) => {
+            i++;
+            archive.append(new Buffer(contents), {name: `${fileName}.xbst`});
+            if (i === spawnFiles.length) {
+              console.log('Packaging scripts...');
+              archive.finalize();
+            }
+          });
+        });
       }
     });
   });
+
 });
