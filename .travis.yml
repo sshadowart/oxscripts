@@ -57,3 +57,8 @@ deploy:
     on:
       repo: OXGaming/oxscripts
       tags: true
+
+notifications:
+  slack:
+    on_success: always
+    secure: lSNpU7Ws7C9D2EsR9EBw8axb11R8QnDjwEm+b/lXk1MoIr1BbpUMQGL8APgLb2I9/PKvLkASPC4E5yTTGYJnGhGx+QJDCP3GlAvaaSSqjoC/XMATmCLNvrLcKkZ+UmbqPF7anr7Ty7qPW3cGTeN05MS28q3GZ719o/beFGc5E/gPEXyhf5QkHeK0ynzaVhq8JEJMm5dTufjckW0HN9ZPA06L5uSouSsso1FqlicMcL1y0o3eYI+ELMvNbJGiXa9OWdRHnWmjQG1M5MCoAXan5UV2jP5Np9ouytS4GSTF5IOllaPi94KFEamBRzaLns7ck9XGxuusuMP4+HxAKizNs+q14zPo5DDwGOydjPFcWUiqJwV6Af+gnKotts9GaXCu86NpzzgQ7iwRiyBVvC4E99K9o6KyGcpbzQy/zuSXWj392dDS0JMJGIGkxnICycMS9+z/waPBt/V1u6Qx7J2wZ6aWJI7Mf7WouJnceApj+NbVRJo6hxOY4Fq37oT3CDEshp1hwW9HC3lGmROztWoV0QQNxecBcVrqPqKipXEN/0mfwN04Hwk1k6ZcJd+MbAMN5VaecIPYUs+a1nBjfwuqIEJJFsVe+UF0awGvYmru0PkJMyyy0qX2wb45b3csDEMJmGALe+Ddtx9sDnW6KJ1C17Mp/dThIazs+APrdpT9mQg=
