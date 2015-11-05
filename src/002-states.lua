@@ -11,6 +11,7 @@ local _script = {
 	theme = 'light',
 
 	name = "{{SCRIPT_NAME}}",
+	slug = "{{SCRIPT_SLUG}}",
 	town = "{{SCRIPT_TOWN}}",
 	vocation = "{{SCRIPT_VOCATION}}",
 	configHash = "{{SCRIPT_CONFIG_HASH}}",

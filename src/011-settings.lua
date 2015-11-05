@@ -10,8 +10,8 @@ Settings = (function()
 	local walkerGetNeededTools = Walker.walkerGetNeededTools
 
 	local function loadSettingsFile(callback)
-		local file = io.input(FOLDER_SETTINGS_PATH .. _script.name .. '.xbst')
-		local message = 'Make sure "'.._script.name..'.xbst" is in the "Documents/XenoBot/Settings" folder. Type "retry" to continue.'
+		local file = io.input(FOLDER_SETTINGS_PATH .. _script.slug)
+		local message = 'Make sure "'.._script.slug..'" is in the "Documents/XenoBot/Settings" folder. Type "retry" to continue.'
 		local function promptXBST()
 			prompt(message, function(response)
 				if string.find(string.lower(response), 'retry') then

@@ -27,7 +27,7 @@ const vocationsMap = {
 
 let vocationTags = Object.keys(vocationsMap);
 
-function buildFile(spawnName, luaOutputData, outputPath, buildCallback) {
+function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallback) {
   // Generate sync script
   let timestamp = Date.now();
   let homePath = cfs.getUserHome();
@@ -91,6 +91,7 @@ function buildFile(spawnName, luaOutputData, outputPath, buildCallback) {
       data = data.replace('{{VERSION}}', version);
       data = data.replace('{{SCRIPT_TOWN}}', townName);
       data = data.replace('{{SCRIPT_NAME}}', spawnName);
+      data = data.replace('{{SCRIPT_SLUG}}', outputName || spawnName);
       data = data.replace('{{SCRIPT_VOCATION}}', vocationName);
 
       // Insert config
@@ -204,10 +205,12 @@ export default task('bundle', () => {
         let i = 0;
         spawnFiles.forEach((spawnPath) => {
           const fileName = path.basename(spawnPath, '.xbst');
-          const outputPath = `./build/${fileName}.xbst`;
-          buildFile(fileName, luaOutputData, outputPath, (contents) => {
+          const scriptInfo = require(`../info/${fileName}.json`);
+          const outputName = `[${scriptInfo.vocshort}] ${scriptInfo.name}.xbst`;
+          const outputPath = `./build/${outputName}`;
+          buildFile(fileName, luaOutputData, outputPath, outputName, (contents) => {
             i++;
-            archive.append(new Buffer(contents), {name: `${fileName}.xbst`});
+            archive.append(new Buffer(contents), {name: outputName});
             if (i === spawnFiles.length) {
               console.log('Packaging scripts...');
               archive.finalize();
