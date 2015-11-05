@@ -16,10 +16,10 @@ install:
   - npm install
 
 addons:
-  artifacts: true
   s3_region: us-east-1
-  paths:
-    - build
+  artifacts: true
+    paths:
+      - build
 
 deploy:
   provider: releases
