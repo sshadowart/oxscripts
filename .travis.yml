@@ -10,7 +10,7 @@ cache:
 before_install:
   - wget -O - http://www.lua.org/ftp/lua-5.1.5.tar.gz | tar xz
   - cd lua-5.1.5 && make linux test
-  - export PATH=$PATH:$PWD/bin/
+  - export PATH=$PATH:~/bin
   - cd ..
 
 # Install node dependencies
@@ -42,7 +42,7 @@ deploy:
       secure: cc3RjSx24RHa4kRTBWrj1mcBeFYsj7zqMT9LwqfVrrxbxHV1gOiBro1TxWjcDExKHSR+pQ3crxUstky+qE6ayoRBf8cnH4P04wFwrv7dCmeFK9X8hcRQNbPvKf2Q9DTtx9nNSfrzwS4gpfmKcz0tyNlydElvWsXhIhEkvK8lH8FYri22/Gle7TwrA9O6JwEmZn0lL32ugyyED5Vgs0oEzpE4/7DF/3YSLWWDx7545oostj7O85vbUsT2oxwv4+2tCRcFQkNrItgQ8YNxWZjXinkfoXVDxw4EB7ClRxExbjWfnI4yflssNmF4vA6Es04yLa1YfsAC+p/XCzJDoc5Vkx25bxzQlHoqSA8KREbU1aoSMtmP0JCaAb4+6wghfVR/nioBTRN/IM+dOT1ckKrkpGDgBML9dSWsHNPL6eGZvDQdfvMgoLijdJetGCqkIlVBCV6dZJdFwpl8JJODo7t9CYH/ZWiToq2dkLaNB0ofLtkZU1H8BjFls+GmwsSuKjf21Qa6etgMNQhWkF8GbGTLhlrarNc/1LtpkuoNcVTjemBkiM3Z1BL5kwKlf3q4TQNqFpHhLIZQKZIgw0EXt1Mq65VAM8yCLBABtTc/pqv3zrM6cacV49LIWNWozWklpoMzPo24kPCJtemY4U7XbEOJTx257AYg1jP3jyc9FjDkKqU=
     bucket: xenobot-scripts
     on:
-      repo: oxgaming/oxscripts
+      repo: OXGaming/oxscripts
       branch: master
 
   # Public Release (tagged)
@@ -57,5 +57,5 @@ deploy:
       secure: cc3RjSx24RHa4kRTBWrj1mcBeFYsj7zqMT9LwqfVrrxbxHV1gOiBro1TxWjcDExKHSR+pQ3crxUstky+qE6ayoRBf8cnH4P04wFwrv7dCmeFK9X8hcRQNbPvKf2Q9DTtx9nNSfrzwS4gpfmKcz0tyNlydElvWsXhIhEkvK8lH8FYri22/Gle7TwrA9O6JwEmZn0lL32ugyyED5Vgs0oEzpE4/7DF/3YSLWWDx7545oostj7O85vbUsT2oxwv4+2tCRcFQkNrItgQ8YNxWZjXinkfoXVDxw4EB7ClRxExbjWfnI4yflssNmF4vA6Es04yLa1YfsAC+p/XCzJDoc5Vkx25bxzQlHoqSA8KREbU1aoSMtmP0JCaAb4+6wghfVR/nioBTRN/IM+dOT1ckKrkpGDgBML9dSWsHNPL6eGZvDQdfvMgoLijdJetGCqkIlVBCV6dZJdFwpl8JJODo7t9CYH/ZWiToq2dkLaNB0ofLtkZU1H8BjFls+GmwsSuKjf21Qa6etgMNQhWkF8GbGTLhlrarNc/1LtpkuoNcVTjemBkiM3Z1BL5kwKlf3q4TQNqFpHhLIZQKZIgw0EXt1Mq65VAM8yCLBABtTc/pqv3zrM6cacV49LIWNWozWklpoMzPo24kPCJtemY4U7XbEOJTx257AYg1jP3jyc9FjDkKqU=
     bucket: xenobot-scripts
     on:
-      repo: oxgaming/oxscripts
+      repo: OXGaming/oxscripts
       tags: true
