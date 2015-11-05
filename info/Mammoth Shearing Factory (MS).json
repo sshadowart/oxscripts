@@ -1,9 +1,7 @@
 {
-    "name": "NAME",
-    "town": "TOWN",
-    "vocation": "VOCATION",
-    "vocshort": "VOC",
-    "level": 0
-,
-    "type": "powergamer"
+    "name": "Mammoth Shearing Factory",
+    "town": "Svagrond",
+    "vocation": "Sorcerer",
+    "vocshort": "MS",
+    "level": 30
 }
