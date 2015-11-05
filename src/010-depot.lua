@@ -11,6 +11,7 @@ Depot = (function()
 	local flattenItemCounts = Core.flattenItemCounts
 	local warn = Console.warn
 	local error = Console.error
+	local log = Console.log
 	local getLastContainer = Container.getLastContainer
 	local getContainerByName = Container.getContainerByName
 	local containerMoveItems = Container.containerMoveItems

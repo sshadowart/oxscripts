@@ -8,12 +8,16 @@ import glob from 'glob-all';
 import del from 'del';
 import open from 'open';
 import readm from 'read-multiple-files';
+import crypto from 'crypto';
 import fse from 'fs-extra';
 import archiver from 'archiver';
 import task from './lib/task';
 import copy from './lib/copy';
 import watch from './lib/watch';
 import cfs from './lib/fs';
+
+let zmq;
+try { zmq = require('zmq') } catch(e) {}
 
 const luaOutputPath = './build/lib.lua';
 const packagePath = './build/scripts.zip';
@@ -25,12 +29,12 @@ const vocationsMap = {
   '(RP)': 'Paladin'
 };
 
-let vocationTags = Object.keys(vocationsMap);
+const vocationTags = Object.keys(vocationsMap);
+const homePath = cfs.getUserHome();
 
 function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallback) {
   // Generate sync script
   let timestamp = Date.now();
-  let homePath = cfs.getUserHome();
   let reloadScript = `
     do
       local pub = IpcPublisherSocket.New("pub", ${reloadPort+1})
@@ -40,7 +44,8 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
           local message, topic, data = sub:Recv()
           if message then
             print('Reloading library...')
-            loadSettings("${spawnName}", "Scripter")
+            print("${outputName}")
+            loadSettings("${outputName.replace('.xbst', '')}", "Scripter")
             pub:PublishMessage("live-reload", Self.Name());
           end
           wait(200)
@@ -86,16 +91,18 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
         version = 'local';
 
       // Replace tokens
+      const configHash = crypto.createHash('md5').update(configData).digest('hex');
       let data = luaOutputData.toString('utf8');
 
       data = data.replace('{{VERSION}}', version);
       data = data.replace('{{SCRIPT_TOWN}}', townName);
       data = data.replace('{{SCRIPT_NAME}}', spawnName);
-      data = data.replace('{{SCRIPT_SLUG}}', outputName || spawnName);
+      data = data.replace('{{SCRIPT_SLUG}}', outputName);
       data = data.replace('{{SCRIPT_VOCATION}}', vocationName);
+      data = data.replace('{{SCRIPT_CONFIG_HASH}}', configHash);
 
       // Insert config
-      data = data.replace('{{CONFIG}}', configData.toString('utf8'));
+      data = data.replace('{{CONFIG}}', configData.toString('utf8').replace(':::::::::::::::', `::${configHash}`));
 
       // Base 64 encode lua
       let encodedLua = new Buffer(data).toString('base64');
@@ -103,6 +110,7 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
       let combinedWaypoints;
       
       // Write to XBST
+      console.log(timestamp);
       let scripterPanelXML = `
         <panel name="Scripter">
           <control name="RunningScriptList">
@@ -146,7 +154,7 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
         fs.writeFile(outputPath, xbstCombinedData, function (err) {
           console.log(colors.green(spawnName), outputPath);
           if (buildCallback)
-            buildCallback(xbstCombinedData);
+            buildCallback(xbstCombinedData, timestamp);
         });
       });
     });
@@ -184,8 +192,71 @@ export default task('bundle', () => {
 
       // Build single script
       if (spawnName) {
-        const outputPath = `${homePath}/Documents/XenoBot/Settings/${spawnName}.xbst`;
-        buildFile(spawnName, luaOutputData, outputPath);
+        const scriptInfo = require(`../info/${spawnName}.json`);
+        const outputName = `[${scriptInfo.vocshort}] ${scriptInfo.name}.xbst`;
+        const outputPath = `${homePath}/Documents/XenoBot/Settings/${outputName}`;
+        buildFile(spawnName, luaOutputData, outputPath, outputName, (contents, timestamp) => {
+
+          // User doesn't want live reload
+          if (!process.env.LIVE_RELOAD)
+            return;
+
+          // ZMQ installed
+          if (typeof zmq === 'undefined') {
+            console.error(colors.red.underline('ZMQ not found, live reloading disabled. Run npm install zmq.'));
+            return;
+          }
+
+          // Send update flag to Tibia Clients
+          let subscriber = zmq.socket('sub');
+          let publisher = zmq.socket('pub');
+          subscriber.connect(`tcp://127.0.0.1:${reloadPort+1}`);
+          subscriber.subscribe('live-reload');
+
+          let runTimeout;
+
+          // Listen to responses from Xenobot
+          subscriber.on('message', function(topic, message) {
+            // We were waiting for a response from the reloaded client
+            if (runTimeout) {
+              // Clear the timeout that would start the reload script
+              clearTimeout(runTimeout);
+              console.log(`Reloaded ${message}'s client.`);
+              // Close listener
+              subscriber.close();
+            }
+          });
+
+          publisher.bind(`tcp://127.0.0.1:${reloadPort}`, function(err) {
+            if (err) throw err;
+            setTimeout(function() {
+              publisher.send(['live-reload', Date.now()]);
+
+              // Wait for response from the client
+              runTimeout = setTimeout(() => {
+                // Timed out, start the reload script
+                open(outputPath);
+                // Success message
+                console.log('Starting the reload script in the client.');
+                // Close listener
+                if (subscriber)
+                  subscriber.close();
+              }, 3000);
+
+              // Close the publish socket
+              publisher.close();
+
+              // Delete old generated scripts
+              del([
+                `!.ox.${timestamp}.lua`, // Ignore new library
+                `!.sync.${timestamp}.lua`, // Ignore new sync script
+                '.ox.*.lua',
+                '.sync.*.lua',
+              ], {dot: true, cwd: homePath + '/Documents/XenoBot/Scripts/'});
+            }, 1000);
+          });
+        });
+
       // Build all scripts
       } else {
         const stream = fs.createWriteStream(packagePath);

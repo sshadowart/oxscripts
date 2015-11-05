@@ -30,7 +30,7 @@ Core = (function()
 		-- flatten to array with count and itemid combined
 		local list = {}
 		for itemid, count in pairs(items) do
-			list[#list+1] = ('%s (x%d)'):format(itemid, count)
+			list[#list+1] = ('x%d %s'):format(xeno.getItemNameByID(itemid), count)
 		end
 		return list
 	end
@@ -571,6 +571,7 @@ Core = (function()
 		getPositionFromDirection = getPositionFromDirection,
 		getDistanceBetween = getDistanceBetween,
 		getSelfName = getSelfName,
-		checkSoftBoots = checkSoftBoots
+		checkSoftBoots = checkSoftBoots,
+		flattenItemCounts = flattenItemCounts
 	}
 end)()

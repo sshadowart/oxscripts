@@ -167,7 +167,7 @@ Ini = (function()
 		if file then
 			local match = false
 			for line in file:lines() do
-				if string.match(line, '^; Version ' .. _script.configHash .. '$') then
+				if string.match(line, '^; ::' .. _script.configHash .. '$') then
 					match = true
 					break
 				end

@@ -20,14 +20,15 @@ local function init()
     local resupply = Supply.resupply
     local walkerGetClosestLabel = Walker.walkerGetClosestLabel
 
+    -- Create channel
+    openConsole()
+        
     -- Load config.ini
     loadConfigFile(function()
         -- Grab screen dimensions
         if _config['HUD']['Enabled'] then
             hudInit()
         end
-        -- Create channel
-        openConsole()
         -- Only continue after containers are setup
         setupContainers(function()
             -- Load XBST
