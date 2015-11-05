@@ -1,38 +1,62 @@
+# Setup environment
 language: node_js
-
 node_js: 4.2
-
 sudo: false
-
 cache:
   directories:
-  - node_modules
+    - node_modules
 
+# Install misc dependencies
 before_install:
-- wget http://www.lua.org/ftp/lua-5.1.5.tar.gz -O /tmp/lua-5.1.5.tar.gz
-- tar -xvf /tmp/lua-5.1.5.tar.gz
-- export PATH=$PATH:$PWD/tmp/lua-5.1.5/bin/
+  - wget http://www.lua.org/ftp/lua-5.1.5.tar.gz -O /tmp/lua-5.1.5.tar.gz
+  - tar -xvf /tmp/lua-5.1.5.tar.gz
+  - cd /tmp/lua-5.1.5 && make linux test
+  - export PATH=$PATH:$PWD/tmp/lua-5.1.5/bin/
+  - cd /home/travis/build/OXGaming/oxscripts
 
+# Install node dependencies
 install: npm install
 
+# Build scripts
 script: npm run build
 
-addons:
-  artifacts:
-    paths:
-    - ./build/ox.lua
-
+# Upload build artifacts
 deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key:
-    secure: WJskVZr0p3jVH+wDVTugDAkuZfNhXXhaQVdLdxYGRS9XWsRiHpZ+N3ez1vDCgBUxaZFV7EXpx6t56czGSbD/mi+tSxDTb8TPLnZeqSvRxncCM8W5Gy7fQrFg1U+4fNan8vZ+EeURjlfFH/1z+ed7GVPc+Y6vDXtJWxViZC0nxugY8yaoIoFqBmgN4BZyac3YV4Nk1vmlzD9jRy813XhS0JzoilKPwK8CS6PKvX5YKeODZVtPJgB0Ebz+NPWyXjpgiuinMGnUBCTRE21O6q53s0l1MKnf/fW4yzMZnsExSLqFXVx+m+aqUFTpPxaYjzuF+5ra8duPMs+2MHJUfBAzt7jBZXmJNYCe8Uaf/Zw/B1h5O80hvAKp4fRroMfzSUf/xWBMlReFh1+qee5RpbO+u8dNw8/EtGAZws/BTQku6G4j8u1cFqq21vwi/xp6YCtr0OOkE5jbhxHPqzgK+l3/Ru29+LWA2VRQjoXPWDBbKq6iAjehYGfiN9C9ZbKpeaqxd4EIiknFuGK+FZmB/qJFpiL9tYKYbrL7HCiaH9IcZEF1uE/IKme9tcPT3SEmZk891WH7l4jMZoXbt3Nt2xPGR0Jvjbs16i6BH1t8fVFIBgTJ9lyznAV71Zv1+swex1Tsk/coSaNQFuWcb6cmSeI3TdQXKvkqH5oCCCVjLPXD8zU=
-  file: ./build/ox.lua
-  on:
-    tags: true
+  # Github Release
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: WJskVZr0p3jVH+wDVTugDAkuZfNhXXhaQVdLdxYGRS9XWsRiHpZ+N3ez1vDCgBUxaZFV7EXpx6t56czGSbD/mi+tSxDTb8TPLnZeqSvRxncCM8W5Gy7fQrFg1U+4fNan8vZ+EeURjlfFH/1z+ed7GVPc+Y6vDXtJWxViZC0nxugY8yaoIoFqBmgN4BZyac3YV4Nk1vmlzD9jRy813XhS0JzoilKPwK8CS6PKvX5YKeODZVtPJgB0Ebz+NPWyXjpgiuinMGnUBCTRE21O6q53s0l1MKnf/fW4yzMZnsExSLqFXVx+m+aqUFTpPxaYjzuF+5ra8duPMs+2MHJUfBAzt7jBZXmJNYCe8Uaf/Zw/B1h5O80hvAKp4fRroMfzSUf/xWBMlReFh1+qee5RpbO+u8dNw8/EtGAZws/BTQku6G4j8u1cFqq21vwi/xp6YCtr0OOkE5jbhxHPqzgK+l3/Ru29+LWA2VRQjoXPWDBbKq6iAjehYGfiN9C9ZbKpeaqxd4EIiknFuGK+FZmB/qJFpiL9tYKYbrL7HCiaH9IcZEF1uE/IKme9tcPT3SEmZk891WH7l4jMZoXbt3Nt2xPGR0Jvjbs16i6BH1t8fVFIBgTJ9lyznAV71Zv1+swex1Tsk/coSaNQFuWcb6cmSeI3TdQXKvkqH5oCCCVjLPXD8zU=
+    file: "./build/ox.lua"
+    on:
+      tags: true
 
-env:
-  global:
-  - secure: EGx1iBVB5nA0sHGhIYe8igpcgOhxPUGhKuXbTNRs91hdPKVKbfW7RcaerHbxyvpyJedU4zmvOf5vfLtywanYbWTXsjM8nO31gc85n0NrynvcZpLpkK7vysxyr3texjVC3gzCYCHEpzypYrpRX4SsRcby215G8cG7w61v3clcx5P9PVvJu3LhBS7jRsPlD8hSo/SWrTBmeQd0rV+OPwzHNSJAv/0K4qfXFsPeWNBicHIRJkyUQ4Y3uEIfIap4rjmeTt3aFy2uUSzPVJXlmkmBFua+CBnz4AahvkF5IrkjB2U1LIZfPz7lFSv9G+RL07d3H+wr7x7nWPkWKu2lHr9boX6drLO7m/gP494SRJAKfkKfN3R7BMmkk7ZUOUKezpIhQjiFcp+6VzA71Lblr9Z/Z6/Aft7DaWrVT+RTiWTgKflLsMXc01Qz3kWiWw9bbvYNaF5yU/a7tnJ1oX+KF8W828Yt2Fo9TnROzlXEgDlOfuhScjC13m1NGdpOUNIOUQrhZ+Lz28LajCXoCJkqBSGq25AGzf8rMw+Oy98NCt1itch0rbEjbnzZaAK2Rrt/8UD6SVEW/ivk/Aaeo++8xjy+LaL7lR5dv3kgYbqDF+1v2sw/d1XGEAHgww3BeaV7bNkRYcBEa26mm22sgRo96yB5Uy9xCllECQpI9i3+8yjvox8=
-  - secure: OeN86FJYpGUfEBWcPz0joh7LEMJKGiVmAZYPZoEqrw67wM66LUs8v5SQzmXrEMcPX1/Wvl/yQsB6HKRMiclgz1X9kK5fDHnm2MAGxOsNFyhIDuKjjCRy/JAlRegmH/BGCftzjTux3WtenfxpbU0na04PIELbysuCLYEjjIbtqqZOi/KOGAnjiRU/BUluLAyespkZKShAdOIVyIsInHU65UWFzIVNpWYNLoMXuzl9AhAI13G+IQC5gSSm/aCJ2M2N0EJYwyhkbimZiPDBvD5MgolY/wapRI4teKR+bITGLeWBKUv/lPftPme/yLP3Hj5RIyXgfGcUzg31zqoLEDInY5pQ7x/8IZaaIv63EGpb4Pd04T+JkKpMgbjajI7/apkSZBsNEDC90M8vjfiizWMXNywzOpRCpeXduv02Z4iyd0Q1KcordrtwN49/0HFIm0gwE8zqLIgVgCaekmr4A03zL+YE4NOmuFlb0Kg0efu1lZ6UO4AyQnH58IWbuzuzsmzpriZbVjJGihw/F0Z1RjwPPN4+TwUEiKpYaqOKqIvJqpgJCunPj+PnnyHTtBrXyLWFEimY4ffEERVun7a72cDqtn+3GVBre0ijTHlr8WakKdUOzNvb3zoEBhRwOuc3SO1yAy7vqTLkmorlf9Bz7iWtRifdZdfvJTaZIDdum/98GKY=
-  - secure: HYA+hIzYPjJ8dxKDn6O74fopP+P434TONa73Sfhr6ZoDVWFAFx3i2sixtSPQxoU4EnKR5mkTdDYXyNOZchtBpziAzKEJo7mYJPEW07LPau2IIYhATWRhOuUQ97607vynWVP6WZlLyQcSubBE7+ZvL8l7DRO8ZktVzKouM+DHR7bW06mzNbkiPrLJU6Znu+g2qkHs5T1ea96+8HuVBXH+G8xctEfyEEOiPkLzhF9JcSyOHKB6a0Vt9FdHaBoAtWTb/+LwLdzM3LNg6Tr3sNqaYjecnaidpaisww8FCRDpimdbG9PwNGOl1TwYhEr18/ym4IFS+n7Qg4ehCeJ5O+LGbHn00lMWh8Vler3Vdj46rknyzlR19Ed6m1lyakc0Q8JQRdId3ONAEh/9XVcO1OhwDldS253d756PIOoQcAGfvkBwe5pvMXhWT2O4XR/wqkfKvzhKgJpXMS2ukAyqi1C1KLdbMtQGtc8yXXewwBo9eBJ5OjUt4MUaBunA5ZQH2o67NwgkP0ZI9M9H0/XccliqVfVTBK3dpwCMxv6vCvVRjoCw+UOgqF4vbwKrmixndWFHnn27z9mixRwg9Do46N8n6549afIaBPHbI8NZrHkTCo9xCVesbiWMzoqqCbwviwY6PUo0WU+7/8yS+tsEBo2F2c66p5L4GBfcX+irZ8omILE=
+  # Beta Release (master)
+  - provider: s3
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    upload-dir: beta
+    access_key_id:
+      secure: sAVFCumy/8p/IlvT/lWiPwuQYoXgNi+8qCN6WWFDRV1JIk0QWHyK7YoBfsckdff6R4OMG0aXK1R0oWpzbLw56YFHrlhfDO1fLNpQMBkcVFMIC+NywLeRgsKYJJ8/tjh6mgzHsGJYmee7eOzXgVlXs1WR7F8kFZVaQZm04S3KSgUcZSBDAWc6SBur1Q7kAz2k5e83SzNHMOVB2TiQlvxqzIgjRA7xgqifxklaYumkG5Cpif1aejWV7ku8mkRzxeTNnlXrVRh5v5nOFDB8dBs8Hx9oJXwNFlk8uht6/1vUCgkKU+EC4OS/CCxXrGdHLTvOw/GJ3pucIdjHUTw8w2WFQsEkIxyvk8nnqNVjwRvfWvuylGeZmML7hmScfin2+QIHbvuO0FtaYCJxprD1swdgQ/JfSxl4aF0Hxmc/Z6lnYqbb5qzR5m0z9vWToX9ldTBjzG4HuUtrP6Siu6uYMWFSsC+0sRAbfoc+BxMXw1tUaG6rzDw/B+dw/KNX+7JrCBuiLwKQzK0hhxFDbd85UlJcfj35k4NlWASIkYTQp5u1L0Ql7hkfGUqP0Om6727zRFgeffIuDkZsuD0IyFXqDXfZ8B7CaylbGtKijVTSAAZq1XOTDGApkV/Cbw0QtkXLQG+HlacMiHuZwaIdA3fOJ8JRX7C9f2hEAAUH3k+FtauG+tU=
+    secret_access_key:
+      secure: cc3RjSx24RHa4kRTBWrj1mcBeFYsj7zqMT9LwqfVrrxbxHV1gOiBro1TxWjcDExKHSR+pQ3crxUstky+qE6ayoRBf8cnH4P04wFwrv7dCmeFK9X8hcRQNbPvKf2Q9DTtx9nNSfrzwS4gpfmKcz0tyNlydElvWsXhIhEkvK8lH8FYri22/Gle7TwrA9O6JwEmZn0lL32ugyyED5Vgs0oEzpE4/7DF/3YSLWWDx7545oostj7O85vbUsT2oxwv4+2tCRcFQkNrItgQ8YNxWZjXinkfoXVDxw4EB7ClRxExbjWfnI4yflssNmF4vA6Es04yLa1YfsAC+p/XCzJDoc5Vkx25bxzQlHoqSA8KREbU1aoSMtmP0JCaAb4+6wghfVR/nioBTRN/IM+dOT1ckKrkpGDgBML9dSWsHNPL6eGZvDQdfvMgoLijdJetGCqkIlVBCV6dZJdFwpl8JJODo7t9CYH/ZWiToq2dkLaNB0ofLtkZU1H8BjFls+GmwsSuKjf21Qa6etgMNQhWkF8GbGTLhlrarNc/1LtpkuoNcVTjemBkiM3Z1BL5kwKlf3q4TQNqFpHhLIZQKZIgw0EXt1Mq65VAM8yCLBABtTc/pqv3zrM6cacV49LIWNWozWklpoMzPo24kPCJtemY4U7XbEOJTx257AYg1jP3jyc9FjDkKqU=
+    bucket: xenobot-scripts
+    on:
+      repo: oxgaming/oxscripts
+      branch: master
+
+  # Public Release (tagged)
+  - provider: s3
+    skip_cleanup: true
+    acl: public_read
+    local_dir: build
+    upload-dir: release
+    access_key_id:
+      secure: sAVFCumy/8p/IlvT/lWiPwuQYoXgNi+8qCN6WWFDRV1JIk0QWHyK7YoBfsckdff6R4OMG0aXK1R0oWpzbLw56YFHrlhfDO1fLNpQMBkcVFMIC+NywLeRgsKYJJ8/tjh6mgzHsGJYmee7eOzXgVlXs1WR7F8kFZVaQZm04S3KSgUcZSBDAWc6SBur1Q7kAz2k5e83SzNHMOVB2TiQlvxqzIgjRA7xgqifxklaYumkG5Cpif1aejWV7ku8mkRzxeTNnlXrVRh5v5nOFDB8dBs8Hx9oJXwNFlk8uht6/1vUCgkKU+EC4OS/CCxXrGdHLTvOw/GJ3pucIdjHUTw8w2WFQsEkIxyvk8nnqNVjwRvfWvuylGeZmML7hmScfin2+QIHbvuO0FtaYCJxprD1swdgQ/JfSxl4aF0Hxmc/Z6lnYqbb5qzR5m0z9vWToX9ldTBjzG4HuUtrP6Siu6uYMWFSsC+0sRAbfoc+BxMXw1tUaG6rzDw/B+dw/KNX+7JrCBuiLwKQzK0hhxFDbd85UlJcfj35k4NlWASIkYTQp5u1L0Ql7hkfGUqP0Om6727zRFgeffIuDkZsuD0IyFXqDXfZ8B7CaylbGtKijVTSAAZq1XOTDGApkV/Cbw0QtkXLQG+HlacMiHuZwaIdA3fOJ8JRX7C9f2hEAAUH3k+FtauG+tU=
+    secret_access_key:
+      secure: cc3RjSx24RHa4kRTBWrj1mcBeFYsj7zqMT9LwqfVrrxbxHV1gOiBro1TxWjcDExKHSR+pQ3crxUstky+qE6ayoRBf8cnH4P04wFwrv7dCmeFK9X8hcRQNbPvKf2Q9DTtx9nNSfrzwS4gpfmKcz0tyNlydElvWsXhIhEkvK8lH8FYri22/Gle7TwrA9O6JwEmZn0lL32ugyyED5Vgs0oEzpE4/7DF/3YSLWWDx7545oostj7O85vbUsT2oxwv4+2tCRcFQkNrItgQ8YNxWZjXinkfoXVDxw4EB7ClRxExbjWfnI4yflssNmF4vA6Es04yLa1YfsAC+p/XCzJDoc5Vkx25bxzQlHoqSA8KREbU1aoSMtmP0JCaAb4+6wghfVR/nioBTRN/IM+dOT1ckKrkpGDgBML9dSWsHNPL6eGZvDQdfvMgoLijdJetGCqkIlVBCV6dZJdFwpl8JJODo7t9CYH/ZWiToq2dkLaNB0ofLtkZU1H8BjFls+GmwsSuKjf21Qa6etgMNQhWkF8GbGTLhlrarNc/1LtpkuoNcVTjemBkiM3Z1BL5kwKlf3q4TQNqFpHhLIZQKZIgw0EXt1Mq65VAM8yCLBABtTc/pqv3zrM6cacV49LIWNWozWklpoMzPo24kPCJtemY4U7XbEOJTx257AYg1jP3jyc9FjDkKqU=
+    bucket: xenobot-scripts
+    on:
+      repo: oxgaming/oxscripts
+      tags: true
