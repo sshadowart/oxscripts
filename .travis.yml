@@ -9,8 +9,8 @@ cache:
 # Install misc dependencies
 before_install:
   - wget -O - http://www.lua.org/ftp/lua-5.1.5.tar.gz | tar xz
-  - cd lua-5.1.5 && make linux test
-  - export PATH=$PATH:~/bin
+  - cd lua-5.1.5 && make linux test && ls
+  - export PATH=$PATH:$PWD/bin
   - cd ..
 
 # Install node dependencies
@@ -36,8 +36,7 @@ deploy:
     acl: public_read
     local_dir: build
     upload-dir: beta
-    access_key_id:
-      secure: sAVFCumy/8p/IlvT/lWiPwuQYoXgNi+8qCN6WWFDRV1JIk0QWHyK7YoBfsckdff6R4OMG0aXK1R0oWpzbLw56YFHrlhfDO1fLNpQMBkcVFMIC+NywLeRgsKYJJ8/tjh6mgzHsGJYmee7eOzXgVlXs1WR7F8kFZVaQZm04S3KSgUcZSBDAWc6SBur1Q7kAz2k5e83SzNHMOVB2TiQlvxqzIgjRA7xgqifxklaYumkG5Cpif1aejWV7ku8mkRzxeTNnlXrVRh5v5nOFDB8dBs8Hx9oJXwNFlk8uht6/1vUCgkKU+EC4OS/CCxXrGdHLTvOw/GJ3pucIdjHUTw8w2WFQsEkIxyvk8nnqNVjwRvfWvuylGeZmML7hmScfin2+QIHbvuO0FtaYCJxprD1swdgQ/JfSxl4aF0Hxmc/Z6lnYqbb5qzR5m0z9vWToX9ldTBjzG4HuUtrP6Siu6uYMWFSsC+0sRAbfoc+BxMXw1tUaG6rzDw/B+dw/KNX+7JrCBuiLwKQzK0hhxFDbd85UlJcfj35k4NlWASIkYTQp5u1L0Ql7hkfGUqP0Om6727zRFgeffIuDkZsuD0IyFXqDXfZ8B7CaylbGtKijVTSAAZq1XOTDGApkV/Cbw0QtkXLQG+HlacMiHuZwaIdA3fOJ8JRX7C9f2hEAAUH3k+FtauG+tU=
+    access_key_id: AKIAJK2XZRNKEV5YZ47Q
     secret_access_key:
       secure: cc3RjSx24RHa4kRTBWrj1mcBeFYsj7zqMT9LwqfVrrxbxHV1gOiBro1TxWjcDExKHSR+pQ3crxUstky+qE6ayoRBf8cnH4P04wFwrv7dCmeFK9X8hcRQNbPvKf2Q9DTtx9nNSfrzwS4gpfmKcz0tyNlydElvWsXhIhEkvK8lH8FYri22/Gle7TwrA9O6JwEmZn0lL32ugyyED5Vgs0oEzpE4/7DF/3YSLWWDx7545oostj7O85vbUsT2oxwv4+2tCRcFQkNrItgQ8YNxWZjXinkfoXVDxw4EB7ClRxExbjWfnI4yflssNmF4vA6Es04yLa1YfsAC+p/XCzJDoc5Vkx25bxzQlHoqSA8KREbU1aoSMtmP0JCaAb4+6wghfVR/nioBTRN/IM+dOT1ckKrkpGDgBML9dSWsHNPL6eGZvDQdfvMgoLijdJetGCqkIlVBCV6dZJdFwpl8JJODo7t9CYH/ZWiToq2dkLaNB0ofLtkZU1H8BjFls+GmwsSuKjf21Qa6etgMNQhWkF8GbGTLhlrarNc/1LtpkuoNcVTjemBkiM3Z1BL5kwKlf3q4TQNqFpHhLIZQKZIgw0EXt1Mq65VAM8yCLBABtTc/pqv3zrM6cacV49LIWNWozWklpoMzPo24kPCJtemY4U7XbEOJTx257AYg1jP3jyc9FjDkKqU=
     bucket: xenobot-scripts
@@ -51,8 +50,7 @@ deploy:
     acl: public_read
     local_dir: build
     upload-dir: release
-    access_key_id:
-      secure: sAVFCumy/8p/IlvT/lWiPwuQYoXgNi+8qCN6WWFDRV1JIk0QWHyK7YoBfsckdff6R4OMG0aXK1R0oWpzbLw56YFHrlhfDO1fLNpQMBkcVFMIC+NywLeRgsKYJJ8/tjh6mgzHsGJYmee7eOzXgVlXs1WR7F8kFZVaQZm04S3KSgUcZSBDAWc6SBur1Q7kAz2k5e83SzNHMOVB2TiQlvxqzIgjRA7xgqifxklaYumkG5Cpif1aejWV7ku8mkRzxeTNnlXrVRh5v5nOFDB8dBs8Hx9oJXwNFlk8uht6/1vUCgkKU+EC4OS/CCxXrGdHLTvOw/GJ3pucIdjHUTw8w2WFQsEkIxyvk8nnqNVjwRvfWvuylGeZmML7hmScfin2+QIHbvuO0FtaYCJxprD1swdgQ/JfSxl4aF0Hxmc/Z6lnYqbb5qzR5m0z9vWToX9ldTBjzG4HuUtrP6Siu6uYMWFSsC+0sRAbfoc+BxMXw1tUaG6rzDw/B+dw/KNX+7JrCBuiLwKQzK0hhxFDbd85UlJcfj35k4NlWASIkYTQp5u1L0Ql7hkfGUqP0Om6727zRFgeffIuDkZsuD0IyFXqDXfZ8B7CaylbGtKijVTSAAZq1XOTDGApkV/Cbw0QtkXLQG+HlacMiHuZwaIdA3fOJ8JRX7C9f2hEAAUH3k+FtauG+tU=
+    access_key_id: AKIAJK2XZRNKEV5YZ47Q
     secret_access_key:
       secure: cc3RjSx24RHa4kRTBWrj1mcBeFYsj7zqMT9LwqfVrrxbxHV1gOiBro1TxWjcDExKHSR+pQ3crxUstky+qE6ayoRBf8cnH4P04wFwrv7dCmeFK9X8hcRQNbPvKf2Q9DTtx9nNSfrzwS4gpfmKcz0tyNlydElvWsXhIhEkvK8lH8FYri22/Gle7TwrA9O6JwEmZn0lL32ugyyED5Vgs0oEzpE4/7DF/3YSLWWDx7545oostj7O85vbUsT2oxwv4+2tCRcFQkNrItgQ8YNxWZjXinkfoXVDxw4EB7ClRxExbjWfnI4yflssNmF4vA6Es04yLa1YfsAC+p/XCzJDoc5Vkx25bxzQlHoqSA8KREbU1aoSMtmP0JCaAb4+6wghfVR/nioBTRN/IM+dOT1ckKrkpGDgBML9dSWsHNPL6eGZvDQdfvMgoLijdJetGCqkIlVBCV6dZJdFwpl8JJODo7t9CYH/ZWiToq2dkLaNB0ofLtkZU1H8BjFls+GmwsSuKjf21Qa6etgMNQhWkF8GbGTLhlrarNc/1LtpkuoNcVTjemBkiM3Z1BL5kwKlf3q4TQNqFpHhLIZQKZIgw0EXt1Mq65VAM8yCLBABtTc/pqv3zrM6cacV49LIWNWozWklpoMzPo24kPCJtemY4U7XbEOJTx257AYg1jP3jyc9FjDkKqU=
     bucket: xenobot-scripts
