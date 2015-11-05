@@ -34,7 +34,6 @@ deploy:
   - provider: s3
     skip_cleanup: true
     acl: public_read
-    detect_encoding: true
     local_dir: build
     upload-dir: beta
     access_key_id: AKIAJE4AGGGGZSLBOZZQ
@@ -49,7 +48,6 @@ deploy:
   - provider: s3
     skip_cleanup: true
     acl: public_read
-    detect_encoding: true
     local_dir: build
     upload-dir: release
     access_key_id: AKIAJE4AGGGGZSLBOZZQ

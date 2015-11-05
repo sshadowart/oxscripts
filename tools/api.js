@@ -12,8 +12,7 @@ export default task('api', async () => {
     if (err) throw err;
     const output = scripts.map(script => {
     	const contents = JSON.parse(script);
-    	const name = encodeURIComponent(contents.name).split('%20').join('+');
-    	contents.slug = `[${contents.vocshort}]+${name}.xbst`;
+    	contents.slug = encodeURIComponent(`[${contents.vocshort}] ${contents.name}.xbst`).split('%20').join('+');
     	return contents;
     });
     fs.writeJson('./build/list.json', output, function (err) {
