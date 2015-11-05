@@ -68,7 +68,7 @@ function buildFile(spawnName, luaOutputData, outputPath, buildCallback) {
 
       // Determine vocation from spawnName
       let vocationName = 'unknown';
-      for (var i = 0; i < vocationTags.length; i++) {
+      for (let i = 0; i < vocationTags.length; i++) {
         let tag = vocationTags[i];
         if (spawnName.indexOf(tag) !== -1) {
           vocationName = vocationsMap[tag];
@@ -76,9 +76,19 @@ function buildFile(spawnName, luaOutputData, outputPath, buildCallback) {
         }
       }
 
+      // Build script version
+      let version;
+      if (process.env.TRAVIS_TAG)
+        version = process.env.TRAVIS_TAG;
+      else if(process.env.TRAVIS_BRANCH)
+        version = `${process.env.TRAVIS_BRANCH}#${process.env.TRAVIS_BUILD_NUMBER}`;
+      else
+        version = 'local';
+
       // Replace tokens
       let data = luaOutputData.toString('utf8');
-      data = data.replace('{{VERSION}}', 'local');
+
+      data = data.replace('{{VERSION}}', version);
       data = data.replace('{{SCRIPT_TOWN}}', townName);
       data = data.replace('{{SCRIPT_NAME}}', spawnName);
       data = data.replace('{{SCRIPT_VOCATION}}', vocationName);
@@ -101,7 +111,7 @@ function buildFile(spawnName, luaOutputData, outputPath, buildCallback) {
         </panel>`;
 
       // Get all the town waypoints
-      var townPaths = glob.sync('./waypoints/towns/*.json'),
+      let townPaths = glob.sync('./waypoints/towns/*.json'),
         townWaypoints = [];
 
       readm(townPaths, (err, towns) => {

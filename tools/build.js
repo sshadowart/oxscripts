@@ -6,6 +6,7 @@ import task from './lib/task';
  */
 export default task('build', async () => {
   await require('./clean')();
+  await require('./api')();
   await require('./bundle')();
 });
 

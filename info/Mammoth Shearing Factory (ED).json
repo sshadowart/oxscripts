@@ -3,6 +3,7 @@
     "town": "TOWN",
     "vocation": "VOCATION",
     "vocshort": "VOC",
-    "level": 000,
-    "type": "powergamer" // "moneymaker", "hardcore"
+    "level": 0
+,
+    "type": "powergamer"
 }
