@@ -268,8 +268,8 @@ Settings = (function()
 			for i = 1, #shooterList do
 				local item = shooterList[i]
 				xbst = xbst .. string.format(
-					'<item spell="%s" rune="%d" srange="%s" type="%s" reason="0" minhp="%d" maxhp="%d" mana="%d" count="%d" creature="%s" danger="1" enabled="1"/>',
-					item.spell, item.rune, item.srange, item.type, item.minhp, item.maxhp, item.mana, item.count, item.creature
+					'<item spell="%s" rune="%d" srange="%s" type="%s" reason="0" minhp="%d" maxhp="%d" mana="%d" count="%d" creature="%s" danger="1" targ="1" enabled="1"/>',
+					item.spell, item.rune, item.srange, item.type, item.minhp or 0, item.maxhp or 0, item.mana or 0, item.count or 0, item.creature
 				)
 			end
 			xbst = xbst .. '</control></panel>'
