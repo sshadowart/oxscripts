@@ -919,7 +919,7 @@ local TRAVEL_ROUTES = {
 		}
 	},
 	['thais~darashia'] = {
-		cost = 240,
+		cost = 340,
 		transcript = {
 			['Captain Bluebear'] = {'hi', 'port hope', 'yes'},
 			['Charles'] = {'hi', 'darashia', 'yes'}
