@@ -221,7 +221,7 @@ Walker = (function()
 		local selfPos = xeno.getSelfPosition()
 
 		-- Loop through battle list
-		for i = 1, 1300 do
+		for i = 0, 1300 do
 			local creaturePos = xeno.getCreaturePosition(i)
 			local distance = getDistanceBetween(selfPos, creaturePos)
 			-- NPC we are looking for
