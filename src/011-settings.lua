@@ -4,6 +4,8 @@ Settings = (function()
 	local titlecase = Core.titlecase
 	local formatList = Core.formatList
 	local getSelfName = Core.getSelfName
+	local split = Core.split
+	local trim = Core.trim
 	local warn = Console.warn
 	local error = Console.error
 	local prompt = Console.prompt
@@ -307,8 +309,8 @@ Settings = (function()
 			end
 
 			-- Looter
-			local lootStyle = _config['Loot']['Loot-Style'] == 'first' and '1' or '2'
-			local lootXML = '<panel name="Looter"><control name="LootList" first="'..lootStyle..'" skinner="2" unlisted="1">'
+			local lootStyle = _config['Loot']['Loot-Style'] == 'first' and '0' or '1'
+			local lootXML = '<panel name="Looter"><control name="LootList" mode="' .. lootStyle .. '" skinner="2" unlisted="1">'
 			
 			-- Demonic Blood use/loot
 			lootXML = lootXML .. '<item ID="6558" action="20"/><item ID="237" action="1"/><item ID="236" action="1"/>'
@@ -328,10 +330,14 @@ Settings = (function()
 				if targets then
 					local lootList = {}
 					for i = 1, #targets do
-						local monsterLoot = MONSTER_LOOT[targets[i].type]
-						if monsterLoot then
-							for j = 1, #monsterLoot do
-								lootList[monsterLoot[j]] = true
+						local creatures = split(targets[i].type, ',')
+						for k = 1, #creatures do
+							local creature = trim(creatures[k])
+							local monsterLoot = MONSTER_LOOT[creature]
+							if monsterLoot then
+								for j = 1, #monsterLoot do
+									lootList[monsterLoot[j]] = true
+								end
 							end
 						end
 					end
