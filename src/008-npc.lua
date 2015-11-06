@@ -66,7 +66,7 @@ Npc = (function()
 		local function interact()
 			-- TODO: use npc proxy to verify withdraw
 			setTimeout(function()
-				if getMoney() > prevMoney and prevMoney <= amount then
+				if getMoney() > prevMoney then
 					callback()
 				else
 					tries = tries - 1
