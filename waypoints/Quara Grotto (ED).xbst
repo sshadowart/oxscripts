@@ -45,8 +45,8 @@
 	<control name="ParaCureEnable" value="1"/>
 	<control name="ParaCureMana" value="20"/>
 	<control name="ParaCureSpell" value="exura"/>
-	<control name="HasteCastMana" value="60"/>
-	<control name="HasteCastSpell" value="Utani Hur"/>
+	<control name="HasteCastMana" value="100"/>
+	<control name="HasteCastSpell" value="Utani Gran Hur"/>
 	<control name="HasteCastEnable" value="1"/>
 	<control name="InvisibleCastMana" value="50"/>
 	<control name="InvisibleCastEnable" value="0"/>
