@@ -91,12 +91,12 @@
 		<item text="enterspawn:" tag="255"/>
 		<item text="Node (32207, 32883, 7)" tag="0"/>
 		<item text="Stand (32206, 32883, 7)" tag="1"/>
-		<item text="EIgnore" tag="11"/>
 		<item text="huntstart|1:" tag="255"/>
 		<item text="huntcheck|Rush-Second-Floor|No-Rush-Second-Floor:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="Walker.Goto('rush1')" tag="254"/>
 		<item text="No-Rush-Second-Floor:" tag="255"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32199, 32884, 8)" tag="0"/>
 		<item text="Node (32203, 32885, 8)" tag="0"/>
 		<item text="Node (32206, 32887, 8)" tag="0"/>
@@ -104,8 +104,10 @@
 		<item text="Node (32211, 32888, 8)" tag="0"/>
 		<item text="Node (32215, 32886, 8)" tag="0"/>
 		<item text="huntcheck|Rush-Second-Floor|No-Rush-Second-Floor:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Walker.Goto('rush2')" tag="254"/>
 		<item text="No-Rush-Second-Floor:" tag="255"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32217, 32881, 8)" tag="0"/>
 		<item text="Node (32217, 32876, 8)" tag="0"/>
 		<item text="Node (32213, 32873, 8)" tag="0"/>
@@ -127,8 +129,10 @@
 		<item text="Node (32261, 32875, 8)" tag="0"/>
 		<item text="Node (32266, 32877, 8)" tag="0"/>
 		<item text="huntcheck|Rush-Second-Floor|No-Rush-Second-Floor:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Walker.Goto('rush3')" tag="254"/>
 		<item text="No-Rush-Second-Floor:" tag="255"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32272, 32877, 8)" tag="0"/>
 		<item text="Node (32278, 32875, 8)" tag="0"/>
 		<item text="rush3:" tag="255"/>
