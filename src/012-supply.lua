@@ -682,7 +682,7 @@ Supply = (function()
 			walkerStartPath(_script.town, _script.townexit, 'spawn', function()
 				-- Enter spawn
 				xeno.gotoLabel('enterspawn')
-				xeno.setWalkerEnabled(true)
+				xeno.delayWalker(0)
 				xeno.setTargetingEnabled(true)
 				xeno.setLooterEnabled(true)
 				-- Reached spawn

@@ -90,6 +90,10 @@ Depot = (function()
 				[283] = true,
 				[284] = true,
 				[285] = true,
+				-- Money
+				[3031] = true,
+				[3035] = true,
+				[3043] = true,
 				-- Tools
 				[ITEMID.OBSIDIAN_KNIFE] = true,
 				[ITEMID.BLESSED_STAKE] = true,
@@ -110,8 +114,9 @@ Depot = (function()
 				end
 			end
 			if totalCount > 0 then
-				local moveList = formatList(flattenItemCounts(moveCounts))
-				log('Deposited ' .. moveList .. '.')
+				local moveList = formatList(flattenItemCounts(moveCounts), ', ', '')
+				local lootType = slot == DEPOT.SLOT_STACK and 'stackables' or 'items'
+				log('Deposited ' .. lootType .. ': ' .. moveList .. '.')
 			end
 			-- Warn player not all their loot was moved
 			if not success then
@@ -182,9 +187,9 @@ Depot = (function()
 				end
 				if totalCount == 0 then
 					_script.disableWithdraw = true
-					log('No supplies found in depot, disabling withdraw attempts.')
+					log('No supplies found in depot (3rd slot). Disabling future withdrawal attempts.')
 				else
-					local moveList = formatList(flattenItemCounts(moveCounts))
+					local moveList = formatList(flattenItemCounts(moveCounts), ', ', '')
 					log('Withdrew ' .. moveList .. '.')
 				end
 				-- Warn player not all their loot was moved

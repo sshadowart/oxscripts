@@ -67,7 +67,7 @@ Walker = (function()
 
 		local function walkTo(label, walkCallback)
 			xeno.gotoLabel(label)
-			xeno.setWalkerEnabled(true)
+			xeno.delayWalker(0)
 			when(EVENT_PATH_END, nil, function()
 				walkCallback()
 			end)
@@ -406,7 +406,7 @@ Walker = (function()
 		xeno.gotoLabel('depot|' .. _script.town .. '|1')
 		-- Tell if-stuck monitor to try next depot if we get stuck
 		_script.findingDepot = 1
-		xeno.setWalkerEnabled(true)
+		xeno.delayWalker(0)
 		when(EVENT_DEPOT_END, nil, function()
 			-- Do not try anymore depots if-stuck
 			_script.findingDepot = nil

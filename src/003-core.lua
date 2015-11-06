@@ -30,7 +30,7 @@ Core = (function()
 		-- flatten to array with count and itemid combined
 		local list = {}
 		for itemid, count in pairs(items) do
-			list[#list+1] = ('x%d %s'):format(xeno.getItemNameByID(itemid), count)
+			list[#list+1] = xeno.getItemNameByID(itemid) .. (count > 1 and ' (x' .. count .. ')' or '')
 		end
 		return list
 	end
@@ -40,7 +40,7 @@ Core = (function()
 		local message = nil
 		if #items > 1 then
 			if delim then
-				message = string.rep(prefix .. '%s' .. delim, #items)
+				message = string.rep(prefix .. '%s' .. delim, #items-1) .. prefix .. '%s'
 			else
 				message = string.rep('%s, ', #items-1) .. 'and %s'
 			end

@@ -44,7 +44,6 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
           local message, topic, data = sub:Recv()
           if message then
             print('Reloading library...')
-            print("${outputName}")
             loadSettings("${outputName.replace('.xbst', '')}", "Scripter")
             pub:PublishMessage("live-reload", Self.Name());
           end
@@ -110,7 +109,6 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
       let combinedWaypoints;
       
       // Write to XBST
-      console.log(timestamp);
       let scripterPanelXML = `
         <panel name="Scripter">
           <control name="RunningScriptList">
