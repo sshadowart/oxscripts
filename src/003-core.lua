@@ -433,7 +433,7 @@ Core = (function()
 			and xeno.selfSay(words)
 	end
 
-	local function cureCondition(callback)
+	local function cureConditions(callback)
 		local conditions = {
 			poisoned = {
 				spell = 'exana pox',
@@ -474,7 +474,7 @@ Core = (function()
 		-- Attempted to heal, recurse to heal more conditions
 		if casted then
 			setTimeout(function()
-				cureCondition(callback)
+				cureConditions(callback)
 			end, 1500)
 		elseif callback then
 			callback()
@@ -613,7 +613,7 @@ Core = (function()
 		talk = talk,
 		clearWalkerPath = clearWalkerPath,
 		cast = cast,
-		cureCondition = cureCondition,
+		cureConditions = cureConditions,
 		isCorpseOpen = isCorpseOpen,
 		getWalkableTiles = getWalkableTiles,
 		getDirectionTo = getDirectionTo,
