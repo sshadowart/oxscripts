@@ -20,8 +20,8 @@ local _script = {
 	channel = nil,
 	historyChannel = nil,
 	disableWithdraw = false,
+	blockCritMode = false,
 	firstResupply = true,
-
 	rope = nil,
 	shovel = nil,
 	pick = nil,

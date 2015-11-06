@@ -16,6 +16,7 @@ do
 	local getDistanceBetween = Core.getDistanceBetween
 	local getSelfName = Core.getSelfName
 	local cast = Core.cast
+	local cureConditions = Core.cureConditions
 	local checkSoftBoots = Core.checkSoftBoots
 	local log = Console.log
 	local warn = Console.warn
@@ -181,31 +182,9 @@ do
 			walkerStartPath(_script.town, 'spawn', _script.townentrance or _script.townexit, function()
 
 				-- Cure Conditions
-				local conditions = {
-					poisoned = {spell = 'exana pox', voc = {druid = true, sorcerer = true, paladin = true, knight = true}},
-					burning = {spell = 'exana flam', voc = {druid = true}},
-					cursed = {spell = 'exana mort', voc = {paladin = true}},
-					bleeding = {spell = 'exana kor', voc = {druid = true, knight = true}},
-					electrified = {spell = 'exana vis', voc = {druid = true}},
-				}
-
-				local function cureCondition(callback)
-					if _config['General']['Cure-Conditions'] then
-						for condition, data in pairs(conditions) do
-							if xeno.getSelfFlag(condition) and not data.cured then
-								data.cured = true
-								-- Cure the condition
-								if data.voc[_script.vocation:lower()] then
-									cast(data.spell)									
-								end
-								break
-							end
-						end
-					end
-					callback()
+				if _config['General']['Cure-Conditions'] then
+					cureConditions()
 				end
-
-				cureCondition()
 
 				-- Trainers
 				if _script.trainingQueued then
@@ -393,6 +372,10 @@ do
 	}
 
 	local function toggleCriticalMode(state)
+		if _script.blockCritMode then
+			return
+		end
+
 		-- We want to turn crit mode on
 		if state then
 			-- Crit mode is not already on

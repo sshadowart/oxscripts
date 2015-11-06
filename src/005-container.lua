@@ -886,6 +886,7 @@ Container = (function()
 		cleanContainers = cleanContainers,
 		getTotalItemCount = getTotalItemCount,
 		getMoney = getMoney,
-		getFlasks = getFlasks
+		getFlasks = getFlasks,
+		getFlaskWeight = getFlaskWeight
 	}
 end)()

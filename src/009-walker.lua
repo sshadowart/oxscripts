@@ -206,6 +206,14 @@ Walker = (function()
 		return needsTools and tools or false
 	end
 
+	local function walkToPos(x, y, z)
+		_script.blockCritMode = true
+		_script.unsafeQueue = 0
+		xeno.exitCriticalMode()
+		xeno.doSelfWalkTo(x, y, z)
+		_script.blockCritMode = false
+	end
+
 	local function walkerReachNPC(name, callback, tries)
 		tries = tries ~= nil and tries or 5
 		local targetIndex = nil
@@ -238,7 +246,7 @@ Walker = (function()
 		end
 
 		-- Walk to NPC
-		local tiles = getWalkableTiles(targetPos, 1)
+		local tiles = getWalkableTiles(targetPos, 2)
 
 		-- Failed to find walkable tile
 		if not tiles then
@@ -249,11 +257,9 @@ Walker = (function()
 		-- Find closest tile
 		positions = sortPositionsByDistance(selfPos, tiles, 10)
 
-		-- Use the closest tile
+		-- Walk to the closest tile
 		local destination = positions[1]
-
-		--xeno.doSelfWalkTo(destination.x, destination.y, destination.z)
-		xeno.selfUseItemFromGround(destination.x, destination.y, destination.z)
+		walkToPos(destination.x, destination.y, destination.z)
 
 		-- Wait and see if we reached the NPC
 		setTimeout(function()

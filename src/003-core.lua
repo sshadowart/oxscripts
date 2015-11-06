@@ -433,6 +433,54 @@ Core = (function()
 			and xeno.selfSay(words)
 	end
 
+	local function cureCondition(callback)
+		local conditions = {
+			poisoned = {
+				spell = 'exana pox',
+				voc = {druid=true, sorcerer=true, paladin=true, knight=true}
+			},
+			burning = {
+				spell = 'exana flam',
+				voc = {druid=true}
+			},
+			cursed = {
+				spell = 'exana mort',
+				voc = {paladin=true}
+			},
+			bleeding = {
+				spell = 'exana kor',
+				voc = {druid=true, knight=true}
+			},
+			electrified = {
+				spell = 'exana vis',
+				voc = {druid=true}
+			}
+		}
+
+		local casted = false
+		for condition, data in pairs(conditions) do
+			if xeno.getSelfFlag(condition) and not data.cured then
+				-- Only attempt once per condition
+				data.cured = true
+				-- Cure the condition
+				if data.voc[_script.vocation:lower()] then
+					casted = true
+					cast(data.spell)
+					break									
+				end
+			end
+		end
+
+		-- Attempted to heal, recurse to heal more conditions
+		if casted then
+			setTimeout(function()
+				cureCondition(callback)
+			end, 1500)
+		elseif callback then
+			callback()
+		end
+	end
+
 	local function isCorpseOpen()
 		local index = -1
 		while (index < 16) do
@@ -565,6 +613,7 @@ Core = (function()
 		talk = talk,
 		clearWalkerPath = clearWalkerPath,
 		cast = cast,
+		cureCondition = cureCondition,
 		isCorpseOpen = isCorpseOpen,
 		getWalkableTiles = getWalkableTiles,
 		getDirectionTo = getDirectionTo,
