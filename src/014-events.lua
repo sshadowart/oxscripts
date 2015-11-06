@@ -417,8 +417,11 @@ do
 		if _script.stuck and not _walkerStuckScreenshotInterval then
 			_walkerStuckScreenshotInterval = setTimeout(function()
 				xeno.setDiagnosticsEnabled(1)
-				xeno.screenshot('stuck-' .. os.time())
-				xeno.setDiagnosticsEnabled(0)
+				local pos = xeno.getSelfPosition()
+				setTimeout(function()
+					xeno.screenshot(('stuck-%d-%d-%d'):format(pos.x, pos.y, pos.z))
+					xeno.setDiagnosticsEnabled(0)
+				end, 1000)
 				_walkerStuckScreenshotInterval = nil
 			end, 10 * 1000)
 
