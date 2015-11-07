@@ -18,6 +18,8 @@ local math = math
 local table = table
 
 local xeno = {}
+xeno.luaShowConfigEditor = luaShowConfigEditor
+xeno.getVersionNumber = getVersionNumber
 xeno.ping = Self.Ping
 xeno.delayWalker = delayWalker
 xeno.gotoLabel = function(name, relative) gotoLabel(name, relative and 1 or 0) end

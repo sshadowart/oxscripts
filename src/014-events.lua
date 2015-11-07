@@ -826,12 +826,16 @@ do
 				log([[Available commands:
 	                /resupply  =  Forces the script to return to town after the current round.
 	                /logout  =  Forces the script to return to town and logout after the current round.
+	                /config = Opens the config file for this script.
 	                /resethud  =  Reset the session start time.
-	                /history  =  Opens a channel to monitor received private messages.]])
+	                /history  =  Opens a channel to monitor received private messages.
+	                /debug = Opens a debug channel with more verbose logging.]])
 			-- Clear memory
 			elseif command == 'freemem' then
 				local bytes = freeMemory()
 				log('Released ' .. bytes .. ' bytes of allocated RAM.')
+			-- Open config
+			elseif command == ''
 			-- Open debug channel
 			elseif command == 'debug' then
 				openDebugChannel()
@@ -851,6 +855,9 @@ do
 			elseif command == 'resethud' then
 				_script.start = os.time()
 				log('Reset script start time.')
+			elseif command == 'config' then
+				local configName = '[' .. getSelfName() .. '] ' .. _script.name
+				xeno.luaShowConfigEditor(configName)
 			-- Force logout
 			elseif command == 'logout' then
 				_script.forceLogoutQueued = true

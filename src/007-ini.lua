@@ -80,8 +80,8 @@ Ini = (function()
 	end
 
 	local function loadConfigFile(callback, isReload)
-		local configPath = FOLDER_CONFIG_PATH .. '[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
-		local configAltPath = FOLDER_CONFIG_PATH .. 'Config\\[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
+		local configName = '[' .. getSelfName() .. '] ' .. _script.name
+		local configPath = FOLDER_CONFIG_PATH .. configName .. '.ini'
 		local function parseConfig(file)
 			-- Could not load config
 			if not file then
@@ -158,11 +158,6 @@ Ini = (function()
 		-- Open config file
 		local file = io.open(configPath, 'r')
 
-		-- Could not find default config, look in alt path
-		if not file then
-			file = io.open(configAltPath, 'r')
-		end
-
 		-- Found config, compare config version against embedded config
 		if file then
 			local match = false
@@ -186,11 +181,19 @@ Ini = (function()
 			if defaultConfig then
 				defaultConfig:write(LIB_CONFIG)
 				defaultConfig:close()
-				local message = 'A new config file was generated, please reconfigure before proceeding. Enter any text to continue.'
-				prompt(message, function(response)
-					local newFile = io.open(configPath, 'r')
-					parseConfig(newFile)
-				end)
+				-- TODO: open config here
+				xeno.luaShowConfigEditor(configName)
+				local message = 'A new config file was generated, please reconfigure before proceeding. Type "ok" to continue.'
+				local onMessage = function(response)
+					if string.find(string.lower(response), 'ok') then
+						local newFile = io.open(configPath, 'r')
+						parseConfig(newFile)
+					else
+						prompt(message, onMessage)
+					end
+				end
+				prompt(message, onMessage)
+				print(message)
 			else
 				error('Could not write default config file.')
 			end

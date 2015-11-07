@@ -1,7 +1,7 @@
 local LIB_REVISION = '{{VERSION}}'
 local LIB_CONFIG = [[{{CONFIG}}]]
 local FOLDER_SETTINGS_PATH = '..\\Settings\\'
-local FOLDER_CONFIG_PATH = '..\\'
+local FOLDER_CONFIG_PATH = '..\\Config\\'
 
 local NORTH = NORTH
 local EAST = EAST
@@ -2527,4 +2527,17 @@ local DEPOT = {
 	SLOT_NONSTACK = 0,
 	SLOT_STACK = 1,
 	SLOT_SUPPLY = 2
+}
+
+-- XenoBot user accounts automatically open the debug channel
+local DEBUG_ACCOUNTS = {
+	'syntax',
+	'joshwa534',
+	'darkstar',
+	'spectrus',
+	'fatality',
+	'rydan',
+	'shadowart',
+	'aini',
+	'draadloos'
 }
