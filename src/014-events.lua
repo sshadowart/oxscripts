@@ -835,7 +835,7 @@ do
 				local bytes = freeMemory()
 				log('Released ' .. bytes .. ' bytes of allocated RAM.')
 			-- Open config
-			elseif command == ''
+			elseif command == '' then
 			-- Open debug channel
 			elseif command == 'debug' then
 				openDebugChannel()
