@@ -4,11 +4,12 @@
 </panel>
 <panel name="Self Healer">
 	<control name="SpellList">
+		<item spell="Exura Vita" mana="160" vcomp="0" vsign="1" vrandom="0" vvalue="45" enabled="1"/>
 		<item spell="Exura Gran" mana="70" vcomp="0" vsign="1" vrandom="0" vvalue="70" enabled="1"/>
 		<item spell="Exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="90" enabled="1"/>
 	</control>
 	<control name="ItemList">
-		<item id="237" vcomp="0" vsign="3" vrandom="0" vvalue="50" enabled="1"/>
+		<item id="238" vcomp="0" vsign="3" vrandom="0" vvalue="50" enabled="1"/>
 	</control>
 </panel>
 <panel name="Tools">
@@ -41,12 +42,12 @@
 	<control name="EnergyCureLimit" value="15"/>
 	<control name="EnergyCureMana" value="30"/>
 	<control name="EnergyCureEnable" value="0"/>
-	<control name="ParaCureEnable" value="0"/>
+	<control name="ParaCureEnable" value="1"/>
 	<control name="ParaCureMana" value="20"/>
 	<control name="ParaCureSpell" value="exura"/>
 	<control name="HasteCastMana" value="100"/>
 	<control name="HasteCastSpell" value="Utani Gran Hur"/>
-	<control name="HasteCastEnable" value="0"/>
+	<control name="HasteCastEnable" value="1"/>
 	<control name="InvisibleCastMana" value="50"/>
 	<control name="InvisibleCastEnable" value="0"/>
 	<control name="ShieldCastMana" value="50"/>
@@ -58,8 +59,10 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Quara Predator Scout, Quara Pincher Scout, Quara Hydromancer Scout, Quara Constrictor Scout, Quara Mantassin Scout" chs="6" max="100" min="0" prio="2" prox="3" count="1"/>
-		<item type="Quara Predator Scout, Quara Pincher Scout, Quara Hydromancer Scout, Quara Constrictor Scout, Quara Mantassin Scout" chs="6" max="100" min="0" prio="1" prox="7" count="1"/>
+		<item type="Quara Predator, Quara Pincher, Quara Hydromancer, Quara Mantassin, Quara Constrictor" chs="6" max="100" min="0" prio="9" prox="3" count="1" elastic="1"/>
+		<item type="Quara Predator, Quara Pincher, Quara Hydromancer, Quara Mantassin, Quara Constrictor" chs="6" max="100" min="0" prio="8" prox="7" count="1" elastic="1"/>
+		<item type="Quara Predator Scout, Quara Pincher Scout, Quara Hydromancer Scout, Quara Constrictor Scout, Quara Mantassin Scout" chs="6" max="100" min="0" prio="5" prox="3" count="1" elastic="1"/>
+		<item type="Quara Predator Scout, Quara Pincher Scout, Quara Hydromancer Scout, Quara Constrictor Scout, Quara Mantassin Scout" chs="6" max="100" min="0" prio="5" prox="7" count="1" elastic="1"/>
 		<item type="Crab" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
@@ -88,22 +91,8 @@
 		<item text="enterspawn:" tag="255"/>
 		<item text="Node (32207, 32883, 7)" tag="0"/>
 		<item text="Stand (32206, 32883, 7)" tag="1"/>
-		<item text="EIgnore" tag="11"/>
-		<item text="huntstart|1:" tag="255"/>
-		<item text="Node (32199, 32884, 8)" tag="0"/>
-		<item text="Node (32203, 32885, 8)" tag="0"/>
-		<item text="Node (32206, 32887, 8)" tag="0"/>
 		<item text="Node (32211, 32888, 8)" tag="0"/>
 		<item text="Node (32215, 32886, 8)" tag="0"/>
-		<item text="Node (32217, 32881, 8)" tag="0"/>
-		<item text="Node (32217, 32876, 8)" tag="0"/>
-		<item text="Node (32213, 32873, 8)" tag="0"/>
-		<item text="Node (32208, 32872, 8)" tag="0"/>
-		<item text="Node (32203, 32873, 8)" tag="0"/>
-		<item text="Node (32208, 32872, 8)" tag="0"/>
-		<item text="Node (32213, 32873, 8)" tag="0"/>
-		<item text="Node (32217, 32876, 8)" tag="0"/>
-		<item text="Node (32219, 32881, 8)" tag="0"/>
 		<item text="Node (32223, 32884, 8)" tag="0"/>
 		<item text="Node (32229, 32884, 8)" tag="0"/>
 		<item text="Node (32235, 32884, 8)" tag="0"/>
@@ -115,91 +104,123 @@
 		<item text="Node (32261, 32875, 8)" tag="0"/>
 		<item text="Node (32266, 32877, 8)" tag="0"/>
 		<item text="Node (32272, 32877, 8)" tag="0"/>
-		<item text="Node (32278, 32875, 8)" tag="0"/>
-		<item text="Node (32272, 32877, 8)" tag="0"/>
-		<item text="Node (32272, 32877, 8)" tag="0"/>
-		<item text="Node (32266, 32877, 8)" tag="0"/>
-		<item text="Node (32261, 32875, 8)" tag="0"/>
-		<item text="Node (32257, 32872, 8)" tag="0"/>
-		<item text="Node (32251, 32871, 8)" tag="0"/>
-		<item text="Node (32245, 32871, 8)" tag="0"/>
-		<item text="Node (32241, 32875, 8)" tag="0"/>
-		<item text="Node (32239, 32881, 8)" tag="0"/>
-		<item text="Node (32235, 32884, 8)" tag="0"/>
-		<item text="Node (32229, 32884, 8)" tag="0"/>
-		<item text="Node (32223, 32884, 8)" tag="0"/>
-		<item text="Node (32219, 32887, 8)" tag="0"/>
-		<item text="huntcheck|2:" tag="255"/>
-		<item text="huntstart|2:" tag="255"/>
-		<item text="Node (32215, 32890, 8)" tag="0"/>
-		<item text="Node (32213, 32894, 8)" tag="0"/>
-		<item text="Node (32215, 32899, 8)" tag="0"/>
-		<item text="Node (32215, 32904, 8)" tag="0"/>
-		<item text="Node (32211, 32906, 8)" tag="0"/>
-		<item text="Node (32208, 32909, 8)" tag="0"/>
-		<item text="Node (32202, 32909, 8)" tag="0"/>
-		<item text="Node (32208, 32909, 8)" tag="0"/>
-		<item text="Node (32212, 32907, 8)" tag="0"/>
-		<item text="Node (32216, 32904, 8)" tag="0"/>
-		<item text="huntcheck|3:" tag="255"/>
-		<item text="huntstart|3:" tag="255"/>
-		<item text="Node (32221, 32904, 8)" tag="0"/>
-		<item text="Node (32227, 32902, 8)" tag="0"/>
-		<item text="Node (32231, 32899, 8)" tag="0"/>
-		<item text="Node (32236, 32898, 8)" tag="0"/>
-		<item text="Node (32231, 32899, 8)" tag="0"/>
-		<item text="Node (32227, 32902, 8)" tag="0"/>
-		<item text="huntcheck|4:" tag="255"/>
-		<item text="huntstart|4:" tag="255"/>
-		<item text="Node (32227, 32908, 8)" tag="0"/>
-		<item text="Node (32230, 32910, 8)" tag="0"/>
-		<item text="Node (32233, 32912, 8)" tag="0"/>
-		<item text="Node (32237, 32910, 8)" tag="0"/>
-		<item text="huntcheck|5:" tag="255"/>
-		<item text="huntstart|5:" tag="255"/>
-		<item text="Node (32240, 32906, 8)" tag="0"/>
-		<item text="Node (32243, 32904, 8)" tag="0"/>
-		<item text="Node (32246, 32902, 8)" tag="0"/>
-		<item text="Node (32249, 32899, 8)" tag="0"/>
-		<item text="Node (32255, 32899, 8)" tag="0"/>
-		<item text="Node (32258, 32899, 8)" tag="0"/>
-		<item text="Node (32261, 32899, 8)" tag="0"/>
-		<item text="Node (32266, 32899, 8)" tag="0"/>
-		<item text="Node (32271, 32901, 8)" tag="0"/>
-		<item text="Node (32275, 32904, 8)" tag="0"/>
-		<item text="Node (32274, 32909, 8)" tag="0"/>
-		<item text="Node (32270, 32913, 8)" tag="0"/>
-		<item text="huntcheck|7:" tag="255"/>
-		<item text="huntstart|7:" tag="255"/>
-		<item text="Node (32265, 32917, 8)" tag="0"/>
-		<item text="Node (32259, 32920, 8)" tag="0"/>
-		<item text="Node (32265, 32917, 8)" tag="0"/>
-		<item text="Node (32269, 32913, 8)" tag="0"/>
-		<item text="huntexit|7:" tag="255"/>
-		<item text="Node (32267, 32909, 8)" tag="0"/>
-		<item text="Node (32263, 32904, 8)" tag="0"/>
-		<item text="Node (32262, 32899, 8)" tag="0"/>
-		<item text="Node (32259, 32899, 8)" tag="0"/>
-		<item text="Node (32256, 32899, 8)" tag="0"/>
-		<item text="huntexit|6:" tag="255"/>
-		<item text="Node (32249, 32899, 8)" tag="0"/>
-		<item text="Node (32246, 32902, 8)" tag="0"/>
-		<item text="Node (32243, 32904, 8)" tag="0"/>
-		<item text="Node (32240, 32906, 8)" tag="0"/>
-		<item text="Node (32236, 32908, 8)" tag="0"/>
-		<item text="huntexit|5:" tag="255"/>
-		<item text="Node (32230, 32910, 8)" tag="0"/>
-		<item text="Node (32227, 32908, 8)" tag="0"/>
-		<item text="huntexit|4:" tag="255"/>
-		<item text="Node (32221, 32904, 8)" tag="0"/>
-		<item text="huntexit|3:" tag="255"/>
-		<item text="Node (32215, 32899, 8)" tag="0"/>
-		<item text="Node (32213, 32894, 8)" tag="0"/>
-		<item text="huntexit|2:" tag="255"/>
-		<item text="Node (32212, 32888, 8)" tag="0"/>
-		<item text="Node (32208, 32887, 8)" tag="0"/>
-		<item text="huntexit|1:" tag="255"/>
+		<item text="PreWater1:" tag="255"/>
+		<item text="Stand (32272, 32876, 8)" tag="1"/>
+		<item text="local tries = 5 repeat Self.Step(NORTH) tries = tries - 1 wait(200, 300) until Self.Position().y <= 32874 or tries <= 0 Walker.ConditionalGoto(Self.Position().y > 32875, 'PreWater1')" tag="254"/>
+		<item text="PreWhirlpool1:" tag="255"/>
+		<item text="Node (32271, 32871, 8)" tag="0"/>
+		<item text="Stand (32271, 32871, 8)" tag="1"/>
+		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool1')" tag="254"/>
+		<item text="huntcheck|Third-Floor|No-Third-Floor:" tag="255"/>
+		<item text="huntcheck|Rush-Third-Floor|No-Rush-Third-Floor:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="Walker.Goto('rush4')" tag="254"/>
+		<item text="No-Rush-Third-Floor:" tag="255"/>
+		<item text="No-Third-Floor:" tag="255"/>
+		<item text="EIgnore" tag="11"/>
+		<item text="rush4:" tag="255"/>
+		<item text="Node (32266, 32870, 9)" tag="0"/>
+		<item text="huntstart|1:" tag="255"/>
+		<item text="Node (32261, 32866, 9)" tag="0"/>
+		<item text="Node (32254, 32866, 9)" tag="0"/>
+		<item text="Node (32248, 32868, 9)" tag="0"/>
+		<item text="Node (32242, 32870, 9)" tag="0"/>
+		<item text="huntcheck|Third-Floor|No-Third-Floor:" tag="255"/>
+		<item text="Node (32236, 32870, 9)" tag="0"/>
+		<item text="Stand (32235, 32870, 9)" tag="1"/>
+		<item text="EIgnore" tag="11"/>
+		<item text="Stay-Third-Floor:" tag="255"/>
+		<item text="Node (32239, 32874, 10)" tag="0"/>
+		<item text="Node (32245, 32875, 10)" tag="0"/>
+		<item text="Node (32251, 32875, 10)" tag="0"/>
+		<item text="Node (32257, 32871, 10)" tag="0"/>
+		<item text="Node (32263, 32869, 10)" tag="0"/>
+		<item text="Node (32270, 32869, 10)" tag="0"/>
+		<item text="Node (32277, 32870, 10)" tag="0"/>
+		<item text="Node (32283, 32873, 10)" tag="0"/>
+		<item text="Node (32284, 32879, 10)" tag="0"/>
+		<item text="Node (32284, 32885, 10)" tag="0"/>
+		<item text="Node (32279, 32890, 10)" tag="0"/>
+		<item text="Node (32272, 32892, 10)" tag="0"/>
+		<item text="Node (32266, 32896, 10)" tag="0"/>
+		<item text="Node (32262, 32900, 10)" tag="0"/>
+		<item text="Node (32266, 32896, 10)" tag="0"/>
+		<item text="Node (32272, 32892, 10)" tag="0"/>
+		<item text="Node (32280, 32896, 10)" tag="0"/>
+		<item text="Node (32285, 32901, 10)" tag="0"/>
+		<item text="Node (32285, 32908, 10)" tag="0"/>
+		<item text="Node (32284, 32915, 10)" tag="0"/>
+		<item text="Node (32281, 32919, 10)" tag="0"/>
+		<item text="Node (32274, 32921, 10)" tag="0"/>
+		<item text="Node (32269, 32922, 10)" tag="0"/>
+		<item text="Node (32265, 32927, 10)" tag="0"/>
+		<item text="Node (32256, 32928, 10)" tag="0"/>
+		<item text="Node (32250, 32923, 10)" tag="0"/>
+		<item text="Node (32241, 32921, 10)" tag="0"/>
+		<item text="Node (32237, 32916, 10)" tag="0"/>
+		<item text="Node (32234, 32909, 10)" tag="0"/>
+		<item text="Node (32235, 32901, 10)" tag="0"/>
+		<item text="Node (32240, 32896, 10)" tag="0"/>
+		<item text="Node (32244, 32891, 10)" tag="0"/>
+		<item text="Node (32245, 32884, 10)" tag="0"/>
+		<item text="Node (32242, 32878, 10)" tag="0"/>
+		<item text="huntcheck|Stay-Third-Floor|No-Stay-Third-Floor:" tag="255"/>
+		<item text="No-Stay-Third-Floor:" tag="255"/>
+		<item text="huntcheck|2:" tag="255"/>
+		<item text="huntexit|2:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
+		<item text="huntstart|2:" tag="255"/>
+		<item text="Node (32239, 32874, 10)" tag="0"/>
+		<item text="Node (32236, 32871, 10)" tag="0"/>
+		<item text="Stand (32235, 32870, 10)" tag="1"/>
+		<item text="No-Third-Floor:" tag="255"/>
+		<item text="Node (32241, 32875, 9)" tag="0"/>
+		<item text="Node (32245, 32879, 9)" tag="0"/>
+		<item text="Node (32246, 32886, 9)" tag="0"/>
+		<item text="Node (32242, 32889, 9)" tag="0"/>
+		<item text="Node (32234, 32884, 9)" tag="0"/>
+		<item text="Node (32242, 32889, 9)" tag="0"/>
+		<item text="Node (32247, 32890, 9)" tag="0"/>
+		<item text="Node (32251, 32896, 9)" tag="0"/>
+		<item text="Node (32248, 32901, 9)" tag="0"/>
+		<item text="Node (32242, 32907, 9)" tag="0"/>
+		<item text="Node (32236, 32912, 9)" tag="0"/>
+		<item text="Node (32236, 32918, 9)" tag="0"/>
+		<item text="Node (32244, 32919, 9)" tag="0"/>
+		<item text="Node (32250, 32924, 9)" tag="0"/>
+		<item text="Node (32257, 32925, 9)" tag="0"/>
+		<item text="Node (32264, 32921, 9)" tag="0"/>
+		<item text="Node (32270, 32917, 9)" tag="0"/>
+		<item text="Node (32278, 32914, 9)" tag="0"/>
+		<item text="Node (32271, 32912, 9)" tag="0"/>
+		<item text="Node (32267, 32907, 9)" tag="0"/>
+		<item text="Node (32268, 32897, 9)" tag="0"/>
+		<item text="Node (32268, 32887, 9)" tag="0"/>
+		<item text="Node (32270, 32878, 9)" tag="0"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
+		<item text="Node (32272, 32871, 9)" tag="0"/>
+		<item text="Stand (32272, 32871, 9)" tag="1"/>
+		<item text="Self.Step(EAST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'huntexit|1')" tag="254"/>
+		<item text="SIgnore" tag="11"/>
+		<item text="Node (32271, 32872, 8)" tag="0"/>
+		<item text="Node (32272, 32874, 8)" tag="0"/>
+		<item text="PreWater2:" tag="255"/>
+		<item text="Stand (32272, 32874, 8)" tag="1"/>
+		<item text="local tries = 5 repeat Self.Step(SOUTH) tries = tries - 1 wait(200, 300) until Self.Position().y >= 32876 or tries <= 0 Walker.ConditionalGoto(Self.Position().y < 32875, 'PreWater2')" tag="254"/>
+		<item text="Node (32272, 32877, 8)" tag="0"/>
+		<item text="Node (32266, 32877, 8)" tag="0"/>
+		<item text="Node (32261, 32875, 8)" tag="0"/>
+		<item text="Node (32257, 32872, 8)" tag="0"/>
+		<item text="Node (32251, 32871, 8)" tag="0"/>
+		<item text="Node (32245, 32871, 8)" tag="0"/>
+		<item text="Node (32241, 32875, 8)" tag="0"/>
+		<item text="Node (32239, 32881, 8)" tag="0"/>
+		<item text="Node (32235, 32884, 8)" tag="0"/>
+		<item text="Node (32229, 32884, 8)" tag="0"/>
+		<item text="Node (32223, 32884, 8)" tag="0"/>
+		<item text="Node (32217, 32887, 8)" tag="0"/>
+		<item text="Node (32211, 32887, 8)" tag="0"/>
 		<item text="spawnexit:" tag="255"/>
 		<item text="liberty bay|spawn~south.exit:" tag="255"/>
 		<item text="Node (32206, 32884, 8)" tag="0"/>
