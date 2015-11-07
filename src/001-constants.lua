@@ -1,7 +1,7 @@
 local LIB_REVISION = '{{VERSION}}'
 local LIB_CONFIG = [[{{CONFIG}}]]
 local FOLDER_SETTINGS_PATH = '..\\Settings\\'
-local FOLDER_CONFIG_PATH = '..\\Config\\'
+local FOLDER_CONFIG_PATH = '..\\Configs\\'
 
 local NORTH = NORTH
 local EAST = EAST

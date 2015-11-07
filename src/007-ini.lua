@@ -80,8 +80,8 @@ Ini = (function()
 	end
 
 	local function loadConfigFile(callback, isReload)
-		local configName = '[' .. getSelfName() .. '] ' .. _script.name
-		local configPath = FOLDER_CONFIG_PATH .. configName .. '.ini'
+		local configName = '[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
+		local configPath = FOLDER_CONFIG_PATH .. configName
 		local function parseConfig(file)
 			-- Could not load config
 			if not file then
@@ -192,7 +192,6 @@ Ini = (function()
 					end
 				end
 				prompt(message, onMessage)
-				print(message)
 			else
 				error('Could not write default config file.')
 			end

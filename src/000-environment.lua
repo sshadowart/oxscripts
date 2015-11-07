@@ -18,7 +18,7 @@ local math = math
 local table = table
 
 local xeno = {}
-xeno.luaShowConfigEditor = luaShowConfigEditor
+xeno.showConfigEditor = showConfigEditor
 xeno.getVersionNumber = getVersionNumber
 xeno.ping = Self.Ping
 xeno.delayWalker = delayWalker
