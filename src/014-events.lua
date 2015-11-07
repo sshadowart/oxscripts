@@ -156,7 +156,7 @@ do
 				-- The current label is a route
 				if route ~= '--' then
 					-- Set the new route
-					_script.route = route
+					_script.route = route:gsub('-', ' ')
 				end
 			end
 

@@ -412,11 +412,11 @@ Settings = (function()
 			-- Save XBST if needed
 			if xbstContents then
 				local filename = 'tmp.' .. string.lower(getSelfName())
-				local file = io.open(FOLDER_SETTINGS_PATH .. filename .. '.xbst', 'w+')
+				local file = io.open(FOLDER_LOGS_PATH .. filename .. '.xbst', 'w+')
 				if file then
 					file:write(xbstContents)
 					file:close()
-					xeno.loadSettings(filename, 'All')
+					xeno.loadSettings(FOLDER_LOGS_PATH .. filename, 'All')
 				end
 			end
 			callback()
