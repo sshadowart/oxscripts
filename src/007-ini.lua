@@ -82,6 +82,7 @@ Ini = (function()
 	local function loadConfigFile(callback, isReload)
 		local configName = '[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
 		local configPath = FOLDER_CONFIG_PATH .. configName
+
 		local function parseConfig(file)
 			-- Could not load config
 			if not file then
@@ -155,6 +156,18 @@ Ini = (function()
 			callback()
 		end
 
+		local function promptConfig()
+			local message = 'A new config file was generated, please reconfigure before proceeding. Type "ok" to continue.'
+			prompt(message, function(response)
+				if string.find(string.lower(response), 'ok') then
+					local newFile = io.open(configPath, 'r')
+					parseConfig(newFile)
+				else
+					promptConfig()
+				end
+			end)
+		end
+
 		-- Open config file
 		local file = io.open(configPath, 'r')
 
@@ -181,16 +194,7 @@ Ini = (function()
 			if defaultConfig then
 				defaultConfig:write(LIB_CONFIG)
 				defaultConfig:close()
-				local message = 'A new config file was generated, please reconfigure before proceeding. Type "ok" to continue.'
-				local onMessage = function(response)
-					if string.find(string.lower(response), 'ok') then
-						local newFile = io.open(configPath, 'r')
-						parseConfig(newFile)
-					else
-						prompt(message, onMessage)
-					end
-				end
-				prompt(message, onMessage)
+				promptConfig()
 			else
 				error('Could not write default config file.')
 			end
