@@ -1388,13 +1388,13 @@ local TRAVEL_ROUTES = {
 		}
 	},
 	['old adall~lorek'] = {
-		cost = 7,
+		cost = 0,
 		transcript = {
 			['Old Adall'] = {'hi', 'east', 'yes'}
 		}
 	},
 	['lorek~banuta'] = {
-		cost = 30,
+		cost = 0,
 		transcript = {
 			['Lorek'] = {'hi', 'banuta', 'yes'}
 		}
