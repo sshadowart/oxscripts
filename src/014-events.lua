@@ -418,6 +418,8 @@ do
 	local _walkerStuckScreenshotInterval = nil
 
 	function onTick()
+		if not _script.ready then return end
+
 		toggleCriticalMode(true)
 
 		-- Check and execute timers
@@ -589,6 +591,7 @@ do
 	end
 
 	function onLabel(name)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		-- Path end event
@@ -645,6 +648,7 @@ do
 	end
 
 	function onErrorMessage(message)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		checkEvents(EVENT_ERROR, message)
@@ -682,6 +686,7 @@ do
 	end
 
 	function onLootMessage(message)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		-- Check if we need to pump mana
@@ -727,6 +732,7 @@ do
 	end
 
 	function onBattleMessage(message)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		-- What should we equip/un-equip (slot=itemid)
@@ -805,6 +811,8 @@ do
 	end
 
 	function onChannelSpeak(channel, message)
+		-- Do not check if the script is event ready
+		-- prompts are needed beforehand
 		toggleCriticalMode(true)
 
 		-- First character is slash, command is expected
@@ -880,11 +888,13 @@ do
 	end
 
 	function onLogoutEvent()
+		if not _script.ready then return end
 		_script.forceLogoutQueued = true
 		log('Returning to town to logout after the current round. [Xeno Monitor]')
 	end
 
 	function onChannelClose(channel)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		if _script.channel and tonumber(_script.channel) == tonumber(channel) then
@@ -921,6 +931,7 @@ do
 	end
 
 	function onPrivateMessage(name, level, message)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		-- TODO: filter spam
@@ -932,6 +943,7 @@ do
 	end
 
 	function onNpcMessage(name, message)
+		if not _script.ready then return end
 		toggleCriticalMode(true)
 		checkEvents(EVENT_NPC, message, name)
 		toggleCriticalMode(false)

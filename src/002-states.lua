@@ -34,6 +34,7 @@ local _script = {
 	reason = 'Initializing',
 	route = '--',
 
+	ready = false,
 	inSpawn = false,
 	stuck = false,
 	luring = false,

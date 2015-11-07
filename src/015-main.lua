@@ -29,6 +29,8 @@ local function init()
         if _config['HUD']['Enabled'] then
             hudInit()
         end
+        -- Ready for events
+        _script.ready = true
         -- Only continue after containers are setup
         setupContainers(function()
             -- Load XBST
