@@ -43,7 +43,7 @@ local function init()
                     -- Check if we're in the spawn or in town
                     local closestStartLabel = walkerGetClosestLabel(false, "huntstart")
                     if closestStartLabel and closestStartLabel.name and getDistanceBetween(xeno.getSelfPosition(), closestStartLabel) < 30 then
-                        gotoLabel(closestStartLabel.name)
+                        xeno.gotoLabel(closestStartLabel.name)
                     else
                         resupply()
                     end
