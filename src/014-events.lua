@@ -117,7 +117,7 @@ do
 					cleanContainers(_backpacks['Loot'], ITEM_LIST_SKINNABLE_LOOT, nil, true)
 					-- Route system
 					if failLabel then
-						xeno.gotoLabel(failLabel)
+						xeno.gotoLabel(faillabel, true)
 					-- Regular system
 					else
 						xeno.gotoLabel('huntexit|'..id)
@@ -133,7 +133,7 @@ do
 							local routeState = routeData[id]
 							local routeEnabled = routeState == 'random' and math.random(1, 10) > 5 or routeState
 							if _script.returnQueued or not routeEnabled then
-								xeno.gotoLabel(failLabel)
+								xeno.gotoLabel(faillabel, true)
 							-- Route enabled, update script state
 							else
 								route = id
