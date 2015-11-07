@@ -82,6 +82,8 @@ local PATTERN = {
 local CONT_NAME_LOCKER = "Locker"
 local CONT_NAME_DEPOT = "Depot Chest"
 
+local SUPPLY_CHECK_THRESHOLD = 3
+
 local LOG_STATUS = 'STATUS'
 local LOG_WARNING = 'WARNING'
 local LOG_ERROR = 'ERROR'
@@ -2287,6 +2289,13 @@ local MAGIC_SHOOTER_ITEM = {
 	[3191] = {type=3, srange=RUNE_RANGE.BALL}, -- great fireball
 	[3175] = {type=3, srange=RUNE_RANGE.BALL}, -- stone shower
 	[3202] = {type=3, srange=RUNE_RANGE.BALL} -- thunderstorm
+}
+
+-- TODO: parse items.xml for durations
+local ITEM_LIST_DURATIONS = {
+	-- Item = Seconds
+	[3095] = 30 * 60, -- axe ring
+	[3549] = 240 * 60 -- soft boots
 }
 
 local ITEM_LIST_POTIONS = {

@@ -125,6 +125,7 @@ Npc = (function()
 			if xeno.shopSellItemByID(itemid, neededStackCount) > 0 then
 				-- Reduce remaining by sold stack count, reset tries
 				remaining = remaining - neededStackCount
+				-- TODO: add to HUD looted (itemid:neededStackCount)
 				setTimeout(function()
 					-- Remaining count to sell, recurse
 					if remaining > 0 then
@@ -246,6 +247,7 @@ Npc = (function()
 			if xeno.shopBuyItemByID(itemid, neededStackCount) > 0 then
 				-- Reduce remaining by bought stack count, reset tries
 				remaining = remaining - neededStackCount
+				-- TODO: add to supplies (itemid:neededStackCount)
 				-- TODO: possibly randomize this (move after x stacks bought)
 				setTimeout(function()
 					-- Only move if intended destination isn't main backpack

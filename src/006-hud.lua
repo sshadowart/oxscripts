@@ -360,10 +360,58 @@ Hud = (function()
 		end
 	end
 
+	local function hudTrack(type, itemid, amount, skipUpdate)
+		-- Loot / Supplies
+		local hudItem = _hud.index[type][itemid]
+		if not hudItem then
+			hudItemCreate(type, itemid, 0, false)
+			hudItem = _hud.index[type][itemid]
+		end
+
+		-- TODO: finish duration
+		-- Check if this item has a duration
+		local duration = ITEM_LIST_DURATIONS[itemid]
+		--local hudValue = values and formatNumber((itemValue / (values.d * 60)) * count) .. ' gp' or '--'
+
+		-- Get current count and values
+		local calculateValue = type == 'Supplies' and xeno.getItemCost or xeno.getItemValue
+		local itemValue = calculateValue(itemid)
+		local hudCount = (hudItem.rawCount or 0) + amount
+		local hudValue = (hudItem.rawValue or 0) + (itemValue * amount)
+
+		-- Save raw values
+		hudItem.rawCount = hudCount
+		hudItem.rawValue = hudValue
+
+		-- Timestamp duration item
+		if duration then
+			hudItem._lastCheck = os.time()
+		end
+
+		-- Update HUD
+		local text = ''
+		if ITEM_LIST_MONEY[itemid] then
+			text = formatNumber(hudValue) .. ' gp'
+		else
+			text = formatNumber(hudCount) .. ' (' .. formatNumber(hudValue) .. ' gp)'
+		end
+
+		hudItemUpdate(type, itemid, text, skipUpdate)
+	end
+
+	-- polling
+		-- supplies decrementing
+		-- loot added
+			-- corpse looting
+			-- skinned items
+		-- eq tracking (ammo, distance weapons, amulets)
+		-- ammo tracking (ammo slot)
+		-- time tracking (softboots, rings)
+		-- 
+
 	local function hudQueryLootChanges()
-		-- Only check loot changes when there is a corpse open
 		-- TODO: support fishing/skinning
-		local corpseOpen = isCorpseOpen()
+		-- TODO: decrement used loot (food, pots, etc)
 
 		-- Total value from this query
 		local totalQueryValue = 0
@@ -409,30 +457,11 @@ Hud = (function()
 					-- Snapshot current count (even without corpse)
 					_hud.lootSnapshots[type][lootID] = lootCount
 					-- If difference is positive and corpse open, add to totals
-					if difference > 0 and corpseOpen then
-						local value = (xeno.getItemValue(lootID) * difference)
+					if difference > 0 and isCorpseOpen() then
 						-- Add to overall total
+						local value = (xeno.getItemValue(lootID) * difference)
 						totalQueryValue = totalQueryValue + value
-						-- Initialize specific loot in HUD if needed
-						if not _hud.index['Loot'][lootID] then
-							hudItemCreate('Loot', lootID, 0, false)
-						end
-						-- Get current count and values
-						local hudCount = (_hud.index['Loot'][lootID].rawCount or 0) + difference
-						local hudValue = (_hud.index['Loot'][lootID].rawValue or 0) + value
-						-- Save values
-						_hud.index['Loot'][lootID].rawCount = hudCount
-						_hud.index['Loot'][lootID].rawValue = hudValue
-						-- Only show value for money
-						local displayText = ''
-						if ITEM_LIST_MONEY[lootID] then
-							displayText = formatNumber(hudValue) .. ' gp'
-						-- Everything else shows value and count
-						else
-							displayText = formatNumber(hudCount) .. ' (' .. formatNumber(hudValue) .. ' gp)'
-						end
-						-- Display values
-						hudItemUpdate('Loot', lootID, displayText, false)
+						hudTrack('Loot', lootID, difference)
 					end
 				end
 			end
@@ -457,12 +486,17 @@ Hud = (function()
 	end
 
 	local function hudQuerySupplyChanges()
+		if _script.depotOpen then
+			return
+		end
+
 		-- Total value from this query
 		local totalQueryValue = 0
 
 		local function queryBackpackChanges(type, filter)
 			-- Check supply items, skip if closed
-			if _backpacks[type] and xeno.getContainerOpen(_backpacks[type]) then
+			local backpack = _backpacks[type]
+			if backpack and xeno.getContainerOpen(backpack) then
 				-- Create snapshot if doesn't exist
 				if not _hud.supplySnapshots[type] then
 					_hud.supplySnapshots[type] = {}
@@ -470,8 +504,8 @@ Hud = (function()
 
 				-- Count the items in the backpack
 				local newCounts = {}
-				for spot = 0, xeno.getContainerItemCount(_backpacks[type]) - 1 do
-					local item = xeno.getContainerSpotData(_backpacks[type], spot)
+				for spot = 0, xeno.getContainerItemCount(backpack) - 1 do
+					local item = xeno.getContainerSpotData(backpack, spot)
 					-- Only look at items in list
 					if not filter or filter[item.id] then
 						-- Initialize the count if needed
@@ -503,28 +537,16 @@ Hud = (function()
 					-- Snapshot current count (even when gaining supplies)
 					_hud.supplySnapshots[type][supplyID] = supplyCount
 					-- If difference is negative AND depot is not open, add to totals
-					if difference < 0 and not _script.depotOpen then
+					if difference < 0 then
 						-- Only the absolute value matters at this point
 						difference = math.abs(difference)
-						local value = xeno.getItemCost(supplyID) * difference
-						-- Add to overall total
-						totalQueryValue = totalQueryValue + value
-						-- Initialize specific loot in HUD if needed
-						if not _hud.index['Supplies'][supplyID] then
-							hudItemCreate('Supplies', supplyID, 0, false)
+						-- Threshold failsafe (impossible to use this many supplies within 200ms)
+						if difference < SUPPLY_CHECK_THRESHOLD then
+							local value = xeno.getItemCost(supplyID) * difference
+							-- Add to overall total
+							totalQueryValue = totalQueryValue + value
+							hudTrack('Supplies', supplyID, difference)
 						end
-						-- Get current count and values
-						local hudCount = (_hud.index['Supplies'][supplyID].rawCount or 0) + difference
-						local hudValue = (_hud.index['Supplies'][supplyID].rawValue or 0) + value
-						-- Save values
-						_hud.index['Supplies'][supplyID].rawCount = hudCount
-						_hud.index['Supplies'][supplyID].rawValue = hudValue
-						-- Only show value for money
-						-- TODO: display and track duration items differently
-						local displayText = ''
-						displayText = formatNumber(hudCount) .. ' (' .. formatNumber(hudValue) .. ' gp)'
-						-- Display values
-						hudItemUpdate('Supplies', supplyID, displayText, false)
 					end
 				end
 			end
@@ -533,18 +555,57 @@ Hud = (function()
 			-- decrease the missing count by the slot count
 		end
 
+		local function queryEquipmentChanges(type, filter)
+			-- Slots: ring, ammo, amulet, weapon
+			local slotFunc = {
+				['Amulet'] = xeno.getAmuletSlotData,
+				['Ammo'] = xeno.getAmmoSlotData,
+				['Distance'] = xeno.getWeaponSlotData
+			}
+
+			local slot = slotFunc[type]
+			if not slot then return end
+			slot = slot()
+
+			local isSlotEmpty = slot.id == 0
+
+			-- Ignore if item is not in our supply list
+			if not isSlotEmpty and not filter[slot.id] then
+				return
+			end
+
+			-- Previous state of this slot
+			local lastSlot = _hud.supplySnapshots[type]
+
+			-- This is a new item (we do not have a snapshot for it)
+			-- record state and do work next time :)
+			if not isSlotEmpty and (not lastSlot or lastSlot.id ~= slot.id) then
+				_hud.supplySnapshots[type] = slot
+				return
+			end
+
+			-- Get difference of counts, if slot is empty, the difference is the snapshot count
+			local difference = isSlotEmpty and lastSlot.count or lastSlot.count - slot.count
+			if difference > 0 and difference < SUPPLY_CHECK_THRESHOLD then
+				-- Add to overall total
+				local value = xeno.getItemCost(slot.id) * difference
+				totalQueryValue = totalQueryValue + value
+				-- Update HUD
+				hudTrack('Supplies', slot.id, difference)
+			end
+
+			-- No matter what, always update your snapshot
+			_hud.supplySnapshots[type] = slot
+		end
+
 		-- Populate backpack and item lists to check changes
 		local supplyLists = {}
 		for itemid, supply in pairs(_supplies) do
 			-- Amulets and Rings always go in the Supplies backpack
 			local name = supply.group
-			if name == 'Amulet' or name == 'Ring' then
-				name = 'Supplies'
-			end
-			-- Send to Main backpack list if it matches the index
-			local backpack = _backpacks[name]
-			if backpack == _backpacks['Main'] then
-				name = 'Main'
+			-- Item is a distance weapon, doesn't go to ammo slot
+			if DISTANCE_WEAPONS[itemid] then
+				name = 'Distance'
 			end
 			-- Init table if it doesn't exist
 			if not supplyLists[name] then
@@ -555,7 +616,11 @@ Hud = (function()
 		end
 
 		for backpack, filter in pairs(supplyLists) do
-			queryBackpackChanges(backpack, filter)
+			if backpack == 'Amulet' or backpack == 'Distance' or backpack == 'Ammo' then
+				queryEquipmentChanges(backpack, filter)
+			else
+				queryBackpackChanges(backpack, filter)
+			end
 		end
 
 		if totalQueryValue > 0 then

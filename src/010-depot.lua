@@ -110,6 +110,7 @@ Depot = (function()
 			local totalCount = 0
 			if moveCounts then
 				for itemid, count in pairs(moveCounts) do
+					-- TODO: add to HUD looted
 					totalCount = totalCount + count
 				end
 			end
@@ -182,6 +183,7 @@ Depot = (function()
 				local totalCount = 0
 				if moveCounts then
 					for itemid, count in pairs(moveCounts) do
+						-- TODO: add to HUD supplies
 						totalCount = totalCount + count
 					end
 				end
