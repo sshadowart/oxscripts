@@ -98,7 +98,7 @@ do
 				cleanContainers(_backpacks['Loot'], ITEM_LIST_SKINNABLE_LOOT, nil, true)
 				-- Route system
 				if failLabel then
-					xeno.gotoLabel(failLabel)
+					xeno.gotoLabel(faillabel, true)
 				-- Regular system
 				else
 					xeno.gotoLabel('huntexit|' .. id)
