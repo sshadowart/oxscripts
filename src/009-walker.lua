@@ -274,6 +274,30 @@ Walker = (function()
 		end, pingDelay(DELAY.FOLLOW_WAIT))
 	end
 
+	local function walkerTravel(route, callback)
+		local travelInfo = TRAVEL_ROUTES[route]
+		local travelCost = travelInfo.cost
+		local travelMethod = travelInfo.route or 'boat'
+		-- Loop through all spectators on screen
+		local spectators = {xeno.getCreatureSpectators(0)}
+		-- Break when/if we find an npc with a transcript
+		for _, listIndex in ipairs(spectators) do
+			local name = xeno.getCreatureName(listIndex)
+			local transcript = travelInfo.transcript[name]
+			-- Found transcript
+			if transcript then
+				-- Follow NPC
+				walkerReachNPC(name, function()
+					-- Start talking
+					talk(transcript, function()
+						callback()
+					end)
+				end)
+				break
+			end
+		end
+	end
+
 	local function walkerGotoTown(targetTown, callback)
 		local townPositions = sortPositionsByDistance(xeno.getSelfPosition(), TOWN_POSITIONS)
 		local town = townPositions[1].name
@@ -285,7 +309,8 @@ Walker = (function()
 		end
 
 		-- Out of town, detect travel costs
-		local travelInfo = TRAVEL_ROUTES[string.lower(town) .. '~' .. string.lower(targetTown)]
+		local route = string.lower(town) .. '~' .. string.lower(targetTown)
+		local travelInfo = TRAVEL_ROUTES[route]
 
 		-- Travel path doesn't exist, prompt user to walk manually
 		if not travelInfo then
@@ -310,38 +335,23 @@ Walker = (function()
 			-- Walk to boat
 			-- Wait for us to get to the boat
 			walkerStartPath(town, startLocation, travelMethod, function(path)
-				-- Loop through all spectators on screen
-				local spectators = {xeno.getCreatureSpectators(0)}
-				-- Break when/if we find an npc with a transcript
-				for _, listIndex in ipairs(spectators) do
-					local name = xeno.getCreatureName(listIndex)
-					local transcript = travelInfo.transcript[name]
-					-- Found transcript
-					if transcript then
-						-- Follow NPC
-						walkerReachNPC(name, function()
-							-- Start talking
-							talk(transcript, function()
-								-- Get closest town, fire function again if we're still not in the correct town
-								-- some towns take multiple routes to reach
-								local newTownPositions = sortPositionsByDistance(xeno.getSelfPosition(), TOWN_POSITIONS)
-								local newTown = newTownPositions[1].name:lower()
-								-- Not in the new town yet, recurse
-								if newTown ~= targetTown:lower() then
-									walkerGotoTown(targetTown, callback)
-								-- Didn't leave the last town
-								elseif newTown == town:lower() then
-									error('Failed to travel to ' .. targetTown:lower() .. ' from ' .. newTown .. '.')
-									return
-								-- Reached the target town
-								else
-									callback()
-								end
-							end)
-						end)
-						break
+				walkerTravel(route, function()
+					-- Get closest town, fire function again if we're still not in the correct town
+					-- some towns take multiple routes to reach
+					local newTownPositions = sortPositionsByDistance(xeno.getSelfPosition(), TOWN_POSITIONS)
+					local newTown = newTownPositions[1].name:lower()
+					-- Not in the new town yet, recurse
+					if newTown ~= targetTown:lower() then
+						walkerGotoTown(targetTown, callback)
+					-- Didn't leave the last town
+					elseif newTown == town:lower() then
+						error('Failed to travel to ' .. targetTown:lower() .. ' from ' .. newTown .. '.')
+						return
+					-- Reached the target town
+					else
+						callback()
 					end
-				end
+				end)
 			end)
 		end
 
@@ -622,6 +632,7 @@ Walker = (function()
 		walkerGetDoorDetails = walkerGetDoorDetails,
 		walkerUseTrainer = walkerUseTrainer,
 		walkerCapacityDrop = walkerCapacityDrop,
-		walkerRestoreMana = walkerRestoreMana
+		walkerRestoreMana = walkerRestoreMana,
+		walkerTravel = walkerTravel
 	}
 end)()

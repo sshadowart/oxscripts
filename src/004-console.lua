@@ -55,6 +55,10 @@ Console = (function()
 		_script.historyChannel = xeno.luaOpenCustomChannel('History')
 	end
 
+	local function openDebugChannel()
+		_script.debugChannel = xeno.luaOpenCustomChannel('Debug')
+	end
+
 	-- Export global functions
 	return {
 		log = log,
@@ -63,6 +67,6 @@ Console = (function()
 		error = error,
 		prompt = prompt,
 		openConsole = openConsole,
-		openPrivateMessageConsole = openPrivateMessageConsole
+		openDebugChannel = openDebugChannel
 	}
 end)()

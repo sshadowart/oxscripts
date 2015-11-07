@@ -1,4 +1,9 @@
 Core = (function()
+
+	local function debug(message, type)
+		xeno.luaSendChannelMessage(_script.debugChannel, type or CHANNEL_YELLOW, ':', message)
+	end
+
 	local function overflowText(str, len, ellipsis)
 		return #str > len and string.sub(str, 1, len) .. ellipsis or str
 	end
@@ -313,6 +318,7 @@ Core = (function()
 			
 			-- Send a single message to the NPC
 			xeno.selfNpcSay(msg)
+			debug('NPC:: ' .. msg)
 		end
 
 		-- Send the first message and start recursing
@@ -586,6 +592,7 @@ Core = (function()
 
 	-- Export global functions
 	return {
+		debug = debug,
 		overflowText = overflowText,
 		formatTime = formatTime,
 		formatNumber = formatNumber,

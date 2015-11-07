@@ -21,6 +21,8 @@ do
 	local log = Console.log
 	local warn = Console.warn
 	local openConsole = Console.openConsole
+	local openDebugChannel = Console.openDebugChannel
+	local openPrivateMessageConsole = Console.openPrivateMessageConsole
 	local cleanContainers = Container.cleanContainers
 	local resetContainers = Container.resetContainers
 	local getTotalItemCount = Container.getTotalItemCount
@@ -40,6 +42,7 @@ do
 	local walkerUseTrainer = Walker.walkerUseTrainer
 	local walkerCapacityDrop = Walker.walkerCapacityDrop
 	local walkerRestoreMana = Walker.walkerRestoreMana
+	local walkerTravel = Walker.walkerTravel
 	local setDynamicSettings = Settings.setDynamicSettings
 	local checkAllSupplyThresholds = Supply.checkAllSupplyThresholds
 	local resupply = Supply.resupply
@@ -125,13 +128,16 @@ do
 					if failLabel then
 						-- Check route status (disable, enabled, random)
 						-- random is a 50% chance to take the route
-						local routeState = _config['Route'][id]
-						local routeEnabled = routeState == 'random' and math.random(1, 10) > 5 or routeState
-						if _script.returnQueued or not routeEnabled then
-							xeno.gotoLabel(failLabel)
-						-- Route enabled, update script state
-						else
-							route = id
+						local routeData = _config['Route']
+						if routeData then
+							local routeState = routeData[id]
+							local routeEnabled = routeState == 'random' and math.random(1, 10) > 5 or routeState
+							if _script.returnQueued or not routeEnabled then
+								xeno.gotoLabel(failLabel)
+							-- Route enabled, update script state
+							else
+								route = id
+							end
 						end
 					-- Regular system
 					else
@@ -302,6 +308,14 @@ do
 					end
 				end, waitTime and tonumber(waitTime) or 20000)
 			end
+		end,
+
+		-- Traveling (travel|ankrahmun~svargrond)
+		['travel'] = function(group, route)
+			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			walkerTravel(route, function()
+				xeno.delayWalker(0)
+			end, true)
 		end,
 
 		-- Edge cases
@@ -810,6 +824,9 @@ do
 			elseif command == 'freemem' then
 				local bytes = freeMemory()
 				log('Released ' .. bytes .. ' bytes of allocated RAM.')
+			-- Open debug channel
+			elseif command == 'debug' then
+				openDebugChannel()
 			-- Open private message history channel
 			elseif command == 'history' then
 				openPrivateMessageConsole()

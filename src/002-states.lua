@@ -19,6 +19,7 @@ local _script = {
 	townexit = nil,
 	channel = nil,
 	historyChannel = nil,
+	debugChannel = nil,
 	disableWithdraw = false,
 	blockCritMode = false,
 	firstResupply = true,
