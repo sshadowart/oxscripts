@@ -48,7 +48,7 @@ Console = (function()
 		-- Welcome message
 		log(string.rep('\n ', 54) .. '\n' .. string.rep(':', 190) .. '\n:::::   X E N O B O T   :::::           ' .. _script.name .. '  ('.. LIB_REVISION ..')\n' .. string.rep(':', 190) .. ' \n ')
 		warn('You can control your script from this channel. Type /help for a list of available commands.')
-		warn('Configure this script in the file: "Documents/XenoBot/Configs/[' .. getSelfName() .. '] ' .. _script.name .. '.ini"')
+		warn('Configure this script with the command /config or open the file at: Documents/XenoBot/Configs/[' .. getSelfName() .. '] ' .. _script.name .. '.ini')
 	end
 
 	local function openPrivateMessageConsole()

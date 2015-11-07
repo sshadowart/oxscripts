@@ -181,7 +181,6 @@ Ini = (function()
 			if defaultConfig then
 				defaultConfig:write(LIB_CONFIG)
 				defaultConfig:close()
-				xeno.luaShowConfigEditor(configName)
 				local message = 'A new config file was generated, please reconfigure before proceeding. Type "ok" to continue.'
 				local onMessage = function(response)
 					if string.find(string.lower(response), 'ok') then

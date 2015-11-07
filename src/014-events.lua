@@ -857,7 +857,7 @@ do
 				log('Reset script start time.')
 			elseif command == 'config' then
 				local configName = '[' .. getSelfName() .. '] ' .. _script.name
-				xeno.luaShowConfigEditor(configName)
+				xeno.showConfigEditor(configName)
 			-- Force logout
 			elseif command == 'logout' then
 				_script.forceLogoutQueued = true
