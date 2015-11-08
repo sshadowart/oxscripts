@@ -58,7 +58,7 @@ Container = (function()
 		local item = xeno.getContainerSpotData(container, spot)
 		-- Cascade backpack, last slot of backpack
 		if xeno.isItemContainer(item.id) then 
-			xeno.containerUseItem(container, spot, true)
+			xeno.containerUseItem(container, spot, true, true)
 		end
 		-- Wait for the container to open
 		setTimeout(function()
@@ -201,7 +201,7 @@ Container = (function()
 				if not disableSourceCascade then
 					sourceDepth = sourceDepth + 1
 					spotOffset = 0
-					xeno.containerUseItem(fromContainer, itemCount-1, true)
+					xeno.containerUseItem(fromContainer, itemCount-1, true, true)
 				else
 					spotOffset = spotOffset + 1
 					-- Skip to next item immediately
@@ -301,7 +301,7 @@ Container = (function()
 					return
 				end
 				-- Open destination container
-				xeno.containerUseItem(toContainer, toSlot, not openWindow)
+				xeno.containerUseItem(toContainer, toSlot, not openWindow, true)
 				setTimeout(function()
 					-- Update toContainer index if we opened in a new window
 					if openWindow then
@@ -446,7 +446,7 @@ Container = (function()
 				local spot = backpacks[index]
 				local freeslot = getLastContainer() + 1
 				-- Open child backpack
-				xeno.containerUseItem(0, spot)
+				xeno.containerUseItem(0, spot, false, true)
 
 				-- Wait for child to open
 				setTimeout(function()
@@ -741,7 +741,7 @@ Container = (function()
 			local cascadeID = xeno.getContainerSpotData(index, lastSlot).id
 			-- Another cascade, go deeper
 			if xeno.isItemContainer(cascadeID) then
-				xeno.containerUseItem(index, lastSlot, true)
+				xeno.containerUseItem(index, lastSlot, true, true)
 				setTimeout(function()
 					gotoBottom(depth + 1)
 				end, pingDelay(DELAY.CONTAINER_USE_ITEM))

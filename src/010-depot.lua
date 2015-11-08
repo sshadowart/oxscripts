@@ -42,7 +42,7 @@ Depot = (function()
 			-- Browsefield window
 			local browsefield = getLastContainer()
 			-- Open Locker in same window (first slot)
-			xeno.containerUseItem(browsefield, 0, true)
+			xeno.containerUseItem(browsefield, 0, true, true)
 			-- Wait for Locker window
 			setTimeout(function()
 				-- Callback with container list index
@@ -69,7 +69,7 @@ Depot = (function()
 			end
 
 			-- Open Depot in same window (first slot)
-			xeno.containerUseItem(locker, 0, true)
+			xeno.containerUseItem(locker, 0, true, true)
 			-- Wait for Depot window
 			setTimeout(function()
 				-- Callback with container list index
@@ -137,6 +137,7 @@ Depot = (function()
 		local runesBP = _backpacks['Runes']
 		local ammoBP = _backpacks['Ammo']
 		local suppliesBP = _backpacks['Supplies']
+		local groupTransfers = 0
 
 		for itemid, supply in pairs(neededSupplies) do
 			if supply.group == 'Food' then
@@ -168,6 +169,10 @@ Depot = (function()
 			local backpack = groupIndex[index]
 			-- No more groups, finished
 			if not backpack then
+				if groupTransfers == 0 then
+					_script.disableWithdraw = true
+					log('No supplies found in depot (3rd slot). Disabling future withdrawal attempts.')
+				end
 				return callback()
 			end
 			-- Look group items
@@ -187,12 +192,10 @@ Depot = (function()
 						totalCount = totalCount + count
 					end
 				end
-				if totalCount == 0 then
-					_script.disableWithdraw = true
-					log('No supplies found in depot (3rd slot). Disabling future withdrawal attempts.')
-				else
+				if totalCount > 0 then
 					local moveList = formatList(flattenItemCounts(moveCounts), ', ', '')
 					log('Withdrew ' .. moveList .. '.')
+					groupTransfers = groupTransfers + 1
 				end
 				-- Warn player not all their loot was moved
 				if not success then
@@ -206,7 +209,7 @@ Depot = (function()
 		end
 
 		-- Open supply slot in depot
-		xeno.containerUseItem(depot, DEPOT.SLOT_SUPPLY, true)
+		xeno.containerUseItem(depot, DEPOT.SLOT_SUPPLY, true, true)
 		setTimeout(function()
 			-- Start transfer
 			transferGroup(1)
