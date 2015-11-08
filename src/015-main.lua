@@ -3,6 +3,8 @@
 --setfenv(1, env)
 
 local function init()
+    xeno.setWalkerEnabled(false)
+
     -- Made in Texas with love <3
     xeno.HUDCreateText(65, 33, 'X E N O B O T', 0, 0, 0)
     xeno.HUDCreateText(66, 32, 'X E N O B O T', 255, 255, 255)
