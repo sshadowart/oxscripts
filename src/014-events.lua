@@ -130,8 +130,10 @@ do
 						-- random is a 50% chance to take the route
 						local routeData = _config['Route']
 						if routeData then
-							local routeState = routeData[id]
-							local routeEnabled = routeState == 'random' and math.random(1, 10) > 5 or routeState
+							local routeEnabled = routeData[id]
+							if routeEnabled == 'random' then
+								routeEnabled = math.random(1, 10) > 5 and true or false
+							end
 							if _script.returnQueued or not routeEnabled then
 								xeno.gotoLabel(failLabel, true)
 							-- Route enabled, update script state

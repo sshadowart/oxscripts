@@ -32,6 +32,9 @@ Console = (function()
 
 	local function error(message)
 		xeno.luaSendChannelMessage(_script.channel, CHANNEL_RED, ':', 'ERROR :: ' .. message)
+		xeno.setWalkerEnabled(false)
+		xeno.setTargetingEnabled(false)
+		xeno.setLooterEnabled(false)
 		assert(false, message)
 	end
 
