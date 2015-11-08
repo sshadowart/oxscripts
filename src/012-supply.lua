@@ -458,54 +458,57 @@ Supply = (function()
 			if _backpacks['Gold'] ~= _backpacks['Main'] then
 				deepCount = true
 			end
+
+			-- Count gold and plat
 			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
-			getContainerItemCounts(_backpacks['Gold'], function(items)
-				xeno.delayWalker(0)
-				-- Loot remaining in loot backpack
-				local depositLoot = false
-				if loot then
-					for itemid, _ in pairs(loot) do
-						if itemid ~= ITEMID.OBSIDIAN_KNIFE and itemid ~= ITEMID.BLESSED_STAKE then
-							depositLoot = true
-							break
-						end
+			local items = getTotalItemCount({[3031] = true, [3035] = true}, true)
+			xeno.delayWalker(0)
+
+			-- Loot remaining in loot backpack
+			local depositLoot = false
+			if loot then
+				for itemid, _ in pairs(loot) do
+					if itemid ~= ITEMID.OBSIDIAN_KNIFE and itemid ~= ITEMID.BLESSED_STAKE then
+						depositLoot = true
+						break
 					end
 				end
-				
-				-- We need to withdraw supplies
-				local withdrawSupplies = not _script.disableWithdraw and checkAllSupplyThresholds().max
+			end
+			
+			-- We need to withdraw supplies
+			local withdrawSupplies = not _script.disableWithdraw and checkAllSupplyThresholds().max
 
-				-- We can skip step 3, so we can also skip this step, go past 3.
-				if not depositLoot and not withdrawSupplies then
-					resupply(callback, 3, loot)
-					return
-				end
+			-- We can skip step 3, so we can also skip this step, go past 3.
+			if not depositLoot and not withdrawSupplies then
+				resupply(callback, 3, loot)
+				return
+			end
 
-				-- No items, skip step
-				if not items then
-					resupply(callback, 2, loot)
-					return
-				end
+			-- No items, skip step
+			if not items then
+				resupply(callback, 2, loot)
+				return
+			end
 
-				local gold = items[3031] or 0
-				local plat = items[3035] or 0
-				-- More than one stack of plat or gold
-				if gold > 100 or plat > 100 then
-					walkerGotoLocation(_script.town, 'bank', function(path)
-						-- Arrived at bank
-						bankDepositGold(function()
-							-- Balance
-							bankGetBalance(function()
-								-- Deposited gold, continue resupply
-								resupply(callback, 2, loot)
-							end, true)
-						end)
+			local gold = items[3031] or 0
+			local plat = items[3035] or 0
+			
+			-- More than one stack of plat or gold
+			if gold > 100 or plat > 100 then
+				walkerGotoLocation(_script.town, 'bank', function(path)
+					-- Arrived at bank
+					bankDepositGold(function()
+						-- Balance
+						bankGetBalance(function()
+							-- Deposited gold, continue resupply
+							resupply(callback, 2, loot)
+						end, true)
 					end)
-				else
-					-- Skip to next step
-					resupply(callback, 2, loot)
-				end
-			end, deepCount)
+				end)
+			else
+				-- Skip to next step
+				resupply(callback, 2, loot)
+			end
 			return
 		end
 
