@@ -150,8 +150,8 @@
 		<item text="Node (33059, 32421, 14)" tag="0"/>
 		<item text="Node (33061, 32416, 14)" tag="0"/>
 		<item text="Node (33068, 32414, 14)" tag="0"/>
-		<item text="huntstart|5:" tag="255"/>
 		<item text="huntcheck|5:" tag="255"/>
+		<item text="huntstart|5:" tag="255"/>
 		<item text="Node (33071, 32419, 14)" tag="0"/>
 		<item text="Node (33069, 32424, 14)" tag="0"/>
 		<item text="Node (33069, 32426, 14)" tag="0"/>
@@ -171,6 +171,7 @@
 		<item text="Node (33085, 32388, 14)" tag="0"/>
 		<item text="Node (33093, 32387, 14)" tag="0"/>
 		<item text="huntcheck|2:" tag="255"/>
+		<item text="huntexit|2:" tag="255"/>
 		<item text="Node (33089, 32382, 14)" tag="0"/>
 		<item text="Stand (33089, 32382, 14)" tag="1"/>
 		<item text="Walker.Goto('exitHunt')" tag="254"/>
@@ -179,8 +180,8 @@
 		<item text="Node (33097, 32381, 14)" tag="0"/>
 		<item text="Node (33100, 32376, 14)" tag="0"/>
 		<item text="Node (33095, 32372, 14)" tag="0"/>
-		<item text="huntstart|6:" tag="255"/>
 		<item text="huntcheck|6:" tag="255"/>
+		<item text="huntstart|6:" tag="255"/>
 		<item text="Node (33100, 32367, 14)" tag="0"/>
 		<item text="Node (33104, 32370, 14)" tag="0"/>
 		<item text="Node (33106, 32375, 14)" tag="0"/>
@@ -199,6 +200,7 @@
 		<item text="Node (33077, 32358, 14)" tag="0"/>
 		<item text="Node (33075, 32364, 14)" tag="0"/>
 		<item text="huntcheck|3:" tag="255"/>
+		<item text="huntexit|3:" tag="255"/>
 		<item text="Node (33072, 32366, 14)" tag="0"/>
 		<item text="Stand (33072, 32366, 14)" tag="1"/>
 		<item text="Walker.Goto('exitHunt')" tag="254"/>
@@ -213,8 +215,8 @@
 		<item text="Node (33060, 32373, 14)" tag="0"/>
 		<item text="Node (33065, 32377, 14)" tag="0"/>
 		<item text="Node (33065, 32383, 14)" tag="0"/>
-		<item text="huntstart|7:" tag="255"/>
 		<item text="huntcheck|7:" tag="255"/>
+		<item text="huntstart|7:" tag="255"/>
 		<item text="Node (33058, 32387, 14)" tag="0"/>
 		<item text="Node (33052, 32386, 14)" tag="0"/>
 		<item text="Node (33052, 32383, 14)" tag="0"/>
@@ -235,6 +237,7 @@
 		<item text="Node (33081, 32390, 14)" tag="0"/>
 		<item text="Node (33085, 32385, 14)" tag="0"/>
 		<item text="huntcheck|4:" tag="255"/>
+		<item text="huntexit|4:" tag="255"/>
 		<item text="Node (33088, 32382, 14)" tag="0"/>
 		<item text="Stand (33088, 32382, 14)" tag="1"/>
 		<item text="Walker.Goto('exitHunt')" tag="254"/>
