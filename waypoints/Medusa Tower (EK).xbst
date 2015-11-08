@@ -4,7 +4,7 @@
 </panel>
 <panel name="Self Healer">
 	<control name="SpellList">
-		<item spell="Exura Ico" mana="100" vcomp="0" vsign="1" vrandom="0" vvalue="85" enabled="1"/>
+		<item spell="Exura Ico" mana="120" vcomp="0" vsign="1" vrandom="0" vvalue="85" enabled="1"/>
 	</control>
 	<control name="ItemList">
 		<item id="7643" vcomp="0" vsign="1" vrandom="0" vvalue="45" enabled="1"/>
