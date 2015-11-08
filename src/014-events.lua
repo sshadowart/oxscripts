@@ -550,8 +550,10 @@ do
 				_script.pingLast = ping
 			end
 
-			hudItemUpdate('General', 'Latency', ping .. ' ms (avg: ' .. math.floor((_script.pingSum / _script.pingEntries) + 0.5) .. ')', true)
-			
+			if _script.pingEntries > 0 then
+				hudItemUpdate('General', 'Latency', ping .. ' ms (avg: ' .. math.floor((_script.pingSum / _script.pingEntries) + 0.5) .. ')', true)
+			end
+
 			-- Update experience gain
 			local gain = xeno.getSelfExperience() - _script.baseExp
 			local hourlyexp = tonumber(math.floor(gain / (timediff / 3600))) or 0
