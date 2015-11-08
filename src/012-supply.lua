@@ -363,7 +363,9 @@ Supply = (function()
 		-- Step 1) Detect loot to sell
 		if step < 1 then
 			-- Deep search of loot backpack.
+			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
 			getContainerItemCounts(_backpacks['Loot'], function(items)
+				xeno.delayWalker(0)
 
 				-- No items at all, skip step
 				if not items then
@@ -456,7 +458,9 @@ Supply = (function()
 			if _backpacks['Gold'] ~= _backpacks['Main'] then
 				deepCount = true
 			end
+			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
 			getContainerItemCounts(_backpacks['Gold'], function(items)
+				xeno.delayWalker(0)
 				-- Loot remaining in loot backpack
 				local depositLoot = false
 				if loot then
