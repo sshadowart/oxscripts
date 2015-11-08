@@ -234,6 +234,7 @@ Npc = (function()
 
 		local function buyItem()
 			-- Item doesn't exist, ignore
+			local mainbp = _backpacks['Main']
 			local price = xeno.shopGetItemBuyPriceByID(itemid)
 			local neededStackCount = math.min(remaining, 100)
 
@@ -247,35 +248,44 @@ Npc = (function()
 			if xeno.shopBuyItemByID(itemid, neededStackCount) > 0 then
 				-- Reduce remaining by bought stack count, reset tries
 				remaining = remaining - neededStackCount
-				-- TODO: add to supplies (itemid:neededStackCount)
-				-- TODO: possibly randomize this (move after x stacks bought)
-				setTimeout(function()
-					-- Only move if intended destination isn't main backpack
-					if destination > 0 then
-						-- Move to destination after buying stack
+
+				local function buyAgain()
+					-- Remaining count to buy, continue
+					if remaining > 0 then
+						buyItem()
+					-- Bought all items, callback
+					else
+						-- Final cleanup
 						containerMoveItems({
-							src = _backpacks['Main'],
+							src = mainbp,
 							dest = destination,
 							items = {[itemid] = true},
 							disableSourceCascade = true,
 							openwindow = false
 						}, function(success)
-							-- Remaining count to buy, continue
-							if remaining > 0 then
-								buyItem()
-							-- Bought all items, callback
-							else
-								callback()
-							end
+							callback()
+						end)
+					end
+				end
+
+				-- TODO: add to log (itemid:neededStackCount)
+				setTimeout(function()
+					-- Only move if intended destination isn't main backpack
+					-- and we have less than 3 free slots
+					local freeSlots = xeno.getContainerItemCapacity(mainbp) - xeno.getContainerItemCount(mainbp)
+					if destination > 0 and freeSlots < 4 then
+						-- Move to destination after buying stack
+						containerMoveItems({
+							src = mainbp,
+							dest = destination,
+							items = {[itemid] = true},
+							disableSourceCascade = true,
+							openwindow = false
+						}, function(success)
+							buyAgain()
 						end)
 					else
-						-- Remaining count to buy, continue
-						if remaining > 0 then
-							buyItem()
-						-- Bought all items, callback
-						else
-							callback()
-						end
+						buyAgain()
 					end
 				end, pingDelay(DELAY.TRADE_TRANSACTION))
 			-- Failed to buy, retrying
