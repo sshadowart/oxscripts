@@ -550,11 +550,7 @@ Core = (function()
 	local function getSelfName()
 		return xeno.getCreatureName(xeno.getCreatureListIndex(xeno.getSelfID()))
 	end
-
-	local function updateState()
-
-	end
-
+	
 	local function checkSoftBoots()
 		-- Check softboots
 		local playerMana = math.abs((xeno.getSelfMana() / xeno.getSelfMaxMana()) * 100)
@@ -572,6 +568,7 @@ Core = (function()
 						-- Equip soft boots
 						if xeno.getContainerSpotData(mainbp, spot).id == ITEMID.SOFTBOOTS then
 							xeno.containerMoveItemToSlot(mainbp, spot, "feet", 1)
+							_script.equipped['feet'] = true;
 							break
 						end
 					end
@@ -583,6 +580,7 @@ Core = (function()
 					-- Equip regular boots
 					if NORMAL_BOOTS[xeno.getContainerSpotData(mainbp, spot).id] then
 						xeno.containerMoveItemToSlot(mainbp, spot, "feet", 1)
+						_script.equipped['feet'] = false;
 						break
 					end
 				end

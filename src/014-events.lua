@@ -808,6 +808,7 @@ do
 				-- Equip item
 				if item.id == itemid then
 					xeno.containerMoveItemToSlot(backpack, spot, slot, -1)
+					_script.equipped[slot] = true;
 					-- If this group exists in unequip, remove it, as it will be removed on equip.
 					if unequip[group] then
 						unequip[group] = nil
@@ -821,6 +822,7 @@ do
 		for group, itemid in pairs(unequip) do
 			local slot = group == 'Ring' and "ring" or "amulet"
 			xeno.slotMoveItemToContainer(slot, _backpacks['Supplies'], 0)
+			_script.equipped[slot] = false;
 		end
 
 		checkSoftBoots()

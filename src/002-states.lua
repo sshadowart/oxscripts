@@ -53,7 +53,13 @@ local _script = {
 	profit = 0,
 	experience = 0,
 
-	doors = {}
+	doors = {},
+
+	equipped = {
+		['ring'] = false,
+		['amulet'] = false,
+		['feet'] = false
+	}
 }
 
 local _timerIndex = 0

@@ -12,6 +12,7 @@ local function init()
     -- Imports
     local loadConfigFile = Ini.loadConfigFile
     local hudInit = Hud.hudInit
+    local checkSoftBoots = Core.checkSoftBoots
     local openConsole = Console.openConsole
     local log = Console.log
     local setupContainers = Container.setupContainers
@@ -35,6 +36,9 @@ local function init()
         _script.ready = true
         -- Only continue after containers are setup
         setupContainers(function()
+            -- Check EQ related stuff
+            checkSoftBoots()
+
             -- Load XBST
             loadSettingsFile(function()
                 -- Modify XBST

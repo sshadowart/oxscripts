@@ -560,7 +560,9 @@ Hud = (function()
 			local slotFunc = {
 				['Amulet'] = xeno.getAmuletSlotData,
 				['Ammo'] = xeno.getAmmoSlotData,
-				['Distance'] = xeno.getWeaponSlotData
+				['Distance'] = xeno.getWeaponSlotData,
+				['Feet'] = xeno.getFeetSlotData,
+				['Ring'] = xeno.getRingSlotData
 			}
 
 			local slot = slotFunc[type]
@@ -576,6 +578,9 @@ Hud = (function()
 
 			-- Previous state of this slot
 			local lastSlot = _hud.supplySnapshots[type]
+			if lastSlot and lastSlot.id == 0 then
+				lastSlot = nil
+			end
 
 			-- This is a new item (we do not have a snapshot for it)
 			-- record state and do work next time :)
@@ -584,14 +589,25 @@ Hud = (function()
 				return
 			end
 
+			-- If slot is empty, make sure we didn't just dequip the item
+			if isSlotEmpty and lastSlot and _script.equipped[type:lower()] then
+				_hud.supplySnapshots[type] = slot
+				return
+			end
+
 			-- Get difference of counts, if slot is empty, the difference is the snapshot count
-			local difference = isSlotEmpty and lastSlot.count or lastSlot.count - slot.count
-			if difference > 0 and difference < SUPPLY_CHECK_THRESHOLD then
-				-- Add to overall total
-				local value = xeno.getItemCost(slot.id) * difference
-				totalQueryValue = totalQueryValue + value
-				-- Update HUD
-				hudTrack('Supplies', slot.id, difference)
+			if lastSlot then
+				local difference = isSlotEmpty and lastSlot.count or lastSlot.count - slot.count
+				local itemid = isSlotEmpty and lastSlot.id or slot.id
+				if difference > 0 and difference < SUPPLY_CHECK_THRESHOLD then
+					-- Add to overall total
+					local value = xeno.getItemCost(itemid) * difference
+					totalQueryValue = totalQueryValue + value
+					-- Update HUD
+					print(itemid)
+					print(difference)
+					hudTrack('Supplies', itemid, difference)
+				end
 			end
 
 			-- No matter what, always update your snapshot
@@ -615,8 +631,13 @@ Hud = (function()
 			supplyLists[name][itemid] = true
 		end
 
+		queryBackpackChanges('Feet', {[ITEMID.SOFTBOOTS_ACTIVE] = true})
+
 		for backpack, filter in pairs(supplyLists) do
-			if backpack == 'Amulet' or backpack == 'Distance' or backpack == 'Ammo' then
+			if backpack == 'Amulet'
+				or backpack == 'Ring'
+				or backpack == 'Distance'
+				or backpack == 'Ammo' then
 				queryEquipmentChanges(backpack, filter)
 			else
 				queryBackpackChanges(backpack, filter)
