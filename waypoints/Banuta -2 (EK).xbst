@@ -72,7 +72,7 @@
 		<item text="SIgnore" tag="10"/>
 		<item text="Node (32623, 32752, 7)" tag="0"/>
 		<item text="Node (32629, 32752, 7)" tag="0"/>
-		<item text="huntcheck|Shortcut|No-Shortcut:" tag="255"/>
+		<item text="huntcheck|Explorer-Society-Boat|No-Explorer-Society-Boat:" tag="255"/>
 		<item text="Node (32629, 32757, 7)" tag="0"/>
 		<item text="Node (32629, 32763, 7)" tag="0"/>
 		<item text="Node (32628, 32769, 7)" tag="0"/>
@@ -82,7 +82,7 @@
 		<item text="Node (32822, 32630, 7)" tag="0"/>
 		<item text="Node (32821, 32625, 7)" tag="0"/>
 		<item text="Walker.Goto('shortcutSync')" tag="254"/>
-		<item text="No-Shortcut:" tag="255"/>
+		<item text="No-Explorer-Society-Boat:" tag="255"/>
 		<item text="Node (32635, 32752, 7)" tag="0"/>
 		<item text="Node (32640, 32755, 7)" tag="0"/>
 		<item text="Node (32647, 32755, 7)" tag="0"/>
