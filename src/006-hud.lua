@@ -604,8 +604,6 @@ Hud = (function()
 					local value = xeno.getItemCost(itemid) * difference
 					totalQueryValue = totalQueryValue + value
 					-- Update HUD
-					print(itemid)
-					print(difference)
 					hudTrack('Supplies', itemid, difference)
 				end
 			end
