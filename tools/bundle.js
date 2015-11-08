@@ -1,4 +1,5 @@
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 import child_process from 'child_process';
 import replace from 'replace';
@@ -108,12 +109,18 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
       let encodedReload = new Buffer(reloadScript).toString('base64');
       let combinedWaypoints;
       
-      // Write to XBST
-      let scripterPanelXML = `
+      let developmentXML = `
         <panel name="Scripter">
           <control name="RunningScriptList">
           <script name=".ox.${timestamp}.lua"><![CDATA[${encodedLua}]]></script>
           <script name=".sync.${timestamp}.lua"><![CDATA[${encodedReload}]]></script>
+          </control>
+        </panel>`;
+
+      let productionXML = `
+        <panel name="Scripter">
+          <control name="RunningScriptList">
+          <script name="${outputName.replace('.xbst', '.lua')}"><![CDATA[${encodedLua}]]></script>
           </control>
         </panel>`;
 
@@ -141,12 +148,16 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
         combinedWaypoints = townWaypoints.join('');
 
         // Combine spawn file with town waypoints
-        let insertPoint = '<control name="WaypointList">\r\n';
+        let insertPoint = '<control name="WaypointList">' + os.EOL;
         let xbstCombinedData = xbstData.toString('utf8');
         xbstCombinedData = xbstCombinedData.replace(insertPoint, insertPoint + combinedWaypoints);
         
-        // Combine spawn file with other xml data
-        xbstCombinedData += '\n' + scripterPanelXML;
+        // Inject sync script for live reloading
+        if (process.env.LIVE_RELOAD)
+          xbstCombinedData += '\n' + developmentXML;
+        // Production lua
+        else
+          xbstCombinedData += '\n' + productionXML;
 
         // Save XBST
         fs.writeFile(outputPath, xbstCombinedData, function (err) {

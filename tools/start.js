@@ -17,12 +17,10 @@ let runTimeout;
 
 process.env.LIVE_RELOAD = true;
 
+
 function rebuild(event, filepath) {
   // Show what file changed
   console.log(filepath + ' was ' + event);
-
-  // Delete existing generated scripts
-  //del(['.ox.*.lua', '.sync.*.lua'], {dot: true, cwd: `${homePath}/Documents/XenoBot/Scripts/`});
 
   // Build script 
   bundle();
@@ -32,6 +30,12 @@ function rebuild(event, filepath) {
  * Monitor Lua source file for changes.
  */
 export default task('start', async () => {
+  // Script required for start task
+  if (!spawnName) {
+    console.log(colors.red.underline('You must specify a script name with npm start.'));
+    return;
+  }
+
   // Build script immediately
   bundle();
 
