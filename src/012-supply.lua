@@ -8,6 +8,7 @@ Supply = (function()
 	local log = Console.log
 	local warn = Console.warn
 	local prompt = Console.prompt
+	local error = Console.error
 	local getContainerItemCounts = Container.getContainerItemCounts
 	local cleanContainers = Container.cleanContainers
 	local getTotalItemCount = Container.getTotalItemCount
