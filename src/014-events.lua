@@ -577,11 +577,29 @@ do
 			hudItemUpdate('Script', 'Route', _script.route, true)
 			hudItemUpdate('Script', 'Round', tostring(_script.round), true)
 
-			-- Loot & Supply Polling
-			if _script.state ~= 'Setting up backpacks' then
-				hudQueryLootChanges()
-				hudQuerySupplyChanges()
+			local targetState = 'Disabled'
+			if _script.ignoring then
+				targetState = 'Ignoring'
+			elseif xeno.getXenoBotStatus()["targeting"] then
+				targetState = 'Enabled'
 			end
+
+			hudItemUpdate('Script', 'Targeter', targetState, true)
+
+			local walkerState = 'Disabled'
+			if _script.stuck then
+				walkerState = 'Stuck'
+			elseif xeno.getWalkerLuring() then
+				walkerState = 'Luring'
+			elseif xeno.getXenoBotStatus()["walker"] then
+				walkerState = 'Enabled'
+			end
+
+			hudItemUpdate('Script', 'Walker', walkerState, true)
+
+			-- Loot & Supply Polling
+			hudQueryLootChanges()
+			hudQuerySupplyChanges()
 
 			hudUpdateDimensions()
 			hudUpdatePositions()

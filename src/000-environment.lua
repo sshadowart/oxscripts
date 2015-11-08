@@ -28,6 +28,7 @@ xeno.sendScriptSignal = sendScriptSignal
 xeno.getWalkerStuck = getWalkerStuck
 xeno.getWalkerLuring = getWalkerLuring
 xeno.getTargetingIgnoring = getTargetingIgnoring
+xeno.getXenoBotStatus = getXenoBotStatus
 xeno.registerNativeEventListener = registerNativeEventListener
 xeno.getContainerOpen = getContainerOpen
 xeno.getContainerName = getContainerName

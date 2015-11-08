@@ -6,6 +6,7 @@ Settings = (function()
 	local getSelfName = Core.getSelfName
 	local split = Core.split
 	local trim = Core.trim
+	local setTimeout = Core.setTimeout
 	local warn = Console.warn
 	local error = Console.error
 	local prompt = Console.prompt
@@ -412,11 +413,14 @@ Settings = (function()
 			-- Save XBST if needed
 			if xbstContents then
 				local filename = 'tmp.' .. string.lower(getSelfName())
-				local file = io.open(FOLDER_LOGS_PATH .. filename .. '.xbst', 'w+')
+				local file = io.open(FOLDER_SETTINGS_PATH .. filename .. '.xbst', 'w+')
 				if file then
 					file:write(xbstContents)
 					file:close()
-					xeno.loadSettings(FOLDER_LOGS_PATH .. filename, 'All')
+					xeno.loadSettings(FOLDER_SETTINGS_PATH .. filename, 'All')
+					setTimeout(function()
+						os.remove(FOLDER_SETTINGS_PATH .. filename .. '.xbst')
+					end, 500)
 				end
 			end
 			callback()

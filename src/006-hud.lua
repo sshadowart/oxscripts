@@ -665,6 +665,8 @@ Hud = (function()
 		hudItemCreate('Script', 'Round', tostring(_script.round), true)
 		hudItemCreate('Script', 'State', 'Setting up backpacks', true)
 		hudItemCreate('Script', 'Route', '--', true)
+		hudItemCreate('Script', 'Walker', '--', true)
+		hudItemCreate('Script', 'Targeter', '--', true)
 		--hudItemCreate('Script', 'Avg. Resupply', '--', true)
 		--hudItemCreate('Script', 'Avg. Round', '--', true)
 

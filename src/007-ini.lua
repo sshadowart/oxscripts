@@ -158,6 +158,8 @@ Ini = (function()
 
 		local function promptConfig()
 			local message = 'A new config file was generated, please reconfigure before proceeding. Type "ok" to continue.'
+			-- Print in server console (this is not a debug, do not remove)
+			print(message)
 			prompt(message, function(response)
 				if string.find(string.lower(response), 'ok') then
 					local newFile = io.open(configPath, 'r')
