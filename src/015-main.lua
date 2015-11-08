@@ -13,6 +13,8 @@ local function init()
     local loadConfigFile = Ini.loadConfigFile
     local hudInit = Hud.hudInit
     local checkSoftBoots = Core.checkSoftBoots
+    local isXenoBotBinary = Core.isXenoBotBinary
+    local getXenoVersion = Core.getXenoVersion
     local openConsole = Console.openConsole
     local log = Console.log
     local setupContainers = Container.setupContainers
@@ -22,6 +24,12 @@ local function init()
     local setDynamicSettings = Settings.setDynamicSettings
     local resupply = Supply.resupply
     local walkerGetClosestLabel = Walker.walkerGetClosestLabel
+
+    -- Only allow XenoBot Binary
+    if not isXenoBotBinary() then
+        print('You are using an older version of XenoBot. Update to XenoBot Binary to run this script.')
+        return
+    end
 
     -- Create channel
     openConsole()

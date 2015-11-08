@@ -208,6 +208,15 @@ Core = (function()
 		return string.gsub(str, "^%s*(.-)%s*$", "%1")
 	end
 
+	local function isXenoBotBinary()
+		return _script.xenoversion:find('Binary') ~= nil
+	end
+
+	local function getXenoVersion()
+		local data = split(_script.xenoversion, '.')
+		return tonumber(data[#data])
+	end
+
 	local function getPositionFromDirection(pos, dir, len)
 		local n = len or 1
 		if (dir == NORTH) then
@@ -609,6 +618,8 @@ Core = (function()
 		checkEvents = checkEvents,
 		split = split,
 		trim = trim,
+		isXenoBotBinary = isXenoBotBinary,
+		getXenoVersion = getXenoVersion,
 		getSelfLookPosition = getSelfLookPosition,
 		getPosFromString = getPosFromString,
 		cleanLabel = cleanLabel,

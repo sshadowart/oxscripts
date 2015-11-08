@@ -1,4 +1,5 @@
 local _script = {
+	xenoversion = xeno.getVersionNumber(),
 	start = os.time(),
 	baseExp = xeno.getSelfExperience(),
 	round = 1,

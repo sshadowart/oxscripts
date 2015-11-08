@@ -98,7 +98,7 @@ do
 				cleanContainers(_backpacks['Loot'], ITEM_LIST_SKINNABLE_LOOT, nil, true)
 				-- Route system
 				if failLabel then
-					xeno.gotoLabel(faillabel, true)
+					xeno.gotoLabel(failLabel, true)
 				-- Regular system
 				else
 					xeno.gotoLabel('huntexit|' .. id)
@@ -117,7 +117,7 @@ do
 					cleanContainers(_backpacks['Loot'], ITEM_LIST_SKINNABLE_LOOT, nil, true)
 					-- Route system
 					if failLabel then
-						xeno.gotoLabel(faillabel, true)
+						xeno.gotoLabel(failLabel, true)
 					-- Regular system
 					else
 						xeno.gotoLabel('huntexit|'..id)
@@ -133,7 +133,7 @@ do
 							local routeState = routeData[id]
 							local routeEnabled = routeState == 'random' and math.random(1, 10) > 5 or routeState
 							if _script.returnQueued or not routeEnabled then
-								xeno.gotoLabel(faillabel, true)
+								xeno.gotoLabel(failLabel, true)
 							-- Route enabled, update script state
 							else
 								route = id
@@ -629,8 +629,12 @@ do
 			return
 		end
 
+		-- Split label
+		local label = split(name, '|')
+		local group = label and label[1]
+
 		-- Path start, parse
-		if string.find(name, '~') then
+		if group ~= 'travel' and string.find(name, '~') then
 			local pathData = split(name, '|')
 			local town = pathData[1]
 			local route = pathData[2]
@@ -646,18 +650,14 @@ do
 		end
 
 		-- Reached the end of a route
-		local routeLabel = split(name, '|')
-		local routeName = routeLabel and routeLabel[1]
-		if routeName:sub(1,3) == 'No-' then
+		if group:sub(1,3) == 'No-' then
 			-- False route matches current route
-			if routeName:sub(4):lower() == _script.route:lower() then
+			if group:sub(4):lower() == _script.route:lower() then
 				_script.route = '--';
 			end
 		end
 
 		-- Label events
-		local label = split(name, '|')
-		local group = label[1]
 		local event = LABEL_ACTIONS[group] or _events[EVENT_LABEL][group]
 		if event then
 			event(unpack(label))
