@@ -753,8 +753,13 @@ do
 		toggleCriticalMode(false)
 	end
 
+	local _battleMsgRunning = false
 	function onBattleMessage(message)
+		if _battleMsgRunning then return end
 		if not _script.ready then return end
+
+		_battleMsgRunning = true
+
 		toggleCriticalMode(true)
 
 		-- What should we equip/un-equip (slot=itemid)
@@ -832,6 +837,7 @@ do
 		checkSoftBoots()
 		checkEvents(EVENT_BATTLE, message)
 		toggleCriticalMode(false)
+		_battleMsgRunning = false
 	end
 
 	function onChannelSpeak(channel, message)
