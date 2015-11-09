@@ -157,9 +157,10 @@
 		<item text="Node (33146, 31638, 13)" tag="0"/>
 		<item text="Node (33151, 31642, 13)" tag="0"/>
 		<item text="Node (33159, 31642, 13)" tag="0"/>
+		<item text="tpCheck1:" tag="255"/>
 		<item text="Node (33165, 31645, 13)" tag="0"/>
 		<item text="Stand (33163, 31650, 13)" tag="1"/>
-		<item text="Enter Teleport(West)" tag="246"/>
+		<item text="Self.Step(West) wait(800, 1200) Walker.ConditionalGoto((Self.Position().z ~= 15), 'tpCheck1')" tag="254"/>
 		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 		<item text="enterspawn:" tag="255"/>
@@ -361,6 +362,7 @@
 		<item text="spawnexit:" tag="255"/>
 		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Stand (33259, 31941, 15)" tag="1"/>
+		<item text="Self.Step(SOUTH) wait(800, 1200) Walker.ConditionalGoto((Self.Position().z ~= 13), 'huntexit|1')" tag="254"/>
 		<item text="Node (33165, 31645, 13)" tag="0"/>
 		<item text="Node (33159, 31642, 13)" tag="0"/>
 		<item text="Node (33151, 31642, 13)" tag="0"/>
@@ -373,7 +375,6 @@
 		<item text="Node (33146, 31595, 13)" tag="0"/>
 		<item text="Node (33144, 31589, 13)" tag="0"/>
 		<item text="Ladder (33144, 31589, 13)" tag="2"/>
-		<item text="Enter Teleport(South)" tag="246"/>
 		<item text="Node (33139, 31591, 12)" tag="0"/>
 		<item text="Node (33139, 31601, 12)" tag="0"/>
 		<item text="Node (33149, 31601, 12)" tag="0"/>
