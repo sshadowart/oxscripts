@@ -569,12 +569,12 @@ Supply = (function()
 				-- Check capacity
 				if details.capNeeded > 0 then
 					-- Deduct weight of supplies we sell before buying (flasks)
-					local estimatedCap = xeno.getSelfCap() - getFlaskWeight()
+					--[[local estimatedCap = xeno.getSelfCap() - getFlaskWeight()
 					-- Not enough capacity for supplies error
 					if details.capNeeded > estimatedCap then
 						error('Not enough capacity for supplies. Please lower config values or increase your capacity.')
 						return
-					end
+					end]]
 				end
 				walkerGotoLocation(_script.town, 'bank', function()
 					-- Arrived at bank
