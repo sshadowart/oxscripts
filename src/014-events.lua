@@ -670,6 +670,7 @@ do
 	end
 
 	function onErrorMessage(message)
+		--[[
 		if not _script.ready then return end
 		toggleCriticalMode(true)
 
@@ -705,6 +706,7 @@ do
 			end
 		end
 		toggleCriticalMode(false)
+		]]
 	end
 
 	function onLootMessage(message)
