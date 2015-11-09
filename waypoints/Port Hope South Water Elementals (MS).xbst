@@ -117,7 +117,7 @@
 		<item text="huntstart|2:" tag="255"/>
 		<item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
 		<item text="PreWater1:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32652, 32978, 8)" tag="0"/>
 		<item text="Stand (32652, 32978, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(SOUTH) tries = tries - 1 wait(200, 300) until Self.Position().y >= 32980 or tries <= 0 Walker.ConditionalGoto(Self.Position().y < 32979, 'PreWater1')" tag="254"/>
@@ -125,12 +125,12 @@
 		<item text="Node (32649, 32983, 8)" tag="0"/>
 		<item text="Stand (32649, 32983, 8)" tag="1"/>
 		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool1')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32643, 32977, 9)" tag="0"/>
 		<item text="Node (32629, 32976, 9)" tag="0"/>
 		<item text="Node (32643, 32977, 9)" tag="0"/>
 		<item text="PreGeyser1:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32649, 32981, 9)" tag="0"/>
 		<item text="Stand (32649, 32981, 9)" tag="1"/>
 		<item text="Self.Step(EAST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'PreGeyser1')" tag="254"/>
@@ -138,7 +138,7 @@
 		<item text="PreWater2:" tag="255"/>
 		<item text="Stand (32651, 32980, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(NORTH) tries = tries - 1 wait(200, 300) until Self.Position().y <= 32978 or tries <= 0 Walker.ConditionalGoto(Self.Position().y > 32979, 'PreWater2')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="No-Bottom-Floor:" tag="255"/>
 		<item text="huntcheck|3:" tag="255"/>
 		<item text="huntstart|3:" tag="255"/>
@@ -151,7 +151,7 @@
 		<item text="huntstart|4:" tag="255"/>
 		<item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
 		<item text="PreWater3:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32613, 32980, 8)" tag="0"/>
 		<item text="Stand (32613, 32980, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(NORTH) tries = tries - 1 wait(200, 300) until Self.Position().y <= 32977 or tries <= 0 Walker.ConditionalGoto(Self.Position().y > 32979, 'PreWater3')" tag="254"/>
@@ -159,12 +159,12 @@
 		<item text="Node (32610, 32975, 8)" tag="0"/>
 		<item text="Stand (32610, 32975, 8)" tag="1"/>
 		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool2')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32611, 32982, 9)" tag="0"/>
 		<item text="Node (32615, 32991, 9)" tag="0"/>
 		<item text="Node (32611, 32982, 9)" tag="0"/>
 		<item text="PreGeyser2:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32607, 32976, 9)" tag="0"/>
 		<item text="Stand (32607, 32976, 9)" tag="1"/>
 		<item text="Self.Step(NORTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'PreGeyser2')" tag="254"/>
@@ -172,7 +172,7 @@
 		<item text="Node (32612, 32979, 8)" tag="0"/>
 		<item text="Stand (32612, 32979, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(SOUTH) tries = tries - 1 wait(200, 300) until Self.Position().y >= 32982 or tries <= 0 Walker.ConditionalGoto(Self.Position().y < 32980, 'PreWater4')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="No-Bottom-Floor:" tag="255"/>
 		<item text="huntcheck|5:" tag="255"/>
 		<item text="huntstart|5:" tag="255"/>
@@ -180,7 +180,7 @@
 		<item text="Node (32596, 32982, 8)" tag="0"/>
 		<item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
 		<item text="PreWater5:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32593, 32982, 8)" tag="0"/>
 		<item text="Stand (32593, 32982, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(WEST) tries = tries - 1 wait(200, 300) until Self.Position().x <= 32591 or tries <= 0 Walker.ConditionalGoto(Self.Position().x > 32592, 'PreWater5')" tag="254"/>
@@ -188,38 +188,38 @@
 		<item text="Node (32589, 32981, 8)" tag="0"/>
 		<item text="Stand (32589, 32981, 8)" tag="1"/>
 		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool3')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32593, 32980, 9)" tag="0"/>
 		<item text="Node (32598, 32980, 9)" tag="0"/>
 		<item text="Node (32593, 32980, 9)" tag="0"/>
 		<item text="PreGeyser3:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32588, 32980, 9)" tag="0"/>
 		<item text="Stand (32588, 32980, 9)" tag="1"/>
 		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'PreGeyser3')" tag="254"/>
 		<item text="PreWater6:" tag="255"/>
 		<item text="Stand (32591, 32983, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(EAST) tries = tries - 1 wait(200, 300) until Self.Position().x >= 32593 or tries <= 0 Walker.ConditionalGoto(Self.Position().x < 32591, 'PreWater6')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="No-Bottom-Floor:" tag="255"/>
 		<item text="Node (32592, 32989, 8)" tag="0"/>
 		<item text="Node (32592, 32995, 8)" tag="0"/>
 		<item text="Node (32590, 32999, 8)" tag="0"/>
 		<item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
 		<item text="PreWater7:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Stand (32590, 32999, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(EAST) tries = tries - 1 wait(200, 300) until Self.Position().x >= 32593 or tries <= 0 Walker.ConditionalGoto(Self.Position().x < 32590, 'PreWater7')" tag="254"/>
 		<item text="PreWhirlpool4:" tag="255"/>
 		<item text="Node (32597, 33005, 8)" tag="0"/>
 		<item text="Stand (32597, 33005, 8)" tag="1"/>
 		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool4')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32601, 33002, 9)" tag="0"/>
 		<item text="Node (32609, 32999, 9)" tag="0"/>
 		<item text="Node (32601, 33002, 9)" tag="0"/>
 		<item text="PreGeyser4:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32596, 33004, 9)" tag="0"/>
 		<item text="Stand (32596, 33004, 9)" tag="1"/>
 		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'PreGeyser4')" tag="254"/>
@@ -227,7 +227,7 @@
 		<item text="Node (32591, 33000, 8)" tag="0"/>
 		<item text="Stand (32591, 33000, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(WEST) tries = tries - 1 wait(200, 300) until Self.Position().x <= 32589 or tries <= 0 Walker.ConditionalGoto(Self.Position().x > 32590, 'PreWater8')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="No-Bottom-Floor:" tag="255"/>
 		<item text="Node (32592, 33008, 8)" tag="0"/>
 		<item text="Node (32601, 33010, 8)" tag="0"/>
@@ -237,7 +237,7 @@
 		<item text="huntexit|4:" tag="255"/>
 		<item text="huntcheck|Bottom-Floor|No-Bottom-Floor:" tag="255"/>
 		<item text="PreWater9:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32621, 32992, 8)" tag="0"/>
 		<item text="Stand (32621, 32992, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(SOUTH) tries = tries - 1 wait(200, 300) until Self.Position().y >= 32994 or tries <= 0 Walker.ConditionalGoto(Self.Position().y < 32993, 'PreWater9')" tag="254"/>
@@ -245,13 +245,13 @@
 		<item text="Node (32620, 32997, 8)" tag="0"/>
 		<item text="Stand (32620, 32997, 8)" tag="1"/>
 		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool5')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32623, 32996, 9)" tag="0"/>
 		<item text="Node (32626, 32991, 9)" tag="0"/>
 		<item text="Node (32627, 32985, 9)" tag="0"/>
 		<item text="Node (32626, 32991, 9)" tag="0"/>
 		<item text="PreGeyser5:" tag="255"/>
-		<item text="SLure" tag="6"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32625, 32996, 9)" tag="0"/>
 		<item text="Stand (32625, 32996, 9)" tag="1"/>
 		<item text="Self.Step(SOUTH) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 8, 'PreGeyser5')" tag="254"/>
@@ -259,7 +259,7 @@
 		<item text="Node (32622, 32994, 8)" tag="0"/>
 		<item text="Stand (32622, 32994, 8)" tag="1"/>
 		<item text="local tries = 5 repeat Self.Step(NORTH) tries = tries - 1 wait(200, 300) until Self.Position().y <= 32994 or tries <= 0 Walker.ConditionalGoto(Self.Position().y > 32993, 'PreWater3')" tag="254"/>
-		<item text="ELure" tag="9"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32628, 32995, 8)" tag="0"/>
 		<item text="No-Bottom-Floor:" tag="255"/>
 		<item text="huntcheck|6:" tag="255"/>
