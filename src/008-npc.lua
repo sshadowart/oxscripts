@@ -5,6 +5,7 @@ Npc = (function()
 	local setTimeout = Core.setTimeout
 	local talk = Core.talk
 	local checkSoftBoots = Core.checkSoftBoots
+	local getXenoVersion = Core.getXenoVersion
 	local error = Console.error
 	local getTotalItemCount = Container.getTotalItemCount
 	local containerMoveItems = Container.containerMoveItems
@@ -197,6 +198,10 @@ Npc = (function()
 	end
 
 	local function shopSellFlasks(callback)
+		if getXenoVersion() <= 1092 then
+			callback()
+			return
+		end
 		shopSellLoot(ITEM_LIST_FLASKS, callback, true)
 	end
 
@@ -253,8 +258,8 @@ Npc = (function()
 					-- Remaining count to buy, continue
 					if remaining > 0 then
 						buyItem()
-					-- Bought all items, callback
-					else
+					-- Bought all items, destination is not main, callback
+					elseif destination > 0 then
 						-- Final cleanup
 						containerMoveItems({
 							src = mainbp,
@@ -265,6 +270,9 @@ Npc = (function()
 						}, function(success)
 							callback()
 						end)
+					-- Bought all items, destination is main
+					else
+						callback()
 					end
 				end
 
