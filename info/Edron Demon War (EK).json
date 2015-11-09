@@ -3,5 +3,6 @@
     "town": "Edron",
     "vocation": "Knight",
     "vocshort": "EK",
-    "level": 150
+    "level": 150,
+    "type": "powergamer"
 }
