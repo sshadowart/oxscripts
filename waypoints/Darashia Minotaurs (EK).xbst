@@ -66,7 +66,6 @@
 	<control name="WaypointList">
 		<item text="darashia|north.exit~spawn:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
-		<item text="Node (33247, 32381, 7)" tag="0"/>
 		<item text="Node (33250, 32371, 7)" tag="0"/>
 		<item text="Node (33253, 32361, 7)" tag="0"/>
 		<item text="Node (33256, 32351, 7)" tag="0"/>
