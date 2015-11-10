@@ -46,7 +46,7 @@
 	<control name="ParaCureSpell" value="exura ico"/>
 	<control name="HasteCastMana" value="1000"/>
 	<control name="HasteCastSpell" value="Utani Hur"/>
-	<control name="HasteCastEnable" value="1"/>
+	<control name="HasteCastEnable" value="0"/>
 	<control name="InvisibleCastMana" value="50"/>
 	<control name="InvisibleCastEnable" value="0"/>
 	<control name="ShieldCastMana" value="50"/>
@@ -58,11 +58,14 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Medusa, Serpent Spawn" chs="0" max="15" min="0" prio="9" prox="7" count="1"/>
-		<item type="Behemoth" chs="0" max="25" min="0" prio="6" prox="7" count="1"/>
-		<item type="Medusa, Serpent Spawn" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Behemoth" chs="0" max="100" min="0" prio="3" prox="7" count="1"/>
-		<item type="Omnivora" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
+		<item type="Omnivora" chs="0" max="15" min="0" prio="9" prox="1" count="1"/>
+		<item type="Behemoth" chs="0" max="15" min="0" prio="8" prox="1" count="1"/>
+		<item type="Medusa, Serpent Spawn" chs="0" max="100" min="15" prio="7" prox="7" count="1"/>
+		<item type="Omnivora" chs="0" max="100" min="15" prio="6" prox="7" count="1"/>
+		<item type="Behemoth" chs="0" max="100" min="15" prio="5" prox="7" count="1"/>
+		<item type="Medusa, Serpent Spawn" chs="0" max="15" min="0" prio="4" prox="7" count="1"/>
+		<item type="Omnivora" chs="0" max="15" min="0" prio="3" prox="7" count="1"/>
+		<item type="Behemoth" chs="0" max="15" min="0" prio="2" prox="7" count="1"/>
 		<item type="Clay Guardian" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="Stone Golem, Gargoyle" chs="0" max="100" min="0" prio="0" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
