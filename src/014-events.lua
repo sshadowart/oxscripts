@@ -9,6 +9,8 @@ do
 	local setInterval = Core.setInterval
 	local checkTimers = Core.checkTimers
 	local checkEvents = Core.checkEvents
+	local delayWalker = Core.delayWalker
+	local resumeWalker = Core.resumeWalker
 	local split = Core.split
 	local getTimeUntilServerSave = Core.getTimeUntilServerSave
 	local clearWalkerPath = Core.clearWalkerPath
@@ -56,7 +58,7 @@ do
 			local route = '--'
 
 			-- Pause walker
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 
 			-- Drop vials / gold
 			walkerCapacityDrop()
@@ -163,7 +165,7 @@ do
 			end
 
 			-- Resume walker
-			xeno.delayWalker(0)
+			resumeWalker()
 		end,
 
 		-- Exit spawn and return to town
@@ -205,6 +207,7 @@ do
 					walkerStartPath(_script.town, _script.townentrance or _script.townexit, 'depot', function()
 						if not _config['Logout']['Exit-Log'] then
 							log('Hunting complete. Idling for server kick.')
+							xeno.setWalkerEnabled(false)
 							assert(false, 'Script finished successfully.')
 						else
 							os.exit()
@@ -267,7 +270,7 @@ do
 			local dir = directions[direction]
 
 			-- Pause walker & looter
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 			xeno.setLooterEnabled(false)
 			xeno.doSelfTurn(dir)
 			xeno.doSelfTurn(dir)
@@ -281,7 +284,7 @@ do
 					cast('exani hur ' .. (change == '+' and 'up' or 'down'))
 				end
 				xeno.setLooterEnabled(true)
-				xeno.delayWalker(0)
+				resumeWalker()
 			end, 1000)
 		end,
 
@@ -291,7 +294,7 @@ do
 			if id == 'end' then
 				local setIgnore = setTargetingIgnoreEnabled
 				-- Pause walker
-				xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+				delayWalker()
 				-- Disable ignore mode
 				setIgnore(false)
 				-- Enable the walker when there's no more threats
@@ -306,7 +309,7 @@ do
 					if not threshold[1] then
 						clearTimeout(_script.antiLureCheckInterval)
 						_script.antiLureCheckInterval = nil
-						xeno.delayWalker(0)
+						resumeWalker()
 					end
 				end, waitTime and tonumber(waitTime) or 20000)
 			end
@@ -314,9 +317,9 @@ do
 
 		-- Traveling (travel|ankrahmun~svargrond)
 		['travel'] = function(group, route)
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 			walkerTravel(route, function()
-				xeno.delayWalker(0)
+				resumeWalker()
 			end, true)
 		end,
 
@@ -324,7 +327,7 @@ do
 		['special'] = function(group, param1, param2)
 			-- Rafzan Shop (in-spawn shop)
 			if param1 == 'RafzanTrade' then
-				xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+				delayWalker()
 				walkerReachNPC('Rafzan', function()
 					shopSellLoot({
 						[17846] = true,
@@ -333,12 +336,12 @@ do
 						[17810] = true,
 						[17859] = true
 					}, function()
-						xeno.delayWalker(0)
+						resumeWalker()
 					end)
 				end)
 			-- Elemental Soils Shop (in-spawn shop)
 			elseif param1 == 'SoilsTrade' then
-				xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+				delayWalker()
 				walkerReachNPC('Arkulius', function()
 					shopSellLoot({
 						[940] = true, -- natural soil
@@ -351,11 +354,11 @@ do
 						[948] = true, -- pure energy
 						[954] = true -- neutral matter
 					}, function()
-						xeno.delayWalker(0)
+						resumeWalker()
 					end)
 				end)
 			elseif param1 == 'SpheresMachine' then
-				xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+				delayWalker()
 				local gemItemId = tonumber(param2) or 678
 				local gemCount = getTotalItemCount(gemItemId)
 				local tries = 0
@@ -371,7 +374,7 @@ do
 						if tries > 5 then
 							clearTimeout(depositInterval)
 							xeno.selfUseItemFromGround(33269, 31830, 10)
-							xeno.delayWalker(0)
+							resumeWalker()
 						end
 					end, DELAY.CONTAINER_USE_ITEM)
 				end
@@ -618,7 +621,7 @@ do
 
 		-- Path end event
 		if name == 'end' then
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 			checkEvents(EVENT_PATH_END, _path)
 			_path = {town = nil, route = nil, town = nil, from = nil, to = nil}
 			toggleCriticalMode(false)
@@ -627,7 +630,7 @@ do
 
 		-- Depot end event
 		if name == 'depotend' then
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 			checkEvents(EVENT_DEPOT_END, 'depotend')
 			toggleCriticalMode(false)
 			return
@@ -739,10 +742,10 @@ do
 				-- No monsters on screen
 				if not monsterOnScreen then
 					-- Stop walker to pump
-					xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+					delayWalker()
 					walkerRestoreMana(potionid, manaRestorePercent, function()
 						-- Mana restored, continue walking
-						xeno.delayWalker(0)
+						resumeWalker()
 					end)
 				end
 			end
@@ -942,13 +945,13 @@ do
 			if not xeno.getContainerOpen(0) then
 				local inProtectionZone = xeno.getSelfFlag('inpz')
 				-- Disable walker, looter, and targeter
-				xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+				delayWalker()
 				xeno.setLooterEnabled(false)
 				xeno.setTargetingEnabled(false)
 				-- If in PZ, we enable after we setup containers
 				resetContainers(true, function()
 					if inProtectionZone then
-						xeno.delayWalker(0)
+						resumeWalker()
 						xeno.setLooterEnabled(true)
 						xeno.setTargetingEnabled(true)
 					end
@@ -956,7 +959,7 @@ do
 				-- Otherwise, we wait 10 seconds
 				if not inProtectionZone then
 					setTimeout(function()
-						xeno.delayWalker(0)
+						resumeWalker()
 						xeno.setLooterEnabled(true)
 						xeno.setTargetingEnabled(true)
 					end, 10000)

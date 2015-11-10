@@ -4,6 +4,8 @@ Supply = (function()
 	local formatList = Core.formatList
 	local setInterval = Core.setInterval
 	local clearTimeout = Core.clearTimeout
+	local delayWalker = Core.delayWalker
+	local resumeWalker = Core.resumeWalker
 	local getDistanceBetween = Core.getDistanceBetween
 	local log = Console.log
 	local warn = Console.warn
@@ -364,9 +366,9 @@ Supply = (function()
 		-- Step 1) Detect loot to sell
 		if step < 1 then
 			-- Deep search of loot backpack.
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 			getContainerItemCounts(_backpacks['Loot'], function(items)
-				xeno.delayWalker(0)
+				resumeWalker()
 
 				-- No items at all, skip step
 				if not items then
@@ -461,9 +463,9 @@ Supply = (function()
 			end
 
 			-- Count gold and plat
-			xeno.delayWalker(DELAY.WALKER_TIMEOUT)
+			delayWalker()
 			local items = getTotalItemCount({[3031] = true, [3035] = true}, true)
-			xeno.delayWalker(0)
+			resumeWalker()
 
 			-- Loot remaining in loot backpack
 			local depositLoot = false
@@ -690,7 +692,7 @@ Supply = (function()
 			walkerStartPath(_script.town, _script.townexit, 'spawn', function()
 				-- Enter spawn
 				xeno.gotoLabel('enterspawn')
-				xeno.delayWalker(0)
+				resumeWalker()
 				xeno.setTargetingEnabled(true)
 				xeno.setLooterEnabled(true)
 				-- Reached spawn

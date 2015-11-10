@@ -597,6 +597,27 @@ Core = (function()
 		end
 	end
 
+	local _delayTimeout = nil
+	local function delayWalker()
+		if _delayTimeout then
+			clearTimeout(_delayTimeout)
+			_delayTimeout = nil
+		end
+		_delayTimeout = setTimeout(function()
+			xeno.setWalkerEnabled(false)
+			error('Action timed out. Please contact support.')
+		end, DELAY.WALKER_TIMEOUT - 100)
+		return xeno.delayWalker()
+	end
+
+	local function resumeWalker()
+		if _delayTimeout then
+			clearTimeout(_delayTimeout)
+			_delayTimeout = nil
+		end
+		return xeno.delayWalker(0)
+	end
+
 	-- Export global functions
 	return {
 		debug = debug,
@@ -637,6 +658,8 @@ Core = (function()
 		getDistanceBetween = getDistanceBetween,
 		getSelfName = getSelfName,
 		checkSoftBoots = checkSoftBoots,
-		flattenItemCounts = flattenItemCounts
+		flattenItemCounts = flattenItemCounts,
+		delayWalker = delayWalker,
+		resumeWalker = resumeWalker
 	}
 end)()

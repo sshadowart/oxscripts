@@ -139,6 +139,16 @@ Depot = (function()
 		local suppliesBP = _backpacks['Supplies']
 		local groupTransfers = 0
 
+		local suppliesUsed = false
+		for itemid, supply in pairs(_supplies) do
+			if supply.group == 'Ring'or supply.group == 'Amulet' or supply.group == 'Supplies' then
+				if supply.max > 0 then
+					suppliesUsed = true
+					break
+				end
+			end
+		end
+
 		for itemid, supply in pairs(neededSupplies) do
 			if supply.group == 'Food' then
 				if not groups[mainBP] then groups[mainBP] = {} end
@@ -169,7 +179,7 @@ Depot = (function()
 			local backpack = groupIndex[index]
 			-- No more groups, finished
 			if not backpack then
-				if groupTransfers == 0 then
+				if not suppliesUsed and groupTransfers == 0 then
 					_script.disableWithdraw = true
 					log('No supplies found in depot (3rd slot). Disabling future withdrawal attempts.')
 				end

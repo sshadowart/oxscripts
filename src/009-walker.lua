@@ -7,6 +7,8 @@ Walker = (function()
 	local split = Core.split
 	local getPosFromString = Core.getPosFromString
 	local cleanLabel = Core.cleanLabel
+	local delayWalker = Core.delayWalker
+	local resumeWalker = Core.resumeWalker
 	local sortPositionsByDistance = Core.sortPositionsByDistance
 	local getPositionFromDirection = Core.getPositionFromDirection
 	local getDistanceBetween = Core.getDistanceBetween
@@ -67,7 +69,7 @@ Walker = (function()
 
 		local function walkTo(label, walkCallback)
 			xeno.gotoLabel(label)
-			xeno.delayWalker(0)
+			resumeWalker()
 			when(EVENT_PATH_END, nil, function()
 				walkCallback()
 			end)
@@ -422,7 +424,7 @@ Walker = (function()
 		xeno.gotoLabel('depot|' .. _script.town .. '|1')
 		-- Tell if-stuck monitor to try next depot if we get stuck
 		_script.findingDepot = 1
-		xeno.delayWalker(0)
+		resumeWalker()
 		when(EVENT_DEPOT_END, nil, function()
 			-- Do not try anymore depots if-stuck
 			_script.findingDepot = nil
