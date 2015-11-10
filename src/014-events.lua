@@ -670,12 +670,12 @@ do
 	end
 
 	function onErrorMessage(message)
-		--[[
 		if not _script.ready then return end
 		toggleCriticalMode(true)
 
 		checkEvents(EVENT_ERROR, message)
 
+		--[[
 		-- Snap back
 		if message == ERROR_NOT_POSSIBLE then
 			local time = os.clock() * 1000
@@ -705,8 +705,8 @@ do
 				_snapbacks = 0
 			end
 		end
-		toggleCriticalMode(false)
 		]]
+		toggleCriticalMode(false)
 	end
 
 	function onLootMessage(message)
