@@ -82,12 +82,13 @@
 		<item text="port hope|north.exit~spawn:" tag="255"/>
 		<item text="Node (32616, 32748, 7)" tag="0"/>
 		<item text="Node (32615, 32740, 7)" tag="0"/>
+		<item text="Node (32614, 32731, 7)" tag="0"/>
+		<item text="Node (32612, 32719, 7)" tag="0"/>
 		<item text="end:" tag="255"/>
 		<item text="enterspawn:" tag="255"/>
 		<item text="huntstart|1:" tag="255"/>
-		<item text="Node (32613, 32731, 7)" tag="0"/>
-		<item text="Node (32596, 32728, 7)" tag="0"/>
-		<item text="Node (32582, 32727, 7)" tag="0"/>
+		<item text="Node (32599, 32722, 7)" tag="0"/>
+		<item text="Node (32584, 32722, 7)" tag="0"/>
 		<item text="Node (32565, 32722, 7)" tag="0"/>
 		<item text="Node (32564, 32703, 7)" tag="0"/>
 		<item text="Node (32577, 32694, 7)" tag="0"/>
@@ -129,7 +130,7 @@
 		<item text="Node (32651, 32713, 7)" tag="0"/>
 		<item text="Node (32641, 32703, 7)" tag="0"/>
 		<item text="Node (32629, 32704, 7)" tag="0"/>
-		<item text="Node (32626, 32716, 7)" tag="0"/>
+		<item text="Node (32624, 32716, 7)" tag="0"/>
 		<item text="huntcheck|1:" tag="255"/>
 		<item text="huntexit|2:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
