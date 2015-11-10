@@ -731,7 +731,7 @@ do
 					local cpos = xeno.getCreaturePosition(i)
 					if cpos then
 						local distance = getDistanceBetween(playerPos, cpos)
-						if playerPos.z == cpos.z and distance <= 7 then
+						if playerPos.z == cpos.z and distance <= _config['Mana Restorer']['Range'] then
 							if xeno.getCreatureVisible(i) and xeno.getCreatureHealthPercent(i) > 0 and xeno.isCreatureMonster(i) then
 								monsterOnScreen = true
 								break
