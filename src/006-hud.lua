@@ -674,6 +674,7 @@ Hud = (function()
 		hudPanelCreate('Supplies', 'rightcolumn', true)
 		hudPanelCreate('Loot', 'rightcolumn', true)
 
+		hudItemCreate('General', 'XenoBot', _script.xenoversion, true)
 		hudItemCreate('General', 'Online Time', '--', true)
 		hudItemCreate('General', 'Time Remaining', '--', true)
 		hudItemCreate('General', 'Server Save', '--', true)
