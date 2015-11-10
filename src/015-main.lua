@@ -62,7 +62,7 @@ local function init()
                     if not startLabel or getDistanceBetween(position, startLabel) > 30 then
                         startLabel = walkerGetClosestLabel(false, 'huntstart')
                         huntStart = true
-                        if not startLabel or getDistanceBetween(position, huntLabel) > 30 then
+                        if not huntLabel or getDistanceBetween(position, huntLabel) > 30 then
                             error('Too far from any start point. Restart the script closer to a town.')
                             return
                         end
