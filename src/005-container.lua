@@ -8,6 +8,7 @@ Container = (function()
 	local setInterval = Core.setInterval
 	local when = Core.when
 	local formatList = Core.formatList
+	local debug = Core.debug
 	local log = Console.log
 	local info = Console.info
 	local prompt = Console.prompt
@@ -156,6 +157,7 @@ Container = (function()
 
 		-- Registers the error watcher
 		watchContainerFullError = function()
+			debug('containerMoveItems: container full event')
 			return when(EVENT_ERROR, ERROR_CONTAINER_FULL, onContainerFull)
 		end
 
@@ -166,6 +168,7 @@ Container = (function()
 
 			-- Moving is paused, stop recurse
 			if isMovingPaused then
+				debug('containerMoveItems: moving paused')
 				return
 			end
 
@@ -184,6 +187,7 @@ Container = (function()
 				end
 				-- Reset depths and finish
 				resetContainerDepths(fromContainer, toContainer, sourceDepth, destDepth, function()
+					debug('containerMoveItems: resetContainerDepths -> callback')
 					callback(true, moveHits)
 				end)
 				return
@@ -202,9 +206,11 @@ Container = (function()
 					sourceDepth = sourceDepth + 1
 					spotOffset = 0
 					xeno.containerUseItem(fromContainer, itemCount-1, true, true)
+					debug('containerMoveItems: cascade [last slot]')
 				else
 					spotOffset = spotOffset + 1
 					-- Skip to next item immediately
+					debug('containerMoveItems: moveItem() [last slot]')
 					moveItem(self)
 				end
 				return
@@ -214,6 +220,7 @@ Container = (function()
 			if blackList and blackList[item.id] then
 				spotOffset = spotOffset + 1
 				-- Skip to next item immediately
+				debug('containerMoveItems: moveItem() [blacklist]')
 				moveItem(self)
 				return
 			end
@@ -222,6 +229,7 @@ Container = (function()
 			if whiteList and not whiteList[item.id] then
 				spotOffset = spotOffset + 1
 				-- Skip to next item immediately
+				debug('containerMoveItems: moveItem() [filter]')
 				moveItem(self)
 				return
 			end
@@ -230,6 +238,7 @@ Container = (function()
 			if itemFilter and not itemFilter(item) then
 				spotOffset = spotOffset + 1
 				-- Skip to next item immediately
+				debug('containerMoveItems: moveItem() [filter func]')
 				moveItem(self)
 				return
 			end
@@ -245,6 +254,7 @@ Container = (function()
 				if moveCounts[item.id] <= 0 then
 					spotOffset = spotOffset + 1
 					-- Skip to next item immediately
+					debug('containerMoveItems: moveItem() [no need]')
 					moveItem(self)
 					return
 				end
@@ -266,6 +276,7 @@ Container = (function()
 			lastMove.count = moveStackCount
 			
 			-- Move item to destination
+			debug(('containerMoveItems: move item %d, %d => %d, %d x%d'):format(fromContainer, spotOffset, toContainer, toSlot, moveStackCount))
 			xeno.containerMoveItemToContainer(fromContainer, spotOffset, toContainer, toSlot, moveStackCount)
 		end
 
@@ -295,17 +306,21 @@ Container = (function()
 						clearTimeout(moveInterval)
 					end
 					-- Reset depths and finish
+					debug('containerMoveItems: reset depths [no bp, no cascade]')
 					resetContainerDepths(fromContainer, toContainer, sourceDepth, destDepth, function()
+						debug('containerMoveItems: callback() [no bp, no cascade]')
 						callback(false, moveHits)
 					end)
 					return
 				end
 				-- Open destination container
+				debug('containerMoveItems: open destination')
 				xeno.containerUseItem(toContainer, toSlot, not openWindow, true)
 				setTimeout(function()
 					-- Update toContainer index if we opened in a new window
 					if openWindow then
 						toContainer = getLastContainer()
+						debug('containerMoveItems: new window = ' .. toContainer)
 						-- Reset destination depth, since we're in a new destination
 						destDepth = 0
 					end
@@ -324,11 +339,14 @@ Container = (function()
 
 						-- Register full event again
 						fullEvent = watchContainerFullError()
+						debug('containerMoveItems: cascade depth = ' .. destDepth)
 						return
 					end
 					-- No cascade backpack, stop entirely
 					-- Reset depths and finish
+					debug('containerMoveItems: reset depths [cascaded]')
 					resetContainerDepths(fromContainer, toContainer, sourceDepth, destDepth, function()
+						debug('containerMoveItems: callback() [cascaded]')
 						callback(false, moveHits)
 						-- Kill move event
 						if moveInterval then

@@ -2539,6 +2539,6 @@ local DEBUG_ACCOUNTS = {
 	'fatality',
 	'rydan',
 	'shadowart',
-	'aini',
+	'jontor',
 	'draadloos'
 }

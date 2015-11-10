@@ -6,6 +6,7 @@ Npc = (function()
 	local talk = Core.talk
 	local checkSoftBoots = Core.checkSoftBoots
 	local getXenoVersion = Core.getXenoVersion
+	local debug = Core.debug
 	local error = Console.error
 	local getTotalItemCount = Container.getTotalItemCount
 	local containerMoveItems = Container.containerMoveItems
@@ -15,11 +16,13 @@ Npc = (function()
 	local function moveTransactionGoldChange(container, callback)
 		-- Move loose gold change from container to gold backpack
 		-- uses main bp if gold backpack isn't assigned.
+		debug('moveTransactionGoldChange: ' .. container .. ', ' .. _backpacks['Gold'])
 		containerMoveItems({
 			src = container,
-			dest = _backpacks['Gold'] or _backpacks['Main'],
+			dest = _backpacks['Gold'],
 			items = {
-				[3031] = true
+				[3031] = true,
+				[3035] = true
 			},
 			disableSourceCascade = true,
 			openwindow = false
@@ -115,6 +118,7 @@ Npc = (function()
 
 			-- No more to sell
 			if amount <= 0 then
+				debug('shopSellItem: sellItem -> callback()')
 				callback()
 				return
 			end
@@ -130,14 +134,17 @@ Npc = (function()
 				setTimeout(function()
 					-- Remaining count to sell, recurse
 					if remaining > 0 then
+						debug('shopSellItem: sellItem()')
 						sellItem()
 					-- Sold all items, callback
 					else
+						debug('shopSellItem: callback()')
 						callback()
 					end
 				end, pingDelay(DELAY.TRADE_TRANSACTION))
 			-- Failed to sell, retrying
 			elseif tries > 0 then
+				debug('shopSellItem: retry('.. tries-1 ..')')
 				shopSellItem(itemid, callback, neededCount, tries-1)
 			-- Out of tries. Failed to sell stack.
 			else
@@ -146,6 +153,7 @@ Npc = (function()
 			return
 		end
 		-- Start recursive selling
+		debug('shopSellItem: sellItem() [start]')
 		sellItem()
 	end
 
@@ -156,6 +164,7 @@ Npc = (function()
 			itemlist[#itemlist+1] = itemid
 		end
 		local itemcount = #itemlist
+		debug('shopSellLoot: itemcount = '.. itemcount ..'')
 
 		function sell(index)
 			local itemid = itemlist[index]
@@ -163,29 +172,36 @@ Npc = (function()
 			-- No more items, finish
 			if not itemid then
 				-- Move change to gold
+				debug('shopSellLoot: moveTransactionGoldChange()')
 				moveTransactionGoldChange(0, function()
+					debug('shopSellLoot: callback()')
 					callback()
 				end)
 				return
 			end
 
 			local amount = shopSellableCount(itemid)
+			debug('shopSellLoot: shopSellableCount('.. itemid ..') = ' .. amount)
 
 			if amount > 0 then
 				shopSellItem(itemid, function()
+					debug('shopSellLoot: shopSellItem('.. itemid ..')')
 					-- Recurse to next item in list
 					setTimeout(function()
 						sell(index + 1)
+						debug('shopSellLoot: sell('.. index + 1 ..')')
 					end, pingDelay(DELAY.TRADE_TRANSACTION))
 				end)
 			else
 				-- If we don't have the item, recurse without a wait.
 				sell(index + 1)
+				debug('shopSellLoot: sell('.. index + 1 ..') [no item]')
 			end
 		end
 
 		if nodialog then
 			sell(1)
+			debug('shopSellLoot: sell(1)')
 			return
 		end
 
@@ -193,6 +209,7 @@ Npc = (function()
 			-- Todo: use NPC proxy to verify trade window
 			setTimeout(function()
 				sell(1)
+				debug('shopSellLoot: sell(1) [greet]')
 			end, pingDelay(DELAY.RANGE_TALK))
 		end)
 	end
@@ -202,6 +219,7 @@ Npc = (function()
 			callback()
 			return
 		end
+		debug('shopSellFlasks: shopSellLoot()')
 		shopSellLoot(ITEM_LIST_FLASKS, callback, true)
 	end
 
@@ -245,6 +263,7 @@ Npc = (function()
 
 			-- Price not found
 			if price <= 0 then
+				debug('shopBuyItemUpToCount: callback')
 				callback()
 				return
 			end
@@ -258,9 +277,11 @@ Npc = (function()
 					-- Remaining count to buy, continue
 					if remaining > 0 then
 						buyItem()
+						debug('shopBuyItemUpToCount -> buyAgain: buyItem()')
 					-- Bought all items, destination is not main, callback
 					elseif destination > 0 then
 						-- Final cleanup
+						debug('shopBuyItemUpToCount -> buyAgain: containerMoveItems()')
 						containerMoveItems({
 							src = mainbp,
 							dest = destination,
@@ -268,10 +289,12 @@ Npc = (function()
 							disableSourceCascade = true,
 							openwindow = false
 						}, function(success)
+							debug('shopBuyItemUpToCount -> buyAgain: callback() [move]')
 							callback()
 						end)
 					-- Bought all items, destination is main
 					else
+						debug('shopBuyItemUpToCount -> buyAgain: callback()')
 						callback()
 					end
 				end
@@ -282,6 +305,7 @@ Npc = (function()
 					-- and we have less than 3 free slots
 					local freeSlots = xeno.getContainerItemCapacity(mainbp) - xeno.getContainerItemCount(mainbp)
 					if destination > 0 and freeSlots < 4 then
+						debug('shopBuyItemUpToCount: containerMoveItems()')
 						-- Move to destination after buying stack
 						containerMoveItems({
 							src = mainbp,
@@ -291,14 +315,17 @@ Npc = (function()
 							openwindow = false
 						}, function(success)
 							buyAgain()
+							debug('shopBuyItemUpToCount: buyAgain() [retry]')
 						end)
 					else
 						buyAgain()
+						debug('shopBuyItemUpToCount: buyAgain()')
 					end
 				end, pingDelay(DELAY.TRADE_TRANSACTION))
 			-- Failed to buy, retrying
 			elseif tries > 0 then
 				shopBuyItemUpToCount(itemid, neededCount, destination, callback, tries-1)
+				debug('shopBuyItemUpToCount: retry(' .. tries - 1 .. ')')
 			-- Out of tries. Failed to buy stack.
 			else
 				error('Failed to buy ' .. xeno.getItemNameByID(itemid) .. ' (' .. neededStackCount .. 'x). ' .. 'Make sure you have enough capacity and gold.')
@@ -314,7 +341,9 @@ Npc = (function()
 		local backpack = _backpacks[group] and _backpacks[group] or nil
 		local function buyListItem(index)
 			-- Reached end of list, callback
+
 			if index > #items then
+				debug('shopBuySupplies: callback')
 				callback()
 				return
 			end
@@ -324,12 +353,14 @@ Npc = (function()
 
 			-- Item doesn't exist or not needed
 			if not item or not item.needed or item.needed < 1 then
+				debug('shopBuySupplies: buyListItem(' .. index + 1 .. ') [skip]')
 				buyListItem(index + 1)
 				return
 			end
 
 			-- Buy item
 			shopBuyItemUpToCount(item.id, item.needed, backpack, function()
+				debug('shopBuySupplies: buyListItem(' .. index + 1 .. ')')
 				buyListItem(index + 1)
 			end)
 		end
@@ -358,11 +389,13 @@ Npc = (function()
 				if group == 'Potions' then
 					talk({'trade'}, function()
 						shopSellFlasks(function()
+							debug('shopBuySupplies: buyListItem(1) [greet, potions]')
 							buyListItem(1)
 						end)
 					end)
 				else
 					talk({'trade'}, function()
+						debug('shopBuySupplies: buyListItem(' .. index + 1 .. ') [greet]')
 						buyListItem(1)
 					end)
 				end
@@ -371,9 +404,11 @@ Npc = (function()
 			-- Try to sell flasks if we may be at the magic shop
 			if group == 'Potions' then
 				shopSellFlasks(function()
+					debug('shopBuySupplies: buyListItem(1) [potions]')
 					buyListItem(1)
 				end)
 			else
+				debug('shopBuySupplies: buyListItem(1)')
 				buyListItem(1)
 			end
 		end
