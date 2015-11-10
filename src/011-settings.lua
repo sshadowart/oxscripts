@@ -400,7 +400,7 @@ Settings = (function()
 			end
 
 			-- Dynamic Lure
-			if _config['Lure']['Amount'] and _config['Lure']['Amount'] > 0 then
+			if _config['Lure'] and _config['Lure']['Amount'] and _config['Lure']['Amount'] > 0 then
 				local lurexml = getDynamicLureXBST()
 				if lurexml then
 					if not xbstContents then
