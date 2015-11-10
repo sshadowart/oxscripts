@@ -607,7 +607,7 @@ Core = (function()
 			xeno.setWalkerEnabled(false)
 			error('Action timed out. Please contact support.')
 		end, DELAY.WALKER_TIMEOUT - 100)
-		return xeno.delayWalker()
+		return xeno.delayWalker(DELAY.WALKER_TIMEOUT)
 	end
 
 	local function resumeWalker()
