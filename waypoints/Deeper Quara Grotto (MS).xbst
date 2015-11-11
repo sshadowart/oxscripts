@@ -166,7 +166,7 @@
 		<item text="Node (32242, 32878, 10)" tag="0"/>
 		<item text="huntcheck|Stay-Third-Floor|No-Stay-Third-Floor:" tag="255"/>
 		<item text="Stay-Third-Floor:" tag="255"/>
-		<item text="stayingThirdFloor" tag="254"/>
+		<item text="Walker.Goto('stayingThirdFloor')" tag="254"/>
 		<item text="No-Stay-Third-Floor:" tag="255"/>
 		<item text="huntcheck|2:" tag="255"/>
 		<item text="huntexit|2:" tag="255"/>
