@@ -674,9 +674,6 @@ Supply = (function()
 			return
 		end
 
-		-- Start the backpack cleaner
-		setInterval(cleanContainers, DELAY.CLEAN_CONTAINERS_INTERVAL);
-
 		-- Done, go to town exit
 		log('Ready to hunt. Walking to the spawn.')
 
