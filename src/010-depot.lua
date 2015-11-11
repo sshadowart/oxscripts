@@ -296,7 +296,7 @@ Depot = (function()
 						callback()
 					end
 				end)
-			end
+			end)
 		end)
 	end
 
