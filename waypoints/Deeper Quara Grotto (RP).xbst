@@ -114,6 +114,7 @@
 		<item text="Stand (32271, 32871, 8)" tag="1"/>
 		<item text="Self.Step(WEST) wait(300, 500) Walker.ConditionalGoto(Self.Position().z ~= 9, 'PreWhirlpool1')" tag="254"/>
 		<item text="huntcheck|Third-Floor|No-Third-Floor:" tag="255"/>
+		<item text="Third-Floor:" tag="255"/>
 		<item text="huntcheck|Rush-Third-Floor|No-Rush-Third-Floor:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="Walker.Goto('rush4')" tag="254"/>
@@ -170,10 +171,6 @@
 		<item text="Stay-Third-Floor:" tag="255"/>
 		<item text="Walker.Goto('stayingThirdFloor')" tag="254"/>
 		<item text="No-Stay-Third-Floor:" tag="255"/>
-		<item text="huntcheck|2:" tag="255"/>
-		<item text="huntexit|2:" tag="255"/>
-		<item text="SIgnore" tag="10"/>
-		<item text="huntstart|2:" tag="255"/>
 		<item text="Node (32239, 32874, 10)" tag="0"/>
 		<item text="Node (32236, 32871, 10)" tag="0"/>
 		<item text="Stand (32235, 32870, 10)" tag="1"/>
