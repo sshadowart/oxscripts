@@ -143,7 +143,7 @@
 		<item text="Node (32236, 32870, 9)" tag="0"/>
 		<item text="Stand (32235, 32870, 9)" tag="1"/>
 		<item text="EIgnore" tag="11"/>
-		<item text="Stay-Third-Floor:" tag="255"/>
+		<item text="stayingThirdFloor:" tag="255"/>
 		<item text="Node (32239, 32874, 10)" tag="0"/>
 		<item text="Node (32245, 32875, 10)" tag="0"/>
 		<item text="Node (32251, 32875, 10)" tag="0"/>
@@ -179,6 +179,8 @@
 		<item text="Node (32245, 32884, 10)" tag="0"/>
 		<item text="Node (32242, 32878, 10)" tag="0"/>
 		<item text="huntcheck|Stay-Third-Floor|No-Stay-Third-Floor:" tag="255"/>
+		<item text="Stay-Third-Floor:" tag="255"/>
+		<item text="stayingThirdFloor" tag="254"/>
 		<item text="No-Stay-Third-Floor:" tag="255"/>
 		<item text="huntcheck|2:" tag="255"/>
 		<item text="huntexit|2:" tag="255"/>

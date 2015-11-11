@@ -198,7 +198,7 @@
 		<item text="Stand (33064, 31598, 10)" tag="1"/>
 		<item text="Node (33056, 31596, 11)" tag="0"/>
 		<item text="Node (33045, 31595, 11)" tag="0"/>
-		<item text="Stay-Bottom-Floor:" tag="255"/>
+		<item text="stayingSecondFloor:" tag="255"/>
 		<item text="Node (33038, 31596, 11)" tag="0"/>
 		<item text="Node (33038, 31602, 11)" tag="0"/>
 		<item text="huntcheck|8:" tag="255"/>
@@ -267,6 +267,8 @@
 		<item text="huntexit|8:" tag="255"/>
 		<item text="Node (33045, 31595, 11)" tag="0"/>
 		<item text="huntcheck|Stay-Bottom-Floor|No-Stay-Bottom-Floor:" tag="255"/>
+		<item text="Stay-Bottom-Floor:" tag="255"/>
+		<item text="Walker.Goto('stayingSecondFloor')" tag="254"/>
 		<item text="No-Stay-Bottom-Floor:" tag="255"/>
 		<item text="Node (33056, 31596, 11)" tag="0"/>
 		<item text="Node (33063, 31598, 11)" tag="0"/>

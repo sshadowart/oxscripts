@@ -160,7 +160,7 @@
 		<item text="Straight-Bottom-Floor" tag="11"/>
 		<item text="Node (32888, 32873, 9)" tag="0"/>
 		<item text="Stand (32888, 32872, 9)" tag="1"/>
-		<item text="Stay-Bottom-Floor:" tag="255"/>
+		<item text="stayingBottomFloor:" tag="255"/>
 		<item text="Node (32883, 32876, 10)" tag="0"/>
 		<item text="Node (32876, 32877, 10)" tag="0"/>
 		<item text="Node (32871, 32881, 10)" tag="0"/>
@@ -203,6 +203,8 @@
 		<item text="Node (32896, 32884, 10)" tag="0"/>
 		<item text="Node (32892, 32879, 10)" tag="0"/>
 		<item text="huntcheck|Stay-Bottom-Floor|No-Stay-Bottom-Floor:" tag="255"/>
+		<item text="Stay-Bottom-Floor:" tag="255"/>
+		<item text="Walker.Goto('stayingBottomFloor')" tag="254"/>
 		<item text="No-Stay-Bottom-Floor:" tag="255"/>
 		<item text="Node (32888, 32872, 10)" tag="0"/>
 		<item text="Rope (32888, 32872, 10)" tag="3"/>
