@@ -150,6 +150,11 @@ Container = (function()
 			count = nil
 		}
 
+		if not fromContainer or not toContainer then
+			callback()
+			return
+		end
+
 		-- Target move slot is last slot in the container by default
 		if toSlot == nil then
 			toSlot = xeno.getContainerItemCapacity(toContainer) - 1
