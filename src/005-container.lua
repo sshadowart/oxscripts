@@ -451,7 +451,7 @@ Container = (function()
 		end, pingDelay(DELAY.USE_EQUIPMENT))
 	end
 
-	local function resetContainers(minimize, callback)
+	local function resetContainers(callback)
 		-- Close all containers
 		for i = 0, 16 do
 			xeno.closeContainer(i)
@@ -638,7 +638,7 @@ Container = (function()
 		end
 
 		-- Open main bp and children
-		resetContainers(true, function()
+		resetContainers(function()
 			-- Count how many are open (excluding main bp)
 			-- Determine how many we need
 			-- If we have enough, continue

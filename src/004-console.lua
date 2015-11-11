@@ -70,6 +70,7 @@ Console = (function()
 		error = error,
 		prompt = prompt,
 		openConsole = openConsole,
-		openDebugChannel = openDebugChannel
+		openDebugChannel = openDebugChannel,
+		openPrivateMessageConsole = openPrivateMessageConsole
 	}
 end)()

@@ -57,7 +57,9 @@ local function init()
 
                     -- Check if we're in the spawn or in town
                     local position = xeno.getSelfPosition()
-                    local startLabel = walkerGetClosestLabel(true, _script.town:lower())
+                    local townPositions = sortPositionsByDistance(xeno.getSelfPosition(), TOWN_POSITIONS)
+                    local town = townPositions[1].name
+                    local startLabel = walkerGetClosestLabel(true, town:lower())
                     local huntStart = false
                     if not startLabel or getDistanceBetween(position, startLabel) > 30 then
                         startLabel = walkerGetClosestLabel(false, 'huntstart')

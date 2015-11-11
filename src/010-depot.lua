@@ -15,6 +15,7 @@ Depot = (function()
 	local getLastContainer = Container.getLastContainer
 	local getContainerByName = Container.getContainerByName
 	local containerMoveItems = Container.containerMoveItems
+	local resetContainers = Container.resetContainers
 	local walkerGotoDepot = Walker.walkerGotoDepot
 
 	local function openLocker(callback)
@@ -229,71 +230,73 @@ Depot = (function()
 	local function startDepotTransfer(needDeposit, neededSupplies, callback)
 		-- Walk to nearest depot
 		walkerGotoDepot(function()
-			-- Open Depot
-			openDepot(function(depot)
-				-- Depot not opened, keep looking
-				if not depot then
-					startDepotTransfer(needDeposit, neededSupplies, callback)
-					return
-				end
-
-				-- Minimize depot container
-				xeno.minimizeContainer(depot)
-
-				-- Set depot state
-				_script.depotOpen = true
-
-				-- Check slots
-				for spot = 0, 2 do
-					local item = xeno.getContainerSpotData(depot, spot)
-					if not item or not xeno.isItemContainer(item.id) then
-						error('The first 3 depot slots must be a container. [loot, stackable loot, supplies]')
-						return 
+			resetContainers(function()
+				-- Open Depot
+				openDepot(function(depot)
+					-- Depot not opened, keep looking
+					if not depot then
+						startDepotTransfer(needDeposit, neededSupplies, callback)
+						return
 					end
-				end
 
-				-- We need to deposit
-				if needDeposit then
-					-- Deposit stackables
-					transferToDepot(depot, DEPOT.SLOT_STACK, function()
-						-- Delay
-						setTimeout(function()
-							-- Deposit non-stackables
-							transferToDepot(depot, DEPOT.SLOT_NONSTACK, function()
-								-- We need to withdraw, delay and withdraw
-								if neededSupplies then
-									setTimeout(function()
-										-- Withdraw supplies
-										transferFromDepot(depot, neededSupplies, function()
-											-- Set depot state
-											_script.depotOpen = false
-											callback()
-										end)
-									end, DELAY.CONTAINER_MOVE_ITEM)
-								-- Nothing left
-								else
-									-- Set depot state
-									_script.depotOpen = false
-									callback()
-								end
-							end)
-						end, DELAY.CONTAINER_MOVE_ITEM)
-					end)
-				-- Only withdraw
-				elseif neededSupplies then
-					-- Withdraw supplies
-					transferFromDepot(depot, neededSupplies, function()
+					-- Minimize depot container
+					xeno.minimizeContainer(depot)
+
+					-- Set depot state
+					_script.depotOpen = true
+
+					-- Check slots
+					for spot = 0, 2 do
+						local item = xeno.getContainerSpotData(depot, spot)
+						if not item or not xeno.isItemContainer(item.id) then
+							error('The first 3 depot slots must be a container. [loot, stackable loot, supplies]')
+							return 
+						end
+					end
+
+					-- We need to deposit
+					if needDeposit then
+						-- Deposit stackables
+						transferToDepot(depot, DEPOT.SLOT_STACK, function()
+							-- Delay
+							setTimeout(function()
+								-- Deposit non-stackables
+								transferToDepot(depot, DEPOT.SLOT_NONSTACK, function()
+									-- We need to withdraw, delay and withdraw
+									if neededSupplies then
+										setTimeout(function()
+											-- Withdraw supplies
+											transferFromDepot(depot, neededSupplies, function()
+												-- Set depot state
+												_script.depotOpen = false
+												callback()
+											end)
+										end, DELAY.CONTAINER_MOVE_ITEM)
+									-- Nothing left
+									else
+										-- Set depot state
+										_script.depotOpen = false
+										callback()
+									end
+								end)
+							end, DELAY.CONTAINER_MOVE_ITEM)
+						end)
+					-- Only withdraw
+					elseif neededSupplies then
+						-- Withdraw supplies
+						transferFromDepot(depot, neededSupplies, function()
+							-- Set depot state
+							_script.depotOpen = false
+							callback()
+						end)
+					-- Nothing?
+					else
 						-- Set depot state
 						_script.depotOpen = false
 						callback()
-					end)
-				-- Nothing?
-				else
-					-- Set depot state
-					_script.depotOpen = false
-					callback()
-				end
-			end)
+					end
+				end)
+			end
 		end)
 	end
 

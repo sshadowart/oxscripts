@@ -395,7 +395,7 @@ Npc = (function()
 					end)
 				else
 					talk({'trade'}, function()
-						debug('shopBuySupplies: buyListItem(' .. index + 1 .. ') [greet]')
+						debug('shopBuySupplies: buyListItem(1) [greet]')
 						buyListItem(1)
 					end)
 				end

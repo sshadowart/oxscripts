@@ -949,7 +949,7 @@ do
 				xeno.setLooterEnabled(false)
 				xeno.setTargetingEnabled(false)
 				-- If in PZ, we enable after we setup containers
-				resetContainers(true, function()
+				resetContainers(function()
 					if inProtectionZone then
 						resumeWalker()
 						xeno.setLooterEnabled(true)
