@@ -16,6 +16,7 @@ local function init()
     local isXenoBotBinary = Core.isXenoBotBinary
     local getXenoVersion = Core.getXenoVersion
     local openConsole = Console.openConsole
+    local sortPositionsByDistance = Core.sortPositionsByDistance
     local log = Console.log
     local setupContainers = Container.setupContainers
     local walkerGetTownExit = Walker.walkerGetTownExit
