@@ -9,8 +9,8 @@
 		<item spell="exura" mana="20" vcomp="0" vsign="1" vrandom="0" vvalue="92" enabled="1"/>
 	</control>
 	<control name="ItemList">
-		<item id="236" vcomp="0" vsign="1" vrandom="1" vvalue="34" enabled="1"/>
-		<item id="237" vcomp="0" vsign="3" vrandom="1" vvalue="70" enabled="1"/>
+		<item id="266" vcomp="0" vsign="1" vrandom="1" vvalue="34" enabled="1"/>
+		<item id="268" vcomp="0" vsign="3" vrandom="1" vvalue="70" enabled="1"/>
 	</control>
 </panel>
 <panel name="Tools">
