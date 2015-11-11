@@ -585,6 +585,7 @@
 		<item title="Special Area #174" consider="3" width="1" height="5" x="33103" y="31720" z="7"/>
 		<item title="Special Area #175" consider="3" width="2" height="1" x="33104" y="31724" z="7"/>
 		<item title="Special Area #176" consider="3" width="1" height="2" x="33107" y="31725" z="7"/>
+		<item title="Special Area #177" consider="2" width="16" height="1" x="32992" y="31611" z="11"/>
 	</control>
 </panel>
 <panel name="Scripter">
