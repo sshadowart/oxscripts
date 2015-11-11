@@ -14,6 +14,10 @@ Npc = (function()
 	local getFlasks = Container.getFlasks
 
 	local function moveTransactionGoldChange(container, callback)
+		if container == _backpacks['Gold'] then
+			callback()
+			return
+		end
 		-- Move loose gold change from container to gold backpack
 		-- uses main bp if gold backpack isn't assigned.
 		debug('moveTransactionGoldChange: ' .. container .. ', ' .. _backpacks['Gold'])
@@ -263,8 +267,11 @@ Npc = (function()
 
 			-- Price not found
 			if price <= 0 then
-				debug('shopBuyItemUpToCount: callback')
-				callback()
+				debug('shopBuyItemUpToCount: moveTransactionGoldChange()')
+				moveTransactionGoldChange(0, function()
+					debug('shopBuyItemUpToCount: callback')
+					callback()
+				end)
 				return
 			end
 
