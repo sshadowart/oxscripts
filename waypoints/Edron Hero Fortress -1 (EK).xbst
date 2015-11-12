@@ -58,10 +58,11 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Vicious Squire" chs="0" max="20" min="0" prio="5" prox="7" count="1"/>
-		<item type="Vicious Squire" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
-		<item type="Necromancer" chs="0" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Bonebeast" chs="0" max="20" min="0" prio="2" prox="7" count="1"/>
+		<item type="Vicious Squire" chs="0" max="20" min="0" prio="6" prox="7" count="1"/>
+		<item type="Vicious Squire" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Necromancer" chs="0" max="100" min="0" prio="4" prox="3" count="1"/>
+		<item type="Bonebeast" chs="0" max="20" min="0" prio="3" prox="7" count="1"/>
+		<item type="Bonebeast" chs="0" max="100" min="0" prio="2" prox="3" count="1"/>
 		<item type="Bonebeast" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="Necromancer" chs="0" max="100" min="0" prio="0" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
@@ -175,7 +176,6 @@
 		<item text="Node (33233, 31630, 8)" tag="0"/>
 		<item text="huntcheck|1:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
-		<item text="spawnexit:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
 		<item text="Node (33230, 31633, 8)" tag="0"/>
 		<item text="Node (33229, 31639, 8)" tag="0"/>
@@ -192,6 +192,7 @@
 		<item text="Node (33218, 31663, 7)" tag="0"/>
 		<item text="Walker.ConditionalGoto((Self.Position().z == 6), 'preStair2a')" tag="254"/>
 		<item text="wait(1200, 1500) if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
+		<item text="spawnexit:" tag="255"/>
 		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33215, 31670, 7)" tag="0"/>
 		<item text="Node (33214, 31678, 7)" tag="0"/>

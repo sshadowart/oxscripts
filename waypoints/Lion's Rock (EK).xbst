@@ -285,8 +285,8 @@
 		<item text="huntcheck|1:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
 		<item text="huntexit|3:" tag="255"/>
-		<item text="spawnexit:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="spawnexit:" tag="255"/>
 		<item text="darashia|spawn~west.exit:" tag="255"/>
 		<item text="Node (33120, 32306, 9)" tag="0"/>
 		<item text="Stand (33119, 32303, 9)" tag="1"/>
