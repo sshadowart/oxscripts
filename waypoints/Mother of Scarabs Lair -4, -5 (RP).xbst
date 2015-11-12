@@ -208,7 +208,7 @@
 		<item text="huntcheck|Stay-Bottom-Floor|No-Stay-Bottom-Floor:" tag="255"/>
 		<item text="Stay-Bottom-Floor:" tag="255"/>
 		<item text="Walker.Goto('stayingBottomFloor')" tag="254"/>
-		<item text="No-Stay-/Bottom-Floor:" tag="255"/>
+		<item text="No-Stay-Bottom-Floor:" tag="255"/>
 		<item text="Node (33370, 32617, 12)" tag="0"/>
 		<item text="Stand (33370, 32616, 12)" tag="1"/>
 		<item text="No-Bottom-Floor:" tag="255"/>
