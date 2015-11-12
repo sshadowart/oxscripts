@@ -42,8 +42,8 @@
 	<control name="EnergyCureMana" value="30"/>
 	<control name="EnergyCureEnable" value="0"/>
 	<control name="ParaCureEnable" value="1"/>
-	<control name="ParaCureMana" value="10"/>
-	<control name="ParaCureSpell" value="exura infir ico"/>
+	<control name="ParaCureMana" value="40"/>
+	<control name="ParaCureSpell" value="exura ico"/>
 	<control name="HasteCastMana" value="1000"/>
 	<control name="HasteCastSpell" value="Utani Hur"/>
 	<control name="HasteCastEnable" value="0"/>
@@ -90,7 +90,7 @@
 		<item text="beforeTeleport1:" tag="255"/>
 		<item text="Node (33128, 32309, 8)" tag="0"/>
 		<item text="Stand (33128, 32309, 8)" tag="1"/>
-		<item text="Self.Step(NORTH) wait(500, 800) Walker.ConditionalGoto((Self.Position().x > 33125, 'beforeTeleport1')" tag="254"/>
+		<item text="Self.Step(NORTH) wait(500, 800) Walker.ConditionalGoto((Self.Position().x > 33125), 'beforeTeleport1')" tag="254"/>
 		<item text="Node (33120, 32303, 8)" tag="0"/>
 		<item text="Stand (33119, 32303, 8)" tag="1"/>
 		<item text="EIgnore" tag="11"/>
@@ -285,15 +285,15 @@
 		<item text="huntcheck|1:" tag="255"/>
 		<item text="huntexit|1:" tag="255"/>
 		<item text="huntexit|3:" tag="255"/>
-		<item text="SIgnore" tag="10"/>
 		<item text="spawnexit:" tag="255"/>
 		<item text="darashia|spawn~west.exit:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (33120, 32306, 9)" tag="0"/>
 		<item text="Stand (33119, 32303, 9)" tag="1"/>
 		<item text="beforeTeleport2:" tag="255"/>
 		<item text="Node (33122, 32307, 8)" tag="0"/>
-		<item text="Stand (33123, 32308, 8)" tag="1"/>
-		<item text="Self.Step(EAST) wait(500, 800) Walker.ConditionalGoto((Self.Position().x < 33125, 'beforeTeleport2')" tag="254"/>
+		<item text="Stand (33122, 32308, 8)" tag="1"/>
+		<item text="Self.Step(EAST) wait(500, 800) Walker.ConditionalGoto((Self.Position().x < 33125), 'beforeTeleport2')" tag="254"/>
 		<item text="Node (33129, 32316, 8)" tag="0"/>
 		<item text="Node (33130, 32324, 8)" tag="0"/>
 		<item text="Node (33127, 32330, 8)" tag="0"/>
