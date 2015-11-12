@@ -245,28 +245,6 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
-		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32556" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32558" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32560" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32934" y="32560" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32934" y="32558" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32932" y="32560" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32932" y="32562" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32934" y="32562" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32936" y="32562" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32562" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32562" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32564" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32942" y="32562" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32942" y="32560" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32560" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32560" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32940" y="32558" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32558" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32938" y="32556" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32888" y="32576" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32888" y="32577" z="9"/>
-		<item title="New Area" consider="3" width="1" height="1" x="32888" y="32578" z="9"/>
 	</control>
 </panel>
 <panel name="Alarms">

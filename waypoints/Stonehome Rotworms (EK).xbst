@@ -213,44 +213,6 @@
 </panel>
 <panel name="Special Areas">
 	<control name="AreaList">
-		<item title="Special Area #1" consider="3" width="5" height="1" x="33287" y="31776" z="7"/>
-		<item title="Special Area #2" consider="3" width="4" height="1" x="33292" y="31776" z="7"/>
-		<item title="Special Area #3" consider="3" width="5" height="1" x="33296" y="31776" z="7"/>
-		<item title="Special Area #4" consider="3" width="1" height="4" x="33301" y="31776" z="7"/>
-		<item title="Special Area #5" consider="3" width="1" height="5" x="33301" y="31780" z="7"/>
-		<item title="Special Area #6" consider="3" width="1" height="3" x="33301" y="31785" z="7"/>
-		<item title="Special Area #7" consider="3" width="5" height="1" x="33296" y="31787" z="7"/>
-		<item title="Special Area #8" consider="3" width="5" height="1" x="33291" y="31787" z="7"/>
-		<item title="Special Area #9" consider="3" width="4" height="1" x="33287" y="31787" z="7"/>
-		<item title="Special Area #10" consider="3" width="1" height="4" x="33287" y="31783" z="7"/>
-		<item title="Special Area #11" consider="3" width="1" height="3" x="33287" y="31777" z="7"/>
-		<item title="Special Area #12" consider="3" width="1" height="3" x="33287" y="31780" z="7"/>		
-		<item title="Special Area #13" consider="3" width="5" height="1" x="33287" y="31776" z="7"/>
-		<item title="Special Area #14" consider="3" width="4" height="1" x="33292" y="31776" z="7"/>
-		<item title="Special Area #15" consider="3" width="5" height="1" x="33296" y="31776" z="7"/>
-		<item title="Special Area #16" consider="3" width="1" height="4" x="33301" y="31776" z="7"/>
-		<item title="Special Area #17" consider="3" width="1" height="5" x="33301" y="31780" z="7"/>
-		<item title="Special Area #18" consider="3" width="1" height="3" x="33301" y="31785" z="7"/>
-		<item title="Special Area #19" consider="3" width="5" height="1" x="33296" y="31787" z="7"/>
-		<item title="Special Area #20" consider="3" width="5" height="1" x="33291" y="31787" z="7"/>
-		<item title="Special Area #21" consider="3" width="4" height="1" x="33287" y="31787" z="7"/>
-		<item title="Special Area #22" consider="3" width="1" height="4" x="33287" y="31783" z="7"/>
-		<item title="Special Area #23" consider="3" width="1" height="3" x="33287" y="31777" z="7"/>
-		<item title="Special Area #24" consider="3" width="1" height="3" x="33287" y="31780" z="7"/>
-		<item title="Special Area #25" consider="3" width="1" height="6" x="33330" y="31807" z="12"/>
-		<item title="Special Area #26" consider="2" width="3" height="1" x="33326" y="31772" z="9"/>
-		<item title="Special Area #27" consider="2" width="1" height="2" x="33326" y="31773" z="9"/>
-		<item title="Special Area #28" consider="2" width="4" height="1" x="33322" y="31774" z="9"/>
-		<item title="Special Area #29" consider="2" width="4" height="1" x="33318" y="31774" z="9"/>
-		<item title="Special Area #30" consider="2" width="1" height="4" x="33317" y="31770" z="9"/>
-		<item title="Special Area #31" consider="2" width="1" height="4" x="33317" y="31766" z="9"/>
-		<item title="Special Area #32" consider="2" width="3" height="1" x="33318" y="31766" z="9"/>
-		<item title="Special Area #33" consider="2" width="1" height="2" x="33320" y="31764" z="9"/>
-		<item title="Special Area #34" consider="2" width="3" height="1" x="33321" y="31764" z="9"/>
-		<item title="Special Area #35" consider="2" width="5" height="1" x="33324" y="31764" z="9"/>
-		<item title="Special Area #36" consider="2" width="4" height="1" x="33310" y="31782" z="8"/>
-		<item title="Special Area #37" consider="2" width="5" height="1" x="33314" y="31782" z="8"/>
-		<item title="Special Area #38" consider="2" width="4" height="1" x="33319" y="31782" z="8"/>
 	</control>
 </panel>
 <panel name="Alarms">
