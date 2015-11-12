@@ -106,11 +106,11 @@
 		<item text="Node (33221, 31655, 7)" tag="0"/>
 		<item text="Stand (33221, 31654, 7)" tag="1"/>
 		<item text="Node (33220, 31648, 6)" tag="0"/>
-		<item text="Walker.ConditionalGoto((Self.Position().z == 7, 'preStair1')" tag="254"/>
+		<item text="Walker.ConditionalGoto((Self.Position().z == 7), 'preStair1')" tag="254"/>
 		<item text="preStair1a:" tag="255"/>
 		<item text="Stand (33221, 31648, 6)" tag="1"/>
 		<item text="Node (33225, 31650, 7)" tag="0"/>
-		<item text="Walker.ConditionalGoto((Self.Position().z == 6, 'preStair1a')" tag="254"/>
+		<item text="Walker.ConditionalGoto((Self.Position().z == 6), 'preStair1a')" tag="254"/>
 		<item text="if Self.isPoisoned() then Self.Say('exana pox') end while Self.isDrunk() do wait(100) end" tag="254"/>
 		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
@@ -188,11 +188,11 @@
 		<item text="Node (33222, 31648, 7)" tag="0"/>
 		<item text="Stand (33221, 31648, 7)" tag="1"/>
 		<item text="Node (33220, 31653, 6)" tag="0"/>
-		<item text="Walker.ConditionalGoto((Self.Position().z == 7, 'preStair2')" tag="254"/>
+		<item text="Walker.ConditionalGoto((Self.Position().z == 7), 'preStair2')" tag="254"/>
 		<item text="preStair2a:" tag="255"/>
 		<item text="Stand (33220, 31654, 6)" tag="1"/>
 		<item text="Node (33218, 31663, 7)" tag="0"/>
-		<item text="Walker.ConditionalGoto((Self.Position().z == 6, 'preStair2a')" tag="254"/>
+		<item text="Walker.ConditionalGoto((Self.Position().z == 6), 'preStair2a')" tag="254"/>
 		<item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
 		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33215, 31670, 7)" tag="0"/>
