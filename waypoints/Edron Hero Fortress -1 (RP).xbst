@@ -111,7 +111,7 @@
 		<item text="Stand (33221, 31648, 6)" tag="1"/>
 		<item text="Node (33225, 31650, 7)" tag="0"/>
 		<item text="Walker.ConditionalGoto((Self.Position().z == 6), 'preStair1a')" tag="254"/>
-		<item text="if Self.isPoisoned() then Self.Say('exana pox') end while Self.isDrunk() do wait(100) end" tag="254"/>
+		<item text="wait(1200, 1500) if Self.isPoisoned() then Self.Say('exana pox') end while Self.isDrunk() do wait(100) end" tag="254"/>
 		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 		<item text="enterspawn:" tag="255"/>
@@ -193,7 +193,7 @@
 		<item text="Stand (33220, 31654, 6)" tag="1"/>
 		<item text="Node (33218, 31663, 7)" tag="0"/>
 		<item text="Walker.ConditionalGoto((Self.Position().z == 6), 'preStair2a')" tag="254"/>
-		<item text="if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
+		<item text="wait(1200, 1500) if Self.isPoisoned() then Self.Say('exana pox') end" tag="254"/>
 		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="Node (33215, 31670, 7)" tag="0"/>
 		<item text="Node (33214, 31678, 7)" tag="0"/>
