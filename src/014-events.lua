@@ -112,7 +112,7 @@ do
 				if not skipSupplyCheck then
 					thresholds = checkAllSupplyThresholds()
 				end
-				if _script.returnQueued or thresholds.min or (xeno.getSelfCap() < _config['Capacity']['Hunt-Minimum']) or (_config['Soft Boots']['Mana-Percent'] > 0 and getTotalItemCount(ITEMID.SOFTBOOTS_WORN) > 0) then
+				if _script.returnQueued or thresholds.min or (xeno.getSelfCap() < _config['Capacity']['Hunt-Minimum'] and not skipSupplyCheck) or (_config['Soft Boots']['Mana-Percent'] > 0 and getTotalItemCount(ITEMID.SOFTBOOTS_WORN) > 0 and not skipSupplyCheck) then
 					state = 'Walking to exit'
 					log('Returning to ' .. _script.town .. ' to re-supply.' .. (_script.returnQueued and ' [forced]' or ''))
 					-- Clean backpacks
