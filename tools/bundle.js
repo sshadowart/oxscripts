@@ -120,7 +120,7 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
       let productionXML = `
         <panel name="Scripter">
           <control name="RunningScriptList">
-          <script name="${outputName.replace('.xbst', '.lua')}"><![CDATA[${encodedLua}]]></script>
+          <script name="${outputName.replace('.xbst', '.lua')}" noprompt="1"><![CDATA[${encodedLua}]]></script>
           </control>
         </panel>`;
 
