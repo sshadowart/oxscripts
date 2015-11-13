@@ -71,8 +71,11 @@ local function init()
                         end
                     end
 
+                    -- Start the walker in the spawn or in town
                     if huntStart then
                         xeno.gotoLabel(startLabel.name)
+                        _script.state = 'Hunting';
+                        _script.inSpawn = true;
                     else
                         resupply()
                     end
