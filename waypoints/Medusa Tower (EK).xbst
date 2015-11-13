@@ -75,6 +75,7 @@
 	<control name="WaypointList">
 		<item text="port hope|south.exit~spawn:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="if not Self.isHasted() then Self.Say('utani hur') end" tag="254"/>
 		<item text="Node (32656, 32804, 7)" tag="0"/>
 		<item text="Node (32669, 32807, 7)" tag="0"/>
 		<item text="Node (32680, 32808, 7)" tag="0"/>
@@ -150,7 +151,7 @@
 		<item text="Node (32867, 32837, 3)" tag="0"/>
 		<item text="huntcheck|Sixth-Floor|No-Sixth-Floor:" tag="255"/>
 		<item text="Stand (32866, 32836, 3)" tag="1"/>
-		<item text="Node (32864, 32831, 2)" tag="0"/>
+		<item text="Node (32864, 32829, 2)" tag="0"/>
 		<item text="Node (32865, 32834, 2)" tag="0"/>
 		<item text="Stand (32866, 32835, 2)" tag="1"/>
 		<item text="No-Sixth-Floor:" tag="255"/>
@@ -195,6 +196,7 @@
 		<item text="spawnexit:" tag="255"/>
 		<item text="port hope|spawn~south.exit:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="if not Self.isHasted() then Self.Say('utani hur') end" tag="254"/>
 		<item text="Node (32866, 32831, 7)" tag="0"/>
 		<item text="Stand (32865, 32830, 7)" tag="1"/>
 		<item text="Node (32868, 32827, 8)" tag="0"/>

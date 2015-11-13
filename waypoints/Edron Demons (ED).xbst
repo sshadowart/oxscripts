@@ -60,7 +60,7 @@
 <panel name="Targeting">
 	<control name="TargetingList">
 		<item type="Demon" chs="2" max="30" min="0" prio="9" prox="7" count="1"/>
-		<item type="Fire Elemental" chs="2" max="100" min="0" prio="8" prox="3" count="1"/>
+		<item type="Fire Elemental" chs="2" max="100" min="0" prio="8" prox="3" count="2"/>
 		<item type="Demon" chs="2" max="100" min="30" prio="7" prox="7" count="1"/>
 		<item type="Massive Fire Elemental, Hero" chs="2" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
@@ -70,6 +70,7 @@
 	<control name="WaypointList">
 		<item text="edron|bridge~spawn:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="if not Self.isHasted() then Self.Say('utani gran hur') end" tag="254"/>
 		<item text="Node (33243, 31797, 7)" tag="0"/>
 		<item text="Node (33245, 31790, 7)" tag="0"/>
 		<item text="Node (33249, 31785, 7)" tag="0"/>
@@ -133,7 +134,7 @@
 		<item text="Node (33139, 31592, 12)" tag="0"/>
 		<item text="Node (33143, 31589, 12)" tag="0"/>
 		<item text="SIgnore" tag="10"/>
-		<item text="Walker.Goto('singleHeroBypass')" tag="244"/>
+		<item text="Walker.Goto('singleHeroBypass')" tag="254"/>
 		<item text="No-Single-Hero:" tag="255"/>
 		<item text="Node (33149, 31601, 12)" tag="0"/>
 		<item text="Node (33139, 31601, 12)" tag="0"/>
@@ -234,6 +235,7 @@
 		<item text="spawnexit:" tag="255"/>
 		<item text="edron|spawn~bridge:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="if not Self.isHasted() then Self.Say('utani gran hur') end" tag="254"/>
 		<item text="Node (33128, 31712, 15)" tag="0"/>
 		<item text="Node (33138, 31712, 15)" tag="0"/>
 		<item text="Node (33143, 31709, 15)" tag="0"/>
@@ -270,12 +272,14 @@
 		<item text="Node (33147, 31595, 13)" tag="0"/>
 		<item text="Node (33144, 31589, 13)" tag="0"/>
 		<item text="Ladder (33144, 31589, 13)" tag="2"/>
+		<item text="huntcheck|Single-Hero|No-Single-Hero:" tag="255"/>
 		<item text="EIgnore" tag="11"/>
 		<item text="Node (33139, 31592, 12)" tag="0"/>
 		<item text="Node (33139, 31601, 12)" tag="0"/>
 		<item text="Node (33149, 31601, 12)" tag="0"/>
 		<item text="Node (33150, 31595, 12)" tag="0"/>
 		<item text="SIgnore" tag="10"/>
+		<item text="No-Single-Hero:" tag="255"/>
 		<item text="Rope (33150, 31595, 12)" tag="3"/>
 		<item text="Node (33156, 31594, 11)" tag="0"/>
 		<item text="Node (33162, 31596, 11)" tag="0"/>
