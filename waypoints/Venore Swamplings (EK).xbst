@@ -206,7 +206,6 @@
 		<item text="Node (32946, 32105, 10)" tag="0"/>
 		<item text="huntexit|4:" tag="255"/>
 		<item text="huntexit|5:" tag="255"/>
-		<item text="SIgnore" tag="10"/>
 		<item text="Node (32935, 32106, 10)" tag="0"/>
 		<item text="Node (32924, 32106, 10)" tag="0"/>
 		<item text="Rope (32924, 32106, 10)" tag="3"/>
@@ -292,10 +291,8 @@
 		<item text="Node (32884, 32108, 9)" tag="0"/>
 		<item text="Node (32898, 32109, 9)" tag="0"/>
 		<item text="huntexit|3:" tag="255"/>
-		<item text="SIgnore" tag="10"/>
 		<item text="Node (32909, 32114, 9)" tag="0"/>
 		<item text="huntexit|6:" tag="255"/>
-		<item text="SIgnore" tag="10"/>
 		<item text="Node (32912, 32121, 9)" tag="0"/>
 		<item text="Node (32912, 32131, 9)" tag="0"/>
 		<item text="Node (32912, 32141, 9)" tag="0"/>
