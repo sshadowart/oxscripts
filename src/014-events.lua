@@ -107,12 +107,13 @@ do
 				end
 			-- Continue hunting
 			else
+				-- Check our state
+				local supplies = not skipSupplyCheck and checkAllSupplyThresholds() or {}
+				local lowSupplies = supplies.min
+				local lowCap = not skipSupplyCheck and (xeno.getSelfCap() < _config['Capacity']['Hunt-Minimum']) or false
+				local needSoftbootRepair = not skipSupplyCheck and (_config['Soft Boots']['Mana-Percent'] > 0 and getTotalItemCount(ITEMID.SOFTBOOTS_WORN) > 0) or false
 				-- Resupply
-				local thresholds = {min = false}
-				if not skipSupplyCheck then
-					thresholds = checkAllSupplyThresholds()
-				end
-				if _script.returnQueued or thresholds.min or (xeno.getSelfCap() < _config['Capacity']['Hunt-Minimum'] and not skipSupplyCheck) or (_config['Soft Boots']['Mana-Percent'] > 0 and getTotalItemCount(ITEMID.SOFTBOOTS_WORN) > 0 and not skipSupplyCheck) then
+				if _script.returnQueued or supplies.min or lowCap or needSoftbootRepair then
 					state = 'Walking to exit'
 					log('Returning to ' .. _script.town .. ' to re-supply.' .. (_script.returnQueued and ' [forced]' or ''))
 					-- Clean backpacks
