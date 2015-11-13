@@ -205,13 +205,8 @@ do
 				-- Logout
 				elseif _script.logoutQueued then
 					walkerStartPath(_script.town, _script.townentrance or _script.townexit, 'depot', function()
-						if not _config['Logout']['Exit-Log'] then
-							log('Hunting complete. Idling for server kick.')
-							xeno.setWalkerEnabled(false)
-							assert(false, 'Script finished successfully.')
-						else
-							os.exit()
-						end
+						log('Hunting complete, logging out.')
+						xeno.doSelfLogout()
 					end)
 				-- Start resupply process
 				else

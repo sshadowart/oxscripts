@@ -210,6 +210,17 @@
 		<item text="Node (33215, 31748, 7)" tag="0"/>
 		<item text="Node (33215, 31756, 7)" tag="0"/>
 		<item text="Stand (33216, 31757, 7)" tag="1"/>
+		<item text="Node (33218, 31765, 6)" tag="0"/>
+		<item text="Node (33226, 31768, 6)" tag="0"/>
+		<item text="Node (33234, 31768, 6)" tag="0"/>
+		<item text="Node (33240, 31768, 6)" tag="0"/>
+		<item text="Stand (33241, 31767, 6)" tag="1"/>
+		<item text="Node (33248, 31769, 7)" tag="0"/>
+		<item text="Node (33250, 31775, 7)" tag="0"/>
+		<item text="Node (33250, 31782, 7)" tag="0"/>
+		<item text="Node (33247, 31787, 7)" tag="0"/>
+		<item text="Node (33244, 31792, 7)" tag="0"/>
+		<item text="Node (33243, 31800, 7)" tag="0"/>
 		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 	</control>
