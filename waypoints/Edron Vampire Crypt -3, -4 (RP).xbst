@@ -586,6 +586,16 @@
 		<item title="Special Area #175" consider="3" width="2" height="1" x="33104" y="31724" z="7"/>
 		<item title="Special Area #176" consider="3" width="1" height="2" x="33107" y="31725" z="7"/>
 		<item title="Special Area #177" consider="2" width="16" height="1" x="32992" y="31611" z="11"/>
+        <item title="Special Area #1" consider="2" width="2" height="1" x="33037" y="31600" z="11"/>
+        <item title="Special Area #2" consider="2" width="2" height="1" x="33037" y="31618" z="11"/>
+        <item title="Special Area #3" consider="2" width="2" height="1" x="33037" y="31632" z="11"/>
+        <item title="Special Area #4" consider="2" width="1" height="2" x="33030" y="31633" z="11"/>
+        <item title="Special Area #5" consider="2" width="2" height="1" x="32975" y="31632" z="11"/>
+        <item title="Special Area #6" consider="2" width="1" height="13" x="32977" y="31620" z="11"/>
+        <item title="Special Area #7" consider="2" width="1" height="13" x="32974" y="31620" z="11"/>
+        <item title="Special Area #8" consider="2" width="1" height="18" x="33036" y="31617" z="11"/>
+        <item title="Special Area #9" consider="2" width="1" height="18" x="33039" y="31617" z="11"/>
+        <item title="Special Area #10" consider="2" width="2" height="1" x="32999" y="31602" z="11"/>
 	</control>
 </panel>
 <panel name="Scripter">
