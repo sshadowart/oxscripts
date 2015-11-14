@@ -2,11 +2,60 @@ Ini = (function()
 	-- Imports
 	local split = Core.split
 	local trim = Core.trim
+	local countPairs = Core.countPairs
+	local indexTable = Core.indexTable
 	local setTimeout = Core.setTimeout
 	local getSelfName = Core.getSelfName
+	local debug = Core.debug
 	local error = Console.error
 	local log = Console.log
 	local prompt = Console.prompt
+
+	local function loadIniFile(file)
+		-- Could not load config
+		if not file then
+			error('Could not load the config.')
+		end
+
+		local tbl = {}
+		local section
+		for line in file:lines() do
+			local s = string.match(line, "^%[([^%]]+)%]$")
+			if s then
+				section = s
+				tbl[section] = tbl[section] or {}
+			end
+			local key, value = string.match(line, "^([^%s]+)%s+=%s+([^;]+)")
+			if key and value then
+				-- Type casting
+				if tonumber(value) ~= nil then
+					value = tonumber(value)
+				else
+					value = string.gsub(value, "^%s*(.-)%s*$", "%1")
+					if value == "true" then
+						value = true
+					elseif value == "false" then
+						value = false
+					-- Transform comma-delimited string to table
+					elseif string.find(value, ',') then
+						value = split(value, ',')
+						for i = 1, #value do
+							value[i] = trim(value[i])
+						end
+					end
+				end
+				if section then
+					if not tbl[section] then
+						tbl[section] = {}
+					end
+					tbl[section][key] = value
+				end
+			end
+		end
+
+		file:close()
+		return tbl
+	end
 
 	local function updateSupplyConfig()
 		local function loadBlockSection(sectionName, extras)
@@ -79,53 +128,36 @@ Ini = (function()
 		loadBlockSection('Amulet', {'Creature-Equip', 'Health-Equip', 'Mana-Equip'})
 	end
 
+	local function loadMasterConfig()
+		local file = io.open(MASTER_CONFIG_PATH, 'r')
+		if not file then
+			return nil
+		end
+		local config = loadIniFile(file)
+
+		local groups = {}
+		-- Multi Script #1
+		for name, rules in pairs(config) do
+			local priority = tonumber(name:match('Multi Script #(%d)'))
+			if rules.Enabled then
+				rules.priority = priority
+				groups[#groups+1] = rules
+			end
+		end
+
+		table.sort(groups, function(a, b)
+			return a.priority < b.priority
+		end)
+
+		return groups
+	end
+
 	local function loadConfigFile(callback, isReload)
 		local configName = '[' .. getSelfName() .. '] ' .. _script.name .. '.ini'
 		local configPath = FOLDER_CONFIG_PATH .. configName
 
-		local function parseConfig(file)
-			-- Could not load config
-			if not file then
-				error('Could not load the config.')
-			end
-
-			local tbl = {}
-			local section
-			for line in file:lines() do
-				local s = string.match(line, "^%[([^%]]+)%]$")
-				if s then
-					section = s
-					tbl[section] = tbl[section] or {}
-				end
-				local key, value = string.match(line, "^([^%s]+)%s+=%s+([^;]+)")
-				if key and value then
-					-- Type casting
-					if tonumber(value) ~= nil then
-						value = tonumber(value)
-					else
-						value = string.gsub(value, "^%s*(.-)%s*$", "%1")
-						if value == "true" then
-							value = true
-						elseif value == "false" then
-							value = false
-						-- Transform comma-delimited string to table
-						elseif string.find(value, ',') then
-							value = split(value, ',')
-							for i = 1, #value do
-								value[i] = trim(value[i])
-							end
-						end
-					end
-					if section then
-						if not tbl[section] then
-							tbl[section] = {}
-						end
-						tbl[section][key] = value
-					end
-				end
-			end
-
-			-- Adjust specific config options
+		local function parse(file)
+			local tbl = loadIniFile(file)
 
 			-- Convert anti-lure creatures to key,value table
 			if tbl['Anti Lure'] then
@@ -150,7 +182,6 @@ Ini = (function()
 				_script.theme = tbl['HUD']['Theme'] or 'light'
 			end
 
-			file:close()
 			_config = tbl
 			updateSupplyConfig()
 			callback()
@@ -163,7 +194,7 @@ Ini = (function()
 			prompt(message, function(response)
 				if string.find(string.lower(response), 'ok') then
 					local newFile = io.open(configPath, 'r')
-					parseConfig(newFile)
+					parse(newFile)
 				else
 					promptConfig()
 				end
@@ -204,11 +235,158 @@ Ini = (function()
 		end
 
 		-- Using existing config
-		parseConfig(file)
+		parse(file)
+	end
+
+	local function parseRange(value)
+		local range = type(value) == 'number' and {value, value} or split(value, '-')
+		return tonumber(range[1]), tonumber(range[2])
+	end
+
+	local function checkChainRules(groups, initCheck)
+		local switchScript = nil
+		-- TODO: balance
+		local ruleChecks = {
+			-- Randomly choose between the range, always trigger if reached or above range
+			['Rounds'] = function(req)
+				if req == 0 then return false end
+				local min, max = parseRange(req)
+				local target = math.random(min, max)
+				local round = _script.round
+				local status = round == target or round >= max
+				debug(('Rounds rule: %s [%d = %d]'):format(tostring(status), round, target))
+				return status
+			end,
+			-- Randomly choose between the range, always trigger if reached or above range
+			['Level'] = function(req)
+				if req == 0 then return false end
+				local min, max = parseRange(req)
+				local target = math.random(min, max)
+				local level = xeno.getSelfLevel()
+				local status = level == target or level >= max
+				debug(('Level rule: %s [%d = %d]'):format(tostring(status), level, target))
+				return status
+			end,
+			-- Trigger within the range
+			['Experience'] = function(req)
+				if req == 0 then return false end
+				local min, max = parseRange(req)			
+				local timediff = os.time() - _script.start
+				local gain = xeno.getSelfExperience() - _script.baseExp
+				local hourlyexp = tonumber(math.floor(gain / (timediff / 3600))) or 0
+				local status = hourlyexp >= min and hourlyexp <= max
+				debug(('Hourly exp rule: %s [%d, %s]'):format(tostring(status), hourlyexp, req))
+				return status
+			end,
+			-- Trigger within the range
+			['Profit'] = function(req)
+				if req == 0 then return false end
+				local min, max = parseRange(req)			
+				local timediff = os.time() - _script.start
+				local totalLooted = _hud.index['Statistics']['Looted'].value
+				local totalWaste = _hud.index['Statistics']['Wasted'].value
+				local profit = totalLooted - totalWaste
+				local hourlygain = tonumber(math.floor(profit / (timediff / 3600))) or 0
+				local status = hourlygain >= min and hourlygain <= max
+				debug(('Hourly profit rule: %s [%d, %s]'):format(tostring(status), hourlygain, req))
+				return status
+			end,
+			-- Randomly choose between the range, always trigger if reached or above range
+			['Time'] = function(req)
+				if req == 0 then return false end
+				local min, max = parseRange(req)
+				local target = math.random(min, max)
+				local hours = math.floor((os.time() - _script.start) / 3600)
+				local status = hours == target or hours >= max
+				debug(('Time rule: %s [%d = %d]'):format(tostring(status), hours, target))
+				return status
+			end,
+			-- Randomly choose between the range, always trigger if reached or above range
+			['Strangers'] = function(req)
+				if req == 0 then return false end
+				local min, max = parseRange(req)
+				local target = math.random(min, max)
+				local strangers = _script.strangers
+				local status = strangers == target or strangers >= max
+				debug(('Crowded rule: %s [%d = %d]'):format(tostring(status), strangers, target))
+				return status
+			end
+		}
+
+		for i = 1, #groups do
+			local properties = groups[i]
+			-- Character is in group or no character list supplied
+			local players = indexTable(properties.Characters, true)
+			if not players or players[getSelfName():lower()] then
+				local scriptList = indexTable(properties.From, true)
+				local currentScript = _script.slug:gsub('.xbst', '')
+				if not scriptList or scriptList[currentScript:lower()] then
+
+					local rules = {}
+					-- Get rule list from properties
+					for property, value in pairs(properties) do
+						if ruleChecks[property] then
+							rules[property] = value
+						end
+					end
+
+					-- How many rules it takes to trigger a switch for this group of rules
+					local ruleLimit = properties.Check == 'all' and countPairs(rules) or properties.Check
+					local failedRules = 0
+
+					-- Start checking rules
+					for rule, requirement in pairs(rules) do
+						if not initCheck or (initCheck and (rule == 'Level')) then
+							local status = ruleChecks[rule](requirement)
+							if status then
+								failedRules = failedRules + 1
+								-- Found a script, stop checking rules in this group
+								if failedRules >= ruleLimit then
+									local scripts = properties.Goto
+									local tries = 20
+									local function getTargetScript()
+										local target = type(scripts) == 'string' and scripts or scripts[math.random(1, #scripts)]
+										if target:lower() == currentScript:lower() then
+											if type(scripts) == 'string' then
+												return nil
+											end
+											tries = tries - 1
+											if tries <= 0 then
+												return nil
+											end
+											return getTargetScript()
+										end
+										return target
+									end
+									local targetScript = getTargetScript()
+									if targetScript then
+										switchScript = targetScript
+										break
+									end
+								end
+							end
+						end
+					end
+
+					debug(('Rule Group #%d: %d/%d'):format(i, failedRules, ruleLimit))
+
+					-- Found a script, stop checking groups of rules
+					if switchScript then
+						debug('Chaining to script: ' .. switchScript)
+						xeno.loadSettings(switchScript, 'All')
+						break
+					end
+				end
+			end
+		end
+
+		return switchScript ~= nil
 	end
 
 	-- Export global functions
 	return {
-		loadConfigFile = loadConfigFile
+		loadConfigFile = loadConfigFile,
+		loadMasterConfig = loadMasterConfig,
+		checkChainRules = checkChainRules
 	}
 end)()

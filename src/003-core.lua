@@ -268,6 +268,21 @@ Core = (function()
 		return n
 	end
 
+	function indexTable(tbl, lowercase)
+		if not tbl or #tbl == 0 then
+			return nil
+		end
+		if type(tbl) ~= 'table' then
+			tbl = {tbl}
+		end
+		local keyValues = {}
+		for i = 1, #tbl do
+			local key = tbl[i]
+			keyValues[lowercase and key:lower() or key] = true
+		end
+		return keyValues
+	end
+
 	local function getTimeUntilServerSave()
 		local curTime = os.time()
 		local utc, loc = os.date("!*t", curTime), os.date("*t", curTime)
@@ -645,6 +660,7 @@ Core = (function()
 		getPosFromString = getPosFromString,
 		cleanLabel = cleanLabel,
 		countPairs = countPairs,
+		indexTable = indexTable,
 		getTimeUntilServerSave = getTimeUntilServerSave,
 		sortPositionsByDistance = sortPositionsByDistance,
 		talk = talk,

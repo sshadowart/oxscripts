@@ -8,6 +8,7 @@ local _script = {
 	pingSum = 0,
 	pingEntries = 0,
 	pingLast = 0,
+	strangers = 0,
 
 	theme = 'light',
 

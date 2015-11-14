@@ -27,6 +27,7 @@ Supply = (function()
 	local walkerGetPosAfterLabel = Walker.walkerGetPosAfterLabel
 	local walkerGotoLocation = Walker.walkerGotoLocation
 	local startDepotTransfer = Depot.startDepotTransfer
+	local checkChainRules = Ini.checkChainRules
 
 	local function updateSupplyCount(supplyTypes, itemListFilter)
 		local function checkBackpack(group)
@@ -550,6 +551,11 @@ Supply = (function()
 				walkerGotoLocation(_script.town, 'depot', function()
 					-- Arrived at depot
 					startDepotTransfer(depositLoot, neededSupplies, function()
+						if _script.chainConfig then
+							if checkChainRules(_script.chainConfig) then
+								return
+							end
+						end
 						-- Finished deposit & withdraw, continue resupply
 						resupply(callback, 3, loot)
 					end)

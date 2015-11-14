@@ -10,7 +10,9 @@ local function init()
     xeno.HUDCreateText(66, 32, 'X E N O B O T', 255, 255, 255)
 
     -- Imports
+    local loadMasterConfig = Ini.loadMasterConfig
     local loadConfigFile = Ini.loadConfigFile
+    local checkChainRules = Ini.checkChainRules
     local hudInit = Hud.hudInit
     local checkSoftBoots = Core.checkSoftBoots
     local isXenoBotBinary = Core.isXenoBotBinary
@@ -25,6 +27,15 @@ local function init()
     local setDynamicSettings = Settings.setDynamicSettings
     local resupply = Supply.resupply
     local walkerGetClosestLabel = Walker.walkerGetClosestLabel
+
+    _script.chainConfig = loadMasterConfig()
+
+    -- Immediately check chaining rules to see if we
+    if _script.chainConfig then
+        if checkChainRules(_script.chainConfig, true) then
+            return
+        end
+    end
 
     -- Only allow XenoBot Binary
     if not isXenoBotBinary() then
