@@ -12,6 +12,7 @@ do
 	local delayWalker = Core.delayWalker
 	local resumeWalker = Core.resumeWalker
 	local split = Core.split
+	local pingDelay = Core.pingDelay
 	local getTimeUntilServerSave = Core.getTimeUntilServerSave
 	local clearWalkerPath = Core.clearWalkerPath
 	local getPositionFromDirection = Core.getPositionFromDirection
@@ -992,11 +993,13 @@ do
 		if not _script.ready then return end
 		-- Trigger on the next tick cycle
 		-- we need to give the client time to update
+		-- on RL Tibia we artificially delay this time for safety reasons
+		local delay = xeno.isRealTibia() == 1 and pingDelay(DELAY.CONTAINER_WAIT) or 0
 		setTimeout(function()
 			toggleCriticalMode(true)
 			checkEvents(EVENT_CONTAINER, index, title, id)
 			toggleCriticalMode(false)
-		end, 0)
+		end, delay)
 	end
 
 	xeno.registerNativeEventListener(TIMER_TICK, 'onTick')

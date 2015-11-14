@@ -18,6 +18,7 @@ local math = math
 local table = table
 
 local xeno = {}
+xeno.isRealTibia = isRealTibia
 xeno.showConfigEditor = showConfigEditor
 xeno.getVersionNumber = getVersionNumber
 xeno.ping = Self.Ping
