@@ -511,9 +511,10 @@ do
 			local serverSave = getTimeUntilServerSave() * 3600
 			local playerStamina = xeno.getSelfStamina() * 60
 			local logoutConfig = _config['Logout']
-
+                        local simpleTime = _config['HUD'] and _config['HUD']['Simple-Time-Format']
+			
 			hudItemUpdate('General', 'Balance', _script.balance, true)
-			hudItemUpdate('General', 'Online Time', formatTime(timediff), true)
+			hudItemUpdate('General', 'Online Time', formatTime(timediff, simpleTime), true)
  			
  			local timeLimit = logoutConfig['Time-Limit'] or 0
  			local ssLimit = logoutConfig['Server-Save'] or 0
@@ -538,11 +539,11 @@ do
 			-- Choose lowest remaining time to display
 			local remainingTime = remaining[1]
  			if remainingTime then
-				hudItemUpdate('General', 'Time Remaining', formatTime(remainingTime), true)
+				hudItemUpdate('General', 'Time Remaining', formatTime(remainingTime, simpleTime), true)
  			end
 
-			hudItemUpdate('General', 'Server Save', formatTime(serverSave), true)
-			hudItemUpdate('General', 'Stamina', formatTime(playerStamina), true)
+			hudItemUpdate('General', 'Server Save', formatTime(serverSave, simpleTime), true)
+			hudItemUpdate('General', 'Stamina', formatTime(playerStamina, simpleTime), true)
 
 			local ping = xeno.ping()
 			if ping ~= _script.pingLast then
@@ -574,7 +575,7 @@ do
 			local targetLevel = playerLevel + 1
 			local expLeft = ((50/3) * (targetLevel^3) - (100 * targetLevel^2) + ((850/3) * targetLevel) - 200) - xeno.getSelfExperience()
 			hudItemUpdate('Statistics', 'Exp to Level', formatNumber(expLeft) .. ' xp', true)
-			hudItemUpdate('Statistics', 'Time to Level', hourlyexp > 0 and formatTime(expLeft / (gain / timediff)) or formatTime(0), true)
+			hudItemUpdate('Statistics', 'Time to Level', hourlyexp > 0 and formatTime(expLeft / (gain / timediff), simpleTime) or formatTime(0, simpleTime), true)
 
 			-- Update state
 			hudItemUpdate('Script', 'State', _script.state, true)
