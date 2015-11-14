@@ -74,7 +74,8 @@ local _events = {               -- execute callbacks on events
 	[EVENT_NPC] = {},
 	[EVENT_COMMAND] = {},
 	[EVENT_PATH_END] = {},
-	[EVENT_DEPOT_END] = {}
+	[EVENT_DEPOT_END] = {},
+	[EVENT_CONTAINER] = {}
 }
 
 local _path = {                 -- current path we're taking

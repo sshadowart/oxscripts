@@ -29,6 +29,7 @@ do
 	local resetContainers = Container.resetContainers
 	local getTotalItemCount = Container.getTotalItemCount
 	local setupContainers = Container.setupContainers
+	local whenContainerUpdates = Container.whenContainerUpdates
 	local hudUpdateDimensions = Hud.hudUpdateDimensions
 	local hudUpdatePositions = Hud.hudUpdatePositions
 	local hudItemUpdate = Hud.hudItemUpdate
@@ -987,6 +988,17 @@ do
 		toggleCriticalMode(false)
 	end
 
+	function onContainerChange(index, title, id)
+		if not _script.ready then return end
+		-- Trigger on the next tick cycle
+		-- we need to give the client time to update
+		setTimeout(function()
+			toggleCriticalMode(true)
+			checkEvents(EVENT_CONTAINER, index, title, id)
+			toggleCriticalMode(false)
+		end, 0)
+	end
+
 	xeno.registerNativeEventListener(TIMER_TICK, 'onTick')
 	xeno.registerNativeEventListener(WALKER_SELECTLABEL, 'onLabel')
 	xeno.registerNativeEventListener(ERROR_MESSAGE, 'onErrorMessage')
@@ -997,4 +1009,5 @@ do
 	xeno.registerNativeEventListener(EVENT_SELF_CHANNELCLOSE, 'onChannelClose')
 	xeno.registerNativeEventListener(PRIVATE_MESSAGE, 'onPrivateMessage')
 	xeno.registerNativeEventListener(NPC_MESSAGE, 'onNpcMessage')
+	xeno.registerNativeEventListener(CONTAINER_OPEN, 'onContainerChange')
 end

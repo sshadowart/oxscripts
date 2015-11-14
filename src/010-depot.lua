@@ -14,6 +14,7 @@ Depot = (function()
 	local log = Console.log
 	local getLastContainer = Container.getLastContainer
 	local getContainerByName = Container.getContainerByName
+	local whenContainerUpdates = Container.whenContainerUpdates
 	local containerMoveItems = Container.containerMoveItems
 	local resetContainers = Container.resetContainers
 	local walkerGotoDepot = Walker.walkerGotoDepot
@@ -45,11 +46,11 @@ Depot = (function()
 			-- Open Locker in same window (first slot)
 			xeno.containerUseItem(browsefield, 0, true, true)
 			-- Wait for Locker window
-			setTimeout(function()
+			whenContainerUpdates(browsefield+1, function()
 				-- Callback with container list index
 				locker = getContainerByName(CONT_NAME_LOCKER)
 				callback(locker)
-			end, pingDelay(DELAY.CONTAINER_USE_ITEM))
+			end)
 		end, pingDelay(DELAY.BROWSE_FIELD))
 	end
 
@@ -72,11 +73,11 @@ Depot = (function()
 			-- Open Depot in same window (first slot)
 			xeno.containerUseItem(locker, 0, true, true)
 			-- Wait for Depot window
-			setTimeout(function()
+			whenContainerUpdates(locker+1, function()
 				-- Callback with container list index
 				depot = getContainerByName(CONT_NAME_DEPOT)
 				callback(depot)
-			end, pingDelay(DELAY.CONTAINER_USE_ITEM))
+			end)
 		end)
 	end
 

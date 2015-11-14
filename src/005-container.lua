@@ -55,64 +55,33 @@ Container = (function()
 		return true
 	end
 
-	local function fixContainerDepth(container, spot, depth, callback)
-		local item = xeno.getContainerSpotData(container, spot)
-		-- Cascade backpack, last slot of backpack
-		if xeno.isItemContainer(item.id) then 
-			xeno.containerUseItem(container, spot, true, true)
-		end
-		-- Wait for the container to open
-		setTimeout(function()
-			callback()
-		end, pingDelay(DELAY.CONTAINER_USE_ITEM))
+	local function whenContainerUpdates(container, callback)
+		local timeout = nil
+		local success = nil
+		timeout = setTimeout(function()
+			clearWhen(EVENT_CONTAINER, success)
+			callback(false)
+		end, DELAY.CONTAINER_TIMEOUT)
+		success = when(EVENT_CONTAINER, tostring(container), function(index, id, name)
+			clearTimeout(timeout)
+			callback(true)
+		end)
 	end
 
 	local function resetContainerDepths(source, destination, sDepth, dDepth, callback)
-		
-		-- Main backpack containers
-		local mainItemCount = xeno.getContainerItemCount(0)
-		local backpacks = {}
-		for spot = 0, mainItemCount - 1 do
-			local item = xeno.getContainerSpotData(0, spot)
-			if xeno.isItemContainer(item.id) then
-				backpacks[#backpacks+1] = spot
-			end
-		end
-
-		-- Fail-safe for source containers
-		-- checks if container matches main backpack (contents, name, not id)
-		local sourceBackpack = backpacks[source]
-		if source ~= 0 and sourceBackpack and sDepth ~= -1 and compareContainers(0, source) then
-			fixContainerDepth(source, sourceBackpack, sDepth, function()
-				resetContainerDepths(source, destination, -1, dDepth, callback)
-			end)
-			return
-		end
-
-		-- Fail-safe for destination containers
-		-- checks if container matches main backpack (contents, name, not id)
-		local destBackpack = backpacks[destination]
-		if destination ~= 0 and destBackpack and dDepth ~= -1 and compareContainers(0, destination) then
-			fixContainerDepth(destination, destBackpack, dDepth, function()
-				resetContainerDepths(source, destination, sDepth, -1, callback)
-			end)
-			return
-		end
-
 		-- Go back in source container
 		if sDepth > 0 then
 			xeno.containerBack(source)
-			setTimeout(function()
+			whenContainerUpdates(source, function()
 				resetContainerDepths(source, destination, sDepth-1, dDepth, callback)
-			end, pingDelay(DELAY.CONTAINER_BACK))
+			end)
 
 		-- Go back in destination container
 		elseif dDepth > 0 then
 			xeno.containerBack(destination)
-			setTimeout(function()
+			whenContainerUpdates(destination, function()
 				resetContainerDepths(source, destination, sDepth, dDepth-1, callback)
-			end, pingDelay(DELAY.CONTAINER_BACK))
-
+			end)
 		-- Return
 		elseif callback then
 			callback()
@@ -321,10 +290,12 @@ Container = (function()
 				-- Open destination container
 				debug('containerMoveItems: open destination')
 				xeno.containerUseItem(toContainer, toSlot, not openWindow, true)
-				setTimeout(function()
+
+				local targetContainer = openWindow and getLastContainer() or toContainer
+				whenContainerUpdates(targetContainer, function()
 					-- Update toContainer index if we opened in a new window
 					if openWindow then
-						toContainer = getLastContainer()
+						toContainer = targetContainer
 						debug('containerMoveItems: new window = ' .. toContainer)
 						-- Reset destination depth, since we're in a new destination
 						destDepth = 0
@@ -359,7 +330,7 @@ Container = (function()
 						end
 					end)		
 					return
-				end, pingDelay(DELAY.CONTAINER_USE_ITEM))
+				end)
 			end, DELAY.CONTAINER_MOVE_ITEM)
 		end
 
@@ -438,7 +409,7 @@ Container = (function()
 		local opened = xeno.slotUseItem(3)
 
 		-- Wait for Main Backpack
-		setTimeout(function()
+		whenContainerUpdates(0, function()
 			-- Success
 			if opened > 0 then
 				if _config['General']['Minimize-Backpacks'] then
@@ -453,7 +424,7 @@ Container = (function()
 				tries = tries - 1
 				openMainBackpack(callback, tries)
 			end
-		end, pingDelay(DELAY.USE_EQUIPMENT))
+		end)
 	end
 
 	local function resetContainers(callback)
@@ -467,12 +438,12 @@ Container = (function()
 			local backpacks = {}
 			local function openChild(index)
 				local spot = backpacks[index]
-				local freeslot = getLastContainer() + 1
+				local newcontainer = getLastContainer() + 1
 				-- Open child backpack
 				xeno.containerUseItem(0, spot, false, true)
 
 				-- Wait for child to open
-				setTimeout(function()
+				whenContainerUpdates(newcontainer, function()
 					-- Minimize all containers
 					if minimizeBackpacks then
 						for i = 1, 16 do
@@ -488,7 +459,7 @@ Container = (function()
 					else
 						callback()
 					end
-				end, pingDelay(DELAY.CONTAINER_USE_ITEM))
+				end)
 			end
 
 			-- Loop through all items, add containers to list
@@ -745,17 +716,9 @@ Container = (function()
 			else
 				-- Navigate back a level
 				local ret = xeno.containerBack(index)
-				-- Failed to go back
-				if ret == 0 then
-					if callback then
-						callback(items)
-					end
-				-- Count new level
-				else
-					setTimeout(function()
-						countLevel(level-1)
-					end, pingDelay(DELAY.CONTAINER_BACK))
-				end
+				whenContainerUpdates(index, function()
+					countLevel(level-1)
+				end)
 			end
 			return nil
 		end
@@ -765,9 +728,9 @@ Container = (function()
 			-- Another cascade, go deeper
 			if xeno.isItemContainer(cascadeID) then
 				xeno.containerUseItem(index, lastSlot, true, true)
-				setTimeout(function()
+				whenContainerUpdates(index, function()
 					gotoBottom(depth + 1)
-				end, pingDelay(DELAY.CONTAINER_USE_ITEM))
+				end)
 				return
 			end
 			-- At the last level, start counting items
@@ -902,6 +865,7 @@ Container = (function()
 	return {
 		getLastContainer = getLastContainer,
 		getContainerByName = getContainerByName,
+		whenContainerUpdates = whenContainerUpdates,
 		containerMoveItems = containerMoveItems,
 		setupContainers = setupContainers,
 		resetContainers = resetContainers,
