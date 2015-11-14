@@ -51,7 +51,9 @@ local function init()
             -- Load XBST
             loadSettingsFile(function()
                 -- Modify XBST
+                xeno.setWalkerEnabled(false)
                 setDynamicSettings(function()
+                    xeno.setWalkerEnabled(true)
                     -- Detect town exit
                     walkerGetTownExit()
                     walkerGetTownEntrance()
