@@ -478,7 +478,7 @@ Hud = (function()
 			-- Update profit
 			local gain = (totalLooted + totalQueryValue) - totalWaste
 			local timediff = os.time() - _script.start
-			local staminadiff = _script.startStamina() - xeno.getSelfStamina() 
+			local staminadiff = _script.startStamina - xeno.getSelfStamina() 
 			staminadiff = (staminadiff > 0 and staminadiff or 1) * 60
 			local useStaminaMeasure = _config['HUD']['Per-Stamina-Measurement']
 			local diff = useStaminaMeasure and staminadiff or timediff
@@ -655,7 +655,7 @@ Hud = (function()
 			-- Update profit
 			local gain = totalLooted - (totalWaste + totalQueryValue)
 			local timediff = os.time() - _script.start
-			local staminadiff = _script.startStamina() - xeno.getSelfStamina() 
+			local staminadiff = _script.startStamina - xeno.getSelfStamina() 
 			staminadiff = (staminadiff > 0 and staminadiff or 1) * 60
 			local useStaminaMeasure = _config['HUD']['Per-Stamina-Measurement']
 			local diff = useStaminaMeasure and staminadiff or timediff
