@@ -20,6 +20,23 @@
   {"label": "Stand (32529, 32784, 6)", "tag": 1},
   {"label": "end:", "tag": 255},
 
+  {"label": "port hope|bank~tools:", "tag": 255},
+  {"label": "Node (32630, 32742, 6)", "tag": 0},
+  {"label": "Ladder (32630, 32742, 6)", "tag": 2},
+  {"label": "Node (32632, 32741, 5)", "tag": 0},
+  {"label": "Stand (32632, 32741, 5)", "tag": 1},
+  {"label": "end:", "tag": 255},
+  
+  {"label": "port hope|tools~depot:", "tag": 255},
+  {"label": "Node (32631, 32742, 5)", "tag": 0},
+  {"label": "Stand (32630, 32742, 5)", "tag": 1},
+  {"label": "Node (32627, 32746, 6)", "tag": 0},
+  {"label": "Node (32625, 32748, 6)", "tag": 0},
+  {"label": "Stand (32625, 32749, 6)", "tag": 1},
+  {"label": "Node (32622, 32744, 7)", "tag": 0},
+  {"label": "Stand (32622, 32744, 7)", "tag": 1},
+  {"label": "end:", "tag": 255},
+
   {"label": "port hope|east.exit~boat:", "tag": 255},
   {"label": "Node (32635, 32752, 7)", "tag": 0},
   {"label": "Node (32623, 32752, 7)", "tag": 0},

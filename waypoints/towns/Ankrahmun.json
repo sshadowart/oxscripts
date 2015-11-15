@@ -19,6 +19,21 @@
   {"label": "Node (33085, 32882, 6)", "tag": 0},
   {"label": "Node (33091, 32884, 6)", "tag": 0},
   {"label": "end:", "tag": 255},
+  
+  {"label": "ankrahmun|bank~tools:", "tag": 255},
+  {"label": "Node (33129, 32817, 6)", "tag": 0},
+  {"label": "Node (33127, 32813, 6)", "tag": 0},
+  {"label": "Stand (33127, 32813, 6)", "tag": 1},
+  {"label": "end:", "tag": 255},
+  
+  {"label": "ankrahmun|tools~depot:", "tag": 255},
+  {"label": "Node (33129, 32819, 6)", "tag": 0},
+  {"label": "Node (33127, 32825, 6)", "tag": 0},
+  {"label": "Stand (33127, 32826, 6)", "tag": 1},
+  {"label": "Node (33127, 32833, 7)", "tag": 0},
+  {"label": "Node (33127, 32842, 7)", "tag": 0},
+  {"label": "Stand (33127, 32842, 7)", "tag": 1},
+  {"label": "end:", "tag": 255},
 
   {"label": "ankrahmun|potions~boat:", "tag": 255},
   {"label": "Stand (33131, 32816, 5)", "tag": 1},
