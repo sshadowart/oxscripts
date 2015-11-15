@@ -563,7 +563,7 @@ do
 
 			-- Update experience gain
 			local gain = xeno.getSelfExperience() - _script.baseExp
-			local staminadiff = xeno.getSelfStamina() - _script.startStamina()
+			local staminadiff = _script.startStamina() - xeno.getSelfStamina()
 			staminadiff = (staminadiff > 0 and staminadiff or 1) * 60
 			local useStaminaMeasure = _config['HUD']['Per-Stamina-Measurement']
 			local diff = useStaminaMeasure and staminadiff or timediff
@@ -576,9 +576,14 @@ do
 			local totalLooted = _hud.index['Statistics']['Looted'].value
 			local totalWaste = _hud.index['Statistics']['Wasted'].value
 			local profit = totalLooted - totalWaste
-			local hourlygain = tonumber(math.floor(profit / (timediff / 3600))) or 0
+			local staminadiff = _script.startStamina() - xeno.getSelfStamina()
+			staminadiff = (staminadiff > 0 and staminadiff or 1) * 60
+			local useStaminaMeasure = _config['HUD']['Per-Stamina-Measurement']
+			local diff = useStaminaMeasure and staminadiff or timediff
+			local hourlygain = tonumber(math.floor(profit / (diff / 3600))) or 0			
+			local hourPostfix = useStaminaMeasure and ' gp/sh' or ' gp/h'			
 			hudItemUpdate('Statistics', 'Profit', formatNumber(profit) .. ' gp', true)
-			hudItemUpdate('Statistics', 'Hourly Profit', formatNumber(hourlygain) .. ' gp/h', true)
+			hudItemUpdate('Statistics', 'Hourly Profit', formatNumber(hourlygain) .. hourPostfix, true)
 
 			-- Update level stats
 			local playerLevel = xeno.getSelfLevel()
