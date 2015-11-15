@@ -1,7 +1,7 @@
 local _script = {
 	xenoversion = xeno.getVersionNumber(),
 	start = os.time(),
-	startStamina = xeno.getSelfStamina,
+	startStamina = xeno.getSelfStamina(),
 	baseExp = xeno.getSelfExperience(),
 	round = 1,
 	balance = 0,
