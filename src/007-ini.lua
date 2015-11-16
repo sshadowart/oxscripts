@@ -64,9 +64,7 @@ Ini = (function()
 	end
 
 	local function loadMarketPrices()
-		local configName = '[OX] Prices.ini'
-		local configPath = FOLDER_CONFIG_PATH .. configName
-		local file = io.open(configPath, 'r')
+		local file = io.open(MASTER_PRICES_CONFIG_PATH, 'r')
 
 		-- Found config, compare config version against embedded config
 		if file then
@@ -82,10 +80,9 @@ Ini = (function()
 				file:close()
 				file = nil
 			end
-		end
 
 		-- Could not find a config anywhere (or we wanted to update)
-		if not file then
+		else
 			-- Write the embedded config to disk
 			local defaultConfig = io.open(configPath, 'w+')
 			if defaultConfig then
@@ -100,7 +97,6 @@ Ini = (function()
 		end
 
 		local priceConfig = loadIniFile(file)
-
 		local prices = {}
 
 		-- Load default prices
