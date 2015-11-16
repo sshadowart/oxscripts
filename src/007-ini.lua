@@ -28,10 +28,10 @@ Ini = (function()
 
 			local key, value = string.match(line, "^([^%s]+)%s+=%s+([^;]+)")
 
-		    -- If the first try didnt work, check for a multi-word key
+			-- If the first try didnt work, check for a multi-word key
 			if not key then
-                key, value = string.match(line, '"(.+)"%s+=%s+([^;]*)')
-            end
+				key, value = string.match(line, '"(.+)"%s+=%s+([^;]*)')
+			end
 			if key and value then
 				-- Type casting
 				if tonumber(value) ~= nil then
@@ -53,7 +53,7 @@ Ini = (function()
 				if section then
 					if not tbl[section] then
 						tbl[section] = {}
-					end		
+					end     
 					tbl[section][key] = value
 				end
 			end
@@ -337,7 +337,7 @@ Ini = (function()
 			-- Trigger within the range
 			['Experience'] = function(req)
 				if req == 0 then return false end
-				local min, max = parseRange(req)			
+				local min, max = parseRange(req)            
 				local timediff = os.time() - _script.start
 				local gain = xeno.getSelfExperience() - _script.baseExp
 				local hourlyexp = tonumber(math.floor(gain / (timediff / 3600))) or 0
@@ -348,7 +348,7 @@ Ini = (function()
 			-- Trigger within the range
 			['Profit'] = function(req)
 				if req == 0 then return false end
-				local min, max = parseRange(req)			
+				local min, max = parseRange(req)            
 				local timediff = os.time() - _script.start
 				local totalLooted = _hud.index['Statistics']['Looted'].value
 				local totalWaste = _hud.index['Statistics']['Wasted'].value
