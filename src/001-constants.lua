@@ -4,6 +4,7 @@ local FOLDER_SETTINGS_PATH = '..\\Settings\\'
 local FOLDER_LOGS_PATH = '..\\Log\\'
 local FOLDER_CONFIG_PATH = '..\\Configs\\'
 local MASTER_CONFIG_PATH = '..\\Scripts.ini'
+local MASTER_PRICES_CONFIG_PATH = '..\\Prices.ini'
 
 local NORTH = NORTH
 local EAST = EAST
