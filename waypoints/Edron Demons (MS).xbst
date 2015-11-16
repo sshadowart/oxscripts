@@ -209,9 +209,11 @@
 		<item text="Node (33067, 31721, 15)" tag="0"/>
 		<item text="Stand (33066, 31721, 15)" tag="1"/>
 		<item text="Node (33069, 31720, 14)" tag="0"/>
+		<item text="wait(800, 1200)" tag="254"/>
 		<item text="huntcheck|West-Tower-Floor-2|No-West-Tower-Floor-2:" tag="255"/>
 		<item text="Stand (33066, 31719, 14)" tag="1"/>
 		<item text="Node (33069, 31720, 13)" tag="0"/>
+		<item text="wait(800, 1200)" tag="254"/>
 		<item text="Stand (33066, 31719, 13)" tag="1"/>
 		<item text="No-West-Tower-Floor-2:" tag="255"/>
 		<item text="Stand (33066, 31721, 14)" tag="1"/>
@@ -226,6 +228,7 @@
 		<item text="Node (33120, 31723, 15)" tag="0"/>
 		<item text="Stand (33121, 31723, 15)" tag="1"/>
 		<item text="Node (33120, 31722, 14)" tag="0"/>
+		<item text="wait(800, 1200)" tag="254"/>
 		<item text="Stand (33121, 31723, 14)" tag="1"/>
 		<item text="No-East-Tower:" tag="255"/>
 		<item text="Node (33120, 31718, 15)" tag="0"/>
