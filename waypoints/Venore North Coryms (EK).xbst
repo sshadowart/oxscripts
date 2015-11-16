@@ -62,7 +62,7 @@
 		<item type="Corym Vanguard" chs="1" max="50" min="0" prio="2" prox="2" count="1"/>
 		<item type="Corym Skirmisher, Corym Charlatan, Corym Vanguard, Little Corym Charlatan" chs="0" max="100" min="0" prio="1" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
-	<control>
+	</control>
 </panel>
 <panel name="Walker">
 	<control name="WaypointList">
