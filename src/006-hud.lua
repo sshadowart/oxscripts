@@ -360,6 +360,10 @@ Hud = (function()
 		end
 	end
 
+	local function getItemValue(lootID)
+		return _config['Prices'][lootID] or xeno.getItemValue(lootID)
+	end
+
 	local function hudTrack(type, itemid, amount, skipUpdate)
 		-- Loot / Supplies
 		local hudItem = _hud.index[type][itemid]
@@ -374,8 +378,9 @@ Hud = (function()
 		--local hudValue = values and formatNumber((itemValue / (values.d * 60)) * count) .. ' gp' or '--'
 
 		-- Get current count and values
-		local calculateValue = type == 'Supplies' and xeno.getItemCost or xeno.getItemValue
+		local calculateValue = type == 'Supplies' and xeno.getItemCost or getItemValue
 		local itemValue = calculateValue(itemid)
+
 		local hudCount = (hudItem.rawCount or 0) + amount
 		local hudValue = (hudItem.rawValue or 0) + (itemValue * amount)
 
@@ -395,7 +400,6 @@ Hud = (function()
 		else
 			text = formatNumber(hudCount) .. ' (' .. formatNumber(hudValue) .. ' gp)'
 		end
-
 		hudItemUpdate(type, itemid, text, skipUpdate)
 	end
 
@@ -459,7 +463,7 @@ Hud = (function()
 					-- If difference is positive and corpse open, add to totals
 					if difference > 0 and isCorpseOpen() then
 						-- Add to overall total
-						local value = (xeno.getItemValue(lootID) * difference)
+						local value = (getItemValue(lootID) * difference)
 						totalQueryValue = totalQueryValue + value
 						hudTrack('Loot', lootID, difference)
 					end

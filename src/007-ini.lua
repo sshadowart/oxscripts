@@ -25,7 +25,13 @@ Ini = (function()
 				section = s
 				tbl[section] = tbl[section] or {}
 			end
+
 			local key, value = string.match(line, "^([^%s]+)%s+=%s+([^;]+)")
+
+		    -- If the first try didnt work, check for a multi-word key
+			if not key then
+                key, value = string.match(line, '"(.+)"%s+=%s+([^;]*)')
+            end
 			if key and value then
 				-- Type casting
 				if tonumber(value) ~= nil then
@@ -47,7 +53,7 @@ Ini = (function()
 				if section then
 					if not tbl[section] then
 						tbl[section] = {}
-					end
+					end		
 					tbl[section][key] = value
 				end
 			end
@@ -56,6 +62,66 @@ Ini = (function()
 		file:close()
 		return tbl
 	end
+
+	local function loadMarketPrices()
+		local configName = '[OX] Prices.ini'
+		local configPath = FOLDER_CONFIG_PATH .. configName
+		local file = io.open(configPath, 'r')
+
+		-- Found config, compare config version against embedded config
+		if file then
+			local match = false
+			for line in file:lines() do
+				if string.match(line, '^; ::' .. _script.pricesConfigHash .. '$') then
+					match = true
+					break
+				end
+			end
+			if not match then
+				log('Updating script config file...')
+				file:close()
+				file = nil
+			end
+		end
+
+		-- Could not find a config anywhere (or we wanted to update)
+		if not file then
+			-- Write the embedded config to disk
+			local defaultConfig = io.open(configPath, 'w+')
+			if defaultConfig then
+				defaultConfig:write(LIB_PRICES_CONFIG)
+				defaultConfig:close()
+			else
+				error('Could not write default config file.')
+			end
+			
+			-- Try again
+			file = io.open(configPath, 'r')
+		end
+
+		local priceConfig = loadIniFile(file)
+
+		local prices = {}
+
+		-- Load default prices
+		if priceConfig['Default'] then
+			for name, price in pairs(priceConfig['Default']) do
+				local id = xeno.getItemIDByName(name)
+				prices[id] = price
+			end
+		end
+
+		-- Load and overwrite with character specific config
+		if priceConfig[getSelfName()] then
+			for name, price in pairs(priceConfig[getSelfName()]) do
+				local id = xeno.getItemIDByName(name)
+				prices[id] = price
+			end
+		end
+
+		return prices
+	end
+		
 
 	local function updateSupplyConfig()
 		local function loadBlockSection(sectionName, extras)
@@ -183,6 +249,7 @@ Ini = (function()
 			end
 
 			_config = tbl
+			_config['Prices'] = loadMarketPrices()
 			updateSupplyConfig()
 			callback()
 		end

@@ -18,6 +18,7 @@ local _script = {
 	town = "{{SCRIPT_TOWN}}",
 	vocation = "{{SCRIPT_VOCATION}}",
 	configHash = "{{SCRIPT_CONFIG_HASH}}",
+	pricesConfigHash = "{{PRICES_CONFIG_HASH}}",
 
 	townexit = nil,
 	channel = nil,
