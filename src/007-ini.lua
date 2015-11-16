@@ -64,7 +64,7 @@ Ini = (function()
 	end
 
 	local function loadMarketPrices()
-		local file = io.open(MASTER_PRICES_CONFIG_PATH, 'r')
+		local file = io.open(PRICES_CONFIG_PATH, 'r')
 
 		-- Found config, compare config version against embedded config
 		if file then
