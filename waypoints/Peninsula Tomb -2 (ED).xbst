@@ -66,7 +66,7 @@
 		<item type="Scarab" chs="6" max="100" min="0" prio="4" prox="7" count="1"/>
 		<item type="Ghoul" chs="6" max="100" min="0" prio="3" prox="3" count="1"/>
 		<item type="Ghoul" chs="6" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Lion, Skeleton" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
+		<item type="Lion, Skeleton, Larva" chs="6" max="100" min="0" prio="1" prox="3" count="1"/>
 		<item type="Snake, Cobra" chs="6" max="100" min="0" prio="0" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>

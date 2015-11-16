@@ -123,7 +123,7 @@ Depot = (function()
 			end
 			-- Warn player not all their loot was moved
 			if not success then
-				warn('Some loot was unable to be deposited. Make sure you have enough containers and free slots in your depot.')
+				warn('Some loot was unable to be deposited. Make sure you have enough free slots in your depot backpacks.')
 			end
 			-- Return
 			callback()
