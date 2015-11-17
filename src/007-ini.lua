@@ -25,7 +25,13 @@ Ini = (function()
 				section = s
 				tbl[section] = tbl[section] or {}
 			end
+
 			local key, value = string.match(line, "^([^%s]+)%s+=%s+([^;]+)")
+
+			-- If the first try didnt work, check for a multi-word key
+			if not key then
+				key, value = string.match(line, '"(.+)"%s+=%s+([^;]*)')
+			end
 			if key and value then
 				-- Type casting
 				if tonumber(value) ~= nil then
@@ -56,6 +62,62 @@ Ini = (function()
 		file:close()
 		return tbl
 	end
+
+	local function loadMarketPrices()
+		local file = io.open(PRICES_CONFIG_PATH, 'r')
+
+		-- Found config, compare config version against embedded config
+		if file then
+			local match = false
+			for line in file:lines() do
+				if string.match(line, '^; ::' .. _script.pricesConfigHash .. '$') then
+					match = true
+					break
+				end
+			end
+			if not match then
+				log('Updating script config file...')
+				file:close()
+				file = nil
+			end
+
+		-- Could not find a config anywhere (or we wanted to update)
+		else
+			-- Write the embedded config to disk
+			local defaultConfig = io.open(configPath, 'w+')
+			if defaultConfig then
+				defaultConfig:write(LIB_PRICES_CONFIG)
+				defaultConfig:close()
+			else
+				error('Could not write default config file.')
+			end
+			
+			-- Try again
+			file = io.open(configPath, 'r')
+		end
+
+		local priceConfig = loadIniFile(file)
+		local prices = {}
+
+		-- Load default prices
+		if priceConfig['Default'] then
+			for name, price in pairs(priceConfig['Default']) do
+				local id = xeno.getItemIDByName(name)
+				prices[id] = price
+			end
+		end
+
+		-- Load and overwrite with character specific config
+		if priceConfig[getSelfName()] then
+			for name, price in pairs(priceConfig[getSelfName()]) do
+				local id = xeno.getItemIDByName(name)
+				prices[id] = price
+			end
+		end
+
+		return prices
+	end
+
 
 	local function updateSupplyConfig()
 		local function loadBlockSection(sectionName, extras)
@@ -171,7 +233,7 @@ Ini = (function()
 						tbl['Anti Lure']['Creatures'] = lureTbl
 					else
 						tbl['Anti Lure']['Creatures'] = {
-							[string.lower(lureCreatures)] = true 
+							[string.lower(lureCreatures)] = true
 						}
 					end
 				end
@@ -183,6 +245,7 @@ Ini = (function()
 			end
 
 			_config = tbl
+			_config['Prices'] = loadMarketPrices()
 			updateSupplyConfig()
 			callback()
 		end
@@ -270,7 +333,7 @@ Ini = (function()
 			-- Trigger within the range
 			['Experience'] = function(req)
 				if req == 0 then return false end
-				local min, max = parseRange(req)			
+				local min, max = parseRange(req)
 				local timediff = os.time() - _script.start
 				local gain = xeno.getSelfExperience() - _script.baseExp
 				local hourlyexp = tonumber(math.floor(gain / (timediff / 3600))) or 0
@@ -281,7 +344,7 @@ Ini = (function()
 			-- Trigger within the range
 			['Profit'] = function(req)
 				if req == 0 then return false end
-				local min, max = parseRange(req)			
+				local min, max = parseRange(req)
 				local timediff = os.time() - _script.start
 				local totalLooted = _hud.index['Statistics']['Looted'].value
 				local totalWaste = _hud.index['Statistics']['Wasted'].value

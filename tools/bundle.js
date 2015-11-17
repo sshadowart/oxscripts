@@ -69,101 +69,109 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
 
     // Load spawn config
     fs.readFile(`./configs/${spawnName}.ini`, function (err, configData) {
-      if (err) throw err;
-
-      // Determine vocation from spawnName
-      let vocationName = 'unknown';
-      for (let i = 0; i < vocationTags.length; i++) {
-        let tag = vocationTags[i];
-        if (spawnName.indexOf(tag) !== -1) {
-          vocationName = vocationsMap[tag];
-          break;
-        }
-      }
-
-      // Build script version
-      let version;
-      if (process.env.TRAVIS_TAG)
-        version = process.env.TRAVIS_TAG;
-      else if(process.env.TRAVIS_BRANCH)
-        version = `${process.env.TRAVIS_BRANCH}#${process.env.TRAVIS_BUILD_NUMBER}`;
-      else
-        version = 'local';
-
-      // Replace tokens
-      const configHash = crypto.createHash('md5').update(configData).digest('hex');
-      let data = luaOutputData.toString('utf8');
-
-      data = data.replace('{{VERSION}}', version);
-      data = data.replace('{{SCRIPT_TOWN}}', townName);
-      data = data.replace('{{SCRIPT_NAME}}', spawnName);
-      data = data.replace('{{SCRIPT_SLUG}}', outputName);
-      data = data.replace('{{SCRIPT_VOCATION}}', vocationName);
-      data = data.replace('{{SCRIPT_CONFIG_HASH}}', configHash);
-
-      // Insert config
-      data = data.replace('{{CONFIG}}', configData.toString('utf8').replace(':::::::::::::::', `::${configHash}`));
-
-      // Base 64 encode lua
-      let encodedLua = new Buffer(data).toString('base64');
-      let encodedReload = new Buffer(reloadScript).toString('base64');
-      let combinedWaypoints;
       
-      let developmentXML = `
-        <panel name="Scripter">
-          <control name="RunningScriptList">
-          <script name=".ox.${timestamp}.lua"><![CDATA[${encodedLua}]]></script>
-          <script name=".sync.${timestamp}.lua"><![CDATA[${encodedReload}]]></script>
-          </control>
-        </panel>`;
+      fs.readFile(`./configs/Prices.ini`, function (pricesErr, pricesConfigData) {
+        if (err || pricesErr) throw err;
 
-      let productionXML = `
-        <panel name="Scripter">
-          <control name="RunningScriptList">
-          <script name="${outputName.replace('.xbst', '.lua')}" noprompt="1"><![CDATA[${encodedLua}]]></script>
-          </control>
-        </panel>`;
 
-      // Get all the town waypoints
-      let townPaths = glob.sync('./waypoints/towns/*.json'),
-        townWaypoints = [];
-
-      readm(townPaths, (err, towns) => {
-        if (err) {
-          throw err;
+        // Determine vocation from spawnName
+        let vocationName = 'unknown';
+        for (let i = 0; i < vocationTags.length; i++) {
+          let tag = vocationTags[i];
+          if (spawnName.indexOf(tag) !== -1) {
+            vocationName = vocationsMap[tag];
+            break;
+          }
         }
 
-        // Iterate through towns
-        towns.forEach((waypoints) => {
-          let townData = JSON.parse(waypoints);
-          // Iterate through waypoints in each town
-          townData.forEach((item) => {
-            // Add waypoint string to array
-            townWaypoints.push(`\n\t\t<item text="${item.label}" tag="${item.tag}"/>`);
-          });
-        });
-
-        // Combine waypoints
-        townWaypoints.push('\n');
-        combinedWaypoints = townWaypoints.join('');
-
-        // Combine spawn file with town waypoints
-        let insertPoint = '<control name="WaypointList">' + os.EOL;
-        let xbstCombinedData = xbstData.toString('utf8');
-        xbstCombinedData = xbstCombinedData.replace(insertPoint, insertPoint + combinedWaypoints);
-        
-        // Inject sync script for live reloading
-        if (process.env.LIVE_RELOAD)
-          xbstCombinedData += '\n' + developmentXML;
-        // Production lua
+        // Build script version
+        let version;
+        if (process.env.TRAVIS_TAG)
+          version = process.env.TRAVIS_TAG;
+        else if(process.env.TRAVIS_BRANCH)
+          version = `${process.env.TRAVIS_BRANCH}#${process.env.TRAVIS_BUILD_NUMBER}`;
         else
-          xbstCombinedData += '\n' + productionXML;
+          version = 'local';
 
-        // Save XBST
-        fs.writeFile(outputPath, xbstCombinedData, function (err) {
-          console.log(colors.green(spawnName), outputPath);
-          if (buildCallback)
-            buildCallback(xbstCombinedData, timestamp);
+        // Replace tokens
+        const configHash = crypto.createHash('md5').update(configData).digest('hex');
+        const pricesConfigHash = crypto.createHash('md5').update(pricesConfigData).digest('hex');
+        let data = luaOutputData.toString('utf8');
+
+        data = data.replace('{{VERSION}}', version);
+        data = data.replace('{{SCRIPT_TOWN}}', townName);
+        data = data.replace('{{SCRIPT_NAME}}', spawnName);
+        data = data.replace('{{SCRIPT_SLUG}}', outputName);
+        data = data.replace('{{SCRIPT_VOCATION}}', vocationName);
+        data = data.replace('{{SCRIPT_CONFIG_HASH}}', configHash);
+        data = data.replace('{{PRICES_CONFIG_HASH}}', pricesConfigHash);
+
+        // Insert config
+        data = data.replace('{{CONFIG}}', configData.toString('utf8').replace(':::::::::::::::', `::${configHash}`));
+        // Insert prices config
+        data = data.replace('{{PRICES_CONFIG}}', pricesConfigData.toString('utf8').replace(':::::::::::::::', `::${pricesConfigHash}`));
+
+        // Base 64 encode lua
+        let encodedLua = new Buffer(data).toString('base64');
+        let encodedReload = new Buffer(reloadScript).toString('base64');
+        let combinedWaypoints;
+        
+        let developmentXML = `
+          <panel name="Scripter">
+            <control name="RunningScriptList">
+            <script name=".ox.${timestamp}.lua"><![CDATA[${encodedLua}]]></script>
+            <script name=".sync.${timestamp}.lua"><![CDATA[${encodedReload}]]></script>
+            </control>
+          </panel>`;
+
+        let productionXML = `
+          <panel name="Scripter">
+            <control name="RunningScriptList">
+            <script name="${outputName.replace('.xbst', '.lua')}" noprompt="1"><![CDATA[${encodedLua}]]></script>
+            </control>
+          </panel>`;
+
+        // Get all the town waypoints
+        let townPaths = glob.sync('./waypoints/towns/*.json'),
+          townWaypoints = [];
+
+        readm(townPaths, (err, towns) => {
+          if (err) {
+            throw err;
+          }
+
+          // Iterate through towns
+          towns.forEach((waypoints) => {
+            let townData = JSON.parse(waypoints);
+            // Iterate through waypoints in each town
+            townData.forEach((item) => {
+              // Add waypoint string to array
+              townWaypoints.push(`\n\t\t<item text="${item.label}" tag="${item.tag}"/>`);
+            });
+          });
+
+          // Combine waypoints
+          townWaypoints.push('\n');
+          combinedWaypoints = townWaypoints.join('');
+
+          // Combine spawn file with town waypoints
+          let insertPoint = '<control name="WaypointList">' + os.EOL;
+          let xbstCombinedData = xbstData.toString('utf8');
+          xbstCombinedData = xbstCombinedData.replace(insertPoint, insertPoint + combinedWaypoints);
+          
+          // Inject sync script for live reloading
+          if (process.env.LIVE_RELOAD)
+            xbstCombinedData += '\n' + developmentXML;
+          // Production lua
+          else
+            xbstCombinedData += '\n' + productionXML;
+
+          // Save XBST
+          fs.writeFile(outputPath, xbstCombinedData, function (err) {
+            console.log(colors.green(spawnName), outputPath);
+            if (buildCallback)
+              buildCallback(xbstCombinedData, timestamp);
+          });
         });
       });
     });

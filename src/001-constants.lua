@@ -1,6 +1,7 @@
 local MINIMUM_XENO_VERSION = 1169
 local LIB_REVISION = '{{VERSION}}'
 local LIB_CONFIG = [[{{CONFIG}}]]
+local LIB_PRICES_CONFIG = [[{{PRICES_CONFIG}}]]
 local FOLDER_SETTINGS_PATH = '..\\Settings\\'
 local FOLDER_LOGS_PATH = '..\\Log\\'
 local FOLDER_CONFIG_PATH = '..\\Configs\\'
