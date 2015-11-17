@@ -1,3 +1,4 @@
+local MINIMUM_XENO_VERSION = 1169
 local LIB_REVISION = '{{VERSION}}'
 local LIB_CONFIG = [[{{CONFIG}}]]
 local FOLDER_SETTINGS_PATH = '..\\Settings\\'

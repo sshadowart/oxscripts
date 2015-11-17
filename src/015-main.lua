@@ -38,8 +38,8 @@ local function init()
     end
 
     -- Only allow XenoBot Binary
-    if not isXenoBotBinary() then
-        print('You are using an older version of XenoBot. Update to XenoBot Binary to run this script.')
+    if getXenoVersion() < MINIMUM_XENO_VERSION then
+        print('You are using an older version of XenoBot. Update to the latest version of XenoBot to run this script.')
         return
     end
 
