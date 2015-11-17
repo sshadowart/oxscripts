@@ -317,7 +317,7 @@
 		<item text="Node (32087, 32620, 8)" tag="0"/>
 		<item text="Node (32090, 32628, 8)" tag="0"/>
 		<item text="Node (32096, 32630, 8)" tag="0"/>
-		<item text="Stand (32096, 32631, 8)" tag="1"/>
+		<item text="Stand (32097, 32631, 8)" tag="1"/>
 		<item text="Node (32099, 32623, 7)" tag="0"/>
 		<item text="if Self.Ring().id == 3086 then Walker.Delay(1000) Self.Dequip('ring', Container.GetFirst()) end" tag="254"/>
 		<item text="if Self.Ring().id == 3099 then Walker.Delay(1000) Self.Dequip('ring', Container.GetFirst()) end" tag="254"/>
