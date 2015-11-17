@@ -1410,6 +1410,18 @@ local TRAVEL_ROUTES = {
 			['Lorek'] = {'hi', 'banuta', 'yes'}
 		}
 	},
+	['liberty bay~meriana'] = {
+		cost = 0,
+		transcript = {
+			['Captain Waverider'] = {'hi', 'peg leg', 'yes'}
+		}
+	},
+	['meriana~liberty bay'] = {
+		cost = 0,
+		transcript = {
+			['Sebastian'] = {'hi', 'passage', 'yes'}
+		}
+	},
 	['port hope~ab\'dendriel'] = {
 		cost = 250,
 		transcript = {
@@ -1589,6 +1601,13 @@ local SPAWN_TRAVELLING = {
 	['goroma ss (ms)'] = 500,
 	['goroma ss (ed)'] = 500,
 	['goroma ss (rp)'] = 500,
+	['goroma demons (ms)'] = 500,
+	['goroma demons (ed)'] = 500,
+	['goroma demons (rp)'] = 500,
+	['meriana gargoyles (ek)'] = 500,
+	['meriana gargoyles (ms)'] = 500,
+	['meriana gargoyles (ed)'] = 500,
+	['meriana gargoyles (rp)'] = 500,
 	['banuta -2 (ek)'] = 50
 }
 
