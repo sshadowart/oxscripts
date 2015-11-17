@@ -84,7 +84,7 @@ Ini = (function()
 		-- Could not find a config anywhere (or we wanted to update)
 		else
 			-- Write the embedded config to disk
-			local defaultConfig = io.open(configPath, 'w+')
+			local defaultConfig = io.open(PRICES_CONFIG_PATH, 'w+')
 			if defaultConfig then
 				defaultConfig:write(LIB_PRICES_CONFIG)
 				defaultConfig:close()
@@ -93,7 +93,7 @@ Ini = (function()
 			end
 			
 			-- Try again
-			file = io.open(configPath, 'r')
+			file = io.open(PRICES_CONFIG_PATH, 'r')
 		end
 
 		local priceConfig = loadIniFile(file)
