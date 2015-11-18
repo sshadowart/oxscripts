@@ -59,13 +59,11 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Carniphila" chs="6" max="100" min="0" prio="9" prox="7" count="1"/>
-		<item type="Mutated Human" chs="6" max="100" min="0" prio="8" prox="7" count="1"/>
-		<item type="Haunted Treeling" chs="6" max="100" min="0" prio="7" prox="7" count="1"/>
-		<item type="Mad Scientist" chs="6" max="100" min="0" prio="6" prox="7" count="1"/>
-		<item type="Swampling" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Water Elemental" chs="6" max="100" min="0" prio="4" prox="7" count="1"/>
-		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
+		<item type="Mutated Human, Mad Scientist, Carniphila" chs="6" max="100" min="0" prio="4" prox="3" count="1" elastic="1"/>
+		<item type="Mutated Human, Mad Scientist, Carniphila" chs="6" max="100" min="0" prio="3" prox="7" count="1" elastic="1"/>
+		<item type="Haunted Treeling" chs="6" max="100" min="0" prio="2" prox="7" count="1" elastic="0"/>
+		<item type="Swampling" chs="0" max="100" min="0" prio="1" prox="7" count="1" elastic="0"/>
+		<item type="All Creatures" chs="0" max="100" min="0" prio="10" prox="7" count="1" elastic="0"/>
 	</control>
 </panel>
 <panel name="Walker">
