@@ -1224,6 +1224,18 @@ local TRAVEL_ROUTES = {
 			['Captain Seahorse'] = {'hi', 'thais', 'yes'}
 		}
 	},
+	['edron~cormaya'] = {
+		cost = 0,
+		transcript = {
+			['Captain Seahorse'] = {'hi', 'cormaya', 'yes'}
+		}
+	},
+	['cormaya~edron'] = {
+		cost = 0,
+		transcript = {
+			['Pemaret'] = {'hi', 'edron', 'yes'}
+		}
+	},
 	['edron~ab\'dendriel'] = {
 		cost = 70,
 		transcript = {
@@ -1608,6 +1620,10 @@ local SPAWN_TRAVELLING = {
 	['meriana gargoyle cave (ms)'] = 50,
 	['meriana gargoyle cave (ed)'] = 50,
 	['meriana gargoyle cave (rp)'] = 50,
+	['cormaya leaf golems (ek)'] = 20,
+	['cormaya leaf golems (ms)'] = 20,
+	['cormaya leaf golems (ed)'] = 20,
+	['cormaya leaf golems (rp)'] = 20,
 	['banuta -2 (ek)'] = 50
 }
 
