@@ -808,16 +808,19 @@ do
 				local creatures = supply.options['Creature-Equip'] or 0
 				local health = supply.options['Health-Equip'] or 0
 				local mana = supply.options['Mana-Equip'] or 0
-				local slotItem = supply.group == 'Ring' and playerRing or playerAmulet
-				-- We need to equip the ring
-				if (creatures > 0 and playerTargets >= creatures) or (health > 0 and playerHealth <= health) or (mana > 0 and playerMana <= mana) then
-					-- Only equip if we don't have it on already
-					if slotItem ~= itemid and slotItem ~= ITEM_LIST_ACTIVE_RINGS[itemid] then
-						equip[supply.group] = itemid
+				local ignore = creatures == 0 and health == 0 and mana == 0
+				if not ignore then
+					local slotItem = supply.group == 'Ring' and playerRing or playerAmulet
+					-- We need to equip the ring
+					if (creatures > 0 and playerTargets >= creatures) or (health > 0 and playerHealth <= health) or (mana > 0 and playerMana <= mana) then
+						-- Only equip if we don't have it on already
+						if slotItem ~= itemid and slotItem ~= ITEM_LIST_ACTIVE_RINGS[itemid] then
+							equip[supply.group] = itemid
+						end
+					-- We need to un-equip the ring
+					elseif slotItem == itemid or slotItem == ITEM_LIST_ACTIVE_RINGS[itemid] then
+						unequip[supply.group] = itemid
 					end
-				-- We need to un-equip the ring
-				elseif slotItem == itemid or slotItem == ITEM_LIST_ACTIVE_RINGS[itemid] then
-					unequip[supply.group] = itemid
 				end
 			end
 		end
