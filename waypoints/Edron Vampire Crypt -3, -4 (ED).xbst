@@ -141,9 +141,21 @@
 		<item text="Node (32997, 31625, 9)" tag="0"/>
 		<item text="Node (32990, 31625, 9)" tag="0"/>
 		<item text="Stand (32989, 31625, 9)" tag="1"/>
-		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 		<item text="enterspawn:" tag="255"/>
+		<item text="huntcheck|Rush-To-Bottom-Floor|No-Rush-To-Bottom-Floor:" tag="255"/>
+		<item text="Node (32995, 31629, 10)" tag="0"/>
+		<item text="Node (33001, 31631, 10)" tag="0"/>
+		<item text="Node (33002, 31636, 10)" tag="0"/>
+		<item text="Node (33002, 31639, 10)" tag="0"/>
+		<item text="Node (33009, 31639, 10)" tag="0"/>
+		<item text="Node (33015, 31638, 10)" tag="0"/>
+		<item text="Node (33017, 31631, 10)" tag="0"/>
+		<item text="Node (33017, 31624, 10)" tag="0"/>
+		<item text="Node (33017, 31614, 10)" tag="0"/>
+		<item text="Walker.Goto('continueWhenRushing')" tag="254"/>
+		<item text="No-Rush-To-Bottom-Floor:" tag="255"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (32993, 31628, 10)" tag="0"/>
 		<item text="Node (32999, 31631, 10)" tag="0"/>
 		<item text="Node (33001, 31636, 10)" tag="0"/>
@@ -178,6 +190,7 @@
 		<item text="huntcheck|6:" tag="255"/>
 		<item text="huntstart|6:" tag="255"/>
 		<item text="Node (33021, 31613, 10)" tag="0"/>
+		<item text="continueWhenRushing:" tag="255"/>
 		<item text="Node (33015, 31613, 10)" tag="0"/>
 		<item text="Node (33008, 31613, 10)" tag="0"/>
 		<item text="Node (33003, 31608, 10)" tag="0"/>
@@ -195,6 +208,7 @@
 		<item text="Node (33057, 31601, 10)" tag="0"/>
 		<item text="Node (33063, 31599, 10)" tag="0"/>
 		<item text="Stand (33064, 31598, 10)" tag="1"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="Node (33056, 31596, 11)" tag="0"/>
 		<item text="Node (33045, 31595, 11)" tag="0"/>
 		<item text="stayingSecondFloor:" tag="255"/>
@@ -583,16 +597,16 @@
 		<item title="Special Area #175" consider="3" width="2" height="1" x="33104" y="31724" z="7"/>
 		<item title="Special Area #176" consider="3" width="1" height="2" x="33107" y="31725" z="7"/>
 		<item title="Special Area #177" consider="2" width="16" height="1" x="32992" y="31611" z="11"/>
-        <item title="Special Area #1" consider="2" width="2" height="1" x="33037" y="31600" z="11"/>
-        <item title="Special Area #2" consider="2" width="2" height="1" x="33037" y="31618" z="11"/>
-        <item title="Special Area #3" consider="2" width="2" height="1" x="33037" y="31632" z="11"/>
-        <item title="Special Area #4" consider="2" width="1" height="2" x="33030" y="31633" z="11"/>
-        <item title="Special Area #5" consider="2" width="2" height="1" x="32975" y="31632" z="11"/>
-        <item title="Special Area #6" consider="2" width="1" height="13" x="32977" y="31620" z="11"/>
-        <item title="Special Area #7" consider="2" width="1" height="13" x="32974" y="31620" z="11"/>
-        <item title="Special Area #8" consider="2" width="1" height="18" x="33036" y="31617" z="11"/>
-        <item title="Special Area #9" consider="2" width="1" height="18" x="33039" y="31617" z="11"/>
-        <item title="Special Area #10" consider="2" width="2" height="1" x="32999" y="31602" z="11"/>
+		<item title="Special Area #1" consider="2" width="2" height="1" x="33037" y="31600" z="11"/>
+		<item title="Special Area #2" consider="2" width="2" height="1" x="33037" y="31618" z="11"/>
+		<item title="Special Area #3" consider="2" width="2" height="1" x="33037" y="31632" z="11"/>
+		<item title="Special Area #4" consider="2" width="1" height="2" x="33030" y="31633" z="11"/>
+		<item title="Special Area #5" consider="2" width="2" height="1" x="32975" y="31632" z="11"/>
+		<item title="Special Area #6" consider="2" width="1" height="13" x="32977" y="31620" z="11"/>
+		<item title="Special Area #7" consider="2" width="1" height="13" x="32974" y="31620" z="11"/>
+		<item title="Special Area #8" consider="2" width="1" height="18" x="33036" y="31617" z="11"/>
+		<item title="Special Area #9" consider="2" width="1" height="18" x="33039" y="31617" z="11"/>
+		<item title="Special Area #10" consider="2" width="2" height="1" x="32999" y="31602" z="11"/>
 	</control>
 </panel>
 <panel name="Scripter">
