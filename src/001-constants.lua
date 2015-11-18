@@ -1604,10 +1604,10 @@ local SPAWN_TRAVELLING = {
 	['goroma demons (ms)'] = 500,
 	['goroma demons (ed)'] = 500,
 	['goroma demons (rp)'] = 500,
-	['meriana gargoyles (ek)'] = 500,
-	['meriana gargoyles (ms)'] = 500,
-	['meriana gargoyles (ed)'] = 500,
-	['meriana gargoyles (rp)'] = 500,
+	['meriana gargoyle cave (ek)'] = 50,
+	['meriana gargoyle cave (ms)'] = 50,
+	['meriana gargoyle cave (ed)'] = 50,
+	['meriana gargoyle cave (rp)'] = 50,
 	['banuta -2 (ek)'] = 50
 }
 
