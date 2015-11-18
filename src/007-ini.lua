@@ -80,9 +80,9 @@ Ini = (function()
 				file:close()
 				file = nil
 			end
-
+		end
 		-- Could not find a config anywhere (or we wanted to update)
-		else
+		if not file then
 			-- Write the embedded config to disk
 			local defaultConfig = io.open(PRICES_CONFIG_PATH, 'w+')
 			if defaultConfig then
