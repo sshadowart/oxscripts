@@ -67,7 +67,7 @@
 	<control name="WaypointList">
 		<item text="liberty bay|meriana.exit~spawn:" tag="255"/>
 		<item text="SIgnore" tag="10"/>
-		<item text="liberty bay~meriana:" tag="255"/>
+		<item text="travel|liberty bay~meriana:" tag="255"/>
 		<item text="Node (32352, 32612, 7)" tag="0"/>
 		<item text="Node (32361, 32610, 7)" tag="0"/>
 		<item text="Node (32368, 32607, 7)" tag="0"/>
@@ -252,7 +252,7 @@
 		<item text="Node (32361, 32610, 7)" tag="0"/>
 		<item text="Node (32352, 32612, 7)" tag="0"/>
 		<item text="Node (32350, 32624, 7)" tag="0"/>
-		<item text="meriana~liberty bay:" tag="255"/>
+		<item text="travel|meriana~liberty bay:" tag="255"/>
 		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 	</control>
