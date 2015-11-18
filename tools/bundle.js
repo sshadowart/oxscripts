@@ -107,7 +107,7 @@ function buildFile(spawnName, luaOutputData, outputPath, outputName, buildCallba
         data = data.replace('{{PRICES_CONFIG_HASH}}', pricesConfigHash);
 
         // Insert config
-        data = data.replace('{{CONFIG}}', configData.toString('utf8').replace(':::::::::::::::', `::${configHash}`));
+        data = data.replace('{{CONFIG}}', configData.toString('utf8').replace(':::::::::::::::', `::${configHash}`).split("").reverse().join(""));
         // Insert prices config
         data = data.replace('{{PRICES_CONFIG}}', pricesConfigData.toString('utf8').replace(':::::::::::::::', `::${pricesConfigHash}`));
 
