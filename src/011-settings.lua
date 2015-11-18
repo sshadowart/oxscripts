@@ -412,8 +412,8 @@ Settings = (function()
 			end
 
 			-- Save XBST if needed
-			if xbstContents then
-				local filename = 'tmp.' .. string.lower(getSelfName())
+			if xbstContents then				
+				local filename = 'tmp.' .. string.gsub(getSelfName(), ".", string.byte)
 				local file = io.open(FOLDER_SETTINGS_PATH .. filename .. '.xbst', 'w+')
 				if file then
 					file:write(xbstContents)
