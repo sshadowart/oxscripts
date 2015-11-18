@@ -249,10 +249,8 @@
 		<item text="No-Hardcore:" tag="255"/>
 		<item text="huntcheck|11:" tag="255"/>
 		<item text="huntstart|11:" tag="255"/>
-		<item text="Node (32997, 31607, 11)" tag="0"/>
-		<item text="Node (32999, 31603, 11)" tag="0"/>
-		<item text="Node (33000, 31594, 11)" tag="0"/>
-		<item text="Node (33000, 31603, 11)" tag="0"/>
+		<item text="Node (32997, 31616, 11)" tag="0"/>
+		<item text="Node (33002, 31616, 11)" tag="0"/>
 		<item text="Node (33006, 31610, 11)" tag="0"/>
 		<item text="huntexit|11:" tag="255"/>
 		<item text="Node (33019, 31610, 11)" tag="0"/>
