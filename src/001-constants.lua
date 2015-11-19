@@ -1609,6 +1609,137 @@ local TRAVEL_ROUTES = {
 			['Captain Sinbeard'] = {'hi', 'venore', 'yes'},
 			['Captain Fearless'] = {'hi', 'svargrond', 'yes'}
 		}
+	},
+	['yalahar~fenrock'] = {
+		cost = 0,
+		transcript = {
+			['Maris'] = {'hi', 'fenrock', 'yes'}
+		}
+	},
+	['fenrock~yalahar'] = {
+		cost = 0,
+		transcript = {
+			['Maris'] = {'hi', 'yalahar', 'yes'}
+		}
+	},
+	['yalahar~mistrock'] = {
+		cost = 0,
+		transcript = {
+			['Maris'] = {'hi', 'mistrock', 'yes'}
+		}
+	},
+	['mistrock~yalahar'] = {
+		cost = 0,
+		transcript = {
+			['Maris'] = {'hi', 'yalahar', 'yes'}
+		}
+	},
+	['yalahar~vengoth'] = {
+		cost = 0,
+		transcript = {
+			['Harlow'] = {'hi', 'vengoth', 'yes'}
+		}
+	},
+	['vengoth~yalahar'] = {
+		cost = 0,
+		transcript = {
+			['Harlow'] = {'hi', 'yalahar', 'yes'}
+		}
+	},
+	['yalahar~quaras'] = {
+		cost = 0,
+		transcript = {
+			['Tarak'] = {'hi', 'trip', 'yes'}
+		}
+	},
+	['quaras~yalahar'] = {
+		cost = 0,
+		transcript = {
+			['Tarak'] = {'hi', 'passage', 'yes'}
+		}
+	},
+	['yalahar~ab\'dendriel'] = {
+		cost = 160,
+		transcript = {
+			['Karith'] = {'hi', 'ab\'dendriel', 'yes'}
+		}
+	},
+	['yalahar~ankrahmun'] = {
+		cost = 230,
+		transcript = {
+			['Karith'] = {'hi', 'ankrahmun', 'yes'}
+		}
+	},
+	['yalahar~carlin'] = {
+		cost = 185,
+		transcript = {
+			['Karith'] = {'hi', 'carlin', 'yes'}
+		}
+	},
+	['yalahar~darashia'] = {
+		cost = 210,
+		transcript = {
+			['Karith'] = {'hi', 'darashia', 'yes'}
+		}
+	},
+	['yalahar~liberty bay'] = {
+		cost = 275,
+		transcript = {
+			['Karith'] = {'hi', 'liberty bay', 'yes'}
+		}
+	},
+	['yalahar~port hope'] = {
+		cost = 260,
+		transcript = {
+			['Karith'] = {'hi', 'port hope', 'yes'}
+		}
+	},
+	['yalahar~thais'] = {
+		cost = 200,
+		transcript = {
+			['Karith'] = {'hi', 'thais', 'yes'}
+		}
+	},
+	['yalahar~venore'] = {
+		cost = 185,
+		transcript = {
+			['Karith'] = {'hi', 'venore', 'yes'}
+		}
+	},
+	['yalahar~edron'] = {
+		cost = 360,
+		transcript = {
+			['Karith'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'edron', 'yes'}
+		}
+	},
+	['yalahar~roshamuul'] = {
+		cost = 410,
+		transcript = {
+			['Karith'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'roshamuul', 'yes'}
+		}
+	},
+	['yalahar~oramond'] = {
+		cost = 350,
+		transcript = {
+			['Karith'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'roshamuul', 'yes'}
+		}
+	},
+	['yalahar~gray island'] = {
+		cost = 350,
+		transcript = {
+			['Karith'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'gray island', 'yes'}
+		}
+	},
+	['yalahar~svargrond'] = {
+		cost = 380,
+		transcript = {
+			['Karith'] = {'hi', 'thais', 'yes'},
+			['Captain Bluebear'] = {'hi', 'roshamuul', 'yes'}
+		}
 	}
 }
 
@@ -1628,6 +1759,22 @@ local SPAWN_TRAVELLING = {
 	['cormaya leaf golems (ms)'] = 20,
 	['cormaya leaf golems (ed)'] = 20,
 	['cormaya leaf golems (rp)'] = 20,
+	['fenrock dragon lords (ek)'] = 100,
+	['fenrock dragon lords (ms)'] = 100,
+	['fenrock dragon lords (ed)'] = 100,
+	['fenrock dragon lords (rp)'] = 100,
+	['mistrock cyclops (ek)'] = 100,
+	['mistrock cyclops (ms)'] = 100,
+	['mistrock cyclops (ed)'] = 100,
+	['mistrock cyclops (rp)'] = 100,
+	['vengoth haunted treelings (ek)'] = 100,
+	['vengoth haunted treelings (ms)'] = 100,
+	['vengoth haunted treelings (ed)'] = 100,
+	['vengoth haunted treelings (rp)'] = 100,
+	['yalahar quaras (ek)'] = 50,
+	['yalahar quaras (ms)'] = 50,
+	['yalahar quaras (ed)'] = 50,
+	['yalahar quaras (rp)'] = 50,
 	['banuta -2 (ek)'] = 50
 }
 
