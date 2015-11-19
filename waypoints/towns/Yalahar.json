@@ -541,11 +541,13 @@
   
   {"label": "depot|yalahar|1:", "tag": 255},
   {"label": "Node (32782, 31247, 6)", "tag": 0},
-  {"label": "end:", "tag": 255},
+  {"label": "Reach Depot", "tag": 253},
+  {"label": "depotend:", "tag": 255},
   
   {"label": "depot|yalahar|2:", "tag": 255},
   {"label": "Node (32790, 31247, 6)", "tag": 0},
-  {"label": "end:", "tag": 255},
+  {"label": "Reach Depot", "tag": 253},
+  {"label": "depotend:", "tag": 255},
   
   {"label": "yalahar|bank~depot:", "tag": 255},
   {"label": "Node (32830, 31249, 7)", "tag": 0},
