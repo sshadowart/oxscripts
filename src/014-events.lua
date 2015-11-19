@@ -314,7 +314,7 @@ do
 						_script.antiLureCheckInterval = nil
 						resumeWalker()
 					end
-				end, waitTime and tonumber(waitTime) or 20000)
+				end, waitTime and tonumber(waitTime) or 30000)
 			end
 		end,
 
