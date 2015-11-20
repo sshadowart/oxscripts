@@ -58,15 +58,13 @@
 	<control name="RecoveryCheckPzEnable" value="1"/>
 </panel>
 <panel name="Targeting">
-	<control name="TargetingList">        
+	<control name="TargetingList">
 		<item type="Bonelord" chs="0" max="100" min="0" prio="9" prox="7" count="1"/>
 		<item type="Skeleton" chs="6" max="100" min="0" prio="8" prox="7" count="1"/>
 		<item type="Crab" chs="6" max="100" min="0" prio="7" prox="7" count="1"/>
-		<item type="Swamp Troll" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Poison Spider" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Spider" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Bug" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
-		<item type="Cave Rat" chs="0" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="Swamp Troll" chs="0" max="10" min="0" prio="6" prox="7" count="1"/>
+		<item type="Swamp Troll, Poison Spider, Spider, Bug, Cave Rat" chs="6" max="100" min="0" prio="5" prox="7" count="1"/>
+		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
 <panel name="Walker">
