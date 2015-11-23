@@ -70,6 +70,7 @@
 <panel name="Walker">
 	<control name="WaypointList">
 		<item text="port hope|east.exit~spawn:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32645, 32755, 7)" tag="0"/>
 		<item text="Node (32654, 32753, 7)" tag="0"/>
 		<item text="Node (32659, 32748, 7)" tag="0"/>
@@ -77,7 +78,6 @@
 		<item text="Stand (32662, 32741, 7)" tag="1"/>
 		<item text="end:" tag="255"/>
 		<item text="enterspawn:" tag="255"/>
-		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (32665, 32743, 8)" tag="0"/>
 		<item text="Node (32665, 32748, 8)" tag="0"/>
 		<item text="Node (32668, 32737, 8)" tag="0"/>
@@ -89,9 +89,10 @@
 		<item text="Node (32660, 32709, 8)" tag="0"/>
 		<item text="Node (32665, 32706, 8)" tag="0"/>
 		<item text="Node (32659, 32706, 8)" tag="0"/>
-		<item text="huntcheck|Second-Floor|No-Second-Floor:" tag="255"/>
 		<item text="Node (32655, 32706, 8)" tag="0"/>
 		<item text="Stand (32654, 32706, 8)" tag="1"/>
+		<item text="EIgnore" tag="11"/>
+		<item text="huntstart|1:" tag="255"/>
 		<item text="Node (32656, 32711, 9)" tag="0"/>
 		<item text="Node (32660, 32717, 9)" tag="0"/>
 		<item text="Node (32669, 32719, 9)" tag="0"/>
@@ -216,17 +217,17 @@
 		<item text="Node (32663, 32691, 9)" tag="0"/>
 		<item text="Node (32660, 32696, 9)" tag="0"/>
 		<item text="Node (32657, 32701, 9)" tag="0"/>
+		<item text="huntcheck|1:" tag="255"/>
+		<item text="huntexit|1:" tag="255"/>
 		<item text="Node (32654, 32706, 9)" tag="0"/>
 		<item text="Rope (32654, 32706, 9)" tag="3"/>
-		<item text="No-Second-Floor:" tag="255"/>
+		<item text="SIgnore" tag="10"/>
 		<item text="Node (32657, 32711, 8)" tag="0"/>
 		<item text="Node (32659, 32717, 8)" tag="0"/>
 		<item text="Node (32656, 32723, 8)" tag="0"/>
 		<item text="Node (32650, 32727, 8)" tag="0"/>
 		<item text="Node (32651, 32737, 8)" tag="0"/>
 		<item text="Node (32662, 32738, 8)" tag="0"/>
-		<item text="huntcheck|1:" tag="255"/>
-		<item text="huntexit|1:" tag="255"/>
 		<item text="spawnexit:" tag="255"/>
 		<item text="port hope|spawn~east.exit:" tag="255"/>
 		<item text="Node (32662, 32741, 8)" tag="0"/>
@@ -234,6 +235,7 @@
 		<item text="Node (32659, 32748, 7)" tag="0"/>
 		<item text="Node (32654, 32753, 7)" tag="0"/>
 		<item text="Node (32645, 32755, 7)" tag="0"/>
+		<item text="EIgnore" tag="11"/>
 		<item text="end:" tag="255"/>
 	</control>
 </panel>
