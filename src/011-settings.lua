@@ -312,7 +312,8 @@ Settings = (function()
 
 			-- Looter
 			local lootStyle = _config['Loot']['Loot-Style'] == 'first' and '0' or '1'
-			local lootXML = '<panel name="Looter"><control name="LootList" mode="' .. lootStyle .. '" minimum="0" maximum="0" skinner="2" unlisted="1">'
+			local unlisted = _script.name:find('Thais Paw Collector') and '0' or '1'
+			local lootXML = '<panel name="Looter"><control name="LootList" mode="' .. lootStyle .. '" minimum="0" maximum="0" skinner="2" unlisted="' .. unlisted .. '">'
 			
 			-- Demonic Blood use/loot
 			lootXML = lootXML .. '<item ID="6558" action="20"/><item ID="237" action="1"/><item ID="236" action="1"/>'
