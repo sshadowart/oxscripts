@@ -5416,7 +5416,6 @@
   {"label": "Stand (32835, 31270, 6)", "tag": 1},
   {"label": "end:", "tag": 255},
 
-
   {"label": "yalahar|boat~magician.quarter:", "tag": 255},
   {"label": "Node (32811, 31268, 6)", "tag": 0},
   {"label": "Node (32811, 31262, 6)", "tag": 0},
@@ -6220,6 +6219,6 @@
   {"label": "special|YalaharMech:", "tag": 255},
   {"label": "Stand (32835, 31270, 5)", "tag": 1},
   {"label": "Stand (32835, 31272, 6)", "tag": 1},
-  {"label": "end:", "tag": 255},
-
+  {"label": "end:", "tag": 255}
+  
 ]
