@@ -288,7 +288,7 @@ Depot = (function()
 
 		-- Stackable and nonstackables required
 		if missingBps > 0 then
-			warn('Missing loot and/or stackable loot container in depot. Walking to the shop to buy more.')
+			warn('Missing loot and/or stackable loot container in depot. Walking to the equipment shop.')
 			local bpPrice = missingBps * PRICE.BACKPACK
 			-- Walk to bank
 			walkerStartPath(_script.town, 'depot', 'bank', function()
