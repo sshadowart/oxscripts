@@ -421,6 +421,31 @@ Npc = (function()
 		end
 	end
 
+	local function shopBuyBackpacks(count, callback)
+		talk({'hi', 'trade'}, function()
+			setTimeout(function()
+				local itemid = nil
+				-- Find a backpack to buy from the NPC
+				for id, _ in pairs(ITEM_LIST_BACKPACKS) do
+					local price = xeno.shopGetItemBuyPriceByID(id)
+					if price > 0 then
+						itemid = id
+						break
+					end
+				end
+
+				if not itemid then
+					error('Unable to find a backpack to purchase. Please contact support.')
+					return
+				end
+				
+				shopBuyItemUpToCount(itemid, count, 0, function()
+					callback()
+				end)
+			end, pingDelay(DELAY.RANGE_TALK))
+		end)
+	end
+
 	-- Export global functions
 	return {
 		bankDepositGold = bankDepositGold,
@@ -428,6 +453,7 @@ Npc = (function()
 		bankWithdrawGold = bankWithdrawGold,
 		shopSellLoot = shopSellLoot,
 		shopRefillSoftboots = shopRefillSoftboots,
-		shopBuySupplies = shopBuySupplies
+		shopBuySupplies = shopBuySupplies,
+		shopBuyBackpacks = shopBuyBackpacks
 	}
 end)()

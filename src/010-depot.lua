@@ -18,6 +18,9 @@ Depot = (function()
 	local containerMoveItems = Container.containerMoveItems
 	local resetContainers = Container.resetContainers
 	local walkerGotoDepot = Walker.walkerGotoDepot
+	local walkerStartPath = Walker.walkerStartPath
+	local bankWithdrawGold = Npc.bankWithdrawGold
+	local shopBuyBackpacks = Npc.shopBuyBackpacks
 
 	local function openLocker(callback)
 		-- Immediately callback if Locker is already open
@@ -228,6 +231,136 @@ Depot = (function()
 		end, pingDelay(DELAY.CONTAINER_MOVE_ITEM))
 	end
 
+	local function depositBackpacks(locker, count, callback)
+		local slots = {}
+		-- Find the slots to move from
+		for spot = 0, xeno.getContainerItemCount(0) - 1 do
+			local item = xeno.getContainerSpotData(0, spot)
+			if xeno.isItemContainer(item.id) then
+				local newIndex = #slots+1
+				slots[newIndex] = spot
+				if newIndex >= count then
+					break
+				end
+			end
+		end
+
+
+		-- Sort greatest to least so we don't shift source slots
+		table.sort(slots, function(a,b) return a > b end)
+
+		local function moveBp(index)
+			local fromSlot = slots[index]
+			-- No more containers to deposit, return
+			if not fromSlot then
+				callback()
+				return
+			end
+
+			-- Move backpack to depot slot in locker
+			xeno.containerMoveItemToContainer(0, fromSlot, locker, 0, 1)
+
+			-- Delay and continue
+			setTimeout(function()
+				moveBp(index+1)
+			end, pingDelay(DELAY.CONTAINER_MOVE_ITEM))
+		end
+
+		moveBp(1)
+	end
+
+	local function depotTransfer(depot, needDeposit, neededSupplies, callback)
+
+		-- Minimize depot container
+		xeno.minimizeContainer(depot)
+
+		-- Set depot state
+		_script.depotOpen = true
+
+		-- Check slots
+		local missingBps = 0
+		for spot = 0, 1 do
+			local item = xeno.getContainerSpotData(depot, spot)
+			if not item or not xeno.isItemContainer(item.id) then
+				missingBps = missingBps + 1
+			end
+		end
+
+		-- Stackable and nonstackables required
+		if missingBps > 0 then
+			warn('Missing loot and/or stackable loot container in depot. Walking to the shop to buy more.')
+			local bpPrice = missingBps * PRICE.BACKPACK
+			-- Walk to bank
+			walkerStartPath(_script.town, 'depot', 'bank', function()
+				-- Withdraw gold
+				bankWithdrawGold(bpPrice, function()
+					-- Walk to tool NPC
+					walkerStartPath(_script.town, 'bank', 'tools', function()
+						-- Buy backpacks
+						shopBuyBackpacks(missingBps, function()
+							-- Walk back to depot
+							walkerStartPath(_script.town, 'tools', 'depot', function()
+								walkerGotoDepot(function()
+									openLocker(function(locker)
+										depositBackpacks(locker, missingBps, function()
+											-- Recurse this insane callstack
+											openDepot(function(newDepot)
+												depotTransfer(newDepot, needDeposit, neededSupplies, callback)
+											end)
+										end)
+									end)
+								end)
+							end)
+						end)
+					end)
+				end)
+			end)
+			return
+		end
+
+		-- We need to deposit
+		if needDeposit then
+			-- Deposit stackables
+			transferToDepot(depot, DEPOT.SLOT_STACK, function()
+				-- Delay
+				setTimeout(function()
+					-- Deposit non-stackables
+					transferToDepot(depot, DEPOT.SLOT_NONSTACK, function()
+						-- We need to withdraw, delay and withdraw
+						if neededSupplies then
+							setTimeout(function()
+								-- Withdraw supplies
+								transferFromDepot(depot, neededSupplies, function()
+									-- Set depot state
+									_script.depotOpen = false
+									callback()
+								end)
+							end, DELAY.CONTAINER_MOVE_ITEM)
+						-- Nothing left
+						else
+							-- Set depot state
+							_script.depotOpen = false
+							callback()
+						end
+					end)
+				end, DELAY.CONTAINER_MOVE_ITEM)
+			end)
+		-- Only withdraw
+		elseif neededSupplies then
+			-- Withdraw supplies
+			transferFromDepot(depot, neededSupplies, function()
+				-- Set depot state
+				_script.depotOpen = false
+				callback()
+			end)
+		-- Nothing?
+		else
+			-- Set depot state
+			_script.depotOpen = false
+			callback()
+		end
+	end
+
 	local function startDepotTransfer(needDeposit, neededSupplies, callback)
 		-- Walk to nearest depot
 		walkerGotoDepot(function()
@@ -239,63 +372,7 @@ Depot = (function()
 						startDepotTransfer(needDeposit, neededSupplies, callback)
 						return
 					end
-
-					-- Minimize depot container
-					xeno.minimizeContainer(depot)
-
-					-- Set depot state
-					_script.depotOpen = true
-
-					-- Check slots
-					for spot = 0, 2 do
-						local item = xeno.getContainerSpotData(depot, spot)
-						if not item or not xeno.isItemContainer(item.id) then
-							error('The first 3 depot slots must be a container. [loot, stackable loot, supplies]')
-							return 
-						end
-					end
-
-					-- We need to deposit
-					if needDeposit then
-						-- Deposit stackables
-						transferToDepot(depot, DEPOT.SLOT_STACK, function()
-							-- Delay
-							setTimeout(function()
-								-- Deposit non-stackables
-								transferToDepot(depot, DEPOT.SLOT_NONSTACK, function()
-									-- We need to withdraw, delay and withdraw
-									if neededSupplies then
-										setTimeout(function()
-											-- Withdraw supplies
-											transferFromDepot(depot, neededSupplies, function()
-												-- Set depot state
-												_script.depotOpen = false
-												callback()
-											end)
-										end, DELAY.CONTAINER_MOVE_ITEM)
-									-- Nothing left
-									else
-										-- Set depot state
-										_script.depotOpen = false
-										callback()
-									end
-								end)
-							end, DELAY.CONTAINER_MOVE_ITEM)
-						end)
-					-- Only withdraw
-					elseif neededSupplies then
-						-- Withdraw supplies
-						transferFromDepot(depot, neededSupplies, function()
-							-- Set depot state
-							_script.depotOpen = false
-							callback()
-						end)
-					-- Nothing?
-					else
-						-- Set depot state
-						_script.depotOpen = false
-						callback()
-					end
+					depotTransfer(depot, needDeposit, neededSupplies, callback)
 				end)
 			end)
 		end)

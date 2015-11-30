@@ -85,6 +85,7 @@ local ITEMID = {
 
 local PRICE = {}
 PRICE.SOFTBOOTS_REFILL = 10000
+PRICE.BACKPACK = 20
 
 local PATTERN = {
 	XML_ATTR = "(%w+)=([\"'])(.-)%2",
@@ -2574,6 +2575,37 @@ local ITEM_LIST_SKINNABLE_LOOT = {
 	[5925] = true,
 	[5948] = true,
 	[9303] = true
+}
+
+local ITEM_LIST_BACKPACKS = {
+	[2854] = true,
+	[2865] = true,
+	[2866] = true,
+	[2867] = true,
+	[2868] = true,
+	[2869] = true,
+	[2870] = true,
+	[2871] = true,
+	[2872] = true,
+	[5926] = true,
+	[5949] = true,
+	[7342] = true,
+	[8861] = true,
+	[9601] = true,
+	[9602] = true,
+	[9604] = true,
+	[9605] = true,
+	[10202] = true,
+	[10324] = true,
+	[10326] = true,
+	[10327] = true,
+	[10346] = true,
+	[14248] = true,
+	[14249] = true,
+	[16099] = true,
+	[16100] = true,
+	[21295] = true,
+	[21295] = true
 }
 
 local RUNES_EXOTIC = {
