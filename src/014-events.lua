@@ -328,6 +328,10 @@ do
 
 		-- Edge cases
 		['special'] = function(group, param1, param2)
+			-- special|YalaharMech
+			-- Search for nearest itemid: 8615, 8618
+			-- use nearest mechanism, verify position change
+
 			-- Rafzan Shop (in-spawn shop)
 			if param1 == 'RafzanTrade' then
 				delayWalker()
@@ -688,37 +692,39 @@ do
 
 		checkEvents(EVENT_ERROR, message)
 
-		--[[
 		-- Snap back
 		if message == ERROR_NOT_POSSIBLE then
-			local time = os.clock() * 1000
-			local pos = xeno.getSelfPosition()
-			-- It's been longer than 2 seconds, reset snapbacks
-			if time - _lastsnapback > 2000 then
-				_snapbacks = 0
-			-- Moved since the last snapback
-			elseif getDistanceBetween(_lastposition, pos) > 0 then
-				_snapbacks = 0
-			end
-
-			-- Save time and increment snapbacks by one
-			_lastsnapback = time
-			_lastposition = pos
-			_snapbacks = _snapbacks + 1
-			-- If snapbacks are at 5 or more, assume an invisible monster is blocking
-			if _snapbacks >= 5 then
-				-- TODO: free account alternative (wait for "You must learn this spell first" or "You need a premium account" error message)
-				if _script.vocation == 'Paladin' then
-					cast('exori san')
-				elseif _script.vocation == 'Knight' then
-					cast('exori')
-				else
-					cast('exori frigo')
+			-- Only trigger in spawn
+			if _script.inSpawn then
+				local time = os.clock() * 1000
+				local pos = xeno.getSelfPosition()
+				-- It's been longer than 2 seconds, reset snapbacks
+				if time - _lastsnapback > 2000 then
+					_snapbacks = 0
+				-- Moved since the last snapback
+				elseif getDistanceBetween(_lastposition, pos) > 0 then
+					_snapbacks = 0
 				end
-				_snapbacks = 0
+
+				-- Save time and increment snapbacks by one
+				_lastsnapback = time
+				_lastposition = pos
+				_snapbacks = _snapbacks + 1
+				-- If snapbacks are at 5 or more, assume an invisible monster is blocking
+				if _snapbacks >= 5 then
+					-- TODO: free account alternative (wait for "You must learn this spell first" or "You need a premium account" error message)
+					if _script.vocation == 'Paladin' then
+						cast('exori san')
+					elseif _script.vocation == 'Knight' then
+						cast('exori')
+					else
+						cast('exori frigo')
+					end
+					_snapbacks = 0
+				end
 			end
 		end
-		]]
+
 		toggleCriticalMode(false)
 	end
 
