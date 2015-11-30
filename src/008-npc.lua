@@ -230,7 +230,7 @@ Npc = (function()
 	local function shopRefillSoftboots(callback)
 		local tries = 10
 		function repair()
-			talk({'repair', 'yes'}, function()
+			talk({'soft boots', 'yes'}, function()
 				-- Wait for this bitch to shine our boots
 				setTimeout(function()
 					-- Move change to gold
