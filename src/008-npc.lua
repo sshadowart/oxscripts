@@ -52,7 +52,7 @@ Npc = (function()
 					local response = responses[i]
 					if response then
 						local balanceText = response:gsub(',', '')
-						local balance = balanceText:match('account balance is (%d+) gold')
+						local balance = balanceText:match('account balance is (%d+)')
 						if balance then
 							_script.balance = tonumber(balance) or 0
 							-- Callback
