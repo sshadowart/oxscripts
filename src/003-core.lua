@@ -524,6 +524,7 @@ Core = (function()
 				string.find(container, "Dissolved") or 
 				string.find(container, "Remains") or 
 				string.find(container, "Elemental") or 
+				string.find(container, "Split") or 
 				xeno.isItemCorpse(xeno.getContainerID(index))
 			if(xeno.getContainerOpen(index) and isCorpse)then
 				return true
