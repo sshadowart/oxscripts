@@ -58,16 +58,12 @@
 </panel>
 <panel name="Targeting">
 	<control name="TargetingList">
-		<item type="Scorpion" chs="0" max="100" min="0" prio="9" prox="3" count="1"/>
-		<item type="Mummy, Slime" chs="0" max="100" min="0" prio="8" prox="7" count="1"/>
-		<item type="Crypt Shambler" chs="0" max="100" min="0" prio="7" prox="7" count="1"/>
-		<item type="Stone Golem" chs="0" max="100" min="0" prio="6" prox="7" count="1"/>
-		<item type="Scarab" chs="0" max="15" min="0" prio="5" prox="7" count="1"/>
-		<item type="Scarab" chs="0" max="100" min="0" prio="4" prox="7" count="1"/>
-		<item type="Ghoul" chs="0" max="100" min="0" prio="3" prox="3" count="1"/>
-		<item type="Ghoul" chs="0" max="100" min="0" prio="2" prox="7" count="1"/>
-		<item type="Lion, Skeleton, Larva" chs="0" max="100" min="0" prio="1" prox="3" count="1"/>
-		<item type="Snake, Cobra" chs="0" max="100" min="0" prio="0" prox="7" count="1"/>
+		<item type="Scarab" chs="0" max="15" min="0" prio="4" prox="2" count="1"/>
+		<item type="Crypt Shambler" chs="0" max="50" min="0" prio="3" prox="1" count="1"/>
+		<item type="Crypt Shambler" chs="0" max="100" min="0" prio="2" prox="1" count="1"/>
+		<item type="Mummy, Slime, Stone Golem, Scarab, Ghoul" chs="0" max="50" min="0" prio="2" prox="1" count="1"/>
+		<item type="Mummy, Slime, Stone Golem, Scarab, Ghoul" chs="0" max="100" min="0" prio="1" prox="1" count="1"/>
+		<item type="Crypt Shambler, Mummy, Slime, Stone Golem, Scarab, Ghoul, Scorpion, Larva, Skeleton, Lion, Snake, Cobra" chs="0" max="100" min="1" prio="0" prox="7" count="1"/>
 		<item type="*" chs="0" max="100" min="0" prio="10" prox="7" count="1"/>
 	</control>
 </panel>
