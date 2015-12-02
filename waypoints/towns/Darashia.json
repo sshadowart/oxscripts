@@ -2450,6 +2450,7 @@
   {"label": "Node (33217, 32398, 7)", "tag": 0},
   {"label": "Node (33217, 32390, 7)", "tag": 0},
   {"label": "Node (33221, 32387, 7)", "tag": 0},
+  {"label": "Stand (33221, 32387, 7)", "tag": 1},
   {"label": "end:", "tag": 255},
   
   {"label": "darashia|south.exit~carpet:", "tag": 255},
