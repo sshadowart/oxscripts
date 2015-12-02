@@ -2492,9 +2492,24 @@ local MAGIC_SHOOTER_ITEM = {
 
 -- TODO: parse items.xml for durations
 local ITEM_LIST_DURATIONS = {
-	-- Item = Seconds
+	-- Rings
+	[3086] = 10 * 60, -- stealth ring
+	[3087] = 30 * 60, -- power ring
+	[3088] = 10 * 60, -- energy ring
+	[3089] = 20 * 60, -- life ring
+	[3090] = 10 * 60, -- time ring
+	[3094] = 30 * 60, -- sword ring
 	[3095] = 30 * 60, -- axe ring
-	[3549] = 240 * 60 -- soft boots
+	[3096] = 30 * 60, -- club ring
+	[3099] = 60 * 60, -- dwarven ring
+	[3100] = 7.5 * 60, -- ring of healing
+	[6300] = 8 * 60, -- death ring
+	[12670] = 10 * 60, -- star ring
+	[16264] = 60 * 60, -- prismatic ring
+
+	-- Boots
+	[3549] = 240 * 60, -- soft boots
+	[9018] = 60 * 60 -- firewalker boots
 }
 
 local ITEM_LIST_POTIONS = {

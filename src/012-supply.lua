@@ -571,7 +571,7 @@ Supply = (function()
 			details = getResupplyDetails()
 		end
 
-		-- Step 4) Once we this is called the amount we will buy is locked
+		-- Step 4) Once this is called the amount we will buy is locked
 		if step < 4 then
 			if details.withdrawGold > 0 then 
 				-- Check capacity
