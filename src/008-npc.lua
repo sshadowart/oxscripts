@@ -149,7 +149,7 @@ Npc = (function()
 			-- Failed to sell, retrying
 			elseif tries > 0 then
 				debug('shopSellItem: retry('.. tries-1 ..')')
-				shopSellItem(itemid, callback, neededCount, tries-1)
+				shopSellItem(itemid, callback, remaining, tries-1)
 			-- Out of tries. Failed to sell stack.
 			else
 				error('Failed to sell ' .. xeno.getItemNameByID(itemid) .. ' (' .. neededStackCount .. 'x).')
@@ -331,7 +331,7 @@ Npc = (function()
 				end, pingDelay(DELAY.TRADE_TRANSACTION))
 			-- Failed to buy, retrying
 			elseif tries > 0 then
-				shopBuyItemUpToCount(itemid, neededCount, destination, callback, tries-1)
+				shopBuyItemUpToCount(itemid, remaining, destination, callback, tries-1)
 				debug('shopBuyItemUpToCount: retry(' .. tries - 1 .. ')')
 			-- Out of tries. Failed to buy stack.
 			else
