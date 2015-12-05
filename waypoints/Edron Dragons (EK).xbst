@@ -104,12 +104,12 @@
 		<item text="end:" tag="255"/>
 		<item text="enterspawn:" tag="255"/>
 		<item text="huntstart|1:" tag="255"/>
-		<item text="Stand (33098, 31701, 7)" tag="1"/>
+		<item text="Stand (33098, 31700, 7)" tag="1"/>
 		<item text="huntcheck|Outdoors|No-Outdoors:" tag="255"/>
 		<item text="Stand (33096, 31700, 7)" tag="1"/>
 		<item text="Node (33098, 31698, 6)" tag="0"/>
 		<item text="Node (33099, 31702, 6)" tag="0"/>
-		<item text="Node (33090, 31702, 6)" tag="0"/>
+		<item text="Node (33093, 31702, 6)" tag="0"/>
 		<item text="Node (33095, 31700, 6)" tag="0"/>
 		<item text="Stand (33096, 31700, 6)" tag="1"/>
 		<item text="No-Outdoors:" tag="255"/>
