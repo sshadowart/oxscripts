@@ -597,7 +597,7 @@ Walker = (function()
 			local pos = xeno.getSelfPosition()
 			for i = CREATURES_LOW, CREATURES_HIGH do
 				local cpos = xeno.getCreaturePosition(i)
-				if cpos and pos.z == cpos.z and getDistanceBetween(pos, cpos) <= 7 then
+				if cpos and pos.z == cpos.z and getDistanceBetween(pos, cpos) <= _config['Mana Restorer']['Range'] then
 					if xeno.getCreatureVisible(i) and xeno.getCreatureHealthPercent(i) > 0 and xeno.isCreatureMonster(i) then
 						callback()
 						return
