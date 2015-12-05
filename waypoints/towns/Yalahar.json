@@ -5062,11 +5062,11 @@
   {"label": "Node (32762, 31245, 7)", "tag": 0},
   {"label": "Node (32769, 31249, 7)", "tag": 0},
   {"label": "Node (32777, 31249, 7)", "tag": 0},
+  {"label": "Node (32785, 31249, 7)", "tag": 0},
+  {"label": "Stand (32786, 31248, 7)", "tag": 1},
   {"label": "end:", "tag": 255},
   
   {"label": "yalahar|cemetery.quarter~ammo:", "tag": 255},
-  {"label": "Node (32785, 31249, 7)", "tag": 0},
-  {"label": "Stand (32786, 31248, 7)", "tag": 1},
   {"label": "Node (32776, 31136, 7)", "tag": 0},
   {"label": "Stand (32776, 31137, 7)", "tag": 1},
   {"label": "Stand (32776, 31139, 6)", "tag": 1},
