@@ -52,16 +52,18 @@ Supply = (function()
 			-- Count slots
 			local slotItems = {}
 
-			slotItems[1] = xeno.getHeadSlotData()
-			slotItems[2] = xeno.getArmorSlotData()
-			slotItems[3] = xeno.getLegsSlotData()
-			slotItems[4] = xeno.getFeetSlotData()
-			slotItems[5] = xeno.getAmuletSlotData()
-			slotItems[6] = xeno.getWeaponSlotData()
-			slotItems[7] = xeno.getRingSlotData()
+			slotItems[1] = xeno.getAmmoSlotData()
+			slotItems[2] = xeno.getHeadSlotData()
+			slotItems[3] = xeno.getArmorSlotData()
+			slotItems[4] = xeno.getLegsSlotData()
+			slotItems[5] = xeno.getFeetSlotData()
+			slotItems[6] = xeno.getAmuletSlotData()
+			slotItems[7] = xeno.getWeaponSlotData()
+			slotItems[8] = xeno.getRingSlotData()
+			slotItems[9] = xeno.getShieldSlotData()
 
 			-- Count supplies in slots
-			for i = 1, 7 do
+			for i = 1, 9 do
 				local slot = slotItems[i]
 				if slot and slot.id > 0 then
 					if not itemListFilter or itemListFilter[slot.id] then
