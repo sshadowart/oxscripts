@@ -315,7 +315,7 @@ Ini = (function()
 				if req == 0 then return false end
 				local min, max = parseRange(req)
 				local target = math.random(min, max)
-				local round = _script.round
+				local round = _script.round - 1
 				local status = round == target or round >= max
 				debug(('Rounds rule: %s [%d = %d]'):format(tostring(status), round, target))
 				return status

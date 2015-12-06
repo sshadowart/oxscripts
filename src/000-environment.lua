@@ -110,6 +110,7 @@ xeno.luaOpenCustomChannel = luaOpenCustomChannel
 xeno.luaCloseCustomChannel = luaCloseCustomChannel
 xeno.luaSendChannelMessage = luaSendChannelMessage
 xeno.HUDGetDimensions = HUDGetDimensions
+xeno.HUDGetContainerDimensions = HUDGetContainerDimensions
 xeno.HUDCreateItemImage = HUDCreateItemImage
 xeno.HUDCreateText = HUDCreateText
 xeno.HUDUpdateLocation = HUDUpdateLocation

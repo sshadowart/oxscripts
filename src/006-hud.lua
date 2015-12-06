@@ -8,6 +8,22 @@ Hud = (function()
 
 	-- All HUD pointers are referenced here
 	local hudPointers = {}
+	local containerHud = {}
+
+	local function hudGetContainerDimensions()
+		local dimensions = xeno.HUDGetContainerDimensions()
+		local containers = {}
+		for i = 1, #dimensions, 5 do
+			local temp = {}
+			temp.x = dimensions[i+0]
+			temp.y = dimensions[i+1]
+			temp.w = dimensions[i+2]
+			temp.h = dimensions[i+3]
+			temp.id = dimensions[i+4]
+			containers[temp.id+1] = temp
+		end
+		return containers
+	end
 
 	local function hudUpdateDimensions()
 		local screen = xeno.HUDGetDimensions()
@@ -44,6 +60,23 @@ Hud = (function()
 		-- Track our current position while we add/update
 		local currentAxisY = leftcolumn.y
 		local currentAxisX = leftcolumn.x
+
+		-- Update container hud
+		local containers = hudGetContainerDimensions()
+		local containerNames = {} -- by index
+		for name, index in pairs(_backpacks) do
+			containerNames[index+1] = name
+			-- Remove missing containers
+			if not xeno.getContainerOpen(index) then
+				xeno.HUDUpdateLocation(containerHud[index+1], -100, -100)
+			end
+		end
+		for id, container in pairs(containers) do
+			local pointer = containerHud[id]
+			local name = id == 1 and 'Main' or containerNames[id] or ''
+			xeno.HUDUpdateTextText(pointer, name)
+			xeno.HUDUpdateLocation(pointer, container.x + 15, container.y - 12)
+		end
 
 		-- Loop through all panels in the column
 		for i = 1, #leftcolumn.panels do
@@ -714,6 +747,12 @@ Hud = (function()
 		hudItemCreate('Statistics', 'Wasted', 0, true)
 		hudItemCreate('Statistics', 'Exp to Level', '--', true)
 		hudItemCreate('Statistics', 'Time to Level', '--', true)
+
+		local containerColor = THEME[_script.theme].title
+		for i = 0, 15 do
+			containerHud[i+1] = xeno.HUDCreateText(-100, -100, '--', unpack(containerColor))
+		end
+
 		hudUpdatePositions()
 	end
 
