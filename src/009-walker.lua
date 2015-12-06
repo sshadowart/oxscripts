@@ -506,6 +506,29 @@ Walker = (function()
 		error('Unable to locate the "'.. skill ..'" training statue.')
 	end
 
+	local function walkerUseClosestItem(itemIdList)
+		local pos = xeno.getSelfPosition()
+		local tiles = {}
+		for x = -7, 7 do
+			for y = -7, 7 do
+				local posX = pos.x + x
+				local posY = pos.y + y
+				local item = xeno.getTileUseID(posX, posY, pos.z)
+				if item and itemIdList[item.id] then
+					tiles[#tiles+1] = {x=posX, y=posY, z=pos.z}
+				end
+			end
+		end
+
+		if #tiles == 0 then
+			return nil
+		end
+
+		local items = sortPositionsByDistance(pos, tiles)
+		local target = items[1]
+		return xeno.selfUseItemFromGround(target.x, target.y, target.z), target
+	end
+
 	local function walkerCapacityDrop()
 		if not _config['Capacity'] then
 			return
@@ -633,6 +656,7 @@ Walker = (function()
 		walkerGotoDepot = walkerGotoDepot,
 		walkerGetDoorDetails = walkerGetDoorDetails,
 		walkerUseTrainer = walkerUseTrainer,
+		walkerUseClosestItem = walkerUseClosestItem,
 		walkerCapacityDrop = walkerCapacityDrop,
 		walkerRestoreMana = walkerRestoreMana,
 		walkerTravel = walkerTravel
