@@ -364,32 +364,24 @@ do
 			elseif param1 == 'SpheresMachine' then
 				delayWalker()
 				local gemItemId = tonumber(param2) or 678
-				local gemCount = getTotalItemCount(gemItemId)
 				local tries = 0
 				local depositInterval = nil
-				local depositGem = function()
+				local function depositGem()
+					-- Drop gem in machine
 					xeno.selfUseItemWithGround(gemItemId, 33269, 31830, 10)
+					local pos = xeno.getSelfPosition()
 					setTimeout(function()
-						local newcount = getTotalItemCount(gemItemId)
-						if newcount == gemCount then
-							tries = tries + 1
-						end
-						gemCount = newcount
-						if tries > 5 then
+						-- Attempt to use machine
+						xeno.selfUseItemFromGround(33269, 31830, 10)
+						-- Teleported
+						if getDistanceBetween(xeno.getSelfPosition(), pos) > 10 then
+							-- Stop gem dropper & resume bot
 							clearTimeout(depositInterval)
-							xeno.selfUseItemFromGround(33269, 31830, 10)
 							resumeWalker()
 						end
 					end, DELAY.CONTAINER_USE_ITEM)
 				end
-				if xeno.getTileUseID(33269, 31830, 10).id ~= 843 then
-					xeno.selfUseItemFromGround(33269, 31830, 10)
-					setTimeout(function()
-						depositInterval = setInterval(depositGem, DELAY.CONTAINER_USE_ITEM)
-					end, DELAY.CONTAINER_USE_ITEM)
-				else
-					depositInterval = setInterval(depositGem, DELAY.CONTAINER_USE_ITEM)
-				end
+				depositInterval = setInterval(depositGem, DELAY.CONTAINER_USE_ITEM)
 			-- Use nearest Yalahar gate mechanism, verify position change
 			elseif param1 == 'YalaharMech' then
 				delayWalker()
