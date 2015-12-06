@@ -44,6 +44,7 @@ do
 	local walkerReachNPC = Walker.walkerReachNPC
 	local walkerGetDoorDetails = Walker.walkerGetDoorDetails
 	local walkerUseTrainer = Walker.walkerUseTrainer
+	local walkerUseClosestItem = Walker.walkerUseClosestItem
 	local walkerCapacityDrop = Walker.walkerCapacityDrop
 	local walkerRestoreMana = Walker.walkerRestoreMana
 	local walkerTravel = Walker.walkerTravel
@@ -328,10 +329,6 @@ do
 
 		-- Edge cases
 		['special'] = function(group, param1, param2)
-			-- special|YalaharMech
-			-- Search for nearest itemid: 8615, 8618
-			-- use nearest mechanism, verify position change
-
 			-- Rafzan Shop (in-spawn shop)
 			if param1 == 'RafzanTrade' then
 				delayWalker()
@@ -393,6 +390,21 @@ do
 				else
 					depositInterval = setInterval(depositGem, DELAY.CONTAINER_USE_ITEM)
 				end
+			-- Use nearest Yalahar gate mechanism, verify position change
+			elseif param1 == 'YalaharMech' then
+				delayWalker()
+				local pos = xeno.getSelfPosition()
+				local function useMech()
+					walkerUseClosestItem({[8615]=true, [8618]=true})
+					setTimeout(function()
+						if getDistanceBetween(xeno.getSelfPosition(), pos) > 3 then
+							resumeWalker()
+						else
+							useMech()
+						end
+					end, pingDelay(DELAY.MAP_USE_ITEM))
+				end
+				useMech()
 			end
 		end
 	}
