@@ -587,8 +587,10 @@ Supply = (function()
 				walkerGotoLocation(_script.town, 'bank', function()
 					-- Arrived at bank
 					bankDepositGold(function()
-						-- Withdraw travel funds (round up to nearest thousands)
-						local roundedCost = math.ceil(details.withdrawGold / 1000) * 1000
+						-- Under 10k rounds to nearest hundredths, otherwise thousandths 
+						local roundTo = details.withdrawGold < 10000 and 100 or 1000
+						local roundedCost = math.ceil(details.withdrawGold / roundTo) * roundTo
+						-- Withdraw travel funds
 						bankWithdrawGold(roundedCost, function()
 							-- Balance
 							bankGetBalance(function()
